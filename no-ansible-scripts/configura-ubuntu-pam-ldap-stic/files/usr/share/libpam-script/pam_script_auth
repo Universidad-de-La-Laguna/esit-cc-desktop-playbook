@@ -110,9 +110,9 @@ MOUNTED=`mount | grep $PAM_USER | grep cifs | wc -l`
 CODRETORNO=0  # definimos la variable
 if [ $MOUNTED == '0' ]; then
 	# Montaje del espacio en la nube del usuario
-	mount -t cifs $SMBPATH ${MNTPT}/${DDVDIR} -o "user=${USER},pass=${PAM_AUTHTOK},_netdev,serverino,iocharset=utf8,domain=ULL"
+	mount -t cifs $SMBPATH ${MNTPT}/${DDVDIR} -o "user=${USER},pass=${PAM_AUTHTOK},uid=${USER},gid=users,_netdev,serverino,iocharset=utf8,domain=ULL"
 	CODRETORNO=$?
-	[ $DEBUG -ne 0 ] && ${LOG} "[PAM-SCRIPT-AUTH]   Codigo retorno  ${CODRETRONO} de mount -t cifs $SMBPATH ${MNTPT}/${DDVDIR} -o user=:!${USER},_netdev,serverino,iocharset=utf8,domain=ULL"
+	[ $DEBUG -ne 0 ] && ${LOG} "[PAM-SCRIPT-AUTH]   Codigo retorno  ${CODRETRONO} de mount -t cifs $SMBPATH ${MNTPT}/${DDVDIR} -o user=${USER},pass=********,uid=${USER},gid=users,_netdev,serverino,iocharset=utf8,domain=ULL"
 
 fi
 
