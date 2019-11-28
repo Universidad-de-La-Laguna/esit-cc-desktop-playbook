@@ -1,0 +1,11 @@
+
+
+- name: "Install CUDA"
+  apt: 
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - nvidia-driver-435
+    - nvidia-cuda-toolkit
+    - clinfo
