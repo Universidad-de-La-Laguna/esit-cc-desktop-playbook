@@ -1,0 +1,99 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Here's an example of host ranges, this time there are no
+# leading 0s:
+#db-[99:101]-node.example.com
+
+[cc11]
+cc11[11:16].etsii.ull.es
+cc11[21:26].etsii.ull.es
+cc11[31:36].etsii.ull.es
+cc11[41:46].etsii.ull.es
+
+[cc12]
+cc1211.etsii.ull.es
+cc1212.etsii.ull.es
+cc1213.etsii.ull.es
+#cc1214.etsii.ull.es
+cc1215.etsii.ull.es
+cc1216.etsii.ull.es
+cc12[21:26].etsii.ull.es
+cc12[31:36].etsii.ull.es
+cc1241.etsii.ull.es
+cc1242.etsii.ull.es
+cc1243.etsii.ull.es
+cc1244.etsii.ull.es
+cc1245.etsii.ull.es
+#cc1246.etsii.ull.es
+
+[cc13]
+cc13[11:16].etsii.ull.es
+cc13[21:26].etsii.ull.es
+cc13[31:36].etsii.ull.es
+
+[cc14]
+cc1411.etsii.ull.es
+cc1412.etsii.ull.es
+cc1413.etsii.ull.es
+#cc1414.etsii.ull.es (no arranca)
+cc1415.etsii.ull.es
+cc1416.etsii.ull.es
+cc1421.etsii.ull.es
+cc1422.etsii.ull.es
+cc1423.etsii.ull.es
+#cc1424.etsii.ull.es (no arranca)
+cc1425.etsii.ull.es
+cc1426.etsii.ull.es
+cc1431.etsii.ull.es
+cc1432.etsii.ull.es
+cc1433.etsii.ull.es
+cc1434.etsii.ull.es
+cc1435.etsii.ull.es
+cc1436.etsii.ull.es
+cc1441.etsii.ull.es
+cc1442.etsii.ull.es
+cc1443.etsii.ull.es
+cc1444.etsii.ull.es
+cc1445.etsii.ull.es
+cc1446.etsii.ull.es
+
+[cc21]
+cc21[11:18].etsii.ull.es
+cc21[21:28].etsii.ull.es
+cc21[31:38].etsii.ull.es
+cc2141.etsii.ull.es
+cc2142.etsii.ull.es
+cc2143.etsii.ull.es
+cc2144.etsii.ull.es
+cc2145.etsii.ull.es
+#cc2146.etsii.ull.es
+cc2147.etsii.ull.es
+cc2148.etsii.ull.es
+
+[cc22]
+cc22[11:16].etsii.ull.es
+cc22[21:26].etsii.ull.es
+cc22[31:36].etsii.ull.es
+cc22[41:46].etsii.ull.es
+
+[cc23]
+cc2300.etsii.ull.es
+cc23[11:18].etsii.ull.es
+cc23[21:28].etsii.ull.es
+cc23[31:38].etsii.ull.es
+cc23[41:48].etsii.ull.es
+
+[cc24]
+cc2400.etsii.ull.es
+cc24[11:16].etsii.ull.es
+cc24[21:26].etsii.ull.es
+cc24[31:36].etsii.ull.es
+cc24[41:46].etsii.ull.es
