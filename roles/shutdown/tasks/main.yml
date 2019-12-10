@@ -1,0 +1,10 @@
+
+- name: "check users logged in"
+  shell: "echo `who -u | wc -l`'<'2 | bc -l"
+  register: result
+
+- debug: msg="{{ result.stdout }}"
+
+- name: "shudtdown if no users logged in"
+  command: /sbin/shutdown
+  when: result.stdout == "1"
