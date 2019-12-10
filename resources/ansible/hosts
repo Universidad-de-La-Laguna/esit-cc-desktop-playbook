@@ -13,6 +13,7 @@
 #db-[99:101]-node.example.com
 
 [cc11]
+cc1100.etsii.ull.es
 cc11[11:16].etsii.ull.es
 cc11[21:26].etsii.ull.es
 cc11[31:36].etsii.ull.es
@@ -99,9 +100,9 @@ cc26[11:13].etsii.ull.es
 cc26[21:23].etsii.ull.es
 
 [carrels]
-# ccc1.etsii.ull.es
-# ccc2.etsii.ull.es
-# ccc3.etsii.ull.es
+#ccc1.etsii.ull.es
+#ccc2.etsii.ull.es
+#ccc3.etsii.ull.es
 10.209.32.205
 10.209.32.190
 10.209.32.189
