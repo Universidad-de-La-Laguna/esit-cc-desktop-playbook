@@ -1,3 +1,4 @@
+# Shutdown host only is nobody logged in
 
 - name: "check users logged in"
   shell: "echo `who -u | wc -l`'<'2 | bc -l"
