@@ -1,0 +1,14 @@
+# Wake on lan PCs
+
+- debug: msg="{{ macaddress }}"
+
+- name: Publish MQTT message for WOL-proxy
+  mqtt:
+    topic: 'WOL-proxy/command'
+    payload: '{{ macaddress }}'
+    server: '{{ wol_mqtt_server }}'
+  delegate_to: localhost
+
+- name: Wait for the system's WinRM service to come online
+  wait_for_connection:
+    timeout: 90
