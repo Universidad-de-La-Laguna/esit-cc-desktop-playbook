@@ -42,27 +42,27 @@ cc1146.etsii.ull.es         macaddress=d8:9e:f3:13:61:0d
 [cc12]
 cc1200.etsii.ull.es
 cc1211.etsii.ull.es         macaddress=b0:83:fe:90:5d:cc
-cc1212.etsii.ull.es
-cc1213.etsii.ull.es
-#cc1214.etsii.ull.es            macaddress=02:42:17:5f:a0:b5
-cc1215.etsii.ull.es
-cc1216.etsii.ull.es
-cc1221.etsii.ull.es
-cc1222.etsii.ull.es
+cc1212.etsii.ull.es         macaddress=b0:83:fe:90:5e:d2
+cc1213.etsii.ull.es         macaddress=b0:83:fe:90:5f:fc
+#cc1214.etsii.ull.es            macaddress=b0:83:fe:90:5a:3e
+cc1215.etsii.ull.es         macaddress=d0:67:e5:29:d7:09
+cc1216.etsii.ull.es         macaddress=b0:83:fe:90:5d:c9
+cc1221.etsii.ull.es         macaddress=b0:83:fe:90:57:c9
+cc1222.etsii.ull.es         macaddress=b0:83:fe:90:5f:85
 cc1223.etsii.ull.es         macaddress=b0:83:fe:90:60:86
-cc1224.etsii.ull.es
-cc1225.etsii.ull.es
-cc1226.etsii.ull.es
-cc1231.etsii.ull.es
-cc1232.etsii.ull.es
-cc1233.etsii.ull.es
+cc1224.etsii.ull.es         macaddress=b0:83:fe:90:5d:9d
+cc1225.etsii.ull.es         macaddress=b0:83:fe:90:5a:42
+cc1226.etsii.ull.es         macaddress=b0:83:fe:90:5a:47
+cc1231.etsii.ull.es         macaddress=b0:83:fe:90:5a:43
+cc1232.etsii.ull.es         macaddress=b0:83:fe:90:60:85
+cc1233.etsii.ull.es         macaddress=b0:83:fe:90:5f:f5
 cc1234.etsii.ull.es         macaddress=b0:83:fe:90:5d:bc
-cc1235.etsii.ull.es
-cc1236.etsii.ull.es
+cc1235.etsii.ull.es         macaddress=b0:83:fe:90:5d:66
+cc1236.etsii.ull.es         macaddress=b0:83:fe:90:5d:5d
 cc1241.etsii.ull.es         macaddress=8c:ec:4b:c1:4c:ca
-cc1242.etsii.ull.es
-cc1243.etsii.ull.es
-cc1244.etsii.ull.es
+cc1242.etsii.ull.es         macaddress=50:9a:4c:0c:e6:7a
+cc1243.etsii.ull.es         macaddress=50:9a:4c:0a:a2:e1
+cc1244.etsii.ull.es         macaddress=50:9a:4c:0c:e3:d8
 cc1245.etsii.ull.es         macaddress=8c:ec:4b:c0:29:54
 #cc1246.etsii.ull.es            macaddress=8c:ec:4b:c1:47:ac
 
