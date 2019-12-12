@@ -21,7 +21,7 @@ cc11[41:46].etsii.ull.es
 
 [cc12]
 cc1200.etsii.ull.es
-cc1211.etsii.ull.es
+cc1211.etsii.ull.es         macaddress=b0:83:fe:90:5d:cc
 cc1212.etsii.ull.es
 cc1213.etsii.ull.es
 #cc1214.etsii.ull.es
@@ -37,7 +37,9 @@ cc1245.etsii.ull.es
 #cc1246.etsii.ull.es
 
 [cc13]
-cc13[11:16].etsii.ull.es
+cc1311.etsii.ull.es         macaddress=f8:bc:12:9d:9c:ec
+cc1312.etsii.ull.es         macaddress=f8:bc:12:9c:2e:25
+cc13[13:16].etsii.ull.es
 cc13[21:26].etsii.ull.es
 cc13[31:36].etsii.ull.es
 
@@ -58,7 +60,8 @@ cc14[31:36].etsii.ull.es
 cc14[41:46].etsii.ull.es
 
 [cc21]
-cc21[11:18].etsii.ull.es
+cc2111.etsii.ull.es         macaddress=b8:ac:6f:22:9c:80
+cc21[12:18].etsii.ull.es
 cc21[21:28].etsii.ull.es
 cc21[31:38].etsii.ull.es
 cc2141.etsii.ull.es
@@ -106,3 +109,6 @@ cc26[21:23].etsii.ull.es
 10.209.32.205
 10.209.32.190
 10.209.32.189
+
+[cc]
+10.209.32.198   macaddress=d0:67:e5:29:dc:fa
