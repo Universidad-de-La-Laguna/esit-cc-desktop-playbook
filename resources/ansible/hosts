@@ -14,10 +14,30 @@
 
 [cc11]
 cc1100.etsii.ull.es
-cc11[11:16].etsii.ull.es
-cc11[21:26].etsii.ull.es
-cc11[31:36].etsii.ull.es
-cc11[41:46].etsii.ull.es
+cc1111.etsii.ull.es         macaddress=d8:9e:f3:13:2b:53
+cc1112.etsii.ull.es         macaddress=d8:9e:f3:13:08:f2
+cc1113.etsii.ull.es
+cc1114.etsii.ull.es
+cc1115.etsii.ull.es
+cc1116.etsii.ull.es
+cc1121.etsii.ull.es         macaddress=d8:9e:f3:12:b9:0f
+cc1122.etsii.ull.es
+cc1123.etsii.ull.es
+cc1124.etsii.ull.es
+cc1125.etsii.ull.es
+cc1126.etsii.ull.es
+cc1131.etsii.ull.es         macaddress=d8:9e:f3:13:08:58
+cc1132.etsii.ull.es         macaddress=d8:9e:f3:13:5b:da
+cc1133.etsii.ull.es         macaddress=d8:9e:f3:18:a4:52
+cc1134.etsii.ull.es         macaddress=d8:9e:f3:11:fe:38
+cc1135.etsii.ull.es
+cc1136.etsii.ull.es         macaddress=d8:9e:f3:11:ff:de
+cc1141.etsii.ull.es
+cc1142.etsii.ull.es
+cc1143.etsii.ull.es         macaddress=d8:9e:f3:13:5c:e7
+cc1144.etsii.ull.es         macaddress=d8:9e:f3:12:fe:7a
+cc1145.etsii.ull.es         macaddress=d8:9e:f3:13:58:88
+cc1146.etsii.ull.es
 
 [cc12]
 cc1200.etsii.ull.es
@@ -27,21 +47,45 @@ cc1213.etsii.ull.es
 #cc1214.etsii.ull.es
 cc1215.etsii.ull.es
 cc1216.etsii.ull.es
-cc12[21:26].etsii.ull.es
-cc12[31:36].etsii.ull.es
+cc1221.etsii.ull.es
+cc1222.etsii.ull.es
+cc1223.etsii.ull.es         macaddress=b0:83:fe:90:60:86
+cc1224.etsii.ull.es
+cc1225.etsii.ull.es
+cc1226.etsii.ull.es
+cc1231.etsii.ull.es
+cc1232.etsii.ull.es
+cc1233.etsii.ull.es
+cc1234.etsii.ull.es         macaddress=b0:83:fe:90:5d:bc
+cc1235.etsii.ull.es
+cc1236.etsii.ull.es
 cc1241.etsii.ull.es
 cc1242.etsii.ull.es
 cc1243.etsii.ull.es
 cc1244.etsii.ull.es
-cc1245.etsii.ull.es
+cc1245.etsii.ull.es         macaddress=8c:ec:4b:c0:29:54
 #cc1246.etsii.ull.es
 
 [cc13]
+cc1300.etsii.ull.es         macaddress=d0:67:e5:29:df:85
 cc1311.etsii.ull.es         macaddress=f8:bc:12:9d:9c:ec
 cc1312.etsii.ull.es         macaddress=f8:bc:12:9c:2e:25
-cc13[13:16].etsii.ull.es
-cc13[21:26].etsii.ull.es
-cc13[31:36].etsii.ull.es
+cc1313.etsii.ull.es
+cc1314.etsii.ull.es
+cc1315.etsii.ull.es
+cc1316.etsii.ull.es         macaddress=f8:bc:12:9d:93:9a
+cc1321.etsii.ull.es
+cc1322.etsii.ull.es
+cc1323.etsii.ull.es
+cc1324.etsii.ull.es
+cc1325.etsii.ull.es
+cc1326.etsii.ull.es
+cc1331.etsii.ull.es
+cc1332.etsii.ull.es
+cc1333.etsii.ull.es
+cc1334.etsii.ull.es
+cc1335.etsii.ull.es
+cc1336.etsii.ull.es
 
 [cc14]
 cc1411.etsii.ull.es
@@ -56,14 +100,44 @@ cc1423.etsii.ull.es
 #cc1424.etsii.ull.es (no arranca)
 cc1425.etsii.ull.es
 cc1426.etsii.ull.es
-cc14[31:36].etsii.ull.es
-cc14[41:46].etsii.ull.es
+cc1431.etsii.ull.es
+cc1432.etsii.ull.es
+cc1433.etsii.ull.es
+cc1434.etsii.ull.es
+cc1435.etsii.ull.es
+cc1436.etsii.ull.es         macaddress=00:1e:8c:9f:59:bc
+cc1441.etsii.ull.es
+cc1442.etsii.ull.es
+cc1443.etsii.ull.es
+cc1444.etsii.ull.es
+cc1445.etsii.ull.es
+cc1446.etsii.ull.es
 
 [cc21]
 cc2111.etsii.ull.es         macaddress=b8:ac:6f:22:9c:80
-cc21[12:18].etsii.ull.es
-cc21[21:28].etsii.ull.es
-cc21[31:38].etsii.ull.es
+cc2112.etsii.ull.es
+cc2113.etsii.ull.es
+cc2114.etsii.ull.es
+cc2115.etsii.ull.es
+cc2116.etsii.ull.es
+cc2117.etsii.ull.es
+cc2118.etsii.ull.es
+cc2121.etsii.ull.es
+cc2122.etsii.ull.es
+cc2123.etsii.ull.es
+cc2124.etsii.ull.es
+cc2125.etsii.ull.es
+cc2126.etsii.ull.es
+cc2127.etsii.ull.es
+cc2128.etsii.ull.es
+cc2131.etsii.ull.es
+cc2132.etsii.ull.es
+cc2133.etsii.ull.es
+cc2134.etsii.ull.es
+cc2135.etsii.ull.es
+cc2136.etsii.ull.es
+cc2137.etsii.ull.es
+cc2138.etsii.ull.es
 cc2141.etsii.ull.es
 cc2142.etsii.ull.es
 cc2143.etsii.ull.es
@@ -74,33 +148,113 @@ cc2147.etsii.ull.es
 cc2148.etsii.ull.es
 
 [cc22]
-cc22[11:16].etsii.ull.es
-cc22[21:26].etsii.ull.es
-cc22[31:36].etsii.ull.es
-cc22[41:46].etsii.ull.es
+cc2211.etsii.ull.es
+cc2212.etsii.ull.es
+cc2213.etsii.ull.es
+cc2214.etsii.ull.es
+cc2215.etsii.ull.es
+cc2216.etsii.ull.es
+cc2221.etsii.ull.es
+cc2222.etsii.ull.es
+cc2223.etsii.ull.es
+cc2224.etsii.ull.es
+cc2225.etsii.ull.es
+cc2226.etsii.ull.es
+cc2231.etsii.ull.es
+cc2232.etsii.ull.es
+cc2233.etsii.ull.es
+cc2234.etsii.ull.es
+cc2235.etsii.ull.es
+cc2236.etsii.ull.es
+cc2241.etsii.ull.es
+cc2242.etsii.ull.es
+cc2243.etsii.ull.es
+cc2244.etsii.ull.es
+cc2245.etsii.ull.es
+cc2246.etsii.ull.es
 
 [cc23]
 cc2300.etsii.ull.es
-cc23[11:18].etsii.ull.es
-cc23[21:28].etsii.ull.es
-cc23[31:38].etsii.ull.es
-cc23[41:48].etsii.ull.es
+cc2311.etsii.ull.es
+cc2312.etsii.ull.es
+cc2313.etsii.ull.es
+cc2314.etsii.ull.es
+cc2315.etsii.ull.es
+cc2316.etsii.ull.es
+cc2317.etsii.ull.es
+cc2318.etsii.ull.es
+cc2321.etsii.ull.es
+cc2322.etsii.ull.es
+cc2323.etsii.ull.es
+cc2324.etsii.ull.es
+cc2325.etsii.ull.es
+cc2326.etsii.ull.es
+cc2327.etsii.ull.es
+cc2328.etsii.ull.es
+cc2331.etsii.ull.es
+cc2332.etsii.ull.es
+cc2333.etsii.ull.es
+cc2334.etsii.ull.es
+cc2335.etsii.ull.es
+cc2336.etsii.ull.es
+cc2337.etsii.ull.es
+cc2338.etsii.ull.es
+cc2341.etsii.ull.es
+cc2342.etsii.ull.es
+cc2343.etsii.ull.es
+cc2344.etsii.ull.es
+cc2345.etsii.ull.es
+cc2346.etsii.ull.es
+cc2347.etsii.ull.es
+cc2348.etsii.ull.es
 
 [cc24]
 cc2400.etsii.ull.es
-cc24[11:16].etsii.ull.es
-cc24[21:26].etsii.ull.es
-cc24[31:36].etsii.ull.es
-cc24[41:46].etsii.ull.es
+cc2411.etsii.ull.es
+cc2412.etsii.ull.es
+cc2413.etsii.ull.es
+cc2414.etsii.ull.es
+cc2415.etsii.ull.es
+cc2416.etsii.ull.es
+cc2421.etsii.ull.es
+cc2422.etsii.ull.es
+cc2423.etsii.ull.es
+cc2424.etsii.ull.es
+cc2425.etsii.ull.es
+cc2426.etsii.ull.es
+cc2431.etsii.ull.es
+cc2432.etsii.ull.es
+cc2433.etsii.ull.es
+cc2434.etsii.ull.es
+cc2435.etsii.ull.es
+cc2436.etsii.ull.es
+cc2441.etsii.ull.es
+cc2442.etsii.ull.es
+cc2443.etsii.ull.es
+cc2444.etsii.ull.es
+cc2445.etsii.ull.es
+cc2446.etsii.ull.es
 
 [cc25]
 cc2500.etsii.ull.es
-cc25[11:15].etsii.ull.es
-cc25[21:25].etsii.ull.es
+cc2511.etsii.ull.es
+cc2512.etsii.ull.es
+cc2513.etsii.ull.es
+cc2514.etsii.ull.es
+cc2515.etsii.ull.es
+cc2521.etsii.ull.es
+cc2522.etsii.ull.es
+cc2523.etsii.ull.es
+cc2524.etsii.ull.es
+cc2525.etsii.ull.es
 
 [cc26]
-cc26[11:13].etsii.ull.es
-cc26[21:23].etsii.ull.es
+cc2611.etsii.ull.es
+cc2612.etsii.ull.es
+cc2613.etsii.ull.es
+cc2621.etsii.ull.es
+cc2622.etsii.ull.es
+cc2623.etsii.ull.es
 
 [carrels]
 #ccc1.etsii.ull.es
@@ -109,6 +263,3 @@ cc26[21:23].etsii.ull.es
 10.209.32.205
 10.209.32.190
 10.209.32.189
-
-[cc]
-10.209.32.198   macaddress=d0:67:e5:29:dc:fa
