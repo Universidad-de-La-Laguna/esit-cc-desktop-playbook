@@ -1,0 +1,4 @@
+---
+# file: /etc/ansible/group_vars/all
+# this is the site wide default
+wol_mqtt_server: 10.6.7.16
