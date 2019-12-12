@@ -68,7 +68,7 @@ cc1245.etsii.ull.es         macaddress=8c:ec:4b:c0:29:54
 
 [cc13]
 cc1300.etsii.ull.es         macaddress=d0:67:e5:29:df:85
-#cc1311.etsii.ull.es         macaddress=f8:bc:12:9d:9c:ec
+cc1311.etsii.ull.es         macaddress=f8:bc:12:9d:9c:ec
 cc1312.etsii.ull.es         macaddress=f8:bc:12:9c:2e:25
 cc1313.etsii.ull.es         macaddress=f8:bc:12:9d:9c:d2
 cc1314.etsii.ull.es         macaddress=f8:bc:12:9d:9d:12
