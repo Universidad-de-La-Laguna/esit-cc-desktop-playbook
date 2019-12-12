@@ -1,5 +1,8 @@
 # Wake on lan PCs
 
+- fail: msg="Variable macaddress is not defined"
+  when: macaddress is undefined
+
 - debug: msg="{{ macaddress }}"
 
 - name: Publish MQTT message for WOL-proxy
