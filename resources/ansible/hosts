@@ -212,7 +212,7 @@ cc2347.etsii.ull.es                                         ansible_host=10.209.
 cc2348.etsii.ull.es                                         ansible_host=10.209.32.98
 
 [cc24]
-cc2400.etsii.ull.es                                         ansible_host=10.209.32.174
+cc2400.etsii.ull.es         macaddress=d0:67:e5:29:df:8d    ansible_host=10.209.32.174
 cc2411.etsii.ull.es                                         ansible_host=10.209.32.99
 cc2412.etsii.ull.es                                         ansible_host=10.209.32.100
 cc2413.etsii.ull.es                                         ansible_host=10.209.32.101
