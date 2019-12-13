@@ -88,6 +88,7 @@ cc1335.etsii.ull.es         macaddress=f8:bc:12:9d:9d:7d    ansible_host=10.209.
 cc1336.etsii.ull.es         macaddress=b0:83:fe:90:5f:f9    ansible_host=10.209.31.76
 
 [cc14]
+cc1400.etsii.ull.es                                         ansible_host=10.209.31.110
 cc1411.etsii.ull.es                                         ansible_host=10.209.31.83
 cc1412.etsii.ull.es                                         ansible_host=10.209.31.84
 cc1413.etsii.ull.es                                         ansible_host=10.209.31.85
@@ -114,6 +115,7 @@ cc1445.etsii.ull.es                                         ansible_host=10.209.
 cc1446.etsii.ull.es                                         ansible_host=10.209.31.106
 
 [cc21]
+cc2100.etsii.ull.es         macaddress=d0:67:e5:29:d7:32    ansible_host=10.209.32.171
 cc2111.etsii.ull.es         macaddress=b8:ac:6f:22:9c:80    ansible_host=10.209.32.11
 cc2112.etsii.ull.es         macaddress=b8:ac:6f:22:9c:2b    ansible_host=10.209.32.12
 cc2113.etsii.ull.es         macaddress=b8:ac:6f:22:8d:d3    ansible_host=10.209.32.13
@@ -148,6 +150,7 @@ cc2147.etsii.ull.es         macaddress=b8:ac:6f:22:9e:8b    ansible_host=10.209.
 cc2148.etsii.ull.es         macaddress=b8:ac:6f:22:c9:08    ansible_host=10.209.32.42
 
 [cc22]
+cc2200.etsii.ull.es         macaddress=d0:67:e5:29:d3:82    ansible_host=10.209.32.172
 cc2211.etsii.ull.es         macaddress=e4:54:e8:6c:51:aa    ansible_host=10.209.32.43
 cc2212.etsii.ull.es         macaddress=e4:54:e8:6c:51:4a    ansible_host=10.209.32.44
 cc2213.etsii.ull.es         macaddress=e4:54:e8:6c:4d:87    ansible_host=10.209.32.45
@@ -174,92 +177,89 @@ cc2245.etsii.ull.es         macaddress=d8:9e:f3:11:fe:e9    ansible_host=10.209.
 cc2246.etsii.ull.es         macaddress=d8:9e:f3:13:59:e5    ansible_host=10.209.32.66
 
 [cc23]
-cc2300.etsii.ull.es
-cc2311.etsii.ull.es
-cc2312.etsii.ull.es
-cc2313.etsii.ull.es
-cc2314.etsii.ull.es
-cc2315.etsii.ull.es
-cc2316.etsii.ull.es
-cc2317.etsii.ull.es
-cc2318.etsii.ull.es
-cc2321.etsii.ull.es
-cc2322.etsii.ull.es
-cc2323.etsii.ull.es
-cc2324.etsii.ull.es
-cc2325.etsii.ull.es
-cc2326.etsii.ull.es
-cc2327.etsii.ull.es
-cc2328.etsii.ull.es
-cc2331.etsii.ull.es
-cc2332.etsii.ull.es
-cc2333.etsii.ull.es
-cc2334.etsii.ull.es
-cc2335.etsii.ull.es
-cc2336.etsii.ull.es
-cc2337.etsii.ull.es
-cc2338.etsii.ull.es
-cc2341.etsii.ull.es
-cc2342.etsii.ull.es
-cc2343.etsii.ull.es
-cc2344.etsii.ull.es
-cc2345.etsii.ull.es
-cc2346.etsii.ull.es
-cc2347.etsii.ull.es
-cc2348.etsii.ull.es
+cc2300.etsii.ull.es                                         ansible_host=10.209.32.173
+cc2311.etsii.ull.es                                         ansible_host=10.209.32.67
+cc2312.etsii.ull.es                                         ansible_host=10.209.32.68
+cc2313.etsii.ull.es                                         ansible_host=10.209.32.69
+cc2314.etsii.ull.es                                         ansible_host=10.209.32.70
+cc2315.etsii.ull.es                                         ansible_host=10.209.32.71
+cc2316.etsii.ull.es                                         ansible_host=10.209.32.72
+cc2317.etsii.ull.es                                         ansible_host=10.209.32.73
+cc2318.etsii.ull.es                                         ansible_host=10.209.32.74
+cc2321.etsii.ull.es                                         ansible_host=10.209.32.75
+cc2322.etsii.ull.es                                         ansible_host=10.209.32.76
+cc2323.etsii.ull.es                                         ansible_host=10.209.32.77
+cc2324.etsii.ull.es                                         ansible_host=10.209.32.78
+cc2325.etsii.ull.es                                         ansible_host=10.209.32.79
+cc2326.etsii.ull.es                                         ansible_host=10.209.32.80
+cc2327.etsii.ull.es                                         ansible_host=10.209.32.81
+cc2328.etsii.ull.es                                         ansible_host=10.209.32.82
+cc2331.etsii.ull.es                                         ansible_host=10.209.32.83
+cc2332.etsii.ull.es                                         ansible_host=10.209.32.84
+cc2333.etsii.ull.es                                         ansible_host=10.209.32.85
+cc2334.etsii.ull.es                                         ansible_host=10.209.32.86
+cc2335.etsii.ull.es                                         ansible_host=10.209.32.87
+cc2336.etsii.ull.es                                         ansible_host=10.209.32.88
+cc2337.etsii.ull.es                                         ansible_host=10.209.32.89
+cc2338.etsii.ull.es                                         ansible_host=10.209.32.90
+cc2341.etsii.ull.es                                         ansible_host=10.209.32.91
+cc2342.etsii.ull.es                                         ansible_host=10.209.32.92
+cc2343.etsii.ull.es                                         ansible_host=10.209.32.93
+cc2344.etsii.ull.es                                         ansible_host=10.209.32.94
+cc2345.etsii.ull.es                                         ansible_host=10.209.32.95
+cc2346.etsii.ull.es                                         ansible_host=10.209.32.96
+cc2347.etsii.ull.es                                         ansible_host=10.209.32.97
+cc2348.etsii.ull.es                                         ansible_host=10.209.32.98
 
 [cc24]
-cc2400.etsii.ull.es
-cc2411.etsii.ull.es
-cc2412.etsii.ull.es
-cc2413.etsii.ull.es
-cc2414.etsii.ull.es
-cc2415.etsii.ull.es
-cc2416.etsii.ull.es
-cc2421.etsii.ull.es
-cc2422.etsii.ull.es
-cc2423.etsii.ull.es
-cc2424.etsii.ull.es
-cc2425.etsii.ull.es
-cc2426.etsii.ull.es
-cc2431.etsii.ull.es
-cc2432.etsii.ull.es
-cc2433.etsii.ull.es
-cc2434.etsii.ull.es
-cc2435.etsii.ull.es
-cc2436.etsii.ull.es
-cc2441.etsii.ull.es
-cc2442.etsii.ull.es
-cc2443.etsii.ull.es
-cc2444.etsii.ull.es
-cc2445.etsii.ull.es
-cc2446.etsii.ull.es
+cc2400.etsii.ull.es                                         ansible_host=10.209.32.174
+cc2411.etsii.ull.es                                         ansible_host=10.209.32.99
+cc2412.etsii.ull.es                                         ansible_host=10.209.32.100
+cc2413.etsii.ull.es                                         ansible_host=10.209.32.101
+cc2414.etsii.ull.es                                         ansible_host=10.209.32.102
+cc2415.etsii.ull.es                                         ansible_host=10.209.32.103
+cc2416.etsii.ull.es                                         ansible_host=10.209.32.104
+cc2421.etsii.ull.es                                         ansible_host=10.209.32.105
+cc2422.etsii.ull.es                                         ansible_host=10.209.32.106
+cc2423.etsii.ull.es                                         ansible_host=10.209.32.107
+cc2424.etsii.ull.es                                         ansible_host=10.209.32.108
+cc2425.etsii.ull.es                                         ansible_host=10.209.32.109
+cc2426.etsii.ull.es                                         ansible_host=10.209.32.110
+cc2431.etsii.ull.es                                         ansible_host=10.209.32.111
+cc2432.etsii.ull.es                                         ansible_host=10.209.32.112
+cc2433.etsii.ull.es                                         ansible_host=10.209.32.113
+cc2434.etsii.ull.es                                         ansible_host=10.209.32.114
+cc2435.etsii.ull.es                                         ansible_host=10.209.32.115
+cc2436.etsii.ull.es                                         ansible_host=10.209.32.116
+cc2441.etsii.ull.es                                         ansible_host=10.209.32.117
+cc2442.etsii.ull.es                                         ansible_host=10.209.32.118
+cc2443.etsii.ull.es                                         ansible_host=10.209.32.119
+cc2444.etsii.ull.es                                         ansible_host=10.209.32.120
+cc2445.etsii.ull.es                                         ansible_host=10.209.32.121
+cc2446.etsii.ull.es                                         ansible_host=10.209.32.122
 
 [cc25]
-cc2500.etsii.ull.es
-cc2511.etsii.ull.es
-cc2512.etsii.ull.es
-cc2513.etsii.ull.es
-cc2514.etsii.ull.es
-cc2515.etsii.ull.es
-cc2521.etsii.ull.es
-cc2522.etsii.ull.es
-cc2523.etsii.ull.es
-cc2524.etsii.ull.es
-cc2525.etsii.ull.es
+cc2500.etsii.ull.es         macaddress=d0:67:e5:29:d3:82    ansible_host=10.209.32.175
+cc2511.etsii.ull.es         macaddress=a4:1f:72:79:64:6e    ansible_host=10.209.32.123
+cc2512.etsii.ull.es         macaddress=a4:1f:72:79:5a:d8    ansible_host=10.209.32.124
+cc2513.etsii.ull.es         macaddress=a4:1f:72:79:5e:74    ansible_host=10.209.32.125
+cc2514.etsii.ull.es         macaddress=a4:1f:72:79:64:69    ansible_host=10.209.32.126
+cc2515.etsii.ull.es         macaddress=a4:1f:72:52:e2:f8    ansible_host=10.209.32.127
+cc2521.etsii.ull.es         macaddress=a4:1f:72:79:66:ad    ansible_host=10.209.32.128
+cc2522.etsii.ull.es         macaddress=a4:1f:72:79:16:64    ansible_host=10.209.32.129
+cc2523.etsii.ull.es         macaddress=a4:1f:72:79:5f:c0    ansible_host=10.209.32.130
+cc2524.etsii.ull.es         macaddress=a4:1f:72:79:8e:90    ansible_host=10.209.32.131
+cc2525.etsii.ull.es         macaddress=a4:1f:72:79:65:65    ansible_host=10.209.32.132
 
 [cc26]
-cc2611.etsii.ull.es
-cc2612.etsii.ull.es
-cc2613.etsii.ull.es
-cc2621.etsii.ull.es
-cc2622.etsii.ull.es
-cc2623.etsii.ull.es
+cc2611.etsii.ull.es                                         ansible_host=10.209.32.139
+cc2612.etsii.ull.es                                         ansible_host=10.209.32.140
+cc2613.etsii.ull.es                                         ansible_host=10.209.32.141
+cc2621.etsii.ull.es                                         ansible_host=10.209.32.142
+cc2622.etsii.ull.es                                         ansible_host=10.209.32.143
+cc2623.etsii.ull.es                                         ansible_host=10.209.32.144
 
 [carrels]
-#ccc1.etsii.ull.es
-#ccc2.etsii.ull.es
-#ccc3.etsii.ull.es
-10.209.32.205
-10.209.32.190
-10.209.32.189
+ccc1.etsii.ull.es                                           ansible_host=10.209.32.205
+ccc2.etsii.ull.es                                           ansible_host=10.209.32.190
+ccc3.etsii.ull.es                                           ansible_host=10.209.32.189
