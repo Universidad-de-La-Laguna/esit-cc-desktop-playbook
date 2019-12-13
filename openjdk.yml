@@ -1,3 +1,4 @@
 - hosts: "{{ maquinas }}"
+  ignore_unreachable: true
   roles:
     - { role: openjdk, tags: ['a'] }
