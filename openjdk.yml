@@ -1,0 +1,3 @@
+- hosts: "{{ maquinas }}"
+  roles:
+    - { role: openjdk, tags: ['a'] }
