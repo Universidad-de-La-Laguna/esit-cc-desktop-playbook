@@ -1,0 +1,6 @@
+- hosts: "{{ maquinas }}"
+  gather_facts: no
+  tasks:
+  - name: Recopilar datos de equipos
+    setup:
+        gather_timeout: 10
