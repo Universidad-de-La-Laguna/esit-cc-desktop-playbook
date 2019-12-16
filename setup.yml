@@ -1,4 +1,5 @@
 - hosts: "{{ maquinas }}"
+  ignore_unreachable: true
   gather_facts: no
   tasks:
   - name: Recopilar datos de equipos
