@@ -34,7 +34,7 @@ echo "SPARK_APPLICATION_ARGS=${SPARK_APPLICATION_ARGS}"
 # Launch spark application
 echo "Launching app..."
 
-docker run --network esit-cc-sparkcluster_default \
+docker run \
     --env SPARK_MASTER_URL=$SPARK_MASTER_URL \
     --env SPARK_APPLICATION_JAR_LOCATION=${SPARK_APPS_DIR}/${SPARK_APPLICATION_JAR_NAME} \
     --env SPARK_APPLICATION_MAIN_CLASS=$SPARK_APPLICATION_MAIN_CLASS \
