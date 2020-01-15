@@ -32,3 +32,8 @@
   with_items:
     - { src: 'spark-wordcount-example_2.11-0.0.1.jar', dest: '/opt/spark/apps/'}
     - { src: 'ejemplo.txt', dest: '/opt/spark/data/'}
+
+- name: "Copia el script de lanzamiento"
+  copy: src={{ item.src }} dest={{ item.dest }} mode={{ item.mode }}
+  with_items:
+    - { src: 'submitApp.sh', dest: '/opt/spark/', mode: '0755' }
