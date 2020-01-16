@@ -7,7 +7,7 @@
 
 # System variables
 : ${SPARK_APPS_DIR:="/opt/spark-apps"}
-: ${SPARK_MASTER_URL:="spark://10.209.4.12:7077"}
+: ${SPARK_MASTER_URL:="spark://10.6.7.12:7077"}
 : ${SPARK_SUBMIT_ARGS:="--conf spark.driver.extraJavaOptions='-Xss10m -XX:MaxPermSize=1024M ' --conf spark.executor.extraJavaOptions='-Xss10m -XX:MaxPermSize=512M '"}
 
 # Check arguments
