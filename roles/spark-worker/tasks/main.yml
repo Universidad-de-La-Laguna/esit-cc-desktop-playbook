@@ -37,3 +37,11 @@
   copy: src={{ item.src }} dest={{ item.dest }} mode={{ item.mode }}
   with_items:
     - { src: 'submitApp.sh', dest: '/opt/spark/', mode: '0755' }
+
+- name: Bash aliases | Add aliases
+  lineinfile:
+    dest: "/etc/bash.bashrc"
+    create: yes
+    mode: 0644
+    line: 'alias hdfs="docker run --rm -e HDFS_CONF_dfs_client_use_datanode_hostname=true --add-host {{ DATANODE_CONTAINER_NAME }}:{{ HDFS_SERVER_IP }} ccesitull/hdfs-client hdfs"'
+    regexp: "^alias hdfs="
