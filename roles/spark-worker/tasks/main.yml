@@ -22,6 +22,7 @@
       SPARK_WORKER_MEMORY: "1G"
       SPARK_DRIVER_MEMORY: "1G"
       SPARK_EXECUTOR_MEMORY: "256m"
+      HDFS_DATANODE_IP: "{{ HDFS_DATANODE_IP }}"
     network_mode: host
     volumes:
       - /opt/spark/apps:/opt/spark-apps
@@ -30,7 +31,7 @@
 - name: "Copia la aplicación de ejemplo"
   copy: src={{ item.src }} dest={{ item.dest }}
   with_items:
-    - { src: 'spark-wordcount-example_2.11-0.0.1.jar', dest: '/opt/spark/apps/'}
+    - { src: '{{ EXAMPLE_APP }}', dest: '/opt/spark/apps/'}
     - { src: 'ejemplo.txt', dest: '/opt/spark/data/'}
 
 - name: "Copia el script de lanzamiento"
@@ -43,5 +44,5 @@
     dest: "/etc/bash.bashrc"
     create: yes
     mode: 0644
-    line: 'alias hdfs="docker run --rm -e HDFS_CONF_dfs_client_use_datanode_hostname=true --add-host {{ DATANODE_CONTAINER_NAME }}:{{ HDFS_SERVER_IP }} ccesitull/hdfs-client hdfs"'
+    line: 'alias hdfs="docker run --rm -e HDFS_CONF_dfs_client_use_datanode_hostname=true --add-host datanode:{{ HDFS_DATANODE_IP }} ccesitull/hdfs-client hdfs"'
     regexp: "^alias hdfs="
