@@ -1,5 +1,16 @@
-- name: weka
-  apt: name={{item}} state=installed update_cache=yes
-  with_items:
-       - weka
-       - weka-doc
+- name: Desinstalar weka basado en repo apt
+  apt:
+    name: ['weka', 'weka-doc']
+    state: absent
+    update_cache: yes
+
+- name: Extract weka into /opt/weka-3-8-4
+  unarchive:
+    src: weka-3-8-4-azul-zulu-linux.zip
+    dest: /opt
+
+- name: Copy desktop icon launcher
+  copy:
+    src: weka.desktop
+    dest: /usr/share/applications/weka.desktop
+    mode: '0644'

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/opt/weka-3-8-4/weka.sh
+Type=Application
+Terminal=false
+Name=Weka
+Categories=Development;
