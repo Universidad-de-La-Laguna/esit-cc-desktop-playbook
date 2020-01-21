@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Application execution variables
-: ${SPARK_APPLICATION_JAR_NAME:="spark-wordcount-example_2.11-0.0.1.jar"}
+: ${SPARK_APPLICATION_JAR_NAME:="spark-wordcount-example_2.11-0.0.2.jar"}
 : ${SPARK_APPLICATION_MAIN_CLASS:="es.edu.ull.spark.scala.WordCount"}
 : ${SPARK_APPLICATION_ARGS:="/opt/spark-data/ejemplo.txt /opt/spark-data/output"}
 
@@ -26,6 +26,15 @@ else
     SPARK_APPLICATION_ARGS="$@"
 fi
 
+# Check if jar is in HDFS
+if [[ "$SPARK_APPLICATION_JAR_NAME" =~ ^hdfs://.* ]]; then
+    echo "JAR is in HDFS..."
+    SPARK_APPLICATION_JAR_LOCATION=${SPARK_APPLICATION_JAR_NAME}
+else
+    echo "JAR is in local filesystem..."
+    SPARK_APPLICATION_JAR_LOCATION=${SPARK_APPS_DIR}/${SPARK_APPLICATION_JAR_NAME}
+fi
+
 # Print arguments
 echo "SPARK_APPLICATION_JAR_NAME=${SPARK_APPLICATION_JAR_NAME}"
 echo "SPARK_APPLICATION_MAIN_CLASS=${SPARK_APPLICATION_MAIN_CLASS}"
@@ -36,7 +45,7 @@ echo "Launching app..."
 
 docker run \
     --env SPARK_MASTER_URL=$SPARK_MASTER_URL \
-    --env SPARK_APPLICATION_JAR_LOCATION=${SPARK_APPS_DIR}/${SPARK_APPLICATION_JAR_NAME} \
+    --env SPARK_APPLICATION_JAR_LOCATION=$SPARK_APPLICATION_JAR_LOCATION \
     --env SPARK_APPLICATION_MAIN_CLASS=$SPARK_APPLICATION_MAIN_CLASS \
     --env SPARK_APPLICATION_ARGS="$SPARK_APPLICATION_ARGS" \
     ccesitull/spark-submit:2.4.3
