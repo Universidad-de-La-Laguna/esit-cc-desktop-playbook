@@ -6,8 +6,9 @@
 
 - name: Extract weka into /opt/weka-3-8-4
   unarchive:
-    src: weka-3-8-4-azul-zulu-linux.zip
+    src: http://10.6.7.11:9393/ftp/packages/weka-3-8-4-azul-zulu-linux.zip
     dest: /opt
+    remote_src: yes
 
 - name: Copy desktop icon launcher
   copy:
