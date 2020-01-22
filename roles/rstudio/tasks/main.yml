@@ -1,3 +1,0 @@
-- name: rstudio
-  shell: /etc/esit-software/desktop-playbook/no-ansible-scripts/install-rstudio
-
