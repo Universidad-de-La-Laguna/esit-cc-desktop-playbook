@@ -1,0 +1,14 @@
+
+- name: Añadir repositorio para r-base
+  apt_repository:
+    repo: deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/
+
+- name: Instalar r-base
+  apt:
+    name: r-base
+    state: latest
+    update_cache: yes
+
+- name: Install R-Studio package from the internet.
+  apt:
+   deb: https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb
