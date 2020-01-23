@@ -1,0 +1,4 @@
+- name: Instalar ultima version de ddd
+  apt:
+    name: ddd
+    state: latest
