@@ -1,0 +1,18 @@
+#
+# Importante: el fichero state.xml debe ser generado mediante la instalación manual de Netbeans
+#             ejecutando el instalador una vez con el parámetro "--record state.xml"
+#
+- name: Copiar fichero de instalación desatendida
+  copy:
+    src: state.xml
+    dest: /tmp/state.xml
+    mode: '0644'
+
+- name: Download installer
+  get_url:
+    url: http://apache.rediris.es/netbeans/netbeans/{{ NETBEANS_VERSION }}/Apache-NetBeans-{{ NETBEANS_VERSION }}-bin-linux-x64.sh
+    dest: /tmp/Apache-NetBeans-{{ NETBEANS_VERSION }}-bin-linux-x64.sh
+    mode: '0777'
+
+- name: Run a script with arguments (free form)
+  script: /tmp/Apache-NetBeans-{{ NETBEANS_VERSION }}-bin-linux-x64.sh --silent
