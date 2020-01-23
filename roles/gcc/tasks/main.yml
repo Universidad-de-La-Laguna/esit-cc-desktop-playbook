@@ -1,0 +1,12 @@
+- name: "Añadir repositorio para g++"
+  apt_repository:
+    repo: ppa:ubuntu-toolchain-r/test
+
+- name: "Install G++ v9"
+  apt: 
+    name: ['gcc-9', 'g++-9']
+    state: present
+    update_cache: yes
+
+- name: "Actualizar alternatives"
+  shell: update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20 --slave /usr/bin/g++ g++ /usr/bin/g++-9
