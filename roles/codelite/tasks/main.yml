@@ -1,0 +1,11 @@
+- name: "Add the CodeLite public key"
+  command: apt-key adv --fetch-keys http://repos.codelite.org/CodeLite.asc
+
+- name: Añadir repositorio para codelite
+  apt_repository:
+    repo: deb https://repos.codelite.org/ubuntu/ bionic universe
+
+- name: Instalar codelite
+  apt:
+    name: codelite
+    state: latest
