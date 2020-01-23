@@ -1,5 +1,6 @@
-- apt:
-     deb: http://cc.etsii.ull.es/ftp/packages/code_1.29.1-1542309157_amd64.deb 
+- name: "Instalar VSCode"
+  apt:
+    deb: http://cc.etsii.ull.es/ftp/packages/code_1.41.1-1576681836_amd64.deb 
 
 - name: Pule y limpia
   command: "{{ item }}" 
@@ -8,12 +9,8 @@
     - "dpkg --configure -a"
     - "code --user-data-dir  --install-extension ms-vscode.cpptools"
 
-
 - name: Uninstall 
-  apt: name={{item}} state=absent update_cache=yes
-  with_items:
-       - update-notifier
- 
-
-
-
+  apt:
+    name: update-notifier
+    state: absent
+    update_cache: yes
