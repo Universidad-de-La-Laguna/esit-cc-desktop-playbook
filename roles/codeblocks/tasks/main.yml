@@ -1,0 +1,14 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/codeblocks
+    state: directory
+    mode: '0755'
+
+- name: Extract codeblocks into /tmp
+  unarchive:
+    src: http://cc.etsii.ull.es/ftp/packages/codeblocks_{{ CODEBLOCKS_VERSION }}_amd64_stable.tar.xz
+    dest: /tmp/codeblocks
+    remote_src: yes
+
+- name: Install DEBs
+  shell: apt install -y /tmp/codeblocks/codeblocks_{{ CODEBLOCKS_VERSION }}_amd64.deb /tmp/codeblocks/codeblocks-common_{{ CODEBLOCKS_VERSION }}_all.deb /tmp/codeblocks/libcodeblocks0_{{ CODEBLOCKS_VERSION }}_amd64.deb /tmp/codeblocks/codeblocks-dev_{{ CODEBLOCKS_VERSION }}_amd64.deb /tmp/codeblocks/codeblocks-headers_{{ CODEBLOCKS_VERSION }}_all.deb /tmp/codeblocks/*wx*.deb
