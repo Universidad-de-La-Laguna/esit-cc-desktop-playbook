@@ -7,7 +7,7 @@
   with_items:
     - "apt install -f -y"
     - "dpkg --configure -a"
-    - "code --user-data-dir  --install-extension ms-vscode.cpptools"
+    - "code --user-data-dir --install-extension ms-vscode.cpptools --install-extension ms-vscode-remote.remote-ssh --install-extension ms-vscode-remote.remote-ssh-edit"
 
 - name: Uninstall 
   apt:
