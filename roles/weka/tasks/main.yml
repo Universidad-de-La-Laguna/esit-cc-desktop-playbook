@@ -2,8 +2,7 @@
   apt:
     name: ['weka', 'weka-doc']
     state: absent
-    update_cache: yes
-    ignore_errors: yes
+#    update_cache: yes
 
 - name: Extract weka into /opt/weka-3-8-4
   unarchive:
