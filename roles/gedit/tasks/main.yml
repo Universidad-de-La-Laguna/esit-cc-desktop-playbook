@@ -1,0 +1,6 @@
+- name: Install gedit and plugins
+  apt: 
+    pkg:
+    - gedit
+    - gedit-plugins
+    update_cache: yes
