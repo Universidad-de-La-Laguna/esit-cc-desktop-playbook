@@ -1,0 +1,4 @@
+- name: Install MPI (Message Passing Interface)
+  apt: 
+    pkg:
+    - libopenmpi-dev
