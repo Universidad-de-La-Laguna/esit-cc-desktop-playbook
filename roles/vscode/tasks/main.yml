@@ -27,3 +27,11 @@
       path: /usr/share/applications/code.desktop
       regexp: '^Exec=/usr/share/code/code --no-sandbox'
       replace: "Exec=/usr/share/code/code --extensions-dir {{ VSCODE_EXTENSIONS_DIR }} --no-sandbox"
+
+- name: Bash aliases | Add aliases
+  lineinfile:
+    dest: "/etc/bash.bashrc"
+    create: yes
+    mode: 0644
+    line: 'alias code="code --extensions-dir {{ VSCODE_EXTENSIONS_DIR }}"'
+    regexp: "^alias code="
