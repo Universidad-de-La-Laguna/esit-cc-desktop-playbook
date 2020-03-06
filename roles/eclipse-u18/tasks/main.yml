@@ -20,15 +20,17 @@
       owner: root
       group: root
       state: link
+
 - name: "copia icono"
   copy:
-      src: /opt/eclipse-java/eclipse/icon.xpm
-      dest: /usr/share/pixmaps/eclipse-java.xpm
+    src: /opt/eclipse-java/eclipse/icon.xpm
+    dest: /usr/share/pixmaps/eclipse-java.xpm
+    remote_src: yes
 
 - name: "prepare icon eclipse"
   copy:
-      src: template/eclipse-java.desktop
-      dest: /opt/eclipse-java
+    src: template/eclipse-java.desktop
+    dest: /opt/eclipse-java
 
 - name: "icon eclipse"
   command: desktop-file-install /opt/eclipse-java/eclipse-java.desktop
