@@ -9,7 +9,7 @@
   file: path=/opt/eclipse-java state=directory
 - name: "download eclipse"
   unarchive:
-      src:  http://cc.etsii.ull.es/ftp/packages/eclipse-jee-2018-12-R-linux-gtk-x86_64.tar.gz 
+      src:  http://cc.etsii.ull.es/ftp/packages/eclipse-jee-2019-09-R-linux-gtk-x86_64.tar.gz
       dest: /opt/eclipse-java
       remote_src: yes 
 
