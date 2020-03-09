@@ -2,36 +2,42 @@
   apt:
     deb: http://cc.etsii.ull.es/ftp/packages/code_1.41.1-1576681836_amd64.deb 
 
-- name: Create extensions directory if it does not exist
+# - name: Create extensions directory if it does not exist
+#   file:
+#     path: "{{ VSCODE_EXTENSIONS_DIR }}"
+#     state: directory
+#     mode: '0777'
+
+# - name: Install common extensions
+#   command: "code --user-data-dir /root --extensions-dir {{ VSCODE_EXTENSIONS_DIR }} --install-extension {{ item }}"
+#   with_items:
+#     - "ms-vscode.cpptools"
+#     - "ms-vscode-remote.remote-ssh"
+#     - "ms-vscode-remote.remote-ssh-edit"
+
+# - name: Se dan permisos a las carpetas de las extensiones para que pueda modificarla cualquier usuario
+#   file:    
+#     path: "{{ VSCODE_EXTENSIONS_DIR }}"
+#     state: directory
+#     recurse: yes
+#     mode: '0777'
+
+- name: Remove shared extensions directory
   file:
     path: "{{ VSCODE_EXTENSIONS_DIR }}"
-    state: directory
-    mode: '0777'
-
-- name: Install common extensions
-  command: "code --user-data-dir /root --extensions-dir {{ VSCODE_EXTENSIONS_DIR }} --install-extension {{ item }}"
-  with_items:
-    - "ms-vscode.cpptools"
-    - "ms-vscode-remote.remote-ssh"
-    - "ms-vscode-remote.remote-ssh-edit"
-
-- name: Se dan permisos a las carpetas de las extensiones para que pueda modificarla cualquier usuario
-  file:    
-    path: "{{ VSCODE_EXTENSIONS_DIR }}"
-    state: directory
-    recurse: yes
-    mode: '0777'
+    state: absent
 
 - name: Set extensions directory in App icon
   replace:
       path: /usr/share/applications/code.desktop
-      regexp: '^Exec=/usr/share/code/code --no-sandbox'
-      replace: "Exec=/usr/share/code/code --extensions-dir {{ VSCODE_EXTENSIONS_DIR }} --no-sandbox"
+      regexp: '^Exec=/usr/share/code/code --extensions-dir {{ VSCODE_EXTENSIONS_DIR }} --no-sandbox'
+      replace: "Exec=/usr/share/code/code --no-sandbox"
 
 - name: Bash aliases | Add aliases
   lineinfile:
     dest: "/etc/bash.bashrc"
-    create: yes
-    mode: 0644
-    line: 'alias code="code --extensions-dir {{ VSCODE_EXTENSIONS_DIR }}"'
+    state: absent
+    # create: yes
+    # mode: 0644
+    # line: 'alias code="code --extensions-dir {{ VSCODE_EXTENSIONS_DIR }}"'
     regexp: "^alias code="
