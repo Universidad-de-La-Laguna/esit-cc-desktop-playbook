@@ -1,0 +1,14 @@
+# Esta tarea no instala Wireshark (ya que está en la imagen base de los linux)
+# solo configura el equipo para que cualquier usuario que inicie sesión
+# se incluya en el grupo "wireshark", de forma que tenga permisos para capturar 
+# paquetes de la red.
+- name: Insert/Update 
+  blockinfile:
+    path: /usr/share/libpam-script/pam_script_ses_open
+    block: |
+        groupsToInclude=( wireshark )
+        for g in "${groupsToInclude[@]}"
+        do
+            usermod -a -G $g ${USER}
+            [ $DEBUG -ne 0 ] && ${LOG} "Incluido usuario ${USER} en grupo $g"
+        done
