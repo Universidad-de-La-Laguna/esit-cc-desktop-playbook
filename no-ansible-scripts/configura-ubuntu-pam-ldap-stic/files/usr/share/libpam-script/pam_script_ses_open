@@ -36,5 +36,11 @@ fi
 
 [ $DEBUG -ne 0 ] && ${LOG} "[PAM-SCRIPT-SES-OPEN] Finalizado pam_script-ses_open para ${USER}"
 
-
-
+# >>>>>>>>>> Inclur usuario automaticamente en grupo wireshark >>>>>>>>>>
+groupsToInclude=( wireshark )
+for g in "${groupsToInclude[@]}"
+do
+  usermod -a -G $g ${USER}
+  [ $DEBUG -ne 0 ] && ${LOG} "Incluido usuario ${USER} en grupo $g"
+done
+# <<<<<<<<<< Inclur usuario automaticamente en grupo wireshark <<<<<<<<<<
