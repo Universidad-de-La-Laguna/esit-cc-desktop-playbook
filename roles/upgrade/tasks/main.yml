@@ -1,0 +1,18 @@
+- name: "Evitar warning de arquitectura i386 no soportada en virtualbox"
+  lineinfile:
+    dest: "/etc/apt/sources.list"
+    line: 'deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib'
+    regexp: "^deb http://download.virtualbox.org/virtualbox/debian bionic contrib$"
+
+- name: Actualizar clave de descarga de Google Chrome
+  shell: "wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -"
+  args:
+    warn: no
+
+- name: Hacer upgrade
+  apt:
+    update_cache: yes
+    upgrade: yes
+    force_apt_get: yes
+    force: yes
+    autoremove: yes
