@@ -1,0 +1,4 @@
+- hosts: "{{ maquinas }}"
+  gather_facts: no
+  roles:
+    - { role: upgrade, tags: ['a'] }
