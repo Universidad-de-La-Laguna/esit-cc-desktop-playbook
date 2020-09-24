@@ -55,7 +55,8 @@ fi
 # Instalamos la extensión en el perfil del DDV del usuario para movilidad
 escribelog "DBG: Instalando extensión en el disco duro virtual..."
 
-DDVDIR="$HOME/datos/Disco_Duro_Virtual/private/perfilesesit/perfil-ubuntu18.04"
+UBUNTUVERSION=`lsb_release -a 2>/dev/null | awk '{ if ($1 == "Release:") printf $2 }'`
+DDVDIR="$HOME/datos/Disco_Duro_Virtual/private/perfilesesit/perfil-ubuntu${UBUNTUVERSION}"
 if [ ! -d "$DDVDIR" ]; then
     escribelog "ERROR: Directorio $DDVDIR no existe. Parece que no se ha montado correctamente la unidad de disco duro virtual"
     exit 1
