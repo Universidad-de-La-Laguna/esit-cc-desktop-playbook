@@ -68,8 +68,6 @@ then
     escribelog "ERROR: Hubo un problema al instalar la extensión $1 en el disco duro virtual" >&2
     exit 1
 else
-    escribelog "SUCCESS: Extensión $1 instalada satisfactoriamente en el directorio $DDVDIR/.vscode/extensions"
+    escribelog "SUCCESS: La extensión $1 se ha instalado correctamente en su disco duro virtual ($DDVDIR/.vscode/extensions)"
+    escribelog "WARNING: Recuerde que las extensiones que pueda tener instaladas se sobreescribirán con las que tenga instaladas en el disco duro virtual en el siguiente inicio de sesión"
 fi
-
-escribelog "INFO: La extensión $1 se ha instalado correctamente en su disco duro virtual."
-escribelog "INFO: Estas extensiones se copiaran cada vez que inicie sesión en un equipo por lo que no es necesario que las instale de nuevo en ningún ordenador."
