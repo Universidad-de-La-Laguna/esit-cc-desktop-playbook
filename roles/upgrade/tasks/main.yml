@@ -13,7 +13,12 @@
   shell: "wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -"
   args:
     warn: no
-  
+
+- name: Actualizar clave de descarga R
+  shell: "apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9"
+  args:
+    warn: no
+
 - name: Hacer upgrade
   apt:
     update_cache: yes
