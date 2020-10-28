@@ -9,6 +9,11 @@
   args:
     warn: no
 
+- name: Actualizar clave de descarga de VirtualBox
+  shell: "wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -"
+  args:
+    warn: no
+  
 - name: Hacer upgrade
   apt:
     update_cache: yes
