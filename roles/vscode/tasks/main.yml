@@ -1,6 +1,6 @@
 - name: "Instalar VSCode"
   apt:
-    deb: http://cc.etsii.ull.es/ftp/packages/code_1.41.1-1576681836_amd64.deb 
+    deb: http://cc.etsii.ull.es/ftp/packages/code_1.53.0-1612368357_amd64.deb
     force: yes
 
 # - name: Create extensions directory if it does not exist
