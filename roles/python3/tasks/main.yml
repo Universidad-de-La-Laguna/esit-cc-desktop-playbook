@@ -5,7 +5,7 @@
 - name: Instalar python3
   apt:
     name: python{{ PYTHON_VERSION }}
-    state: present
+    state: latest
     update_cache: yes
 
 # - name: Create symbolic link 
@@ -23,3 +23,9 @@
   pip:
     name: scikit-learn
     extra_args: -U
+
+- name: Instalar neupy
+  pip:
+    name: neupy
+    extra_args: -U
+    executable: "/usr/bin/pip3"
