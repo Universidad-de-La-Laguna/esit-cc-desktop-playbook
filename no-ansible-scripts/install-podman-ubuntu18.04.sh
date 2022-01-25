@@ -9,7 +9,7 @@ echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:
 
 wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_18.04/Release.key -O- | apt-key add -
 apt-get update -qq -y
-apt-get -qq --yes install podman buildah s1kopeo
+apt-get -qq --yes install podman buildah skopeo
 podman --version
 
 # El kernel no soporta 
@@ -51,12 +51,13 @@ echo 'systemctl --user enable --now podman.socket' >> /usr/share/libpam-script/p
 #systemctl --user enable --now podman.socket
 echo 'LOGUID=`id -u ${USER}` ' >> /etc/profile
 echo 'export DOCKER_HOST="unix:///run/user/${LOGUID}/podman/podman.sock"' >> /etc/profile
-podman-remote info
+#podman-remote info
 
 # Hacemos creer a Code que Podman es Docker. Ojo, un alias no funciona.
 # rm -f /usr/bin/docker
 #mv /usr/bin/docker /usr/bin/docker.ori
 apt purge -y docker-ce*
+rm -f /usr/bin/docker
 ln -s /usr/bin/podman /usr/bin/docker
 
 # Instalar extensión de Docker en Code
