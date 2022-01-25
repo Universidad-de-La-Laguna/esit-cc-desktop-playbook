@@ -5,7 +5,7 @@
 
 
 apt-get install curl wget gnupg2 -y
-echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_/etc/os-release/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04/etc/os-release/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
 
 wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_18.04/Release.key -O- | apt-key add -
 apt-get update -qq -y
