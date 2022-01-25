@@ -5,9 +5,9 @@
 
 
 apt-get install curl wget gnupg2 -y
-. /etc/os-release
-echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_${VERSION_ID}/Release.key -O- | apt-key add -
+echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_/etc/os-release/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+
+wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_18.04/Release.key -O- | apt-key add -
 apt-get update -qq -y
 apt-get -qq --yes install podman buildah skopeo
 podman --version
