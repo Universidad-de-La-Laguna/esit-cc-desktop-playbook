@@ -46,12 +46,12 @@ chmod go-rwx,u+rwx /usr/local/bin/crea-ficheros-subuid-subguid.py
 #EOF
 
 echo "" >> /etc/profile
-echo 'systemctl --user enable --now podman.socket' >> /etc/profile
+#echo 'systemctl --user enable --now podman.socket' >> /etc/profile
+echo 'systemctl --user enable --now podman.socket' >> /usr/share/libpam-script/pam_script_ses_open
 #systemctl --user enable --now podman.socket
 echo 'LOGUID=`id -u ${USER}` ' >> /etc/profile
 echo 'export DOCKER_HOST="unix:///run/user/${LOGUID}/podman/podman.sock"' >> /etc/profile
 podman-remote info
-
 
 # Hacemos creer a Code que Podman es Docker. Ojo, un alias no funciona.
 # rm -f /usr/bin/docker
