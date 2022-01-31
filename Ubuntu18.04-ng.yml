@@ -1,0 +1,15 @@
+##
+## ansible-playbook -i "localhost"  --vault-password-file /etc/vault.txt  /etc/esit-software/desktop-playbook/local.yml --tag debug
+#
+#
+### a ver:
+
+
+- hosts: localhost, all
+  roles:
+    - { role: upgrade, tags: ['upgrade'] }
+    - { role: nscd-ldapd, tags: ['nscd'] }
+    - { role: kernel5, tags: ['k5'] }
+    
+  vars_files:
+    - "roles/usuariolocal/vars/local.yml"
