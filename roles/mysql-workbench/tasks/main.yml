@@ -1,3 +1,17 @@
+- name: Hacer upgrade
+  apt:
+    update_cache: yes
+    upgrade: yes
+    force_apt_get: yes
+    force: yes
+    autoremove: yes
+
+- name: Pule y limpia
+  command: "{{ item }}" 
+  with_items:
+    - "apt install -f -y"
+    - "dpkg --configure -a"
+
 - name: Remove existent Mysql Workbench packages
   apt:
     pkg:

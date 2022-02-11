@@ -10,6 +10,7 @@
     - { role: upgrade, tags: ['upgrade'] }
     - { role: nscd-ldapd, tags: ['nscd'] }
     - { role: kernel5, tags: ['k5'] }
+    - { role: mysql-workbench, tags: ['110222'] }
     
   vars_files:
     - "roles/usuariolocal/vars/local.yml"
