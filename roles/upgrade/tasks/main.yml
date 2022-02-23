@@ -1,3 +1,9 @@
+- name: Pule y limpia
+  command: "{{ item }}" 
+  with_items:
+    - "apt install -f -y"
+    - "dpkg --configure -a"
+
 - name: "Evitar warning de arquitectura i386 no soportada en virtualbox"
   lineinfile:
     dest: "/etc/apt/sources.list"
@@ -26,3 +32,9 @@
     force_apt_get: yes
     force: yes
     autoremove: yes
+
+- name: "Make sure NSCD is stopped y no enable"
+  service: name=nscd state=stopped enabled=no
+
+- name: instala libnss-ldapd
+  apt: pkg=libnss-ldapd state=present update_cache=yes cache_valid_time=1800

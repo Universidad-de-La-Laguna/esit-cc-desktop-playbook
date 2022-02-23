@@ -1,0 +1,24 @@
+- name: Untar Cheddar
+  unarchive:
+    src: http://cc.etsii.ull.es/ftp/packages/Cheddar-3.2-Linux64-bin.tar.gz
+    dest: /opt/
+    remote_src: yes
+
+- name: "variables de entorno cheddar"
+  copy:
+      src: template/opt/Cheddar-3.2-Linux64-bin/cheddar.bash
+      dest: /opt/Cheddar-3.2-Linux64-bin/cheddar.bash
+      owner: root
+      group: root
+      mode: "u=rx,g=rx,o=rx"
+
+- name: "ejecutable cheddar"
+  copy:
+      src: template/usr/local/bin/cheddar-script
+      dest: /usr/local/bin/cheddar-script
+      owner: root
+      group: root
+      mode: "u=rx,g=rx,o=rx"
+
+    
+    

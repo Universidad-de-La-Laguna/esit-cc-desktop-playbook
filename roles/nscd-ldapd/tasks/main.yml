@@ -2,5 +2,7 @@
 - name: "Make sure NSCD is stopped y no enable"
   service: name=nscd state=stopped enabled=no
 
-- name: Install the nscd service to work around dns timeouts
+- name: instala libnss-ldapd
   apt: pkg=libnss-ldapd state=present update_cache=yes cache_valid_time=1800
+
+  

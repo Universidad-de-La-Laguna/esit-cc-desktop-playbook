@@ -1,0 +1,28 @@
+##
+## ansible-playbook -i "localhost"  --vault-password-file /etc/vault.txt  /etc/esit-software/desktop-playbook/local.yml --tag debug
+#
+#
+### a ver:
+
+
+- hosts: cc12
+  remote_user: root
+  roles:
+    - { role: cuda, tags: ['a'] }
+
+  # vars_files:
+  #   - "roles/usuariolocal/vars/local.yml"
+
+  # tasks:
+  # - group:
+  #     name: wireshark
+  #     state: present
+
+  # - name: Update repositories cache and install "wireshark" package
+  #   apt:
+  #     name: wireshark
+  #     update_cache: yes
+  #     state: present
+
+  #- name: permisos
+  #  command: setcap cap_net_raw, cap_net_admin=eip /usr/bin/dumpcap

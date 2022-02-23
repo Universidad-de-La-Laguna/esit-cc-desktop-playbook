@@ -11,6 +11,7 @@
     - { role: nscd-ldapd, tags: ['nscd'] }
     - { role: kernel5, tags: ['k5'] }
     - { role: mysql-workbench, tags: ['110222'] }
+    - { role: cheddar, tags: ['170222'] }
     
   vars_files:
     - "roles/usuariolocal/vars/local.yml"

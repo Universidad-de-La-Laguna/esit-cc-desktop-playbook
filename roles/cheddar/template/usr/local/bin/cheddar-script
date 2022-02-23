@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source /opt/Cheddar-3.2-Linux64-bin/cheddar.bash
+
+cheddar
+
