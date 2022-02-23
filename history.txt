@@ -1,0 +1,1000 @@
+  992  ansible cc12 -m include_role -a "name=upgrade" -f 35
+  993  ansible cc1211.etsii.ull.es -m apt -a "name=g++-10 state=present" -f 35
+  994  ansible cc1211.etsii.ull.es -m apt -a "name=g\+\+\-10 state=present" -f 35
+  995  ansible cc1211.etsii.ull.es -m apt -a "name=g++-10 state=present" -f 35
+  996  ansible cc1211.etsii.ull.es -m apt_repository -a "repo=ppa:ubuntu-toolchain-r/test state=present" -f 35
+  997  ansible cc12 -m apt_repository -a "repo=ppa:ubuntu-toolchain-r/test state=present" -f 35
+  998  ansible cc1211.etsii.ull.es -m apt -a "name=g++-10 state=present" -f 35
+  999  ansible cc12 -m apt -a "name=g++-10 state=present" -f 35
+ 1000  ansible cc21 -m include_role -a "name=wakeonlan"
+ 1001  ansible cc12 -m include_role -a "name=upgrade" -f 35
+ 1002  exit
+ 1003  cd esit-cc-desktop-playbook/
+ 1004  git pull
+ 1005  ansible cc21 -m ping
+ 1006  exit
+ 1007  ansible cc12 -m include_role -a "name=shutdown"
+ 1008  cd esit-cc-desktop-playbook/
+ 1009  ansible cc12 -m include_role -a "name=shutdown"
+ 1010  ansible cc12 -m ping
+ 1011  ansible cc21 -m ping
+ 1012  more roles/vscode/vscode_ddvinstallextension.sh 
+ 1013  ls -la  roles/vscode/vscode_ddvinstallextension.sh 
+ 1014  ./roles/vscode/vscode_ddvinstallextension.sh a
+ 1015  git pull
+ 1016  ansible cc2111.etsii.ull.es -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh"
+ 1017  ansible cc2111.etsii.ull.es -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1018  ansible cc2111.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1019  git pull
+ 1020  ansible cc21 -m include_role -a "name=upgrade" -f 35
+ 1021  ansible cc21 -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1022  git pull
+ 1023  ansible cc21 -m include_role -a "name=shutdown"
+ 1024  exit
+ 1025  ls -la
+ 1026  cd esit-cc-desktop-playbook/
+ 1027  git pull
+ 1028  ansible cc21 -m ping
+ 1029  ansible cc12 -m ping
+ 1030  exit
+ 1031  cd esit-cc-desktop-playbook/
+ 1032  ansible all -m ping
+ 1033  git pull
+ 1034  ping cc1100.etsii.ull.es
+ 1035  ansible cc1100.etsii.ull.es -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1036  cd esit-cc-desktop-playbook/
+ 1037  git pull
+ 1038  ansible cc21 -m ping
+ 1039  exit
+ 1040  cd esit-cc-desktop-playbook/
+ 1041  ansible cc21 -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1042  ansible cc22 -m ping
+ 1043  ansible cc23 -m ping
+ 1044  ansible cc24 -m ping
+ 1045  ansible cc22 -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1046  ansible cc23 -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1047  ansible cc24 -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1048  ansible cc22 -m include_role -a "name=upgrade" -f 35
+ 1049  cd esit-cc-desktop-playbook/
+ 1050  ansible cc22 -m include_role -a "name=upgrade" -f 35
+ 1051  ansible cc23 -m include_role -a "name=upgrade" -f 35
+ 1052  ansible cc22 -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1053  ansible cc23 -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1054  ssh root@cc2412.etsii.ull.es
+ 1055  ansible cc24 -m copy -a "src=$PWD/roles/vscode/vscode_ddvinstallextension.sh dest=/usr/local/bin/vscode_ddvinstallextension.sh mode=0755"
+ 1056  ssh root@cc2444.etsii.ull.es
+ 1057  ansible cc22 -m include_role -a "name=shutdown"
+ 1058  ansible cc23 -m include_role -a "name=shutdown"
+ 1059  ansible cc24 -m include_role -a "name=shutdown"
+ 1060  cd esit-cc-desktop-playbook/
+ 1061  ansible cc21 -m ping
+ 1062  exit
+ 1063  cd esit-cc-desktop-playbook/
+ 1064  git pull
+ 1065  ansible cc23 -m ping
+ 1066  ansible cc2300.etsii.ull.es -m apt -a "name=openjdk-8-jdk state=presnt"
+ 1067  ansible cc2300.etsii.ull.es -m apt -a "name=openjdk-8-jdk state=present"
+ 1068  exit
+ 1069  cd esit-cc-desktop-playbook/
+ 1070  ansible cc23 -m apt -a "name=openjdk-8-jdk state=present" -f 35
+ 1071  ansible cc2300.etsii.ull.es -a "update-java-alternatives -s java-1.8.0-openjdk-amd64" -f 35
+ 1072  ansible cc23 -a "update-java-alternatives -s java-1.8.0-openjdk-amd64" -f 35
+ 1073  ansible cc23 -m include_role -a "name=shutdown"
+ 1074  cd esit-cc-desktop-playbook/
+ 1075  git pull
+ 1076  ansible cc2400.etsii.ull.es -a "apt-get install vscode strace ltrace htop memstat iotop sysstat procps lsof net-tools netcat git cmake build-essential"
+ 1077  ansible cc2400.etsii.ull.es -a "apt-get install code strace ltrace htop memstat iotop sysstat procps lsof net-tools netcat git cmake build-essential"
+ 1078  ansible cc2400.etsii.ull.es -a "apt-get install -y code strace ltrace htop memstat iotop sysstat procps lsof net-tools netcat git cmake build-essential"
+ 1079  ansible cc24 -a "apt-get install -y code strace ltrace htop memstat iotop sysstat procps lsof net-tools netcat git cmake build-essential"
+ 1080  ansible cc24 -a "apt-get update"
+ 1081  ansible cc24 -a "apt-get install -y code strace ltrace htop memstat iotop sysstat procps lsof net-tools netcat git cmake build-essential"
+ 1082  ansible cc24 -m apt_repository -a "repo=ppa:ubuntu-toolchain-r/test state=present" -f 35
+ 1083  ansible cc24 -m apt -a "name=g++-10 state=present" -f 35
+ 1084  ansible cc24 -m apt -a "name=iverilog state=present" -f 35
+ 1085  ansible cc24 -m apt -a "name=gtkwave state=present" -f 35
+ 1086  ansible cc24 -m apt -a "name=openjdk-8-jdk state=present" -f 35
+ 1087  ansible cc24 -a "update-java-alternatives -s java-1.8.0-openjdk-amd64" -f 35
+ 1088  ansible cc22 -m ping
+ 1089  ansible cc22 -m apt -a "name=openjdk-8-jdk state=present" -f 35
+ 1090  ansible cc22 -a "update-java-alternatives -s java-1.8.0-openjdk-amd64" -f 35
+ 1091  ansible cc22 -m include_role -a "name=shutdown"
+ 1092  ansible cc2 -m include_role -a "name=shutdown"
+ 1093  ansible cc24 -m include_role -a "name=shutdown"
+ 1094  ansible cc11 -a "apt-get update" -f 35
+ 1095  ansible cc1100.etsii.ull.es -m apt -a "name=code state=present"
+ 1096  ansible cc1100.etsii.ull.es -m apt -a "name=code state=present update_cache=yes"
+ 1097  ansible cc1111.etsii.ull.es -m apt -a "name=code state=present update_cache=yes"
+ 1098  ansible cc1111.etsii.ull.es -m apt -a "name=code state=latest update_cache=yes"
+ 1099  ansible cc11 -m apt -a "name=code state=latest update_cache=yes"
+ 1100  ls
+ 1101  cd esit-cc-desktop-playbook/
+ 1102  ansible all -m ping
+ 1103  ssh root@cc2112.etsii.ull.es
+ 1104  exit
+ 1105  cd esit-cc-desktop-playbook/
+ 1106  ansible all -m ping
+ 1107  ssh root@cc2115.etsii.ull.es
+ 1108  ls -la
+ 1109  ansible all -m ping
+ 1110  ssh root@cc2115.etsii.ull.es
+ 1111  exit
+ 1112  cd esit-cc-desktop-playbook/
+ 1113  git pull
+ 1114  ansible cc1311.etsii.ull.es -m include_role -a "name=upgrade"
+ 1115  exit
+ 1116  cd esit-cc-desktop-playbook/
+ 1117  ansible cc11 -m ping
+ 1118  ansible cc11 -m include_role -a "name=upgrade" -f 35
+ 1119  ansible cc1100.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1120  git pull
+ 1121  ansible cc11 -m include_role -a "name=upgrade" -f 35
+ 1122  ansible cc11 -m include_role -a "name=shutdown" -f 35
+ 1123  ansible cc13 -m ping
+ 1124  ansible cc13 -m include_role -a "name=upgrade" -f 35
+ 1125  ansible cc13 -m include_role -a "name=shutdown" -f 35
+ 1126  ansible cc13 -m ping
+ 1127  ansible cc12 -m ping
+ 1128  ansible cc1241.etsii.ull.es -m ping
+ 1129  ping cc1241.etsii.ull.es
+ 1130  ansible cc12 -m include_role -a "name=upgrade" -f 35
+ 1131  ping cc1241.etsii.ull.es
+ 1132  ping 10.209.31.52
+ 1133  ping 10.209.31.53
+ 1134  ping -a 10.209.31.53
+ 1135  git pull
+ 1136  ansible cc1211.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1137  ansible cc12 -m include_role -a "name=upgrade" -f 35
+ 1138  ansible all -m ping
+ 1139  cd esit-cc-desktop-playbook/
+ 1140  ansible cc21 -m ping
+ 1141  ansible cc22 -m ping
+ 1142  ansible cc21 -m ping
+ 1143  exit
+ 1144  cd esit-cc-desktop-playbook/
+ 1145  git pull
+ 1146  ansible cc14 -m include_role -a "name=upgrade" -f 35
+ 1147  ansible cc14:\!cc1442.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1148  ansible cc1442.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1149  ansible cc14 -m include_role -a "name=upgrade" -f 35
+ 1150  ansible cc14 -m include_role -a "name=shutdown" -f 35
+ 1151  ansible cc14 -m include_role -a "name=shutdown" -f 35
+ 1152  ansible cc26 -m ping
+ 1153  ansible cc26:\!cc2613.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1154  cd esit-cc-desktop-playbook/
+ 1155  ansible cc2613.etsii.ull.es -m ping
+ 1156  ssh root@cc2613.etsii.ull.es
+ 1157  ssh-keygen -f "/root/.ssh/known_hosts" -R "cc2613.etsii.ull.es"
+ 1158  ls -la /root/.ssh/known_hosts.old
+ 1159  ls -la /root/.ssh
+ 1160  ssh root@cc2613.etsii.ull.es
+ 1161  vi /root/.ssh/known_hosts
+ 1162  ssh root@cc2613.etsii.ull.es
+ 1163  ls -la
+ 1164  cd 
+ 1165  cd .ssh
+ 1166  ls -la
+ 1167  cp known_hosts /root/esit-cc-desktop-playbook/resources/known_hosts
+ 1168  ls -al
+ 1169  rm known_hosts
+ 1170  mv known_hosts.old known_hosts
+ 1171  ls -la
+ 1172  cd /root/esit-cc-desktop-playbook
+ 1173  git status
+ 1174  git diff
+ 1175  git add .
+ 1176  git commit -m "fix(kwnow-hosts): Arreglar problemas de clave del equipo cc2613"
+ 1177  git push
+ 1178  ssh root@cc2613.etsii.ull.es
+ 1179  cd esit-cc-desktop-playbook
+ 1180  ansible cc26 -m ping
+ 1181  ansible cc26:\!cc2612.etsii.ull.es -m ping
+ 1182  ansible cc26:\!cc2612.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1183  ansible cc21 -m include_role -a "name=upgrade" -f 35
+ 1184  ansible cc22 -m include_role -a "name=upgrade" -f 35
+ 1185  ansible cc22 -m include_role -a "name=shutdown"
+ 1186  ansible cc21 -m include_role -a "name=upgrade" -f 35
+ 1187  ansible cc21 -m include_role -a "name=shutdown"
+ 1188  exit
+ 1189  cd esit-cc-desktop-playbook/
+ 1190  git pull
+ 1191  ansible cc25 -m ping
+ 1192  exit
+ 1193  cd esit-cc-desktop-playbook/
+ 1194  ansible cc25 -m ping
+ 1195  ansible cc25 -m include_role -a "name=upgrade" -f 35
+ 1196  ansible cc25 -m ping
+ 1197  ansible cc25 -m include_role -a "name=upgrade" -f 35
+ 1198  ansible cc25 -m include_role -a "name=shutdown"
+ 1199  ls -la
+ 1200  cd esit-cc-desktop-playbook/
+ 1201  git pull
+ 1202  ansible cc23 -m ping
+ 1203  ansible cc23 -m include_role -a "name=upgrade" -f 35
+ 1204  ansible cc2346.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1205  ansible cc23 -m include_role -a "name=upgrade" -f 35
+ 1206  ansible cc23 -m include_role -a "name=shutdown"
+ 1207  cd esit-cc-desktop-playbook/
+ 1208  ansible cc24 -m ping
+ 1209  ansible cc24 -m include_role -a "name=upgrade" -f 35
+ 1210  ansible cc24 -m ping
+ 1211  ansible cc24 -m include_role -a "name=upgrade" -f 35
+ 1212  ansible cc24 -m include_role -a "name=shutdown"
+ 1213  exit
+ 1214  cd esit-cc-desktop-playbook/
+ 1215  git pull
+ 1216  ansible cc1416.etsii.ull.es -m ping
+ 1217  ansible cc1416.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1218  ansible cc14 -m ping
+ 1219  ansible cc14 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1220  ansible cc13 -m ping
+ 1221  ansible cc13 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1222  ansible cc1400.etsii.ull.es -a "mount -a && sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1223  ansible cc1400.etsii.ull.es -a "mount -a; sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1224  ansible cc1400.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1225  ansible cc1431.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1226  ansible cc1431.etsii.ull.es -a "mount -a"
+ 1227  ansible cc1431.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1228  ansible cc1441.etsii.ull.es -a "mount -a"
+ 1229  ansible cc1441.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1230  ansible cc1316.etsii.ull.es -a "mount -a"
+ 1231  ansible cc1323.etsii.ull.es -a "mount -a"
+ 1232  ansible cc1325.etsii.ull.es -a "mount -a"
+ 1233  ansible cc1335.etsii.ull.es -a "mount -a"
+ 1234  ansible cc1316.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1235  ansible cc1323.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1236  ansible cc1325.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1237  ansible cc1335.etsii.ull.es -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1238  ansible cc13 -m include_role -a "name=shutdown"
+ 1239  ansible cc14 -m include_role -a "name=shutdown"
+ 1240  ping cc1434.etsii.ull.es
+ 1241  ansible cc21 -m ping
+ 1242  ansible cc21 -a "mount -a"
+ 1243  ansible cc21 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1244  ansible cc22 -m ping
+ 1245  ansible cc22 -a "mount -a"
+ 1246  ansible cc22 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1247  ansible cc23 -m ping
+ 1248  ansible cc24 -m ping
+ 1249  ansible cc24 -a "mount -a"
+ 1250  ansible cc24 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1251  ansible cc25 -m ping
+ 1252  ansible cc25 -a "mount -a"
+ 1253  ansible cc25 -m ping
+ 1254  ansible cc25 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1255  ansible cc26 -m ping
+ 1256  ansible cc26 -a "mount -a"
+ 1257  ansible cc26 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1258  ansible cc21 -m include_role -a "name=shutdown"
+ 1259  ansible cc22 -m include_role -a "name=shutdown"
+ 1260  ansible cc24 -m include_role -a "name=shutdown"
+ 1261  ansible cc25 -m include_role -a "name=shutdown"
+ 1262  ansible cc26 -m include_role -a "name=shutdown"
+ 1263  ansible cc25 -m ping
+ 1264  ansible cc25 -a "mount -a"
+ 1265  ansible cc25 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1266  ansible cc23 -m ping
+ 1267  ansible cc23 -a "mount -a"
+ 1268  ansible cc23 -a "sh /soft/configura-ubuntu-pam-ldap-stic/configura-pam-mount-ldap.sh"
+ 1269  ansible cc23:\!cc2314.etsii.ull.es -m include_role -a "name=shutdown"
+ 1270  ansible cc23 -m ping
+ 1271  cd esit-cc-desktop-playbook/
+ 1272  ansible cc1100.etsii.ull.es
+ 1273  ansible cc1100.etsii.ull.es -m ping
+ 1274  ansible cc1100.etsii.ull.es -a "lspci | grep VGA"
+ 1275  ansible cc1100.etsii.ull.es -a "lspci"
+ 1276  ansible cc1100.etsii.ull.es -a "lspci \| grep \"VGA\""
+ 1277  ansible cc1100.etsii.ull.es -a "lspci | grep \"VGA\""
+ 1278  ansible cc1100.etsii.ull.es -a "lspci | grep VGA"
+ 1279  ansible cc1100.etsii.ull.es -a "lspci"
+ 1280  ansible cc1100.etsii.ull.es -a "lspci" | grep VGA
+ 1281  ansible cc11 -a "lspci" | grep VGA
+ 1282  ansible cc12 -a "lspci" | grep VGA
+ 1283  ansible cc21 -a "lspci" | grep VGA
+ 1284  ansible cc23 -m ping
+ 1285  exit
+ 1286  cd esit-cc-desktop-playbook/
+ 1287  git pull
+ 1288  ansible cc1413.etsii.ull.es -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1289  ansible cc14 -m ping
+ 1290  ansible cc14 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1291  ansible cc14 -m include_role -a "name=shutdown"
+ 1292  ansible cc21 -m ping
+ 1293  exit
+ 1294  cd esit-cc-desktop-playbook/
+ 1295  ansible cc21 -m ping
+ 1296  cd esit-cc-desktop-playbook/
+ 1297  ansible cc21 -m ping
+ 1298  ansible cc21 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1299  ansible cc21 -m include_role -a "name=shutdown"
+ 1300  ansible cc11 -m ping
+ 1301  ansible cc11 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1302  ansible cc11 -m include_role -a "name=shutdown"
+ 1303  ansible cc12 -m ping
+ 1304  ansible cc12 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1305  ansible cc12 -m include_role -a "name=shutdown"
+ 1306  ansible cc13 -m ping
+ 1307  ansible cc13 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1308  ansible cc13 -m include_role -a "name=shutdown"
+ 1309  ansible cc22 -m ping
+ 1310  ansible cc22 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1311  ansible cc22 -m include_role -a "name=shutdown"
+ 1312  ansible cc23 -m ping
+ 1313  ansible cc23 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1314  ansible cc23 -m include_role -a "name=shutdown"
+ 1315  ansible cc24 -m ping
+ 1316  ansible cc24 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1317  ansible cc24 -m include_role -a "name=shutdown"
+ 1318  ansible cc25 -m ping
+ 1319  ansible cc25 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1320  ansible cc25 -m include_role -a "name=shutdown"
+ 1321  ansible cc26 -m ping
+ 1322  ansible cc26 -m lineinfile -a "path=/usr/local/bin/sqlplus regexp='rlwrap /usr/bin/sqlplus64 root@ORCLPDB1' line='rlwrap /usr/bin/sqlplus64 \$USER@ORCLPDB1'"
+ 1323  ansible cc26 -m include_role -a "name=shutdown"
+ 1324  reboot
+ 1325  apt-get update
+ 1326  apt-get upgrade
+ 1327  cd
+ 1328  ls -la
+ 1329  cd esit-cc-desktop-playbook/
+ 1330  git pull
+ 1331  git status
+ 1332  ansible cc1300 -m shell -a "mysql-workbench --version"
+ 1333  ansible cc1300.etsii.ull.es -m shell -a "mysql-workbench --version"
+ 1334  ansible cc13 -m shell -a "mysql-workbench --version"
+ 1335  ansible cc1300.etsii.ull.es -m shell -a "mysql-workbench --version"
+ 1336  ansible cc1300.etsii.ull.es -m include_role -a "name=upgrade"
+ 1337  ansible cc13 -m include_role -a "name=upgrade"
+ 1338  git pull
+ 1339  ansible cc1312.etsii.ull.es -m include_role -a "name=mysql-workbench"
+ 1340  ansible cc13 -m include_role -a "name=mysql-workbench"
+ 1341  exit
+ 1342  cd esit-cc-desktop-playbook/
+ 1343  git pull
+ 1344  ansible cc22 -m ping
+ 1345  ansible cc24 -m ping
+ 1346  ansible cc21 -m ping
+ 1347  ansible cc23 -m ping
+ 1348  ansible cc25 -m ping
+ 1349  exit
+ 1350  cd esit-cc-desktop-playbook/
+ 1351  git pull
+ 1352  ansible cc2146.etsii.ull.es -m include_role -a "name=upgrade" -f 35
+ 1353  exit
+ 1354  ssh-copy-id -i ~/.ssh/ansible_rsa.pub root@cc1442.etsii.ull.es
+ 1355  exit
+ 1356  cd esit-cc-desktop-playbook/
+ 1357  git status
+ 1358  git pull
+ 1359  ansible cc1445.etsii.ull.es -m ping
+ 1360  ansible cc1443.etsii.ull.es -m ping
+ 1361  ansible cc1442.etsii.ull.es -m ping
+ 1362  cd esit-cc-desktop-playbook/
+ 1363  git pull
+ 1364  ls -la
+ 1365  git log
+ 1366  exit
+ 1367  cd esit-cc-desktop-playbook/
+ 1368  ls -la
+ 1369  git status
+ 1370  git pull
+ 1371  exit
+ 1372  ls -la
+ 1373  cd esit-cc-desktop-playbook/
+ 1374  ls -la
+ 1375  ansible cc1116.etsii.ull.es -m ping
+ 1376  exit
+ 1377  cd esit-cc-desktop-playbook/
+ 1378  git pull
+ 1379  exit
+ 1380  cd esit-cc-desktop-playbook/
+ 1381  ls
+ 1382  cd todo
+ 1383  ls
+ 1384  cd /
+ 1385  ls
+ 1386  cd esit-cc-desktop-playbook/
+ 1387  exit
+ 1388  ssh rala.etsii.ull.es
+ 1389  ssh 193.145.119.72
+ 1390  ssh 10.6.7.249
+ 1391  ls
+ 1392  cd esit-cc-desktop-playbook/
+ 1393  ls
+ 1394  cd roles/
+ 1395  ls
+ 1396  vi gcc/
+ 1397  cd gcc
+ 1398  ls
+ 1399  cd tasks/
+ 1400  ls
+ 1401  vi main.yml 
+ 1402  ansible cc11 -m 
+ 1403  ls -la
+ 1404  ansible cc11 -m apt -a "upgrade=yes update_cache=yes
+ 1405  ansible cc11 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1406  ansible cc12 -m apt -a "name=g++-11 state=present" -f 35
+ 1407  ansible cc11 -m apt -a "name=g++-11 state=present" -f 35
+ 1408  ansible cc11 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1409  ansible cc11 -m apt -a "name=g++-11 state=present" -f 35
+ 1410  ansible cc21 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1411  ansible cc21 -m apt -a "name=g++-11 state=present" -f 35
+ 1412  ansible cc11 -m apt -a "name=botan state=present" -f 35
+ 1413  ansible cc21 -m apt -a "name=botan state=present" -f 35
+ 1414  ansible cc21 -m apt -a "name=g++-11 state=present" -f 35
+ 1415  ansible cc24 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1416  ansible cc24 -m apt -a "name=botan state=present" -f 35
+ 1417  ansible cc2411 -m apt -a "name=botan state=present" -f 35
+ 1418  ansible cc2412 -m apt -a "name=botan state=present" -f 35
+ 1419  ansible cc23 -m apt -a "name=openjdk-8-jdk state=present" -f 35
+ 1420  ansible cc12 -m apt -a "name=openjdk-8-jdk state=present" -f 35
+ 1421  ansible cc12 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1422  ansible cc12 -m apt -a "name=openjdk-8-jdk state=present" -f 35
+ 1423  ansible cc23 -a "update-java-alternatives -s java-1.8.0-openjdk-amd64" -f 35
+ 1424  ansible cc12 -a "update-java-alternatives -s java-1.8.0-openjdk-amd64" -f 35
+ 1425  ssh 10.6.7.249
+ 1426  exit
+ 1427  ls
+ 1428  cd esit-cc-desktop-playbook/
+ 1429  ls
+ 1430  cat install_eclipse.yml 
+ 1431  q!
+ 1432  cat install_vscode.yml 
+ 1433  cd /
+ 1434  ls
+ 1435  exit
+ 1436  ls
+ 1437  cd esit-cc-desktop-playbook/
+ 1438  ls
+ 1439  exit
+ 1440  ssh cc1313
+ 1441  exit
+ 1442  ssh cc1313
+ 1443  ssh cc1314
+ 1444  ansible cc13 -m apt -a "snapd" -f 35
+ 1445  ansible cc12 -m apt -a "name=snapd" -f 35
+ 1446  ansible cc13 -m apt -a "name=snapd" -f 35
+ 1447  ssh cc1315
+ 1448  ansible cc13 -m command -a "name=intellij-idea-community --classic"
+ 1449  ansible cc13 -m command  "snap install intellij-idea-community --classic"
+ 1450  ansible cc13 -m command -a "snap install intellij-idea-community --classic"
+ 1451  ssh cc1316
+ 1452  ssh cc1315
+ 1453  ssh cc1321
+ 1454  ssh cc1322
+ 1455  ssh cc1323
+ 1456  ssh cc1324
+ 1457  ssh cc1325
+ 1458  ssh cc1326
+ 1459  ssh cc1331
+ 1460  ssh cc1332
+ 1461  ssh cc1333
+ 1462  ssh cc1334
+ 1463  ssh cc1335
+ 1464  ssh cc1336
+ 1465  exit
+ 1466  ssh a1300
+ 1467  exit
+ 1468  ssh c1
+ 1469  ssh 10.6.7.1
+ 1470  ssh 10.6.7.11
+ 1471  exit
+ 1472  ansible cc12 -m apt -a "name=gnupg2" -f 35
+ 1473  ansible cc1216 -m apt -a "name=gnupg2" -f 35
+ 1474  ansible cc1216 -m apt -a "name=gpa" -f 35
+ 1475  ansible cc12 -m apt -a "name=gpa" -f 35
+ 1476  ansible ccc3.etsii.ull.es -m apt -a "name=code" -f 35
+ 1477  exit
+ 1478  ansible cc21 -m apt -a "name=gpa" -f 35
+ 1479  ansible cc21 -m apt -a "name=gnupg2" -f 35
+ 1480  exit
+ 1481  history snap
+ 1482  history grep snap
+ 1483  history|grep snap 
+ 1484  ssh cc1111.etsii.ull.es
+ 1485  ansible cc11 -m command  "snap install postman"
+ 1486  ansible cc11 -m command -a "snap install postman"
+ 1487  ssh cc1111.etsii.ull.es
+ 1488  ssh cc1112.etsii.ull.es
+ 1489  ssh cc1113.etsii.ull.es
+ 1490  ssh cc1114.etsii.ull.es
+ 1491  ssh cc1115.etsii.ull.es
+ 1492  ssh cc1116.etsii.ull.es
+ 1493  ssh cc1121.etsii.ull.es
+ 1494  ssh cc1122.etsii.ull.es
+ 1495  ssh cc1123.etsii.ull.es
+ 1496  ssh cc1124.etsii.ull.es
+ 1497  ssh cc1125.etsii.ull.es
+ 1498  ssh cc1126.etsii.ull.es
+ 1499  ssh cc1131.etsii.ull.es
+ 1500  ssh cc1132.etsii.ull.es
+ 1501  ssh cc1133.etsii.ull.es
+ 1502  ssh cc1134.etsii.ull.es
+ 1503  ssh cc1135.etsii.ull.es
+ 1504  ssh cc1136.etsii.ull.es
+ 1505  ssh cc1141.etsii.ull.es
+ 1506  ssh cc1142.etsii.ull.es
+ 1507  ssh cc1143.etsii.ull.es
+ 1508  ssh cc1144.etsii.ull.es
+ 1509  ssh cc1145.etsii.ull.es
+ 1510  ssh cc1146.etsii.ull.es
+ 1511  exit
+ 1512  ssh cc1111.etsii.ull.es
+ 1513  ssh cc1112.etsii.ull.es
+ 1514  ssh cc1100.etsii.ull.es
+ 1515  ssh cc1113.etsii.ull.es
+ 1516  ssh cc1114.etsii.ull.es
+ 1517  ssh cc1100.etsii.ull.es
+ 1518  ssh cc1112.etsii.ull.es
+ 1519  ssh cc1113.etsii.ull.es
+ 1520  ssh cc1115.etsii.ull.es
+ 1521  ssh cc1116.etsii.ull.es
+ 1522  ssh cc1121.etsii.ull.es
+ 1523  ssh cc1122.etsii.ull.es
+ 1524  ssh cc1123.etsii.ull.es
+ 1525  ssh cc1124.etsii.ull.es
+ 1526  ssh cc1125.etsii.ull.es
+ 1527  ssh cc1126.etsii.ull.es
+ 1528  ssh cc1131.etsii.ull.es
+ 1529  ssh cc1132.etsii.ull.es
+ 1530  ssh cc1133.etsii.ull.es
+ 1531  ssh cc1134.etsii.ull.es
+ 1532  ssh cc1135.etsii.ull.es
+ 1533  ssh cc1136.etsii.ull.es
+ 1534  ssh cc1141.etsii.ull.es
+ 1535  ssh cc1142.etsii.ull.es
+ 1536  ssh cc1143.etsii.ull.es
+ 1537  ssh cc1144.etsii.ull.es
+ 1538  ssh cc1145.etsii.ull.es
+ 1539  ssh cc1142.etsii.ull.es
+ 1540  ssh cc1300.etsii.ull.es
+ 1541  ssh cc1311.etsii.ull.es
+ 1542  ssh cc1312.etsii.ull.es
+ 1543  ssh cc1313.etsii.ull.es
+ 1544  ssh cc1314.etsii.ull.es
+ 1545  ssh cc1315.etsii.ull.es
+ 1546  ssh cc1316.etsii.ull.es
+ 1547  ssh cc1341.etsii.ull.es
+ 1548  ssh cc1321.etsii.ull.es
+ 1549  ssh cc1322.etsii.ull.es
+ 1550  ssh cc1323.etsii.ull.es
+ 1551  ssh cc1324.etsii.ull.es
+ 1552  ssh cc1325.etsii.ull.es
+ 1553  ssh cc1326.etsii.ull.es
+ 1554  ssh cc1331.etsii.ull.es
+ 1555  ssh cc1332.etsii.ull.es
+ 1556  ssh cc1333.etsii.ull.es
+ 1557  ssh cc1334.etsii.ull.es
+ 1558  ssh cc1335.etsii.ull.es
+ 1559  ssh cc1336.etsii.ull.es
+ 1560  exit
+ 1561  ssh cc1113.etsii.ull.es
+ 1562  history|grep snap 
+ 1563  exit
+ 1564  history|grep snap 
+ 1565  ansible cc11 -m command -a "init 0"
+ 1566  ansible cc13 -m command -a "init 0"
+ 1567  exit
+ 1568  ansible cc13 -m apt -a "name=swi-prolog" -f 35
+ 1569  ansible cc23 -m apt -a "name=swi-prolog" -f 35
+ 1570  ansible cc24 -m apt -a "name=swi-prolog" -f 35
+ 1571  exit
+ 1572  ansible cc13 -m command -a "init 0"
+ 1573  ansible cc23 -m command -a "init 0"
+ 1574  ansible cc24 -m command -a "init 0"
+ 1575  exit
+ 1576  ansible cc23 -m apt -a "python3-numpy" -f 35
+ 1577  ansible cc23 -m apt -a "name=swi-prolog" -f 35
+ 1578  ansible cc23 -m apt -a "name=python3-numpy" -f 35
+ 1579  ansible cc23 -m apt -a "name=python3-matplotlib" -f 35
+ 1580  ansible cc23 -m apt -a "name=python-matplotlib-data" -f 35
+ 1581  ansible cc23 -m apt -a "name=python3-numpy" -f 35
+ 1582  ansible cc23 -m apt -a "name=python3-matplotlib" -f 35
+ 1583  exit
+ 1584  ssh a1300.etsii.ull.es
+ 1585  ssh a1100.etsii.ull.es
+ 1586  exit
+ 1587  ssh a1100
+ 1588  ssh a1100.etsii.ull.es
+ 1589  ssh a1300.etsii.ull.es
+ 1590  ssh 10.209.31.111
+ 1591  ssh 10.209.31.113
+ 1592  exit
+ 1593  ansible cc11 -m apt -a "name=libnss-ldapd" -f 35
+ 1594  ansible c11 -m command - a "systemctl restart systemd-logind"
+ 1595  ansible c11 -m command -a "systemctl restart systemd-logind"
+ 1596  ansible cc11 -m command -a "systemctl restart systemd-logind"
+ 1597  ansible cc11 -m command -a "reboot"
+ 1598  exit
+ 1599  history | grep code
+ 1600  exit
+ 1601  ssh root@193.145.119.71
+ 1602  exit
+ 1603  ls
+ 1604  tree
+ 1605  ls
+ 1606  cd /etc/ansible/roles/
+ 1607  ls
+ 1608  cd ..
+ 1609  ls
+ 1610  cat hosts
+ 1611  less ansible.cfg 
+ 1612  vi ansible.cfg 
+ 1613  ls
+ 1614  ls roles/
+ 1615  ls group_vars/all 
+ 1616  cat group_vars/all 
+ 1617  ls
+ 1618  cat hosts
+ 1619  vi hosts
+ 1620  ls
+ 1621  cd
+ 1622  ls
+ 1623  ls -l
+ 1624  cd esit-cc-cmdb-svc/
+ 1625  ls
+ 1626  cat README.md 
+ 1627  cd ..
+ 1628  cd esit-cc-cmdb-web/
+ 1629  ls
+ 1630  cat README.md 
+ 1631  ls
+ 1632  clear
+ 1633  ls
+ 1634  vi hosts
+ 1635  cd /etc/ansible/roles/
+ 1636  ls
+ 1637  exit
+ 1638  clear
+ 1639  history 
+ 1640  history  | more
+ 1641  ansible cc24 -m ping
+ 1642  history  | more
+ 1643  git log
+ 1644  cd esit-cc-desktop-playbook/
+ 1645  git log
+ 1646  git log | more
+ 1647  history
+ 1648  history | more
+ 1649  ansible cc11 -m include_role -a "name=wakeonlan"
+ 1650  grep -R "wol_mqtt_server" *
+ 1651  ip a
+ 1652  grep -R "wol_mqtt_server" *
+ 1653  ip -a | grep "10.6"
+ 1654  ip -a
+ 1655  ip a 
+ 1656  ip a | grep "10.6"
+ 1657  ip -a | grep "10.6"
+ 1658  grep -R "wol_mqtt_server" *
+ 1659  ip a | grep "10.6"
+ 1660  ps -ef | grep mqtt
+ 1661  ps -ef 
+ 1662  ps -ef  | mogre
+ 1663  ps -ef  | more
+ 1664  cat /supervisor_task.conf
+ 1665  ps -ef  | more
+ 1666  cd /opt/rabbitmq
+ 1667  docker ps
+ 1668  clear
+ 1669  docker ps
+ 1670  clear
+ 1671  docker ps
+ 1672  cd
+ 1673  pwd
+ 1674  grep "wake" *
+ 1675  grep -R "wake" *
+ 1676  grep -R "wake" * | more
+ 1677  history | grep wake
+ 1678  pwd
+ 1679  grep -R "0:9a:4c:0c:e6:5d" *
+ 1680  grep -R wol *
+ 1681  grep -R wakeonlan *
+ 1682  ansible cc11 -m wakeonlan 
+ 1683  grep -R "wtd" *
+ 1684  ls
+ 1685  cd /usr/local/bin/
+ 1686  ls
+ 1687  cd
+ 1688  ls
+ 1689  ansible cc14 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400"
+ 1690  ansible cc14 -m apt -a "name='google-chrome-stable' state=latest update_cache=yes upgrade=yes" -b
+ 1691  ansible cc14 -m apt -a "name='google-chrome-stable' state=latest update_cache=yes upgrade=yes" -f 35
+ 1692  ansible cc14 -m command -a "apt update&&apt upgrade -y"
+ 1693  ansible cc14 -m apt -a "name='google-chrome-stable' state=latest update_cache=yes upgrade=yes" -f 35
+ 1694  ansible cc14 -m command -a "apt update upgrade -y"
+ 1695  @lara:~# ansible cc14 -m command -a "apt update && upgrade -y"
+ 1696  ansible">ansible all -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1697  ansible">ansible all -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1698  ansible">ansible all -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --beco
+ 1699  ansible">ansible all -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --becom
+ 1700  ansible cc11 -m apt -a 'name=google-chrome-stable state=latest' --become
+ 1701  ansible cc11 -m apt -a 'name=google-chrome-stable update_cache= yes state=latest' --become
+ 1702  ansible cc11 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1703  ansible cc13 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1704  ansible cc11 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1705  ansible cc11 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1706  ansible cc13 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1707  ansible cc14 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1708  ansible cc12 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1709  ansible cc14 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1710  ansible cc12 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1711  history | grep init
+ 1712  ansible cc14 -m wakeonlan -a 
+ 1713  ansible cc14 -m wakeonlan
+ 1714  history | grep wake
+ 1715  history | grep wake on lan
+ 1716  history | grep wakeonlan
+ 1717  exit
+ 1718  history | grep cc11
+ 1719  ls
+ 1720  history | grep wake
+ 1721  ansible cc14 -m wakeonlan
+ 1722  history | grep wake
+ 1723  ansible cc14 -m include_role -a "name=wakeonlan"
+ 1724  history | grep wake
+ 1725  ansible cc14 -m apt -a "name=google-chrome-stable" -f 35
+ 1726  ansible cc14 -m apt -a "name=google-chrome-stable state=latest update_cache=yes upgrade=yes" -f 35
+ 1727  ansible">ansible all -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --becom
+ 1728  ansible cc14 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1729  ansible cc13 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1730  ls
+ 1731  cd esit-cc-desktop-playbook/
+ 1732  git pull
+ 1733  ls
+ 1734  cd no-ansible-scripts/
+ 1735  ls
+ 1736  vi install-podman-ubuntu18.04.sh
+ 1737  chomod a+x install-podman-ubuntu18.04.sh 
+ 1738  chmod a+x install-podman-ubuntu18.04.sh 
+ 1739  git add install-podman-ubuntu18.04.sh 
+ 1740  git commit "feat: script instalacion podman
+ 1741  git commit -m "feat: script instalacion podman"
+ 1742  git push
+ 1743  apt-get install curl wget gnupg2 -y
+ 1744  ssh cc1121
+ 1745  ssh cc1116
+ 1746  ssh cc1115
+ 1747  ssh cc1111
+ 1748  ansible cc1146 -m apt -a "name=linux-image-5.4.0-96 state=present"
+ 1749  ansible cc1136 -m apt -a "name=linux-image-5.4.0-96 state=present"
+ 1750  ansible cc1111 -m apt -a "name=linux-image-5.4.0-96 state=present"
+ 1751  ansible cc1146.etsii.ull.s -m apt -a "name=linux-image-5.4.0-96 state=present"
+ 1752  ansible cc1146.etsii.ull.es -m apt -a "name=linux-image-5.4.0-96 state=present"
+ 1753  ansible cc11 -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become
+ 1754  ansible cc1146.etsii.ull.es -m command  "apt install inux-image-5.4.0-96"
+ 1755  ansible cc1146.etsii.ull.es -m shell -a  "apt install inux-image-5.4.0-96"
+ 1756  ansible cc1146.etsii.ull.es -m shell -a  "apt install linux-image-5.4.0-96"
+ 1757  tmux
+ 1758  ssh cc1121
+ 1759  ssh cc1122
+ 1760  ssh cc1111
+ 1761  ssh cc1121
+ 1762  ansible cc2400.etsii.ull.es -m include_role -a "name=upgrade" --forks 25
+ 1763  ansible cc13 -m include_role -a "name=upgrade" --forks 25
+ 1764  pwd
+ 1765  ls
+ 1766  cd esit-cc-desktop-playbook/
+ 1767  ansible cc13 -m include_role -a "name=upgrade" --forks 25
+ 1768  clera
+ 1769  clear
+ 1770  ansible cc1311.etsii.ull.es -m shell -a  "apt install -y linux-image-5.4.0-96"
+ 1771  ansible cc1311.etsii.ull.es -m shell -a  "apt install -y linux-headers-5.4.0-96"
+ 1772  ansible cc1311.etsii.ull.es -m apt -a "name=libnss-ldapd"
+ 1773  cd esit-cc-desktop-playbook/
+ 1774  ansible cc1211.etsii.ull.es -m include_role -a "name=upgrade"
+ 1775  ansible cc14 -m include_role -a "name=upgrade"
+ 1776  cd esit-cc-desktop-playbook/
+ 1777  ls
+ 1778  cd ls
+ 1779  cd ..
+ 1780  ls
+ 1781  cd esit-cc-desktop-playbook/
+ 1782  ls
+ 1783  ssh cc2400
+ 1784  ansible cc24 -m remove_role -a "name=mysql-workbench"
+ 1785  ansible cc24 -m shell -a  "apt remove -y mysql-workbench"
+ 1786  ansible cc13 -m include_role -a
+ 1787  ansible: error: argument -a/--args: expected one argument
+ 1788  ansible cc24 -m include_role -a "name=mysql-workbench"
+ 1789  ansible cc24 -m include_role -a "name=upgrade"
+ 1790  ansible cc24 -m command -a "reboot"
+ 1791  ansible cc24 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1792  ansible cc24 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1793  ansible cc24 -m command -a "init 0"
+ 1794  pwd
+ 1795  ansible-playbook -l cc26 Ubuntu18.04-ng.yml --tag nscd
+ 1796  ssh cc2622
+ 1797  ssh cc2622.etssi.ull.es
+ 1798  ssh cc2622.etsii.ull.es
+ 1799  ansible-playbook -l cc25 Ubuntu18.04-ng.yml --tag nscd
+ 1800  ansible-playbook -l cc2521 Ubuntu18.04-ng.yml --tag nscd
+ 1801  ansible-playbook -l cc2521. Ubuntu18.04-ng.yml --tag nscd
+ 1802  ansible-playbook -l cc2521.etsii.ull.es Ubuntu18.04-ng.yml --tag nscd
+ 1803  ansible-playbook -l cc2623.etsii.ull.es Ubuntu18.04-ng.yml --tag nscd
+ 1804  ansible-playbook -l cc25  Ubuntu18.04-ng.yml --tag nscd
+ 1805  ssh cc2523
+ 1806  ansible-playbook -l cc22 Ubuntu18.04-ng.yml --tag upgrade
+ 1807  ansible-playbook -l cc26 Ubuntu18.04-ng.yml --tag upgrade
+ 1808  ansible-playbook -l cc2445.etsii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1809  ansible-playbook -l cc2446.etsii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1810  ansible-playbook -l cc24412.etsii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1811  ansible-playbook -l cc2412.etsii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1812  ssh cc2512
+ 1813  ssh cc2522
+ 1814  ssh root@cc1200
+ 1815  ssh root@cc1211
+ 1816  ssh root@cc1212
+ 1817  ssh root@cc1213
+ 1818  ssh root@cc1214
+ 1819  ssh root@cc1215
+ 1820  ssh root@cc1211
+ 1821  ssh root@cc1221
+ 1822  ssh root@cc1222
+ 1823  ssh root@cc1223
+ 1824  ping a1200
+ 1825  ping a1200.etsii.ull.es
+ 1826  cd /etc/hosts
+ 1827  cd /etc/
+ 1828  vi hosts
+ 1829  +
+ 1830  ssh root@cc2224
+ 1831  ssh root@cc2244
+ 1832  ping 8.8.8.8
+ 1833  ssh root@cc2244
+ 1834  ansible-playbook -l cc22 Ubuntu18.04-ng.yml --tag upgrade
+ 1835  ansible-playbook -l cc25* Ubuntu18.04-ng.yml --tag upgrade
+ 1836  ansible-playbook -l cc252* Ubuntu18.04-ng.yml --tag upgrade
+ 1837  ssh cc2521
+ 1838  ansible-playbook -l cc22 Ubuntu18.04-ng.yml --tag upgrade
+ 1839  ansible-playbook -l cc2412.estii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1840  ansible-playbook -l cc2412.etsii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1841  ssh cc2412
+ 1842  ansible-playbook -l cc2412.etsii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1843  ansible-playbook -l cc22 Ubuntu18.04-ng.yml --tag upgrade
+ 1844  ansible-playbook -l cc24 Ubuntu18.04-ng.yml --tag nscd
+ 1845  ansible cc1311.etsii.ull.es -m include_role -a "name=nscd-ldapd"
+ 1846  ansible cc1311.etsii.ull.es -m include_role -a "name=kernel5"
+ 1847  ansible cc1312.etsii.ull.es -m include_role -a "name=kernel5"
+ 1848  ssh cc1312
+ 1849  ansible cc1312.etsii.ull.es -m include_role -a "name=kernel5"
+ 1850  ssh cc1312
+ 1851  ansible cc1312.etsii.ull.es -m include_role -a "name=kernel5"
+ 1852  ansible cc131 -m include_role -a "name=nscd-ldapd"
+ 1853  ansible-playbook Ubuntu18.04-ng.yml -- tag nscd
+ 1854  ansible-playbook Ubuntu18.04-ng.yml --tag nscd
+ 1855  apt install tldr
+ 1856  tldr ansible-playbook
+ 1857  ansible-playbook --help
+ 1858  ansible-playbook --help | more
+ 1859  ansible-playbook -l cc131*  Ubuntu18.04-ng.yml --tag nscd
+ 1860  ansible-playbook -l cc131*  Ubuntu18.04-ng.yml --tag k5
+ 1861  ssh cc1311
+ 1862  ssh cc1312
+ 1863  ansible-playbook -l cc1312  Ubuntu18.04-ng.yml --tag k5
+ 1864  ansible-playbook -l "cc1312"  Ubuntu18.04-ng.yml --tag k5
+ 1865  ansible-playbook -l cc1312.etsii.ull.es  Ubuntu18.04-ng.yml --tag k5
+ 1866  ansible-playbook -l cc13*  Ubuntu18.04-ng.yml --tag nscd
+ 1867  ansible-playbook -l cc13*  Ubuntu18.04-ng.yml --tag a
+ 1868  ssh cc1322
+ 1869  ansible-playbook -l cc13*  Ubuntu18.04-ng.yml --tag a
+ 1870  ssh cc1322
+ 1871  ansible-playbook -l cc13*  Ubuntu18.04-ng.yml --tag upgrade
+ 1872  ansible cc13 -m include_role -a "name=upgrade" -f 35
+ 1873  ansible-playbook -l cc141*  Ubuntu18.04-ng.yml --tag upgrade
+ 1874  ansible-playbook -l cc14*  Ubuntu18.04-ng.yml --tag upgrade
+ 1875  ansible-playbook -l cc13*  Ubuntu18.04-ng.yml --tag nscd
+ 1876  ansible-playbook -l cc14*  Ubuntu18.04-ng.yml --tag upgrade
+ 1877  ssh cc1442
+ 1878  ansible-playbook -l cc14*  Ubuntu18.04-ng.yml --tag nscd
+ 1879  ssh cc1441
+ 1880  ansible-playbook -l cc1441  Ubuntu18.04-ng.yml --tag nscd
+ 1881  ansible-playbook -l cc1441.etsii.ull.es  Ubuntu18.04-ng.yml --tag nscd
+ 1882  ansible-playbook -l cc14*  Ubuntu18.04-ng.yml --tag nscd
+ 1883  ansible-playbook -l cc1442.etsii.ull.es  Ubuntu18.04-ng.yml --tag nscd
+ 1884  ssh cc1442.etsii.ull.es
+ 1885  ansible cc14 -m command -a "reboot"
+ 1886  ansible cc13 -m command -a "reboot"
+ 1887  ansible-playbook -l cc1444.etsii.ull.es  Ubuntu18.04-ng.yml --tag nscd
+ 1888  ansible cc1444.etsii.ull.es -m command -a "reboot"
+ 1889  ansible-playbook -l cc1445.etsii.ull.es  Ubuntu18.04-ng.yml --tag nscd
+ 1890  ansible cc1445.etsii.ull.es -m command -a "reboot"
+ 1891  ansible-playbook -l cc1442.etsii.ull.es  Ubuntu18.04-ng.yml --tag nscd
+ 1892  ansible cc14 -m command -a "init 0"
+ 1893  clear
+ 1894  ansible-playbook -l cc22 Ubuntu18.04-ng.yml --tag upgrade
+ 1895  ansible-playbook -l cc2200.etsii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1896  ssh cc2200
+ 1897  ansible-playbook -l cc2200.etsii.ull.es Ubuntu18.04-ng.yml --tag upgrade
+ 1898  clear
+ 1899  ansible-playbook -l cc22 Ubuntu18.04-ng.yml --tag upgrade
+ 1900  ansible-playbook -l cc22 Ubuntu18.04-ng.yml --tag nscd
+ 1901  ssh 193.145.119.72
+ 1902  exit
+ 1903  ls
+ 1904  cd esit-cc-desktop-playbook/
+ 1905  grep qwt *
+ 1906  grep -R qwt *
+ 1907  host
+ 1908  id
+ 1909  clear
+ 1910  ls
+ 1911  pwd
+ 1912  cd esit-cc-desktop-playbook/
+ 1913  pwd
+ 1914  ssh cc2113
+ 1915  ansible-playbook -l cc211* Ubuntu18.04-ng.yml --tag 110222
+ 1916  ansible-playbook -l cc2121.etsii.ull.es Ubuntu18.04-ng.yml --tag 110222
+ 1917  ssh cc2122
+ 1918  ssh cc2411
+ 1919  ssh cc2412
+ 1920  cd /etc/ansible/
+ 1921  grep -R cc21 *
+ 1922  grep -R cc21 * | more
+ 1923  vi hosts
+ 1924  ssh cc2111
+ 1925  ssh cc2112
+ 1926  ssh cc2113
+ 1927  ansible cc211 -m shell -a "apt remove -y mysql-workbench"
+ 1928  ansible cc211* -m shell -a "apt remove -y mysql-workbench"
+ 1929  ansible cc21 -m shell -a "apt remove -y mysql-workbench"
+ 1930  clear
+ 1931  ansible cc21 -m include_role -a "name=mysql-workbench"
+ 1932  ssh cc2111
+ 1933  ssh cc2411
+ 1934  ansible-playbook -l cc211* Ubuntu18.04-ng.yml --tag 110222
+ 1935  ansible-playbook -l cc2112.etsii.ull.es Ubuntu18.04-ng.yml --tag 110222
+ 1936  ansible-playbook -l cc2114.etsii.ull.es Ubuntu18.04-ng.yml --tag 110222
+ 1937  ansible-playbook -l cc211* Ubuntu18.04-ng.yml --tag 110222
+ 1938  ansible-playbook -l cc21* Ubuntu18.04-ng.yml --tag 110222
+ 1939  ansible cc13 -m include_role -a "name=python3" -f 35
+ 1940  ansible cc13 -m include_role -a "name=python3"
+ 1941  ansible cc13 -m include_role -a "name=python3-pexpect"
+ 1942  ansible cc13 -m include_role -a "name=spim"
+ 1943  ansible cc13 -m include_role -a "name=qtspim"
+ 1944  ansible cc13 -m apt -a "name=python3" -f 35
+ 1945  ansible cc13 -m apt -a "name=qtspim" -f 35
+ 1946  ansible cc13 -m apt -a "name=spim" -f 35
+ 1947  ansible cc13 -m apt -a "name=python3-pexpect" -f 35
+ 1948  ansible cc14 -m apt -a "name=python3" -f 35
+ 1949  ansible cc12 -m apt -a "name=python3" -f 35
+ 1950  ansible cc14 -m apt -a "name=python3-pexpect" -f 35
+ 1951  ansible cc12 -m apt -a "name=python3-pexpect" -f 35
+ 1952  ansible cc12 -m apt -a "name=qtspim" -f 35
+ 1953  ansible cc12 -m apt -a "name=spim" -f 35
+ 1954  ansible cc22 -m apt -a "name=spim" -f 35
+ 1955  ansible cc22 -m apt -a "name=qtspim" -f 35
+ 1956  ansible cc22 -m apt -a "name=python3" -f 35
+ 1957  ansible cc22 -m apt -a "name=python3-pexpect" -f 35
+ 1958  ansible cc23 -m apt -a "name=spim" -f 35
+ 1959  ansible cc24 -m apt -a "name=spim" -f 35
+ 1960  ansible cc21 -m apt -a "name=spim" -f 35
+ 1961  ansible cc22 -m apt -a "name=python3" -f 35
+ 1962  ansible cc23 -m apt -a "name=python3" -f 35
+ 1963  ansible cc24 -m apt -a "name=python3" -f 35
+ 1964  ansible cc22 -m apt -a "name=qtspim" -f 35
+ 1965  ansible cc23 -m apt -a "name=qtspim" -f 35
+ 1966  ansible cc24 -m apt -a "name=qtspim" -f 35
+ 1967  ansible cc21 -m apt -a "name=qtspim" -f 35
+ 1968  ansible cc23 -m apt -a "name=python3-pexpect" -f 35
+ 1969  ansible cc24 -m apt -a "name=python3-pexpect" -f 35
+ 1970  ansible cc21 -m apt -a "name=python3-pexpect" -f 35
+ 1971  ansible cc21 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1972  ansible cc22 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1973  ansible cc23 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1974  ansible cc24 -m apt -a 'name=google-chrome-stable update_cache=yes state=latest' --become
+ 1975  }
+ 1976  ansible cc21 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1977  ansible cc22 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1978  ansible cc23 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1979  ssh cc1300.etsii.ull.es
+ 1980  ssh root@cc1300.etsii.ull.es
+ 1981  ansible cc23 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1982  ansible cc24 -m apt -a 'name=firefox update_cache=yes state=latest' --become
+ 1983  ansible cc11 -m command -a "init 0"
+ 1984  ansible cc12 -m command -a "init 0"
+ 1985  ansible cc21 -m command -a "init 0"
+ 1986  ansible cc22 -m command -a "init 0"
+ 1987  ansible cc23 -m command -a "init 0"
+ 1988  ansible cc24 -m command -a "init 0"
+ 1989  exit
+ 1990  ansible-playbook -l cc14* Ubuntu18.04-ng.yml --tag upgrade
+ 1991  history >> history.txt
