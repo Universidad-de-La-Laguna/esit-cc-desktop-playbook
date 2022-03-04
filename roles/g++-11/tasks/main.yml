@@ -1,0 +1,20 @@
+# update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 90
+
+- name: Install g++-11
+  apt: pkg=g++-11 state=present update_cache=yes cache_valid_time=1800
+
+#- name: borra alternativas
+#  command: "update-alternatives --remove-all gcc"
+#
+#- name: borra alternativas
+#  command: "update-alternatives --remove-all g++"
+#
+#
+- name: "Estable alternativa gcc"
+  command: update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 90
+
+- name: "Estable alternativa g++"
+  command: update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 80
+
+- name: "Estable alternativa cpp"
+  command: update-alternatives --install /usr/bin/cpp cpp /usr/bin/cpp-11 80
