@@ -23,13 +23,13 @@ podman info
 cat > /usr/local/bin/crea-ficheros-subuid-subguid.py <<EOF
 #!/usr/bin/python
 f = open("/etc/subuid", "w")
-for uid in range(1000, 65536):
-    f.write("%d:%d:65536\n" %(uid,uid*65536))
+for uid in range(1000, 365536):
+    f.write("%d:%d:365536\n" %(uid,uid*365536))
 f.close()
 
 f = open("/etc/subgid", "w")
-for uid in range(1000, 65536):
-    f.write("%d:%d:65536\n" %(uid,uid*65536))
+for uid in range(1000, 365536):
+    f.write("%d:%d:365536\n" %(uid,uid*365536))
 f.close()
 EOF
 
