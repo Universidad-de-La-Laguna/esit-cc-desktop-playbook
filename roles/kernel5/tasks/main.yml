@@ -2,9 +2,8 @@
 
 - name: Install kernel
   apt: 
-    pkg:
-      - linux-image-5.4.0-96
-      - linux-headers-5.4.0-96
+    name: linux-image-5.4.0-96, linux-headers-5.4.0-96
     update_cache: y
-    cache_valid_time: 3600
     state: present
+
+

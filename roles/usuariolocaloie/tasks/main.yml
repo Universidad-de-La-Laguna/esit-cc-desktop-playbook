@@ -1,0 +1,19 @@
+
+- name: Crear directorio
+  file:
+    path: /localhome/
+    state: directory
+    owner: root
+    group: root
+    mode: "u=rwx,g=rx,o=rx"
+
+- name: Crear usuario oie
+  user:
+      name: oie
+      shell: /bin/bash
+      createhome: yes
+      home: /localhome/oie
+      password: $6$itJR3f1oYkcs/uYy$3epvYm/6FTP2BfFltncaEGWok77OsHV4TIpOAU2SD0lkybjQ4mOd04gbqjEsIUqQdd8wzbDHDLZyweVYwFTo6/
+
+
+

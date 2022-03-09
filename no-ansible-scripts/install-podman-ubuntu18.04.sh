@@ -45,10 +45,17 @@ chmod go-rwx,u+rwx /usr/local/bin/crea-ficheros-subuid-subguid.py
 #export DOCKER_HOST="unix:///run/user/$(id -u)/podman/podman.sock"
 #EOF
 
+cat >/etc/profile.d/podman-code.sh << EOF
+systemctl --user enable --now podman.socket
+EOF
+
 echo "" >> /etc/profile
 #echo 'systemctl --user enable --now podman.socket' >> /etc/profile
 echo 'systemctl --user enable --now podman.socket' >> /usr/share/libpam-script/pam_script_ses_open
+
 #systemctl --user enable --now podman.socket
+# grep -qxF 'include "/configs/projectname.conf"' foo.bar || echo 'include "/configs/projectname.conf"' >> foo.bar
+
 echo 'LOGUID=`id -u ${USER}` ' >> /etc/profile
 echo 'export DOCKER_HOST="unix:///run/user/${LOGUID}/podman/podman.sock"' >> /etc/profile
 #podman-remote info
