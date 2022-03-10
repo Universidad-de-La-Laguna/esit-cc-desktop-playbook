@@ -47,7 +47,7 @@ chmod go-rwx,u+rwx /usr/local/bin/crea-ficheros-subuid-subguid.py
 
 cat >/etc/profile.d/podman-code.sh << EOF
 
-LOGUID=`id -u ${USER}`
+LOGUID='`id -u ${USER}`'
 export DOCKER_HOST="unix:///run/user/${LOGUID}/podman/podman.sock"
 
 systemctl --user enable --now podman.socket &
