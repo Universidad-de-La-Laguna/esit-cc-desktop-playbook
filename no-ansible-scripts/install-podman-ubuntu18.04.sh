@@ -23,13 +23,13 @@ podman info
 cat > /usr/local/bin/crea-ficheros-subuid-subguid.py <<EOF
 #!/usr/bin/python
 f = open("/etc/subuid", "w")
-for uid in range(1000, 365536):
-    f.write("%d:%d:365536\n" %(uid,uid*365536))
+for uid in range(1000, 65536):
+    f.write("%d:%d:65536\n" %(uid,uid*65536))
 f.close()
 
 f = open("/etc/subgid", "w")
-for uid in range(1000, 365536):
-    f.write("%d:%d:365536\n" %(uid,uid*365536))
+for uid in range(1000, 65536):
+    f.write("%d:%d:65536\n" %(uid,uid*65536))
 f.close()
 EOF
 
@@ -46,19 +46,24 @@ chmod go-rwx,u+rwx /usr/local/bin/crea-ficheros-subuid-subguid.py
 #EOF
 
 cat >/etc/profile.d/podman-code.sh << EOF
-systemctl --user enable --now podman.socket
+
+LOGUID=`id -u ${USER}`
+export DOCKER_HOST="unix:///run/user/${LOGUID}/podman/podman.sock"
+
+systemctl --user enable --now podman.socket &
+
 EOF
 
-echo "" >> /etc/profile
-#echo 'systemctl --user enable --now podman.socket' >> /etc/profile
-echo 'systemctl --user enable --now podman.socket' >> /usr/share/libpam-script/pam_script_ses_open
-
-#systemctl --user enable --now podman.socket
-# grep -qxF 'include "/configs/projectname.conf"' foo.bar || echo 'include "/configs/projectname.conf"' >> foo.bar
-
-echo 'LOGUID=`id -u ${USER}` ' >> /etc/profile
-echo 'export DOCKER_HOST="unix:///run/user/${LOGUID}/podman/podman.sock"' >> /etc/profile
-#podman-remote info
+#echo "" >> /etc/profile
+##echo 'systemctl --user enable --now podman.socket' >> /etc/profile
+##echo 'systemctl --user enable --now podman.socket ' >> /usr/share/libpam-script/pam_script_ses_open
+#
+##systemctl --user enable --now podman.socket
+## grep -qxF 'include "/configs/projectname.conf"' foo.bar || echo 'include "/configs/projectname.conf"' >> foo.bar
+#
+#echo 'LOGUID=`id -u ${USER}` ' >> /etc/profile
+#echo 'export DOCKER_HOST="unix:///run/user/${LOGUID}/podman/podman.sock"' >> /etc/profile
+##podman-remote info
 
 # Hacemos creer a Code que Podman es Docker. Ojo, un alias no funciona.
 # rm -f /usr/bin/docker
@@ -71,5 +76,5 @@ ln -s /usr/bin/podman /usr/bin/docker
 
 
 # para reconocer el mapeo de uid es necesario reiniciar
-reboot
+#reboot
 
