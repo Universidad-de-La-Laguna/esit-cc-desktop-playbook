@@ -12,7 +12,7 @@
     - { role: kernel5, tags: ['k5'] }
     - { role: mysql-workbench, tags: ['110222'] }
     - { role: cheddar, tags: ['170222'] }
-    - { role: usuariolocaloie, tags: ['usuariolocaloie'] }
+    #- { role: usuariolocaloie, tags: ['usuariolocaloie'] }
     - { role: g++-11, tags: ['g++-11'] }
     - { role: rutacorta, tags: ['rutacorta'] }
 
