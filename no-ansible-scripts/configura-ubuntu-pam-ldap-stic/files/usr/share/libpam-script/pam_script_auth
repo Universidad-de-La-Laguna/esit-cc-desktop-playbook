@@ -87,7 +87,13 @@ done
 
 
 # Obtenemos el sambaHomePath
-SMBPATH=`$LDAPSRCHCMD -LLL -h $LDAPSRV -b $LDAPBASE -x uid=$USER sambaHomePath | grep sambaHomePath | cut -d" " -f2 | sed -r 's/[\\]/\//g'`
+if [ ${UBUNTUVERSION} == "22.04" ]; then
+	SMBPATH=`$LDAPSRCHCMD -LLL -H ldap://$LDAPSRV -b $LDAPBASE -x uid=$USER sambaHomePath | grep sambaHomePath | cut -d" " -f2 | sed -r 's/[\\]/\//g'`
+else
+	SMBPATH=`$LDAPSRCHCMD -LLL -h $LDAPSRV -b $LDAPBASE -x uid=$USER sambaHomePath | grep sambaHomePath | cut -d" " -f2 | sed -r 's/[\\]/\//g'`
+fi
+
+echo "SMBPATH=${SMBPATH}"
 
 URI=`echo $SMBPATH | cut -d"/" -f3`
 
