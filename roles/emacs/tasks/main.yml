@@ -1,4 +1,5 @@
-- name: Install emacs 
-  apt: name={{item}} state=installed update_cache=yes
-  with_items:
-       - emacs 
+- name: Install emacs
+  apt:
+    name: emacs
+    state: present
+    update_cache: yes
