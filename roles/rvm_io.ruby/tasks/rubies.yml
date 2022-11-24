@@ -42,18 +42,29 @@
   register: ruby_patch
   check_mode: no # Run in normal mode when in --check mode (http://docs.ansible.com/ansible/playbooks_checkmode.html)
 
-# FIXME: Falla la instalación del bundler en Ubuntu 22.04. Hay que ver lo que pasa
+- name: Install bundler if not installed (Ubuntu <= 18.04)
+  shell: >
+    ls {{ rvm1_install_path }}/wrappers/{{ item.stdout }}
+    | if ! grep "^bundler " ; then {{ rvm1_install_path }}/wrappers/{{ item.stdout }}/gem install bundler ; fi
+  args:
+    creates: '{{ rvm1_install_path }}/wrappers/{{ item.stdout }}/bundler'
+  with_items: '{{ ruby_patch.results }}'
+  when: (rvm1_bundler_install) and ( ubuntu2204 is not defined )
+  register: bundler_install
+  changed_when: '"Successfully installed bundler" in bundler_install.stdout'
 
-# - name: Install bundler if not installed
-#   shell: >
-#     ls {{ rvm1_install_path }}/wrappers/{{ item.stdout }}
-#     | if ! grep "^bundler " ; then {{ rvm1_install_path }}/wrappers/{{ item.stdout }}/gem install bundler ; fi
-#   args:
-#     creates: '{{ rvm1_install_path }}/wrappers/{{ item.stdout }}/bundler'
-#   with_items: '{{ ruby_patch.results }}'
-#   when: rvm1_bundler_install
-#   register: bundler_install
-#   changed_when: '"Successfully installed bundler" in bundler_install.stdout'
+- name: Install bundler if not installed (Ubuntu 22.04)
+  shell: >
+    ls {{ rvm1_install_path }}/rubies/{{ item.stdout }}/bin
+    | if ! grep "^bundler " ; then {{ rvm1_install_path }}/rubies/{{ item.stdout }}/bin/gem install bundler ; fi
+  args:
+    creates: '{{ rvm1_install_path }}/rubies/{{ item.stdout }}/bin/bundler'
+  with_items: '{{ ruby_patch.results }}'
+  when: (rvm1_bundler_install) and ( ubuntu2204 is defined )
+  register: bundler_install
+  changed_when: '"Successfully installed bundler" in bundler_install.stdout'
+
+# FIXME: Falla en Ubuntu 22.04. Hay que ver lo que pasa
 
 # - name: Symlink ruby related binaries on the system path
 #   file:
