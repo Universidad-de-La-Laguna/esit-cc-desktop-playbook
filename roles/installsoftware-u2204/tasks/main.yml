@@ -1,0 +1,118 @@
+- name: Pule y limpia
+  command: "{{ item }}" 
+  with_items:
+    - "apt install -f -y"
+    - "dpkg --configure -a"
+
+- name: Uninstall 
+  apt:
+    name: ['update-notifie']
+    state: absent
+    update_cache: y
+
+- name: Install list of packages
+  apt: 
+    state: present 
+    update_cache: yes
+    name: [
+      'aspell-es',
+      'audacity',
+      'binutils',
+      'blender',
+      'build-essential',
+      'clisp',
+      'cmake',
+      'codeblocks',
+      'codelite',
+      'cppcheck',
+      'csh',
+      'curl',
+      'dia',
+      'doxygen',
+      'ethtool',
+      'g++',
+      'g++',
+      'gimp',
+      'git-core',
+      'gnupg',
+      'gnupg2',
+      'gpm',
+      'gtkwave',
+      'htop',
+      'imagej',
+      'inkscape',
+      'iotop',
+      'jupyter',
+      'kcachegrind',
+      'kgpg',
+      'lftp',
+      'libboost-system-dev',
+      'libboost-thread-dev',
+      'libgl1-mesa-dev',
+      'libopencv-*-dev',
+      'libopencv-core-dev',
+      'libopencv-core4.5*',
+      'libopencv-dev',
+      'libprotobuf-dev',
+      'libqt5designer5',
+      'lsof',
+      'ltrace',
+      'memstat',
+      'mercurial',
+      'nasm',
+      'net-tools',
+      'netcat',
+      'nmap',
+      'octave-control',
+      'postgresql-client',
+      'procps',
+      'protobuf-compiler',
+      'pylint',
+      'python3-pip',
+      'qtcreator',
+      'rlwrap',
+      'ruby-dev',
+      'ruby',
+      'screenkey',
+      'sqlite3',
+      'sqlitebrowser',
+      'sshfs',
+      'strace',
+      'swi-prolog',
+      'sysdig',
+      'sysstat',
+      'talk',
+      'tcm',
+      'tcsh',
+      'tree',
+      'umbrello',
+      'unrar',
+      'valgrind',
+      'verilog',
+      'wakeonlan',
+      'xalan',
+      'yacas'
+      # 'libqwt-dev',
+      # 'mysql-workbench',
+      # 'pgadmin3',
+      # 'python-matplotlib',
+      # 'python-sympy',
+      # 'python',
+      # 'qt5-default',
+    ]
+
+# Install (Bottle) python package on version 0.11.
+- name: Pip modules
+  pip: 
+    name: [
+      'kanren',
+      'neurolab',
+      'nltk',
+      'numpy',
+      'pybrain'
+    ]
+
+- name: Instala paquetes
+  apt:
+    deb: http://cc.etsii.ull.es/ftp/packages/dbeaver-ce_5.3.3_amd64.deb
+    force: yes
