@@ -16,6 +16,14 @@ rvm1_symlink_binaries:
   - 'ri'
   - 'ruby'
 
+rvm1_symlink_binaries_ubuntu2204:
+  - 'erb'
+  - 'gem'
+  - 'irb'
+  - 'rdoc'
+  - 'ri'
+  - 'ruby'
+
 rvm1_symlink_bundler_binaries:
   - 'bundle'
   - 'bundler'
