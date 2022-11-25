@@ -19,6 +19,10 @@
   with_items: '{{ rvm1_rubies }}'
   when: rvm1_rubies
 
+- name: Install ruby openssl
+  command: '{{ rvm1_rvm }} pkg install openssl'
+  when: ubuntu2204 is defined
+
 - name: Install rubies
   command: '{{ rvm1_rvm }} install {{ item.item }} {{ rvm1_ruby_install_flags }}'
   when: rvm1_rubies and item.rc|default(0) != 0
