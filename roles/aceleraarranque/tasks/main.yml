@@ -12,6 +12,15 @@
       - pppd-dns.service
       - iio-sensor-proxy.service
       - whoopsie.service
+  when: ubuntu2204 is not defined
+
+- name: "disable service"
+  systemd: name="{{item}}" enabled=no masked=yes
+  with_items:
+      - iio-sensor-proxy.service
+      - whoopsie.service
+  when: ubuntu2204 is defined
+
 #-- 10s
 #-- sistemas
 #-- rala hosts
