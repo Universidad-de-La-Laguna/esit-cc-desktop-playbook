@@ -11,12 +11,15 @@
 #     - { role: fuzzylogic, tags: ['fuzzylogic'] }
     # - { role: atom, tags: ['atom'] }
     - { role: libpulse, tags: ['lp'] }
-#     - { role: eclipse-u18, tags: ['e18'] }
+    - { role: eclipse-u18, 
+        tags: ['e22'],
+        eclipse_jee_version: 'eclipse-jee-2022-09-R-linux-gtk-x86_64'
+      }
     - { role: python3, tags: ['py'] }
     - { role: installsoftware-u2204, tags: ['sd0'] }
 #     - { role: installsoftware2-u1804, tags: ['sd1'] }
 #     - { role: profile-env-alias-scripts, tags: ['path'] }
-# #   - { role: quitasssd, tags: ['sd'] }
+# NO #   - { role: quitasssd, tags: ['sd'] }
 #     - { role: rutacorta, tags: ['ir'] }
 #     - { role: bug-eclipse, tags: ['eclipse'] }
 #     - { role: compendium, tags: ['a'] }
@@ -25,10 +28,10 @@
 #     - { role: clienteoracle, tags: ['co'] }
     - { role: node, tags: ['edu'] }
 #     - { role: nodepackages, tags: ['edu'] }
-#     - { role: hub, tags: ['edu'] }
-# #    - { role: setdefaultpath, tags: ['aa']}
+# NO     - { role: hub, tags: ['edu'] }
+# NO #    - { role: setdefaultpath, tags: ['aa']}
 #     - { role: kgpg, tags: ['aa'] }
-# #   - { role: cron-actualizasistema, tags: ['n'] }
+# NO #   - { role: cron-actualizasistema, tags: ['n'] }
 #     - ansibleupdate
 #     - aceleraarranque
 #     - { role: eclipse-java-cpp, tags: ['eclipse']}
