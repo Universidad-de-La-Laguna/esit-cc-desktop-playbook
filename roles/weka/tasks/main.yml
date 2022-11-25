@@ -9,9 +9,17 @@
     src: http://10.6.7.11:9393/ftp/packages/weka-3-8-4-azul-zulu-linux.zip
     dest: /opt
     remote_src: yes
+  when: ubuntu2204 is not defined
 
 - name: Copy desktop icon launcher
   copy:
     src: weka.desktop
     dest: /usr/share/applications/weka.desktop
     mode: '0644'
+  when: ubuntu2204 is not defined
+
+- name: Install Weka con snap (Ubuntu 22.04)
+  snap:
+    name:
+      - weka
+  when: ubuntu2204 is defined
