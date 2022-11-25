@@ -1,37 +1,41 @@
 # Eclipse Java
 
-- name: "create directory"
-  # file: path=/opt/eclipse-installer state=absent
-  # file: path=/opt/eclipse state=absent
-  file: path=/opt/eclipse-java state=directory
-- name: "delete old eclipse"
-  command: rm -Rf /opt/eclipse && rm -Rf /opt/eclipse-installer && rm -f /usr/share/applications/eclipse-cpp.desktop && rm -f /usr/share/applications/eclipse-java.desktop
+# NOTA: Eclipse Java se instala con el rol "eclipse-u18"
+#       Se comenta la instalacion de Eclipse Java y se deja
+#       solamente la instalación de eclipse java C++ (CPP). 
 
-- name: "download eclipse"
-  unarchive:
-      src: /soft/eclipse-jee-neon-3-linux-gtk-x86_64.tar.gz
-      dest: /opt/eclipse-java
-      remote_src: no
+# - name: "create directory"
+#   # file: path=/opt/eclipse-installer state=absent
+#   # file: path=/opt/eclipse state=absent
+#   file: path=/opt/eclipse-java state=directory
+# - name: "delete old eclipse"
+#   command: rm -Rf /opt/eclipse && rm -Rf /opt/eclipse-installer && rm -f /usr/share/applications/eclipse-cpp.desktop && rm -f /usr/share/applications/eclipse-java.desktop
 
-- name: "link eclipse"
-  file:
-      src: /opt/eclipse-java/eclipse/eclipse
-      dest: /usr/local/bin/eclipse-java
-      owner: root
-      group: root
-      state: link
-- name: "copia icono"
-  copy:
-      src: /opt/eclipse-java/eclipse/icon.xpm
-      dest: /usr/share/pixmaps/eclipse-java.xpm
+# - name: "download eclipse"
+#   unarchive:
+#       src: /soft/eclipse-jee-neon-3-linux-gtk-x86_64.tar.gz
+#       dest: /opt/eclipse-java
+#       remote_src: no
 
-- name: "prepare icon eclipse"
-  copy:
-      src: template/eclipse-java.desktop
-      dest: /opt/eclipse-java
+# - name: "link eclipse"
+#   file:
+#       src: /opt/eclipse-java/eclipse/eclipse
+#       dest: /usr/local/bin/eclipse-java
+#       owner: root
+#       group: root
+#       state: link
+# - name: "copia icono"
+#   copy:
+#       src: /opt/eclipse-java/eclipse/icon.xpm
+#       dest: /usr/share/pixmaps/eclipse-java.xpm
 
-- name: "icon eclipse"
-  command: desktop-file-install /opt/eclipse-java/eclipse-java.desktop
+# - name: "prepare icon eclipse"
+#   copy:
+#       src: template/eclipse-java.desktop
+#       dest: /opt/eclipse-java
+
+# - name: "icon eclipse"
+#   command: desktop-file-install /opt/eclipse-java/eclipse-java.desktop
 
 ### Eclipse CPP
 - name: "create directory"
@@ -39,27 +43,28 @@
 
 - name: "download eclipse cpp"
   unarchive:
-      src: /soft/eclipse-cpp-neon-3-linux-gtk-x86_64.tar.gz
-      dest: /opt/eclipse-cpp
-      remote_src: no
+    src: http://cc.etsii.ull.es/ftp/packages/{{ eclipse_cpp_version | default('eclipse-cpp-neon-3-linux-gtk-x86_64') }}.tar.gz
+    dest: /opt/eclipse-cpp
+    remote_src: yes
 
 - name: "link eclipse cpp"
   file:
-      src: /opt/eclipse-cpp/eclipse/eclipse
-      dest: /usr/local/bin/eclipse-cpp
-      owner: root
-      group: root
-      state: link
+    src: /opt/eclipse-cpp/eclipse/eclipse
+    dest: /usr/local/bin/eclipse-cpp
+    owner: root
+    group: root
+    state: link
 
 - name: "copia icono"
   copy:
-      src: /opt/eclipse-cpp/eclipse/icon.xpm
-      dest: /usr/share/pixmaps/eclipse-cpp.xpm
+    src: /opt/eclipse-cpp/eclipse/icon.xpm
+    dest: /usr/share/pixmaps/eclipse-cpp.xpm
+    remote_src: yes
 
 - name: "prepare icon eclipse cpp"
   copy:
-      src: template/eclipse-cpp.desktop
-      dest: /opt/eclipse-cpp
+    src: template/eclipse-cpp.desktop
+    dest: /opt/eclipse-cpp
 
 - name: "icon eclipse cpp"
   command: desktop-file-install /opt/eclipse-cpp/eclipse-cpp.desktop
