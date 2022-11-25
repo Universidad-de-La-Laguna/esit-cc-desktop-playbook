@@ -4,12 +4,10 @@
 #
 ### a ver:
 
-
 - hosts: ccxxxx.etsii.ull.es
   remote_user: root
   roles:
-#     - { role: fuzzylogic, tags: ['fuzzylogic'] }
-    # - { role: atom, tags: ['atom'] }
+    - { role: fuzzylogic, tags: ['fuzzylogic'] }
     - { role: libpulse, tags: ['lp'] }
     - { role: eclipse-u18, 
         tags: ['e22'],
@@ -17,42 +15,51 @@
       }
     - { role: python3, tags: ['py'] }
     - { role: installsoftware-u2204, tags: ['sd0'] }
-#     - { role: installsoftware2-u1804, tags: ['sd1'] }
-#     - { role: profile-env-alias-scripts, tags: ['path'] }
-# NO #   - { role: quitasssd, tags: ['sd'] }
-#     - { role: rutacorta, tags: ['ir'] }
-#     - { role: bug-eclipse, tags: ['eclipse'] }
-#     - { role: compendium, tags: ['a'] }
     - { role: nvm, tags: ['a'] }
-#     - { role: neurophstudio, tags: ['a'] }
-#     - { role: clienteoracle, tags: ['co'] }
+    - { role: clienteoracle, tags: ['co'] }
     - { role: node, tags: ['edu'] }
-#     - { role: nodepackages, tags: ['edu'] }
-# NO     - { role: hub, tags: ['edu'] }
-# NO #    - { role: setdefaultpath, tags: ['aa']}
-#     - { role: kgpg, tags: ['aa'] }
-# NO #   - { role: cron-actualizasistema, tags: ['n'] }
-#     - ansibleupdate
-#     - aceleraarranque
-#     - { role: eclipse-java-cpp, tags: ['eclipse']}
-#     - { role: usuariolocal, tags: ['ul']}
+    - { role: nodepackages,
+        tags: ['edu'],
+        node_path: /usr/local/nvm/versions/node/v11.15.0
+      }
+    - ansibleupdate
+    - { role: aceleraarranque,
+        ubuntu2204: yes
+      }
+    - { role: eclipse-java-cpp,
+        tags: ['eclipse'],
+        eclipse_cpp_version: eclipse-cpp-2022-09-R-linux-gtk-x86_64
+      }
     - { role: emacs, tags: ['p'] }
     - { role: mazesolver, tags: ['p'] }
-#     - { role: weka, tags: ['weka'] }
-#     - { role: gemas-ruby, tags: ['edu'] }
-
-    # Configure servers with ruby support system wide
+    - { role: weka, 
+        tags: ['weka'],
+        ubuntu2204: yes
+      }
+    - { role: gemas-ruby, tags: ['edu'] }
     - { role: rvm_io.ruby,
         tags: ruby,
         become: yes,
 
         rvm1_rubies: ['ruby-2.7.6'],               # Versiones 2.2.5 y 2.3.1 no instalan en Ubuntu 22.04
-        rvm1_install_flags: '--auto-dotfiles',     # Remove --user-install from defaults
         rvm1_install_path: /usr/local/rvm,         # Set to system location
+        rvm1_install_flags: "--auto-dotfiles --with-openssl-dir={{ rvm1_install_path }}/usr",     # Remove --user-install from defaults
         rvm1_user: root,                           # Need root account to access system location
 
         ubuntu2204: yes
       }
+
+    ## Software no instalado en Ubuntu 22.04.
+    ## Se ha considerado obsoleto, que viene de serie o no hace falta.
+    # - { role: atom, tags: ['atom'] }
+    # - { role: profile-env-alias-scripts, tags: ['path'] }
+    # - { role: rutacorta, tags: ['ir'] }
+    # - { role: bug-eclipse, tags: ['eclipse'] }
+    # - { role: compendium, tags: ['a'] }
+    # - { role: neurophstudio, tags: ['a'] }
+    # - { role: hub, tags: ['edu'] }
+    # - { role: kgpg, tags: ['aa'] }
+    # - { role: usuariolocal, tags: ['ul']}
 
 #   vars_files:
 #     - "roles/usuariolocal/vars/local.yml"
