@@ -1,12 +1,15 @@
 # Eclipse Java
 
 - name: "delete old eclipse"
-  command: rm -Rf /opt/eclipse-java 
+  file:
+    state: absent
+    path: /opt/eclipse-java
 
 - name: "create directory"
-  # file: path=/opt/eclipse-installer state=absent
-  # file: path=/opt/eclipse state=absent
-  file: path=/opt/eclipse-java state=directory
+  file:
+    state: directory
+    path: /opt/eclipse-java
+
 - name: "download eclipse"
   unarchive:
       src:  http://cc.etsii.ull.es/ftp/packages/{{ eclipse_jee_version | default('eclipse-jee-2019-09-R-linux-gtk-x86_64') }}.tar.gz
