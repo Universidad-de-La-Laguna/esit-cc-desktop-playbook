@@ -13,3 +13,7 @@
 - name: Instalar glpi-agent
   shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --silent -s {{ glpi_server_url }} --logger=file --logfile=/var/log/glpi-agent.log"
   when: "'glpi-agent.service' not in services"
+
+# - name: Desinstalar glpi-agent
+#   shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --uninstall"
+#   when: "'glpi-agent.service' in services"
