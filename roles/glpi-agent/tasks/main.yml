@@ -11,5 +11,5 @@
   when: "'glpi-agent.service' in services"
 
 - name: Instalar glpi-agent
-  shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl -s {{ glpi_server_url }}"
+  shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --silent -s {{ glpi_server_url }} --logger=file --logfile=/var/log/glpi-agent.log"
   when: "'glpi-agent.service' not in services"
