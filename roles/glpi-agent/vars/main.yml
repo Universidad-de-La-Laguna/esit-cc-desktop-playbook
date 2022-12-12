@@ -1,0 +1,4 @@
+---
+
+glpi_agent_version: "glpi-agent-1.4"
+glpi_server_url: "http://10.6.7.16:8200"

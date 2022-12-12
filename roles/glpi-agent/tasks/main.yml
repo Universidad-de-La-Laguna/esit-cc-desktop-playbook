@@ -1,0 +1,15 @@
+- name: Descargar glpi-agent
+  ansible.builtin.get_url:
+    url: 'http://cc.etsii.ull.es/ftp/packages/{{ glpi_agent_version }}-linux-installer.pl'
+    dest: /tmp/
+
+- name: Populate service facts
+  service_facts:
+
+- debug:
+    msg: glpi-agent installed!
+  when: "'glpi-agent.service' in services"
+
+- name: Instalar glpi-agent
+  shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl -s {{ glpi_server_url }}"
+  when: "'glpi-agent.service' not in services"
