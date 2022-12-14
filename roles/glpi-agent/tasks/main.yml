@@ -14,6 +14,31 @@
   shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --silent -s {{ glpi_server_url }} --logger=file --logfile=/var/log/glpi-agent.log --tag=ubuntu"
   when: "'glpi-agent.service' not in services"
 
+- name: Populate gather facts
+  gather_facts:
+
+- name: Populate service facts
+  service_facts:
+
+- name: create file with computer name
+  template:
+    src: templates/computer-name.j2
+    dest: /usr/share/glpi-agent/computer-name.json
+  when: "'glpi-agent.service' in services"
+
+- name: add additional-content parameter to ansible config
+  lineinfile:
+    path: /etc/glpi-agent/conf.d/00-install.cfg
+    regexp: '^additional-content'
+    line: additional-content = /usr/share/glpi-agent/computer-name.json
+  when: "'glpi-agent.service' in services"
+
+- name: restart glpi-agent
+  service:
+    name: glpi-agent
+    state: restarted
+  when: "'glpi-agent.service' in services"
+
 # - name: Desinstalar glpi-agent
 #   shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --uninstall"
 #   when: "'glpi-agent.service' in services"
