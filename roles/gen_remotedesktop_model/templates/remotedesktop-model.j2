@@ -1,0 +1,18 @@
+<SerializableModel i:type="a:DesktopModel"
+    xmlns="http://schemas.datacontract.org/2004/07/RdClient.Shared.Data"
+    xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:a="http://schemas.datacontract.org/2004/07/RdClient.Shared.Models">
+    <a:CredentialsId>{{remotedesktop_credentialid}}</a:CredentialsId>
+    <a:DisplaySettings i:type="a:DisplaySettingsModel">
+        <a:PreferResolutionSync>true</a:PreferResolutionSync>
+        <a:Scale>100</a:Scale>
+        <a:SelectedResolution i:type="a:DefaultResolutionModel"/>
+    </a:DisplaySettings>
+    <a:FriendlyName/>
+    <a:GroupId>{{remotedesktop_groupid}}</a:GroupId>
+    <a:HostName>{{inventory_hostname_short}}.ull.local</a:HostName>
+    <a:LocalResourcesSettings i:type="b:LocalResourcesSettingsModel"
+        xmlns:b="http://schemas.datacontract.org/2004/07/RdClient.Shared.Models.Settings">
+        <b:RedirectClipboard>true</b:RedirectClipboard>
+    </a:LocalResourcesSettings>
+</SerializableModel>

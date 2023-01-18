@@ -1,0 +1,18 @@
+---
+
+- name: Generar ficheros de Remote Desktop para ordenadores de las salas
+  connection: local
+  gather_facts: false
+  hosts: cc22
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - shell: uuidgen
+      # with_sequence: count=5
+      register: uuid_list
+
+    - debug:
+        var: uuid_list
+
+    - debug:
+        msg: inventory_hostname_short = {{ inventory_hostname_short }}

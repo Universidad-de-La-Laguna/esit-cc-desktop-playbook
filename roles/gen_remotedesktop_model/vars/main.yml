@@ -1,0 +1,15 @@
+---
+
+ansible_python_interpreter: /usr/bin/python3
+
+# Identificador por defecto del grupo en Remote Desktop
+# Usamos un grupo por cada sala. 
+# El valor por defecto corresponde al grupo "PC guardados"
+remotedesktop_groupid: 06b4e525-af08-4bbb-899f-2bb0c98283b9
+
+# Identificador por defecto de la credencial en Remode Desktop.
+# El valor por defecto corresponde a la credencial "etsii"
+remotedesktop_credentialid: 5c0eb173-040a-4f84-9f68-f9e3060dfc5b
+
+# Directorio local donde se encuentran los ficheros correspondientes a los equipos
+remotedesktop_connections_dir: /mnt/c/Users/bcuestav/AppData/Local/Packages/Microsoft.RemoteDesktop_8wekyb3d8bbwe/LocalState/RemoteDesktopData/LocalWorkspace/connections

@@ -1,0 +1,7 @@
+- shell: uuidgen
+  register: uuid_list
+
+- name: create file with computer name
+  template:
+    src: templates/remotedesktop-model.j2
+    dest: "{{remotedesktop_connections_dir}}/{{uuid_list.stdout}}.model"
