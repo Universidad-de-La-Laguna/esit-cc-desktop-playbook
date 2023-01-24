@@ -1,0 +1,35 @@
+---
+- hosts: cc2214.etsii.ull.es
+  become: yes
+  tasks:
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: Make sure we have a 'adminexam' group
+    group:
+      name: adminexam
+      state: present
+
+  - name: Allow 'adminexam' group to have passwordless sudo
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%adminexam'
+      line: '%adminexam ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
+
+  - name: Add deployer user and add it to sudo
+    user: 
+      name=adminexam
+      groups=adminexam
+      append=yes
+      shell=/bin/bash
+      state=present
+      createhome=yes
+
+  - name: Set up authorized keys for the adminexam user
+    authorized_key: user=adminexam key="{{item}}"
+    with_file:
+      - /home/bcuestav/.ssh/id_adminexam.pub
