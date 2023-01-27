@@ -1,61 +1,63 @@
-- name: Comprobamos si está descargado el instalador
+- name: Comprobamos si ya está instalado Xilinx
   stat:
-    path: /tmp/Xilinx_ISE_DS_Lin_14.7_1015_1.tgz
+    path: /opt/Xilinx
   register: result
 
 - name: Descargar el instalador de xilinx
   ansible.builtin.get_url:
     # Se usa la ip directa la servidor c1 en lugar de "http://cc.etsii.ull.es/"
     # porque el fichero es muy grande y el proxy que hace webo lo corta
-    url: http://10.6.7.11:9393/ftp/packages/Xilinx_ISE_DS_Lin_14.7_1015_1.tgz
+    url: http://10.6.7.11:9393/ftp/packages/{{ xilinx_filename }}.tgz
     dest: /tmp
     checksum: sha256:ab752745bd83d728dff7ad209a99a1959e51673cdc8db975414c8fa930a0f26d
   when: not result.stat.exists
 
 - name: descomprimir el instalador
   # El modulo unarchive de ansible no funciona para el fichero tgz y usamos el comamdo tar directo
-  ansible.builtin.command: tar xvzf /tmp/Xilinx_ISE_DS_Lin_14.7_1015_1.tgz
+  ansible.builtin.command: tar xvzf /tmp/{{ xilinx_filename }}.tgz
   args:
     chdir: /tmp
-    # Solo ejecutamos la tarea si no esta ya instalado en /opt/Xilinx
-    creates: /opt/Xilinx
+  when: not result.stat.exists
+  no_log: True
 
 - name: Ejecutar el instalador de forma desatendida
   ansible.builtin.command: ./batchxsetup -batch Unattended
   args:
-    chdir: /tmp/Xilinx_ISE_DS_Lin_14.7_1015_1/bin/lin64
-    # Solo ejecutamos la tarea si no esta ya instalado en /opt/Xilinx
-    creates: /opt/Xilinx
+    chdir: /tmp/{{ xilinx_filename }}/bin/lin64
+  when: not result.stat.exists
 
 - name: Instalar los drivers de cable (si falla es normal)
-  ansible.builtin.command: ./install_drivers
+  ansible.builtin.shell: ./install_drivers || /bin/true
   args:
-    chdir: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/install_script/install_drivers
+    chdir: "{{ xilinx_ise_dir }}/bin/lin64/install_script/install_drivers"
     # Solo ejecutamos la tarea si no tenemos ya los drivers de diligent
-    creates: /opt/Xilinx/15.7/ISE_DS/ISE/lib/lin64/plugins/Digilent/libCseDigilent/libCseDigilent.so
+    creates: "{{ xilinx_ise_dir }}/lib/lin64/plugins/Digilent/libCseDigilent/libCseDigilent.so"
   ignore_errors: true
 
 - name: Instalar los drivers de la tarjeta Digilent
-  ansible.builtin.command: ./install_digilent.sh /opt/Xilinx/15.7/ISE_DS/ISE
+  ansible.builtin.command: ./install_digilent.sh {{ xilinx_ise_dir }}
   args:
-    chdir: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/digilent
+    chdir: "{{ xilinx_ise_dir }}/bin/lin64/digilent"
     # Solo ejecutamos la tarea si no tenemos ya los drivers de diligent
-    creates: /opt/Xilinx/14.7/ISE_DS/ISE/lib/lin64/plugins/Digilent/libCseDigilent/libCseDigilent.so
+    creates: "{{ xilinx_ise_dir }}/lib/lin64/plugins/Digilent/libCseDigilent/libCseDigilent.so"
 
 - name: Crear el script de arranque
   template:
     src: templates/xilinx_start.j2
     dest: /opt/Xilinx/xilinx_start.sh
     mode: '0755'
+  when: not result.stat.exists
 
 - name: Crear link
   file:
     src: /opt/Xilinx/xilinx_start.sh
     dest: /usr/local/bin/xilinx
     state: link
+  when: not result.stat.exists
 
 - name: Copy desktop icon launcher
   copy:
     src: xilinx.desktop
     dest: /usr/share/applications/xilinx.desktop
     mode: '0644'
+  when: not result.stat.exists
