@@ -2,26 +2,54 @@
   apt_repository:
     repo: ppa:deadsnakes/ppa
 
+# Para evitar problema "Failed to update apt cache: E:Problem executing scripts APT::Update::Post-Invoke-Success"
+- name: force reinstall python3-apt
+  shell: |
+    apt remove -y python3-apt
+    apt-get autoremove -y
+    apt install -y python3-apt
+
 - name: Instalar python3
   apt:
     name: python{{ PYTHON_VERSION }}
     state: latest
     update_cache: yes
 
-# - name: Create symbolic link 
-#   file:
-#     src: "/usr/bin/python{{ PYTHON_VERSION }}"
-#     dest: "/usr/bin/python3"
-#     state: link
+- name: Incluir python 3.6 en alternatives
+  community.general.alternatives:
+    name: python3
+    path: /usr/bin/python3.6
+    link: /usr/bin/python3
+    priority: 1
+    state: present
+
+- name: Incluir y seleccionar python 3.8 en alternatives
+  community.general.alternatives:
+    name: python3
+    path: /usr/bin/python{{ PYTHON_VERSION }}
+    link: /usr/bin/python3
+    priority: 2
+    state: selected
+
+- name: Python3 as default
+  file:
+    src: "/usr/bin/python3"
+    dest: "/usr/bin/python"
+    state: link
+
+- name: actualizamos pip
+  pip: 
+    name: pip
+    extra_args: --upgrade
+
+- name: actualizamos setuptools
+  pip: 
+    name: setuptools
+    extra_args: --upgrade
 
 - name: Instalar NLTK
   pip:
     name: nltk
-    extra_args: -U
-
-- name: Instalar scikit-learn
-  pip:
-    name: scikit-learn
     extra_args: -U
 
 - name: Instalar neupy
@@ -29,3 +57,8 @@
     name: neupy
     extra_args: -U
     executable: "/usr/bin/pip3"
+
+- name: Instalar scikit-learn
+  pip:
+    name: scikit-learn
+    extra_args: -U
