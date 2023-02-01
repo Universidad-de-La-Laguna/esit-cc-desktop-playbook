@@ -62,3 +62,10 @@
   pip:
     name: scikit-learn
     extra_args: -U
+
+- name: Instalar Keras
+  pip:
+    name:
+      - tensorflow
+      - keras
+    extra_args: -U
