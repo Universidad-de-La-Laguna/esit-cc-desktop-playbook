@@ -3,15 +3,6 @@
 # that require network functionality will fail.
 
 # ######## GENERADO POR WSL2 PARA ENTORNO LOCAL #########
-# ################### NO SUBIR AL GIT ###################
-127.0.0.1       localhost
-127.0.1.1       BCUESTAV-OPTIPLEX3080.  BCUESTAV-OPTIPLEX3080
-
-10.209.4.15     host.docker.internal
-10.209.4.15     gateway.docker.internal
-127.0.0.1       kubernetes.docker.internal
-# #######################################################
-
 127.0.0.1		localhost.localdomain localhost
 10.209.32.252 lagar
 10.6.7.249 rala rala.etsii.ull.es
@@ -373,5 +364,3 @@
 10.209.35.149 cc3931 cc3931.etsii.ull.es
 10.209.35.152 cc3934 cc3934.etsii.ull.es
 10.209.35.156 cc3944 cc3944.etsii.ull.es
-
-10.209.32.192 ccxxxx ccxxxx.etsii.ull.es
