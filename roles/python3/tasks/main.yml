@@ -37,6 +37,13 @@
     dest: "/usr/bin/python"
     state: link
 
+- name: Permitir abrir gnome-terminal con python 3.6
+  lineinfile:
+    path: /usr/bin/gnome-terminal
+    regexp: '^#!/usr/bin/python3'
+    line: '#!/usr/bin/python3.6'
+    backrefs: yes
+
 - name: actualizamos pip
   pip: 
     name: pip
