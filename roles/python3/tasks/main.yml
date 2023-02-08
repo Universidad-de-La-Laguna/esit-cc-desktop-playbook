@@ -9,6 +9,11 @@
     apt-get autoremove -y
     apt install -y python3-apt
 
+- name: instalamos gnome-control-center porque se desinstala con el comando anterior
+  apt:
+    name: gnome-control-center
+    state: present
+
 - name: Instalar python3
   apt:
     name: python{{ PYTHON_VERSION }}
