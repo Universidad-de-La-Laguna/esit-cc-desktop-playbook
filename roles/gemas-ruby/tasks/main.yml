@@ -1,3 +1,11 @@
+- name: Install list of packages
+  apt: 
+    state: present 
+    update_cache: yes
+    name: [
+      'ruby-full'
+    ]
+
 - name: instala gemas
   gem: name={{item}} state=present user_install=no
   with_items:
