@@ -3,6 +3,12 @@
     path: /opt/Xilinx
   register: result
 
+- name: Instalar dependencias del instalador
+  apt:
+    name: libncurses5
+    state: present
+  when: not result.stat.exists
+  
 - name: Descargar el instalador de xilinx
   ansible.builtin.get_url:
     # Se usa la ip directa la servidor c1 en lugar de "http://cc.etsii.ull.es/"
