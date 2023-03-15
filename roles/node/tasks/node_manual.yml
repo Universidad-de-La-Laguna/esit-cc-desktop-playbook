@@ -1,0 +1,12 @@
+- file:
+    path: /opt/node-v16.19.1-linux-x64
+    state: directory
+    mode: 0775
+
+- name: Untar 
+  unarchive:
+    src:  http://cc.etsii.ull.es/ftp/packages/node-v16.19.1-linux-x64.tar.gz
+    dest: /opt/
+    remote_src: yes
+
+# Tras la instalación ejecutar el role "setdefaultpath" con el path correcto al ejecutable de node
