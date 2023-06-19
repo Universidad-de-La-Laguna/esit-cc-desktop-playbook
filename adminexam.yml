@@ -1,5 +1,5 @@
 ---
-- hosts: cc2214.etsii.ull.es
+- hosts: ccxxxx.etsii.ull.es
   become: yes
   tasks:
   - name: Update apt cache
