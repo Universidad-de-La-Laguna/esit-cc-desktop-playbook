@@ -1,0 +1,15 @@
+- name: "Añadir repositorio para g++"
+  apt_repository:
+    repo: ppa:ubuntu-toolchain-r/test
+
+- name: "Install G++ v13"
+  apt: 
+    name: ['gcc-13', 'g++-13']
+    state: present
+    update_cache: yes
+
+- name: "Actualizar alternatives gcc"
+  shell: update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 93
+
+- name: "Actualizar alternatives g++"
+  shell: update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-13 93
