@@ -351,3 +351,29 @@ cc3924.etsii.ull.es         macaddress=90:8d:6e:91:fb:54    ansible_host=10.209.
 cc3931.etsii.ull.es         macaddress=90:8d:6e:91:36:51    ansible_host=10.209.35.149
 cc3934.etsii.ull.es         macaddress=90:8d:6e:91:fb:56    ansible_host=10.209.35.152
 cc3944.etsii.ull.es         macaddress=90:8d:6e:91:fb:7a    ansible_host=10.209.35.156
+
+#
+# Es posible que algunos equipos de aulas de teoría no esten configuradas con ip fija.
+# La IP que aparece aquí es la última que se reportó por el agente de inventario.
+#
+[aulas]
+a1100.etsii.ull.es          macaddress=50:9a:4c:0c:e6:3a    ansible_host=10.209.31.111
+a1200.etsii.ull.es          macaddress=50:9a:4c:0c:e6:3c    ansible_host=10.209.31.112
+a1300.etsii.ull.es          macaddress=50:9a:4c:0c:e6:d1    ansible_host=10.109.31.113
+a1400.etsii.ull.es          macaddress=a4:bb:6d:e4:db:be    ansible_host=10.209.31.200
+a1500.etsii.ull.es          macaddress=50:9a:4c:0c:e6:6a    ansible_host=10.209.31.115
+
+a2100.etsii.ull.es          macaddress=50:9a:4c:0c:e6:65    ansible_host=10.209.31.119
+a2200.etsii.ull.es          macaddress=50:9a:4c:0c:e6:3b    ansible_host=10.209.31.117
+a2300.etsii.ull.es          macaddress=50:9a:4c:0c:e4:8f    ansible_host=10.209.31.118
+a2400.etsii.ull.es          macaddress=d0:67:e5:29:df:55    ansible_host=10.209.31.186
+a2600.etsii.ull.es          macaddress=b0:83:fe:90:5c:13    ansible_host=10.209.31.213
+a2900.etsii.ull.es          macaddress=a4:bb:6d:e4:da:6a    ansible_host=10.209.31.201
+
+a3300.etsii.ull.es          macaddress=a4:bb:6d:e4:db:da    ansible_host=10.209.30.152
+a3400.etsii.ull.es          macaddress=a4:bb:6d:e4:db:36    ansible_host=10.209.35.204
+a3600.etsii.ull.es          macaddress=b0:83:fe:90:5a:47    ansible_host=10.209.30.37
+a3700.etsii.ull.es          macaddress=50:9a:4c:0c:e4:86    ansible_host=10.209.31.116
+a31000.etsii.ull.es         macaddress=e4:54:e8:8e:7e:42    ansible_host=10.209.35.200
+
+lara ansible_host=10.6.7.16
