@@ -2,7 +2,7 @@
   command: apt-get -f install -y
 
 - name: instala kgpg
-  apt: name={{item}} state=installed update_cache=yes autoremove=yes
+  apt: name={{item}} state=present update_cache=yes autoremove=yes
   with_items:
        - gnupg
        - kgpg
