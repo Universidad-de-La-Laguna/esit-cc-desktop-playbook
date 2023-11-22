@@ -11,15 +11,16 @@
   with_items:
     - pry
     - rspec
-    - rails
-    - sinatra
-    - sinatra-contrib
+    # - rails
+    # - sinatra
+    # - sinatra-contrib
     - yaml-model
     - rake
     - test-unit 
     - rspec
     - yard
-    - bundler
-    - ghedsh
+    # - bundler
+    # - ghedsh
     - asciidoctor
     
+# FIX: Los paquetes comentados requieren de una versión superir de ruby y ya no se pueden instalar
