@@ -1,0 +1,11 @@
+- name: Add specified repository into sources list
+  apt_repository:
+    repo: ppa:gns3/ppa
+    state: present
+
+- name: Install gns3
+  apt:
+    update_cache: yes
+    pkg:
+    - gns3-gui
+    - gns3-server
