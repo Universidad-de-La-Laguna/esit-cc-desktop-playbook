@@ -1,7 +1,11 @@
+- name: Add an apt key by id from a keyserver
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: E298A3A825C0D65DFD57CBB651716619E084DAB9
 
 - name: Añadir repositorio para r-base
   apt_repository:
-    repo: deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/
+    repo: deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/
 
 - name: Instalar r-base
   apt:
