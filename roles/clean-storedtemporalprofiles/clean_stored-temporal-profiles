@@ -1,0 +1,7 @@
+#!/bin/sh
+
+## Elimina carpetas antiguas
+BASEDIR=/stored-temporal-profiles
+NUMDAYSRETAIN=30
+
+find $BASEDIR/* -mtime +$NUMDAYSRETAIN -type d -maxdepth 0 -exec rm -rf {} \;

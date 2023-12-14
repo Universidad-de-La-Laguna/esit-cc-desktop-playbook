@@ -1,0 +1,16 @@
+# - name: "install anacron"
+#   apt:
+#     name: anacron
+#     update_cache: yes
+#     state: present
+
+- name: Copy script to clean stored-temporal-profiles dir
+  copy:
+    src: clean_stored-temporal-profiles
+    dest: /etc/cron.monthly/
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Force execute anacron monthly scripts
+  shell: anacron -f -n -d cron.monthly
