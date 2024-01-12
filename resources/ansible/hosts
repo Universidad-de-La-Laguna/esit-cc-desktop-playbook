@@ -67,21 +67,21 @@ cc1245.etsii.ull.es         macaddress=8c:ec:4b:c0:29:54    ansible_host=10.209.
 cc1246.etsii.ull.es         macaddress=8c:ec:4b:c1:47:ac    ansible_host=10.209.31.58
 
 [cc13]
-cc1300.etsii.ull.es         macaddress=d0:67:e5:29:df:85    ansible_host=10.209.31.109
-cc1311.etsii.ull.es         macaddress=f8:bc:12:9d:9c:ec    ansible_host=10.209.31.59
-cc1312.etsii.ull.es         macaddress=f8:bc:12:9c:2e:25    ansible_host=10.209.31.60
-cc1313.etsii.ull.es         macaddress=f8:bc:12:9d:9c:d2    ansible_host=10.209.31.61
-cc1314.etsii.ull.es         macaddress=f8:bc:12:9d:9d:12    ansible_host=10.209.31.62
-cc1315.etsii.ull.es         macaddress=f8:bc:12:9d:a1:5c    ansible_host=10.209.31.63
-cc1316.etsii.ull.es         macaddress=f8:bc:12:9d:93:9a    ansible_host=10.209.31.64
-cc1321.etsii.ull.es         macaddress=f8:bc:12:9d:9d:1e    ansible_host=10.209.31.65
-cc1322.etsii.ull.es         macaddress=b0:83:fe:90:5f:85    ansible_host=10.209.31.66
-cc1323.etsii.ull.es         macaddress=f8:bc:12:9d:9e:f2    ansible_host=10.209.31.67
-cc1324.etsii.ull.es         macaddress=f8:bc:12:9d:9c:8a    ansible_host=10.209.31.68
-cc1325.etsii.ull.es         macaddress=f8:bc:12:9d:9c:6d    ansible_host=10.209.31.69
-cc1326.etsii.ull.es         macaddress=f8:bc:12:9d:a1:31    ansible_host=10.209.31.70
-cc1331.etsii.ull.es         macaddress=f8:bc:12:9d:9e:65    ansible_host=10.209.31.71
-cc1332.etsii.ull.es         macaddress=f8:bc:12:9d:9c:eb    ansible_host=10.209.31.72
+cc1300.etsii.ull.es         macaddress=cc:96:e5:2d:03:cf    ansible_host=10.209.31.109
+cc1311.etsii.ull.es         macaddress=cc:96:e5:2d:9d:66    ansible_host=10.209.31.59
+cc1312.etsii.ull.es         macaddress=cc:96:e5:2d:70:63    ansible_host=10.209.31.60
+cc1313.etsii.ull.es         macaddress=cc:96:e5:2d:9c:b2    ansible_host=10.209.31.61
+cc1314.etsii.ull.es         macaddress=cc:96:e5:2d:71:e5    ansible_host=10.209.31.62
+cc1315.etsii.ull.es         macaddress=cc:96:e5:2d:03:ca    ansible_host=10.209.31.63
+cc1316.etsii.ull.es         macaddress=cc:96:e5:2d:9e:2f    ansible_host=10.209.31.64
+cc1321.etsii.ull.es         macaddress=cc:96:e5:2d:05:1a    ansible_host=10.209.31.65
+cc1322.etsii.ull.es         macaddress=cc:96:e5:2d:9f:a3    ansible_host=10.209.31.66
+cc1323.etsii.ull.es         macaddress=cc:96:e5:2d:9d:70    ansible_host=10.209.31.67
+cc1324.etsii.ull.es         macaddress=cc:96:e5:2d:80:43    ansible_host=10.209.31.68
+cc1325.etsii.ull.es         macaddress=cc:96:e5:2d:79:5d    ansible_host=10.209.31.69
+cc1326.etsii.ull.es         macaddress=cc:96:e5:2e:0c:89    ansible_host=10.209.31.70
+cc1331.etsii.ull.es         macaddress=cc:96:e5:2d:f4:f5    ansible_host=10.209.31.71
+cc1332.etsii.ull.es         macaddress=cc:96:e5:2d:c9:0e    ansible_host=10.209.31.72
 cc1333.etsii.ull.es         macaddress=f8:bc:12:9d:9d:90    ansible_host=10.209.31.73
 cc1334.etsii.ull.es         macaddress=f8:bc:12:9d:9d:79    ansible_host=10.209.31.74
 cc1335.etsii.ull.es         macaddress=f8:bc:12:9d:9d:7d    ansible_host=10.209.31.75
