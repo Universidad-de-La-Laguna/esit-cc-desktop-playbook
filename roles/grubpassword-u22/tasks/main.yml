@@ -1,0 +1,24 @@
+# Evita que el grub sea editable sin password
+# Ref: https://www.tenable.com/audits/items/CIS_Ubuntu_20.04_LTS_v1.1.0_Server_L1.audit:fdcd0c727f3264a950388bba09c9e956
+- name: "Copia ficheros grub"
+  copy:
+      src: template/etc/grub.d/10_linux
+      dest: /etc/grub.d/10_linux
+      owner: root
+      group: root
+      mode: "u=rwx,g=r,o=r"
+  copy:
+      src: template/etc/grub.d/30_os-prober
+      dest: /etc/grub.d/30_os-prober
+      owner: root
+      group: root
+      mode: "u=rwx,g=r,o=r"
+  copy:
+      src: template/etc/grub.d/40_custom
+      dest: /etc/grub.d/40_custom
+      owner: root
+      group: root
+      mode: "u=rwx,g=r,o=r"
+
+- name: "Ejecuta updategrub"
+  command: 'update-grub'
