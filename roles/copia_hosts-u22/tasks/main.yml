@@ -1,0 +1,10 @@
+# Copia fichero de /etc/hosts 
+
+- name: "Copia ficheros /etc/hosts"
+  copy:
+      src: template/etc/hosts
+      dest: /etc/hosts
+      owner: root
+      group: root
+      mode: "u=rw,g=r,o=r"
+ 
