@@ -150,7 +150,7 @@ cc2147.etsii.ull.es         macaddress=74:86:e2:20:a0:52    ansible_host=10.209.
 cc2148.etsii.ull.es         macaddress=a4:bb:6d:e4:da:b7    ansible_host=10.209.32.42
 
 [cc22]
-cc2200.etsii.ull.es         macaddress=d0:67:e5:29:d3:82    ansible_host=10.209.32.172
+cc2200.etsii.ull.es         macaddress=b0:7b:25:21:ee:ca    ansible_host=10.209.32.172
 cc2211.etsii.ull.es         macaddress=e4:54:e8:6c:51:aa    ansible_host=10.209.32.43
 cc2212.etsii.ull.es         macaddress=e4:54:e8:6c:51:4a    ansible_host=10.209.32.44
 cc2213.etsii.ull.es         macaddress=e4:54:e8:6c:4d:87    ansible_host=10.209.32.45
