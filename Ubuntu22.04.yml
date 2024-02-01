@@ -8,6 +8,7 @@
   remote_user: root
   roles:
     - { role: copia_hosts-u22, tags: ['hos'] }
+    - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     - { role: fuzzylogic, tags: ['fuzzylogic'] }
     - { role: libpulse, tags: ['lp'] }
     - { role: eclipse-u18, 
