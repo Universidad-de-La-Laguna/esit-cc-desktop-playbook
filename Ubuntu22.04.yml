@@ -7,6 +7,7 @@
 - hosts: ccxxxx.etsii.ull.es
   remote_user: root
   roles:
+    - { role: copia_hosts-u22, tags: ['0101204'] }
     - { role: fuzzylogic, tags: ['fuzzylogic'] }
     - { role: libpulse, tags: ['lp'] }
     - { role: eclipse-u18, 
