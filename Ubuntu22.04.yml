@@ -7,6 +7,7 @@
 - hosts: localhost, all
   remote_user: root
   roles:
+    - { role: cheddar, tags: ['cheddar'] }
     - { role: copia_hosts-u22, tags: ['hos'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     - { role: fuzzylogic, tags: ['fuzzylogic'] }
