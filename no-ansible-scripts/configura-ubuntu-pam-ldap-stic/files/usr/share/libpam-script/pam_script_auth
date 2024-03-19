@@ -93,18 +93,11 @@ else
 	SMBPATH=`$LDAPSRCHCMD -LLL -h $LDAPSRV -b $LDAPBASE -x uid=$USER sambaHomePath | grep sambaHomePath | cut -d" " -f2 | sed -r 's/[\\]/\//g'`
 fi
 
+# SMBPATH siempre igual. RT #168923
+SMBPATH="//ddv.ull.es/${USER} "
+
 echo "SMBPATH=${SMBPATH}"
 
-URI=`echo $SMBPATH | cut -d"/" -f3`
-
-# Para evitar montar algo que va a ser imposible, miramos si ese servidor es de los válidos
-contiene $URI "${VALIDMOUNTSRV[@]}"
-retContiene=$?
-
-if [ $retContiene -eq 0 ]; then
-	${LOG} "[PAM-SCRIPT-AUTH]   ${USER}@${URI} El servidor ${URI} no es válido."
-	exit
-fi
 
 [ $DEBUG -ne 0 ] && ${LOG} "[PAM-SCRIPT-AUTH]   Montando recurso DDV en ${MNTPT}/${DDVDIR}"
 
