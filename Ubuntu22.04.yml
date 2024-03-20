@@ -12,7 +12,7 @@
     - { role: wol_servicio, tags: ['wol_servicio'] }
     - { role: rutacorta, tags: ['ir'] }
     - { role: mpi, tags: ['mpi'] }
-    - { role: cheddar, tags: ['cheddar'] }
+    - { role: cheddar, tags: ['cheddar','onboot'] }
     - { role: copia_hosts-u22, tags: ['hos'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     - { role: fuzzylogic, tags: ['fuzzylogic'] }
