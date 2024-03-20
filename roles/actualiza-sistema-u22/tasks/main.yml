@@ -27,10 +27,5 @@
     state: started
     enabled: yes
 
-  handlers:
-    - name: Recargar systemd
-      systemd:
-        daemon_reload: yes
-
 
 
