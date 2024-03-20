@@ -1,0 +1,11 @@
+[Unit]
+Description=Mi servicio
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/mi_script.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
