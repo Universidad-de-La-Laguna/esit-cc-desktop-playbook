@@ -1,0 +1,15 @@
+- name: "Copia fichero actualiza-sistema-tag"
+  copy:
+    src: template/usr/local/bin/actualiza-sistema-tag
+    dest: /usr/local/bin/actualiza-sistema-tag
+    owner: root
+    group: root
+    mode: "u=rwx,g=r,o=r"
+
+- name: "Copia fichero actualiza-sistema-onboot"
+  copy:
+    src: template/usr/local/bin/actualiza-sistema-onboot
+    dest: /etc/rc5.d/S99script.sh
+    owner: root
+    group: root
+    mode: "u=rwx,g=r,o=r"
