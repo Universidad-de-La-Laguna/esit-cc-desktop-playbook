@@ -8,8 +8,8 @@
 
 - name: "Copia fichero actualiza-sistema-onboot"
   copy:
-    src: template/usr/local/bin/actualiza-sistema-onboot
-    dest: /etc/rc5.d/S99script.sh
+    src: template/usr/local/bin/S99actualiza-sistema-onboot
+    dest: /etc/rc5.d/99actualiza-sistema-onboot
     owner: root
     group: root
     mode: "u=rwx,g=r,o=r"
