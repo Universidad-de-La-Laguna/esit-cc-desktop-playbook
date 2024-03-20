@@ -14,18 +14,18 @@
     group: root
     mode: "u=rwx,g=r,o=r"
 
-  - name: Crear el archivo de servicio
-    template:
-      src: archivos/mi_servicio.service.j2
-      dest: /etc/systemd/system/mi_servicio.service
-    notify:
-      - Recargar systemd
+- name: Crear el archivo de servicio
+  template:
+    src: archivos/mi_servicio.service.j2
+    dest: /etc/systemd/system/mi_servicio.service
+  notify:
+    - Recargar systemd
 
-  - name: Iniciar y habilitar el servicio
-    systemd:
-      name: mi_servicio
-      state: started
-      enabled: yes
+- name: Iniciar y habilitar el servicio
+  systemd:
+    name: mi_servicio
+    state: started
+    enabled: yes
 
   handlers:
     - name: Recargar systemd
