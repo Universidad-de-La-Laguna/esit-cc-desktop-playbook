@@ -6,10 +6,35 @@
     group: root
     mode: "u=rwx,g=r,o=r"
 
+
 - name: "Copia fichero actualiza-sistema-onboot"
   copy:
-    src: template/usr/local/bin/S99actualiza-sistema-onboot
-    dest: /etc/rc5.d/S99actualiza-sistema-onboot
+    src: template/usr/local/bin/actualiza-sistema-onboot
+    dest: /usr/local/bin/actualiza-sistema-onboot
     owner: root
     group: root
     mode: "u=rwx,g=r,o=r"
+
+- name: Configurar servicio systemd para ejecutar el script en el arranque
+  systemd:
+    name: actualiza-sistema-onboot.service  # Nombre del servicio systemd
+    state: started
+    enabled: yes
+    daemon_reload: yes
+    restart: yes
+    enabled: yes
+    unit:
+      # Contenido del archivo de unidad del servicio systemd
+      # Esto ejecutará el script.sh en el arranque
+      content: |
+        [Unit]
+        Description=Ejecutar script en arranque
+        After=network.target
+        
+        [Service]
+        Type=simple
+        ExecStart=/usr/local/bin/actualiza-sistema-onboot  # Ruta del script en el servidor
+        Restart=always
+        
+        [Install]
+        WantedBy=multi-user.target
