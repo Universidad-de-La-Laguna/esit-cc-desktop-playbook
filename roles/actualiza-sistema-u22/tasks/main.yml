@@ -21,9 +21,8 @@
     state: started
     enabled: yes
     daemon_reload: yes
+   
     unit:
-      # Contenido del archivo de unidad del servicio systemd
-      # Esto ejecutará el script.sh en el arranque
       content: |
         [Unit]
         Description=Ejecutar script en arranque
@@ -36,3 +35,4 @@
         
         [Install]
         WantedBy=multi-user.target  
+        
