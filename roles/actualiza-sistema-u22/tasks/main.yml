@@ -18,8 +18,6 @@
   template:
     src: template/archivos/mi_servicio.service.j2
     dest: /etc/systemd/system/mi_servicio.service
-  notify:
-    - Recargar systemd
 
 - name: Iniciar y habilitar el servicio
   systemd:
