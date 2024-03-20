@@ -21,8 +21,6 @@
     state: started
     enabled: yes
     daemon_reload: yes
-    restart: yes
-    enabled: yes
     unit:
       # Contenido del archivo de unidad del servicio systemd
       # Esto ejecutará el script.sh en el arranque
@@ -37,4 +35,4 @@
         Restart=always
         
         [Install]
-        WantedBy=multi-user.target
+        WantedBy=multi-user.target  
