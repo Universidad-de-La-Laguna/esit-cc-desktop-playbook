@@ -31,7 +31,7 @@
         
         [Service]
         Type=simple
-        ExecStart=/usr/local/bin/actualiza_sistema_onboot  # Ruta del script en el servidor
+        ExecStart=/usr/local/bin/actualiza-sistema-onboot  # Ruta del script en el servidor
         Restart=always
         
         [Install]
