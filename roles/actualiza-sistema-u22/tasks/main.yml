@@ -16,7 +16,6 @@
 
 - name: Crear el archivo de servicio
   template:
-    remote_src: yes
     src: template/archivos/mi_servicio.service.j2
     dest: /etc/systemd/system/mi_servicio.service
   notify:
