@@ -1,0 +1,3 @@
+- name: Mostrar roles aplicados en el host remoto
+  debug:
+    var: ansible_play_role_names
