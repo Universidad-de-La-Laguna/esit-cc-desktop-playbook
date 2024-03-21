@@ -7,7 +7,6 @@
 - hosts: localhost, all
   remote_user: root
   roles:
-    - { role: listar-roles, tags: ['listar-roles'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22'] }
     - { role: bug-ldap-stic, tags: ['bug-ldap-stic'] }
     - { role: wol_servicio, tags: ['wol_servicio'] }
