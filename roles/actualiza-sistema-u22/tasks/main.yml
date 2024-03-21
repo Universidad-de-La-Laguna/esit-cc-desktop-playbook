@@ -16,12 +16,12 @@
 
 - name: Crear el archivo de servicio
   template:
-    src: template/archivos/mi_servicio.service.j2
-    dest: /etc/systemd/system/mi_servicio.service
+    src: template/archivos/actualiza_sistema_onboot.service.j2
+    dest: /etc/systemd/system/actualiza_sistema_onboot.service
 
 - name: Iniciar y habilitar el servicio
   systemd:
-    name: mi_servicio
+    name: actualiza_sistema_onboot
     state: started
     enabled: yes
 
