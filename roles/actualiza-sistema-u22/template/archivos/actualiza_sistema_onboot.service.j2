@@ -6,6 +6,7 @@ After=network.target
 Type=simple
 ExecStart=/usr/local/bin/actualiza-sistema-onboot
 ExecStartPre=/bin/sleep 60
+TimeoutStartSec=600s
 Restart=always 
 
 [Install]
