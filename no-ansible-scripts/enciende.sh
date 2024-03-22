@@ -7,7 +7,7 @@ if [ $# -lt 1 ]; then
 fi
 
 # Nombre de archivo que contiene las MAC addresses
-archivo="resources/ansible/hosts"
+archivo="../resources/ansible/hosts"
 
 # Función para enviar el paquete de Wake-on-LAN
 enviar_wol() {
