@@ -10,6 +10,12 @@
       - python3.8-dev
       - python3.8-venv
     state: present
+- name: Crear el directorio /opt/env-neupy
+  become: yes
+  file:
+    path: /opt/env-neupy
+    state: directory
+    mode: "u+rwx,g+rwx,o+rwx"
 
 - name: Crear el entorno virtual
   become: yes
