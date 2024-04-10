@@ -23,7 +23,11 @@
 
 - name: Activar el entorno virtual
   become: yes
-  command: source /opt/env-neupy/bin/activate
+  command: /opt/env-neupy/bin/activate
+  args:
+    chdir: /opt/env-neupy
+  environment:
+    VIRTUAL_ENV: /opt/env-neupy
 
 - name: Instalar paquetes en el entorno virtual
   become: yes
