@@ -8,5 +8,20 @@ source /opt/env-neupy/bin/activate
 python3.8 -m pip install scipy numpy==1.21.0 neupy==0.6.5 scikit-learn==1.3.2 pyqt5==5.15.2
 chmod a+w -R /opt/env-neupy
 
+# probamos 
+mkdir -p /opt/ejemplo-neupy
+cd /opt/ejemplo-neupy
+wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-
+scripts/optdigits.tra
+wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-
+scripts/OptdigitsCPNNeuPy.py
+
+# Sino estamos en el entorno, source /opt/env-neupy/bin/activate
+python3.8 OptdigitsCPNNeuPy.py
+
+
+
+
+
 
 
