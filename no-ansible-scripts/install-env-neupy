@@ -16,7 +16,8 @@ wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-
 wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-scripts/OptdigitsCPNNeuPy.py
 
 # Sino estamos en el entorno, source /opt/env-neupy/bin/activate
-python3.8 OptdigitsCPNNeuPy.py
+#python3.8 OptdigitsCPNNeuPy.py
+
 
 
 
