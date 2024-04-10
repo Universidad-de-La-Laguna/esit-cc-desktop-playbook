@@ -11,6 +11,7 @@ chmod a+w -R /opt/env-neupy
 # probamos 
 mkdir -p /opt/ejemplo-neupy
 cd /opt/ejemplo-neupy
+# ejemplos
 wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-scripts/optdigits.tra
 wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-scripts/OptdigitsCPNNeuPy.py
 
