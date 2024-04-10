@@ -11,10 +11,8 @@ chmod a+w -R /opt/env-neupy
 # probamos 
 mkdir -p /opt/ejemplo-neupy
 cd /opt/ejemplo-neupy
-wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-
-scripts/optdigits.tra
-wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-
-scripts/OptdigitsCPNNeuPy.py
+wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-scripts/optdigits.tra
+wget https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/master/no-ansible-scripts/OptdigitsCPNNeuPy.py
 
 # Sino estamos en el entorno, source /opt/env-neupy/bin/activate
 python3.8 OptdigitsCPNNeuPy.py
