@@ -1,0 +1,3 @@
+- name: Instala UDS
+  apt:
+    deb: http://cc.etsii.ull.es/ftp/packages/udsclient3_3.5.0_all.deb
