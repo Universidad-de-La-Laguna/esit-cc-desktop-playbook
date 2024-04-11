@@ -74,6 +74,8 @@
 #   vars_files:
 #     - "roles/usuariolocal/vars/local.yml"
 
+ log_file: /ruta/a/mi_playbook.log
+
   tasks:
   - group:
       name: wireshark
