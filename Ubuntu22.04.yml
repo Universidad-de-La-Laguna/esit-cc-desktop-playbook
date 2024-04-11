@@ -6,7 +6,6 @@
 
 - hosts: localhost, all
   remote_user: root
-  log_file: Ubuntu22.04.log
   roles:
     - { role: udsclient, tags: ['udsclient'] }
     - { role: env-neupy, tags: ['env-neupy'] }
