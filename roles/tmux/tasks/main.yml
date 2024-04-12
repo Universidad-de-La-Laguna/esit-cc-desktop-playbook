@@ -1,12 +1,10 @@
-- name: Instalar tmux en Ubuntu
-  tasks:
-    - name: Instalar tmux
-      apt:
-        name: tmux
-        state: present
+- name: Instalar tmux
+  apt:
+    name: tmux
+    state: present
 
-    - name: Verificar que tmux se ha instalado correctamente
-      assert:
-        that:
-          - '"tmux" in ansible_facts.packages'
+- name: Verificar que tmux se ha instalado correctamente
+  assert:
+    that:
+      - '"tmux" in ansible_facts.packages'
     
