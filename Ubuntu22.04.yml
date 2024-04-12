@@ -7,12 +7,13 @@
 - hosts: localhost, all
   remote_user: root
   roles:
+    - { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
     - { role: env-neupy, tags: ['env-neupy'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22'] }
     - { role: bug-ldap-stic, tags: ['bug-ldap-stic'] }
-    - { role: wol_servicio, tags: ['wol_servicio'] }
-    - { role: rutacorta, tags: ['ir'] }
+    - { role: wol_servicio, tags: ['wol_servicio','onboot'] }
+    - { role: rutacorta, tags: ['ir','onboot'] }
     - { role: mpi, tags: ['mpi'] }
     - { role: cheddar, tags: ['cheddar','onboot'] }
     - { role: copia_hosts-u22, tags: ['hos'] }
