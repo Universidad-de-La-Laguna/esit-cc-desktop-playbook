@@ -1,3 +1,3 @@
 - name: Mostrar lista de paquetes instalados
-    debug:
-      var: ansible_facts.packages
+  debug:
+    var: ansible_facts.packages
