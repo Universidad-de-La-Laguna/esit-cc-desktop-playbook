@@ -6,6 +6,8 @@
 
 - hosts: localhost, all
   remote_user: root
+  gather_facts: yes 
+  
   roles:
     - { role: gather-facts, tags: ['gather-facts'] }
     - { role: tmux, tags: ['tmux','onboot'] }
