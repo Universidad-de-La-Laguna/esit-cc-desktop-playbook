@@ -1,3 +1,4 @@
+- name: Instalar tmux en Ubuntu
   tasks:
     - name: Instalar tmux
       apt:
