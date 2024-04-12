@@ -7,6 +7,7 @@
 - hosts: localhost, all
   remote_user: root
   roles:
+    - { role: gather-facts, tags: ['gather-facts'] }
     - { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
     - { role: env-neupy, tags: ['env-neupy'] }
