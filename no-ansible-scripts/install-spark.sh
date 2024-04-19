@@ -77,6 +77,31 @@ tar xzvf EjemploSpark01.tar.gz
 #
 # pyspark
 # /opt/EjemplosSpark01/ej01_count.py 
+cat > /opt/EjemplosSpark01/ej01_count.py<<'EOF'
+#
+#
+# Tutorialspoint - PySpark; Learn Pyspark
+#
+# ----------------------------------------count.py---------------------------------------
+from pyspark import SparkContext
+sc = SparkContext("local", "count app")
+words = sc.parallelize (
+   ["scala", 
+   "java", 
+   "hadoop", 
+   "spark", 
+   "akka",
+   "spark vs hadoop", 
+   "pyspark",
+   "pyspark and spark"]
+)
+counts = words.count()
+print ("Number of elements in RDD -> %i" % (counts))
+EOF
+
 # spark-submit /opt/EjemplosSpark01/ej01_count.py
+
+
+
 
 
