@@ -100,7 +100,7 @@ print ("Number of elements in RDD -> %i" % (counts))
 EOF
 
 # spark-submit /opt/EjemplosSpark01/ej01_count.py
-
+# URL de conexión http://cc1311:8080
 
 
 
