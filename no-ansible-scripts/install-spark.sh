@@ -3,7 +3,7 @@
 # Pasos seguidos en https://howtoforge.es/como-instalar-apache-spark-en-ubuntu-22-04/
 
 
-apt-get install default-jdk curl -y
+# apt-get install default-jdk curl -y
 cd /opt/
 #wget https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz
 wget https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz
