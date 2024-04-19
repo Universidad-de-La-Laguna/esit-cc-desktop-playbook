@@ -63,11 +63,11 @@ EOF
 systemctl daemon-reload
 systemctl start spark-master
 systemctl enable spark-master
-systemctl status spark-master
+#systemctl status spark-master
 
 systemctl start spark-slave
 systemctl enable spark-slave
-systemctl status spark-slave
+#systemctl status spark-slave
 
 # ejemplos
 cd /opt
