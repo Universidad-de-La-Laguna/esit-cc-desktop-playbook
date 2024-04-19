@@ -1,0 +1,29 @@
+# sudo add-apt-repository ppa:gns3/ppa
+
+- name: "Añadir repositorio para gns3"
+  apt_repository:
+    repo: ppa:gns3/ppa
+
+# sudo apt-get update
+- name: "update"
+  apt: 
+    name: ['update']
+      command: "apt-get update" 
+    
+# sudo apt-get install gns3-gui gns3-server
+  - name: "Install gns3"
+  apt: 
+    name: ['gns3-gui', 'gns3-server']
+      command: "{{ item }}" 
+      with_items:
+       - "apt install -f -y"
+       - "dpkg --configure -a"
+      state: present
+      update_cache: yes
+
+# sudo chmod 755 /usr/bin/ubridge
+- name: "ubridge"
+  apt: 
+    name: ['ubridge']
+      command: "sudo chmod 755 /usr/bin/ubridge" 
+
