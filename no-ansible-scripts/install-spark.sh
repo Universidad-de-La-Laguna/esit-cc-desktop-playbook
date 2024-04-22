@@ -5,6 +5,8 @@
 
 # apt-get install default-jdk curl -y
 cd /opt/
+mv spark spark.deprecated
+
 #wget https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz
 wget https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz
 
@@ -100,7 +102,7 @@ print ("Number of elements in RDD -> %i" % (counts))
 EOF
 
 # spark-submit /opt/EjemplosSpark01/ej01_count.py
-# URL de conexión http://cc1311:8080
+# URL de conexión http://cc131c1:8080
 
 
 
