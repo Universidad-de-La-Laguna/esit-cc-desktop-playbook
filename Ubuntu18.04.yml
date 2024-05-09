@@ -24,7 +24,7 @@
     - { role: node, tags: ['edu'] }
     - { role: nodepackages, tags: ['edu'] }
     - { role: hub, tags: ['edu'] }
-#    - { role: setdefaultpath, tags: ['aa']}
+    - { role: setdefaultpath, tags: ['setdefaultpath']}
     - { role: kgpg, tags: ['aa'] }
 #   - { role: cron-actualizasistema, tags: ['n'] }
     - ansibleupdate

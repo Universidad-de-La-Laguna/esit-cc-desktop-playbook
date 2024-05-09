@@ -1,5 +1,5 @@
 ---
-- hosts: ccxxxx.etsii.ull.es
+- hosts: localhost, all
   become: yes
   tasks:
   - name: Update apt cache
@@ -32,4 +32,11 @@
   - name: Set up authorized keys for the adminexam user
     authorized_key: user=adminexam key="{{item}}"
     with_file:
-      - /home/bcuestav/.ssh/id_adminexam.pub
+      - id_adminexam.pub
+
+  - name: Install list of packages
+    apt: 
+      state: present 
+      update_cache: yes
+      name: [
+        'xfce4']
