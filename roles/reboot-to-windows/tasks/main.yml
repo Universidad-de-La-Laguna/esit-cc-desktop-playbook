@@ -1,4 +1,4 @@
-- name: "Set default path"
+- name: "reboot-to-windows"
   copy:
       src: template/etc/profile.d/reboot_to_windows.sh
       dest: /etc/profile.d/reboot_to_windows.sh
