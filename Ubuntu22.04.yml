@@ -9,9 +9,9 @@
   gather_facts: yes 
   
   roles:
-    - { role: reboot_to_windows, tags: ['reboot_to_windows'] }
     - { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
+    - { role: reinicia-a-windows, tags: ['reboot_to_windows'] }
     - { role: env-neupy, tags: ['env-neupy'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22'] }
     - { role: bug-ldap-stic, tags: ['bug-ldap-stic'] }
