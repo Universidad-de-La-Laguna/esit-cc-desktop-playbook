@@ -1,0 +1,7 @@
+- name: "Set default path"
+  copy:
+      src: template/etc/profile.d/reboot_to_windows.sh
+      dest: /etc/profile.d/reboot_to_windows.sh
+      owner: root
+      group: root
+      mode: "u=rwx,g=rx,o=rx"
