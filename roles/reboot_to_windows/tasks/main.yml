@@ -1,0 +1,7 @@
+- name: Copiar el archivo reboot_to_windows.sh
+  copy:
+    src: template/reboot_to_windows.sh
+    dest: /etc/profile.d/reboot_on_windows.sh
+    mode: u+x 
+
+

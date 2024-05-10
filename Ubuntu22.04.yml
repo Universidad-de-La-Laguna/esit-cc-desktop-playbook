@@ -9,7 +9,8 @@
   gather_facts: yes 
   
   roles:
-    - { role: gather-facts, tags: ['gather-facts'] }
+  
+    - { role: reboot_to_windows, tags: ['reboot_to_windows'] }
     - { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
     - { role: env-neupy, tags: ['env-neupy'] }
