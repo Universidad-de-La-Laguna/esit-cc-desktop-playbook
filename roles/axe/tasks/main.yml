@@ -1,0 +1,10 @@
+- name: Instalar axe
+  apt:
+    name: axe
+    state: present
+
+- name: Verificar que axe se ha instalado correctamente
+  assert:
+    that:
+      - '"axe" in ansible_facts.packages'
+    
