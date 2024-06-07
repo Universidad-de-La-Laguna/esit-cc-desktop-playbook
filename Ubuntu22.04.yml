@@ -9,6 +9,7 @@
   gather_facts: yes 
   
   roles:
+    - { role: axe, tags: ['axe'] }
     - { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
     - { role: reinicia-a-windows, tags: ['reboot_to_windows'] }
