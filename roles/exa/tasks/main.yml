@@ -1,0 +1,10 @@
+- name: Instalar exa
+  apt:
+    name: exa
+    state: present
+
+- name: Verificar que exa se ha instalado correctamente
+  assert:
+    that:
+      - '"exa" in ansible_facts.packages'
+    

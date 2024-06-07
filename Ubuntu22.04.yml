@@ -9,10 +9,9 @@
   gather_facts: yes 
   
   roles:
-    - { role: axe, tags: ['axe'] }
+    - { role: exa, tags: ['exa'] }
     - { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
-    - { role: reinicia-a-windows, tags: ['reboot_to_windows'] }
     - { role: env-neupy, tags: ['env-neupy'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22'] }
     - { role: bug-ldap-stic, tags: ['bug-ldap-stic'] }
@@ -31,38 +30,58 @@
     - { role: python3, tags: ['py'] }
     - { role: installsoftware-u2204, tags: ['sd0'] }
     - { role: nvm, tags: ['a'] }
-    - { role: clienteoracle, tags: ['co'] }
-    - { role: node, tags: ['edu'] }
-    - { role: nodepackages,
-        tags: ['edu'],
-        node_path: /usr/local/nvm/versions/node/v11.15.0
-      }
-    - ansibleupdate
-    - { role: aceleraarranque,
-        ubuntu2204: yes
-      }
-    - { role: eclipse-java-cpp,
-        tags: ['eclipse'],
-        eclipse_cpp_version: eclipse-cpp-2022-09-R-linux-gtk-x86_64
-      }
-    - { role: emacs, tags: ['p'] }
-    - { role: mazesolver, tags: ['p'] }
-    - { role: weka, 
-        tags: ['weka'],
-        ubuntu2204: yes
-      }
-    - { role: gemas-ruby, tags: ['edu'] }
-    - { role: rvm_io.ruby,
-        tags: ruby,
-        become: yes,
+    - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
+    # - { role: fuzzylogic, tags: ['fuzzylogic'] }
+    # - { role: libpulse, tags: ['lp'] }
+    # - { role: eclipse-u18, 
+    #     tags: ['e22'],
+    #     eclipse_jee_version: 'eclipse-jee-2022-09-R-linux-gtk-x86_64'
+    #   }
+    # - { role: python3, tags: ['py'] }
+    # - { role: installsoftware-u2204, tags: ['sd0'] }
+    # - { role: nvm, tags: ['a'] }
+    # - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
+    # - { role: fuzzylogic, tags: ['fuzzylogic'] }
+    # - { role: libpulse, tags: ['lp'] }
+    # - { role: eclipse-u18, 
+    #     tags: ['e22'],
+    #     eclipse_jee_version: 'eclipse-jee-2022-09-R-linux-gtk-x86_64'
+    #   }
+    # - { role: python3, tags: ['py'] }
+    # - { role: installsoftware-u2204, tags: ['sd0'] }
+    # - { role: nvm, tags: ['a'] }
+    # - { role: clienteoracle, tags: ['co'] }
+    # - { role: node, tags: ['edu'] }
+    # - { role: nodepackages,
+    #     tags: ['edu'],
+    #     node_path: /usr/local/nvm/versions/node/v11.15.0
+    #   }
+    # - ansibleupdate
+    # - { role: aceleraarranque,
+    #     ubuntu2204: yes
+    #   }
+    # - { role: eclipse-java-cpp,
+    #     tags: ['eclipse'],
+    #     eclipse_cpp_version: eclipse-cpp-2022-09-R-linux-gtk-x86_64
+    #   }
+    # - { role: emacs, tags: ['p'] }
+    # - { role: mazesolver, tags: ['p'] }
+    # - { role: weka, 
+    #     tags: ['weka'],
+    #     ubuntu2204: yes
+    #   }
+    # - { role: gemas-ruby, tags: ['edu'] }
+    # - { role: rvm_io.ruby,
+    #     tags: ruby,
+    #     become: yes,
 
-        rvm1_rubies: ['ruby-2.7.6'],               # Versiones 2.2.5 y 2.3.1 no instalan en Ubuntu 22.04
-        rvm1_install_path: /usr/local/rvm,         # Set to system location
-        rvm1_install_flags: "--auto-dotfiles --with-openssl-dir={{ rvm1_install_path }}/usr",     # Remove --user-install from defaults
-        rvm1_user: root,                           # Need root account to access system location
+    #     rvm1_rubies: ['ruby-2.7.6'],               # Versiones 2.2.5 y 2.3.1 no instalan en Ubuntu 22.04
+    #     rvm1_install_path: /usr/local/rvm,         # Set to system location
+    #     rvm1_install_flags: "--auto-dotfiles --with-openssl-dir={{ rvm1_install_path }}/usr",     # Remove --user-install from defaults
+    #     rvm1_user: root,                           # Need root account to access system location
 
-        ubuntu2204: yes
-      }
+    #     ubuntu2204: yes
+    #  }
 
     ## Software no instalado en Ubuntu 22.04.
     ## Se ha considerado obsoleto, que viene de serie o no hace falta.
