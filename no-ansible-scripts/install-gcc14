@@ -1,6 +1,3 @@
-
-
-
 ### Compilación 
 
 : '
@@ -30,20 +27,7 @@ rm -f gcc-14.2.0.tgz
 ln -s /opt/gcc-14.2.0/usr/local/gcc-14.2.0/bin/gcc-14.2.0 /usr/bin/gcc-14
 ln -s /opt/gcc-14.2.0/usr/local/gcc-14.2.0/bin/g++-14.2.0 /usr/bin/g++-14
 
-## Comprobacion funcionameinto
+# https://github.com/ull-esit-sistemas-operativos/ssoo-ejemplos/tree/master
+# Incidencia https://cc.etsii.ull.es/requests/view.php?id=251
+# Jesus Torres
 
-: '
-##g++-4.9
-##g++ -std=c++14 main.c program
-
-// hello.c
-#include <stdio.h>
- 
-int main() {
-    printf("Hello, world!\n");
-    return 0;
-}
-gcc hello.c -o hello
-./hello
-
-'
