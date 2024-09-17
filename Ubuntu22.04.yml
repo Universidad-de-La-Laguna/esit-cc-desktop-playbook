@@ -9,6 +9,7 @@
   gather_facts: yes 
   
   roles:
+    - { role: mediapipe, tags: ['mediapipe','onboot'] }
     - { role: exa, tags: ['exa'] }
     - { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
