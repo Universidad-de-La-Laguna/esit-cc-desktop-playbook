@@ -1,0 +1,33 @@
+### Compilación 
+
+: '
+apt install build-essential -y
+apt install libmpfr-dev libgmp3-dev libmpc-dev -y
+cd /opt
+wget http://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.gz
+tar -xf gcc-14.2.0.tar.gz
+cd gcc-14.2.0
+./configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc-14.2.0 --enable-checking=release --enable-languages=c,c++ --disable-multilib --program-suffix=-14.2.0
+make -j3
+
+make install
+/usr/local/gcc-14.2.0/bin/gcc-14.2.0 --version
+
+cd /usr/local
+tar -czvf gcc-14.2.0.tgz /usr/local/gcc-14.2.0
+' 
+
+## Instalación
+mkdir /opt/gcc-14.2.0
+cd /opt/gcc-14.2.0
+wget http://cc.etsii.ull.es/ftp/packages/gcc-14.2.0.tgz
+tar xvfz gcc-14.2.0.tgz
+rm -f gcc-14.2.0.tgz
+
+ln -s /opt/gcc-14.2.0/usr/local/gcc-14.2.0/bin/gcc-14.2.0 /usr/bin/gcc-14
+ln -s /opt/gcc-14.2.0/usr/local/gcc-14.2.0/bin/g++-14.2.0 /usr/bin/g++-14
+
+# https://github.com/ull-esit-sistemas-operativos/ssoo-ejemplos/tree/master
+# Incidencia https://cc.etsii.ull.es/requests/view.php?id=251
+# Jesus Torres
+
