@@ -9,7 +9,7 @@
   gather_facts: yes 
   
   roles:
-    - { role: openjdk-21, tags: ['openjdk-21','onboot'] }
+    - { role: openjdk-21-jdk, tags: ['openjdk-21-jdk','onboot'] }
     - { role: pip-mediapipe, tags: ['mediapipe','onboot'] }
     - { role: exa, tags: ['exa'] }
     - { role: tmux, tags: ['tmux','onboot'] }
