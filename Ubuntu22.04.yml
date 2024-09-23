@@ -9,7 +9,7 @@
   gather_facts: yes 
   
   roles:
-    - { role: vscode, tags: ['vscode'] }
+    - { role: vscode, tags: ['vscode','onboot'] }
     - { role: openjdk-21, tags: ['openjdk-21','onboot'] }
     - { role: pip-mediapipe, tags: ['mediapipe','onboot'] }
     - { role: exa, tags: ['exa'] }
