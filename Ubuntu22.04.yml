@@ -9,6 +9,7 @@
   gather_facts: yes 
   
   roles:
+    - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] }
     - { role: install_gcc14, tags: ['install_gcc14'] }
     - { role: vscode, tags: ['vscode','onboot'] }
     - { role: openjdk-21, tags: ['openjdk-21','onboot'] }
@@ -17,7 +18,6 @@
     - { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
     - { role: env-neupy, tags: ['env-neupy'] }
-    - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22'] }
     - { role: bug-ldap-stic, tags: ['bug-ldap-stic'] }
     - { role: wol_servicio, tags: ['wol_servicio','onboot'] }
     - { role: rutacorta, tags: ['ir','onboot'] }
