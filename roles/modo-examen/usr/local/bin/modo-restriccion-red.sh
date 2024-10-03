@@ -69,8 +69,6 @@ iptables -P OUTPUT DROP
 # Bloquear todo el tráfico entrante por defecto
 iptables -P INPUT DROP
 
-# Guardar las reglas
-iptables-save > /etc/iptables/rules.v4
 
 echo "Acceso bloqueado a todas las direcciones excepto las IPs permitidas, redes locales (10.x.x.x y 193.145.x.x) durante 1 minuto."
 
