@@ -32,7 +32,7 @@
 
 - name: Copiar el script /usr/bin/modo-restriccion-red.sh al servidor
   copy:
-    src: "usr/local/bn/modo-restriccion-red.sh"
+    src: "usr/local/bin/modo-restriccion-red.sh"
     dest: "/usr/local/bin/modo-restriccion-red.sh"
     mode: '0700'
     owner: "root"
@@ -48,7 +48,7 @@
 
 - name: Copiar el script modo-restriccion-red-pc-remoto al servidor
   copy:
-    src: "usr/local/bn/modo-restriccion-red-pc-remoto.sh"
+    src: "usr/local/bin/modo-restriccion-red-pc-remoto.sh"
     dest: "/usr/local/bin/modo-restriccion-red-pc-remoto.sh"
     mode: '0700'
     owner: "root"
@@ -56,7 +56,7 @@
 
 - name: Copiar el script modo-restriccion-red-pc-remoto al servidor
   copy:
-    src: "usr/local/bn/modo-examen-sala.sh"
+    src: "usr/local/bin/modo-examen-sala.sh"
     dest: "/usr/local/bin/modo-examen-sala.sh"
     mode: '0700'
     owner: "root"
