@@ -19,7 +19,7 @@ if [ ! -f "$private_key" ]; then
 fi
 
 # Ejecutar el script en el host remoto usando la clave privada
-if ssh -i "$private_key" usuario_ssh@"$remote_host" "/usr/local/bin/modo-restriccion-red.sh"; then
+if ssh -i "$private_key" usuario_ssh@"$remote_host" "sudo /usr/local/bin/modo-restriccion-red.sh"; then
     echo "El script se ejecutó correctamente en $remote_host."
 else
     echo -e "\e[31mError al ejecutar el script en $remote_host.\e[0m"  # Mensaje en rojo
