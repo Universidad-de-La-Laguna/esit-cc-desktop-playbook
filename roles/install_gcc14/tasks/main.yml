@@ -1,0 +1,33 @@
+- name: Crear directorio para GCC
+  ansible.builtin.file:
+    path: /opt/gcc-14.2.0
+    state: directory
+
+- name: Descargar GCC 14.2.0
+  ansible.builtin.get_url:
+    url: http://cc.etsii.ull.es/ftp/packages/gcc-14.2.0.tgz
+    dest: /opt/gcc-14.2.0/gcc-14.2.0.tgz
+
+- name: Extraer archivo GCC
+  ansible.builtin.unarchive:
+    src: /opt/gcc-14.2.0/gcc-14.2.0.tgz
+    dest: /opt/gcc-14.2.0/
+    remote_src: yes
+
+- name: Eliminar archivo descargado
+  ansible.builtin.file:
+    path: /opt/gcc-14.2.0/gcc-14.2.0.tgz
+    state: absent
+
+- name: Crear enlace simbólico para gcc-14
+  ansible.builtin.file:
+    src: /opt/gcc-14.2.0/usr/local/gcc-14.2.0/bin/gcc-14.2.0
+    dest: /usr/bin/gcc-14
+    state: link
+
+- name: Crear enlace simbólico para g++-14
+  ansible.builtin.file:
+    src: /opt/gcc-14.2.0/usr/local/gcc-14.2.0/bin/g++-14.2.0
+    dest: /usr/bin/g++-14
+    state: link
+

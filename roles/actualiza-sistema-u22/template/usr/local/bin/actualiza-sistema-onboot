@@ -1,4 +1,17 @@
 #!/bin/bash
 
+# Ruta del archivo de marcador
+FLAG_FILE="/var/run/actualiza-sistema-once.flag"
+
+# Si el archivo de marcador existe, salir del script
+if [ -f "$FLAG_FILE" ]; then
+    exit 0
+fi
+
+
 /usr/bin/ansible-pull  -d /etc/esit-cc-desktop-playbook -i "localhost" -U https://github.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook  Ubuntu22.04.yml --tags onboot
+
+
+# Crear el archivo de marcador al finalizar
+touch "$FLAG_FILE"
 

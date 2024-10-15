@@ -1,0 +1,65 @@
+# Crear usuario en Linux, configurar SSH, copiar script y otorgar permisos de sudo
+
+- name: Crear usuario "usuario_ssh" si no existe
+  user:
+    name: "usuario_ssh"
+    shell: /bin/bash
+    state: present
+    create_home: yes
+
+- name: Crear directorio .ssh en el home del usuario
+  file:
+    path: "/home/usuario_ssh/.ssh"
+    state: directory
+    mode: '0700'
+    owner: "usuario_ssh"
+    group: "usuario_ssh"
+
+- name: Copiar clave pública SSH en el archivo authorized_keys
+  copy:
+    content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDC9sCp2SwEeDZ6fTvo56LujrPNFFiynmr9nWN7NFI/DX5AoGZlI4Dnc0+WVguw3Li0+Q7axD5DJaYep5TvUSRKXv5cGubK8R1yAUyFnY8HpCw5Ev0L5uKF4fPvXwvkP11LWm4y7mvDhFvz+XxWEF7AdY04c95pFeUcmgM27j9gSP1/P+gD4deqSeSnkXCcosu0UZo/hK7iolwk/EYyRl6rlZnZJIKovltJo4vg+lK11GqIs41IFIaFdPI+pyAP/C6ormwM/rStaQmO5Z6ODq8Md7friwCpgP/bFTkW6zmjJnPqlJ0Ir6++1OJFl4uuuK2gHh4yHrhDUTdjEg7+nS0UKk+fwGZtm2+8aTD1ADm4YjkBG6+1qojF9tybM3Oqr510aIFxj2hrWJBTqne5ebY8z6/V106vVDMqptsCXlMWivrTZ5ztK2ckEybR4EDy3kye+vOmQWx/ZpWVh4sYREfWxNW20+PYvyhXPDy1z1ZS8yA20jlINArv01xF/8NiooRuvdZS1I2y7e0Z9Lct5ihasZzFjhqIRqUdZZ39GfILGpBYhXp0wQHC4k/nYVZt4h2s6PeWI0Z5jtC6/jpwvBWvfbRwVQqjwLMHeWC+LieK1yrd+6dY5AaOWNF8T67papNvewmKwQVJnBYxZ4xN5eKJkBj8H1/gPALm5nDtvPTA4Q=="
+    dest: "/home/usuario_ssh/.ssh/authorized_keys"
+    owner: "usuario_ssh"
+    group: "usuario_ssh"
+    mode: '0600'
+
+- name: Asegurarse de que los permisos del directorio .ssh son correctos
+  file:
+    path: "/home/usuario_ssh/.ssh"
+    mode: '0700'
+    owner: "usuario_ssh"
+    group: "usuario_ssh"
+
+- name: Copiar el script /usr/bin/modo-restriccion-red.sh al servidor
+  copy:
+    src: "usr/local/bin/modo-restriccion-red.sh"
+    dest: "/usr/local/bin/modo-restriccion-red.sh"
+    mode: '0700'
+    owner: "root"
+    group: "root"
+
+- name: Permitir que usuario_ssh ejecute /usr/local/bin/modo-restriccion-red.sh como root sin contraseña
+  lineinfile:
+    path: /etc/sudoers.d/usuario_ssh_modo_restriccion_red
+    state: present
+    create: yes
+    line: 'usuario_ssh ALL=(ALL) NOPASSWD: /usr/local/bin/modo-restriccion-red.sh'
+    validate: 'visudo -cf %s'
+
+- name: Copiar el script modo-restriccion-red-pc-remoto al servidor
+  copy:
+    src: "usr/local/bin/modo-restriccion-red-pc-remoto.sh"
+    dest: "/usr/local/bin/modo-restriccion-red-pc-remoto.sh"
+    mode: '0700'
+    owner: "root"
+    group: "root"
+
+- name: Copiar el script modo-restriccion-red-pc-remoto al servidor
+  copy:
+    src: "usr/local/bin/modo-examen-sala.sh"
+    dest: "/usr/local/bin/modo-examen-sala.sh"
+    mode: '0700'
+    owner: "root"
+    group: "root"
+
+
