@@ -36,7 +36,7 @@
     - { role: installsoftware-u2204, tags: ['sd0'] }
     - { role: nvm, tags: ['a'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
-    - { role: mazesolver, tags: ['mazesolver'] }
+    - { role: mazesolver, tags: ['mazesolver','onboot'] }
     # - { role: fuzzylogic, tags: ['fuzzylogic'] }
     # - { role: libpulse, tags: ['lp'] }
     # - { role: eclipse-u18, 
