@@ -19,3 +19,9 @@
       owner: root
       group: root
       mode: "u=rwx,g=rx,o=rx"
+
+- name: java 8
+  unarchive:
+    src: http://cc.etsii.ull.es/ftp/packages/jdk-8u20-linux-x64.tar.gz
+    dest: /opt/
+    remote_src: yes
