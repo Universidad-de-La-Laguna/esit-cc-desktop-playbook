@@ -9,6 +9,7 @@
   gather_facts: yes 
   
   roles:
+    - { role: mazesolver, tags: ['mazesolver','onboot'] }
     - { role: modo-examen, tags: ['modo-examen'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] }
     - { role: install_gcc14, tags: ['install_gcc14'] }
@@ -36,7 +37,7 @@
     - { role: installsoftware-u2204, tags: ['sd0'] }
     - { role: nvm, tags: ['a'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
-    - { role: mazesolver, tags: ['mazesolver','onboot'] }
+    
     # - { role: fuzzylogic, tags: ['fuzzylogic'] }
     # - { role: libpulse, tags: ['lp'] }
     # - { role: eclipse-u18, 
