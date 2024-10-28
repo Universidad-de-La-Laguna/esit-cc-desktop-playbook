@@ -5,7 +5,7 @@
 
 # desinstalar cualquier cosa que tenga docker por apt
 
-for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt-get remove $pkg; done
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt-get remove -y $pkg; done
 
 # Set up Docker's apt repository.
  # Add Docker's official GPG key:
@@ -20,10 +20,10 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get update
+apt-get update -y
 
 # Install the Docker packages.
-apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Verify that the Docker Engine installation is successful by running the hello-world image.
 docker run hello-world
@@ -91,7 +91,6 @@ cat >/etc/docker/daemon.json<< EOF
 }
 EOF
 
-
 ## docker build https://github.com/docker/rootfs.git#contenedor:docker
 
 #docker container run -d --restart=unless-stopped --name registry \
@@ -108,5 +107,3 @@ EOF
 #  -e "REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io" \
 #  -p "127.0.0.1:5000:5000" \
 #  registry:2
-
-
