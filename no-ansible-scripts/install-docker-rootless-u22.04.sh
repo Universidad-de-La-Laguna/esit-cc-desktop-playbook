@@ -39,12 +39,12 @@ systemctl disable containerd.service
 apt-get install -y dbus-user-session 
 apt-get install -y uidmap
 
-
 insertar_si_no_existe() {
     local nueva_linea="$1"
     local archivo="$2"
     grep -qxF "$nueva_linea" "$archivo" || echo "$nueva_linea" >> "$archivo"
 }
+
 
 
 #echo 'echo \$PAM_USER:100000:65536 > /etc/subuid' >> /usr/share/libpam-script/pam_script_auth
