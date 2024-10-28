@@ -9,8 +9,8 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 
 # Set up Docker's apt repository.
  # Add Docker's official GPG key:
-apt-get update
-apt-get install ca-certificates curl gnupg
+apt-get update -y
+apt-get install -y ca-certificates curl gnupg
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
@@ -47,10 +47,10 @@ insertar_si_no_existe() {
 
 
 #echo 'echo $PAM_USER:100000:65536 > /etc/subuid' >> /usr/share/libpam-script/pam_script_auth
-insertar_si_no_existe "echo $PAM_USER:100000:65536 > /etc/subuid" "/usr/share/libpam-script/pam_script_auth"
+insertar_si_no_existe 'echo $PAM_USER:100000:65536 > /etc/subuid' "/usr/share/libpam-script/pam_script_auth"
 
 #echo 'echo $PAM_USER:100000:65536 > /etc/subgid' >> /usr/share/libpam-script/pam_script_auth
-insertar_si_no_existe "echo $PAM_USER:100000:65536 > /etc/subgid" "/usr/share/libpam-script/pam_script_auth"
+insertar_si_no_existe 'echo $PAM_USER:100000:65536 > /etc/subgid' "/usr/share/libpam-script/pam_script_auth"
 
 # apt-get install -y docker-ce-rootless-extras
 # Ejectua as non-root user to set up the daemon
@@ -63,7 +63,7 @@ grep -qxF '/usr/bin/dockerd-rootless-setuptool.sh install' /usr/share/libpam-scr
 # Starting Rootless Docker as a systemd-wide service (/etc/systemd/system/docker.service) is not supported, even with the User= directive.
 
 # You need to specify either the socket path or the CLI context explicitly.
-insertar_si_no_existe "export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock" "/usr/share/libpam-script/pam_script_auth"
+insertar_si_no_existe "export DOCKER_HOST=unix://\$XDG_RUNTIME_DIR/docker.sock" "/usr/share/libpam-script/pam_script_auth"
 
 #cat >~/.docker/config.json<< EOF
 #{
