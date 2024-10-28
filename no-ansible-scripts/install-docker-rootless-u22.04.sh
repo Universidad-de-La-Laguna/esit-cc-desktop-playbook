@@ -54,7 +54,8 @@ insertar_si_no_existe "echo $PAM_USER:100000:65536 > /etc/subgid" "/usr/share/li
 
 # apt-get install -y docker-ce-rootless-extras
 # Ejectua as non-root user to set up the daemon
-echo '/usr/bin/dockerd-rootless-setuptool.sh install' >> /usr/share/libpam-script/pam_script_auth
+grep -qxF '/usr/bin/dockerd-rootless-setuptool.sh install' /usr/share/libpam-script/pam_script_auth || echo '/usr/bin/dockerd-rootless-setuptool.sh install' >> /usr/share/libpam-script/pam_script_auth
+
 
 # Uso
 #
