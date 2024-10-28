@@ -47,10 +47,10 @@ insertar_si_no_existe() {
 
 
 #echo 'echo \$PAM_USER:100000:65536 > /etc/subuid' >> /usr/share/libpam-script/pam_script_auth
-insertar_si_no_existe 'echo $PAM_USER:100000:65536 > /etc/subuid' "/usr/share/libpam-script/pam_script_auth"
+insertar_si_no_existe 'echo \$PAM_USER:100000:65536 > /etc/subuid' "/usr/share/libpam-script/pam_script_auth"
 
 #echo 'echo \$PAM_USER:100000:65536 > /etc/subgid' >> /usr/share/libpam-script/pam_script_auth
-insertar_si_no_existe 'echo $PAM_USER:100000:65536 > /etc/subgid' "/usr/share/libpam-script/pam_script_auth"
+insertar_si_no_existe 'echo \$PAM_USER:100000:65536 > /etc/subgid' "/usr/share/libpam-script/pam_script_auth"
 
 # apt-get install -y docker-ce-rootless-extras
 # Ejectua as non-root user to set up the daemon
