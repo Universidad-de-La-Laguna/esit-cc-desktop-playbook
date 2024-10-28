@@ -11,7 +11,7 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
  # Add Docker's official GPG key:
 apt-get update -y
 apt-get install -y ca-certificates curl gnupg
-install -m 0755 -d /etc/apt/keyrings
+install -m 0755 -d -y /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
 
@@ -46,10 +46,10 @@ insertar_si_no_existe() {
 }
 
 
-#echo 'echo $PAM_USER:100000:65536 > /etc/subuid' >> /usr/share/libpam-script/pam_script_auth
+#echo 'echo \$PAM_USER:100000:65536 > /etc/subuid' >> /usr/share/libpam-script/pam_script_auth
 insertar_si_no_existe 'echo $PAM_USER:100000:65536 > /etc/subuid' "/usr/share/libpam-script/pam_script_auth"
 
-#echo 'echo $PAM_USER:100000:65536 > /etc/subgid' >> /usr/share/libpam-script/pam_script_auth
+#echo 'echo \$PAM_USER:100000:65536 > /etc/subgid' >> /usr/share/libpam-script/pam_script_auth
 insertar_si_no_existe 'echo $PAM_USER:100000:65536 > /etc/subgid' "/usr/share/libpam-script/pam_script_auth"
 
 # apt-get install -y docker-ce-rootless-extras
