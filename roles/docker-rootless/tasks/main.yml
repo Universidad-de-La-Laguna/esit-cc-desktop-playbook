@@ -1,0 +1,4 @@
+- name: Ejecutar script para instalación de Docker rootless
+  ansible.builtin.script:
+    src: "../no-ansible-scripts/install-docker-rootless-u22.04.sh"
+    executable: /bin/bash

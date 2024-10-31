@@ -1,14 +1,12 @@
 #!/bin/bash
 
 # Instala docker en modo rootless.
-# Modificada script de inicio con PAM.
 
 # desinstalar cualquier cosa que tenga docker por apt
-
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt-get remove -y $pkg; done
 
 # Set up Docker's apt repository.
- # Add Docker's official GPG key:
+# Add Docker's official GPG key:
 apt-get update -y
 apt-get install -y ca-certificates curl gnupg
 rm -f /etc/apt/keyrings/docker.gpg
@@ -30,8 +28,6 @@ apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin do
 docker run hello-world
 
 # On Debian and Ubuntu, the Docker service starts on boot by default.
-# sudo systemctl enable docker.service
-# sudo systemctl enable containerd.service
 systemctl disable docker.service
 systemctl disable containerd.service
 
@@ -45,26 +41,16 @@ insertar_si_no_existe() {
     grep -qxF "$nueva_linea" "$archivo" || echo "$nueva_linea" >> "$archivo"
 }
 
-
-
-#echo 'echo \$PAM_USER:100000:65536 > /etc/subuid' >> /usr/share/libpam-script/pam_script_auth
 insertar_si_no_existe 'echo $USER:100000:65536 > /etc/subuid' "/usr/share/libpam-script/pam_script_auth"
-
-#echo 'echo \$PAM_USER:100000:65536 > /etc/subgid' >> /usr/share/libpam-script/pam_script_auth
 insertar_si_no_existe 'echo $USER:100000:65536 > /etc/subgid' "/usr/share/libpam-script/pam_script_auth"
 
 # apt-get install -y docker-ce-rootless-extras
-# Ejectua as non-root user to set up the daemon
-grep -qxF '/usr/bin/dockerd-rootless-setuptool.sh install' /usr/share/libpam-script/pam_script_auth || echo '/usr/bin/dockerd-rootless-setuptool.sh install' >> /usr/share/libpam-script/pam_script_auth
+cat > /usr/local/bin/docker-rootless.sh <<EOF
+/usr/bin/dockerd-rootless-setuptool.sh install
+export DOCKER_HOST=unix://\$XDG_RUNTIME_DIR/docker.sock
+EOF
+chmod a+x /usr/local/bin/docker-rootless.sh
 
-
-# Uso
-#
-# systemctl --user start docker
-# Starting Rootless Docker as a systemd-wide service (/etc/systemd/system/docker.service) is not supported, even with the User= directive.
-
-# You need to specify either the socket path or the CLI context explicitly.
-insertar_si_no_existe "export DOCKER_HOST=unix://\$XDG_RUNTIME_DIR/docker.sock" "/usr/share/libpam-script/pam_script_auth"
 
 #cat >~/.docker/config.json<< EOF
 #{
@@ -93,7 +79,7 @@ cat >/etc/docker/daemon.json<< EOF
 EOF
 
 ## docker build https://github.com/docker/rootfs.git#contenedor:docker
-
+cc
 #docker container run -d --restart=unless-stopped --name registry \
 #  -e "REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/var/lib/registry" \
 #  -e "REGISTRY_STORAGE_DELETE_ENABLED=true" \

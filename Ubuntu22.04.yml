@@ -9,6 +9,7 @@
   gather_facts: yes 
   
   roles:
+    - { role: docker-rootless, tags: ['docker-rootless'] }
     - { role: mazesolver, tags: ['mazesolver','onboot'] }
     - { role: modo-examen, tags: ['modo-examen'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] }
