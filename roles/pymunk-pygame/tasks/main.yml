@@ -1,0 +1,12 @@
+- name: Instalar pymunk y pygame usando pip
+  pip:
+    name:
+      - pymunk
+      - pygame
+    executable: pip3
+
+- name: Copiar script para exportar variable de entorno a /etc/profile.d
+  copy:
+    src: set_protobuf_env.sh
+    dest: /etc/profile.d/set_protobuf_env.sh
+    mode: '0755'

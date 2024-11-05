@@ -9,6 +9,7 @@
   gather_facts: yes 
   
   roles:
+    - { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
     - { role: docker-rootless, tags: ['docker-rootless'] }
     - { role: mazesolver, tags: ['mazesolver','onboot'] }
     - { role: modo-examen, tags: ['modo-examen'] }
