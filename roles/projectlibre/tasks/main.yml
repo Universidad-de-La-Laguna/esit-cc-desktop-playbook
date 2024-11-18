@@ -8,7 +8,7 @@
      deb: http://cc.etsii.ull.es/ftp/packages/projectlibre_1.8.0-1.deb 
 
 - name: Cambiar nombre de projectlibre a projectlibre-original
-  command: mv -f /usr/bin/projectlibre /usr/bin/projectlibre-original
+  command: mv -f /usr/bin/projectlibre /usr/bin/projectlibre-original2
 
 - name: Crear archivo /usr/bin/projectlibre
   ansible.builtin.copy:
@@ -30,7 +30,7 @@
       LOG_FILE="/dev/null"
       EOF
 
-      /usr/bin/projectlibre-original
+      /usr/bin/projectlibre-original2
     mode: '0755'
   
 
