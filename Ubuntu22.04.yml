@@ -9,6 +9,8 @@
   gather_facts: yes 
   
   roles:
+    - { role: projectlibre, tags: ['projectlibre','onboot'] }
+    - { role: copiar-hosts, tags: ['copiar-hosts'] }
     - { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
     - { role: docker-rootless, tags: ['docker-rootless'] }
     - { role: mazesolver, tags: ['mazesolver','onboot'] }
@@ -27,7 +29,7 @@
     - { role: rutacorta, tags: ['ir','onboot'] }
     - { role: mpi, tags: ['mpi'] }
     - { role: cheddar, tags: ['cheddar','onboot'] }
-    - { role: copia_hosts-u22, tags: ['hos'] }
+    #- { role: copia_hosts-u22, tags: ['hos'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     - { role: fuzzylogic, tags: ['fuzzylogic'] }
     - { role: libpulse, tags: ['lp'] }
