@@ -4,8 +4,33 @@
     - "apt install -f -y"
     - "dpkg --configure -a"
 
-
 - apt:
      deb: http://cc.etsii.ull.es/ftp/packages/projectlibre_1.8.0-1.deb 
 
+- name: Cambiar nombre de projectlibre a projectlibre-original
+  command: mv -f /usr/bin/projectlibre /usr/bin/projectlibre-original
+
+- name: Crear archivo /usr/bin/projectlibre
+  ansible.builtin.copy:
+    dest: /usr/bin/projectlibre
+    content: |
+      #!/bin/bash
+      rm -Rf ~/.projectlibre
+      mkdir -p ~/.projectlibre
+
+      cat > ~/.projectlibre/run.conf <<EOF
+      #Auto-generated parameters
+      AUTO_CONFIGURATION="1"
+      JAVA_EXE="/opt/jdk1.8.0_20/bin/java"
+      OS_NAME="Linux"
+      OS_ID="Ubuntu"
+      OS_RELEASE="22.04"
+      JAVA_OPTS="-Xms128m -Xmx768m"
+      LOG_LEVEL="DEBUG"
+      LOG_FILE="/dev/null"
+      EOF
+
+      /usr/bin/projectlibre-original
+    mode: '0755'
+  
 

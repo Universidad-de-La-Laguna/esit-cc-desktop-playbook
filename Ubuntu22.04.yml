@@ -9,7 +9,7 @@
   gather_facts: yes 
   
   roles:
-    - { role: projectlibre, tags: ['projectlibre','onboot'] }
+    - { role: projectlibre, tags: ['projectlibre'] }
     - { role: copiar-hosts, tags: ['copiar-hosts'] }
     - { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
     - { role: docker-rootless, tags: ['docker-rootless'] }
