@@ -18,7 +18,7 @@
       rm -Rf ~/.projectlibre
       mkdir -p ~/.projectlibre
 
-      cat > ~/.projectlibre/run.conf <<EOF
+      cat > ~/.projectlibre/run.conf <<FIN
       #Auto-generated parameters
       AUTO_CONFIGURATION="1"
       JAVA_EXE="/opt/jdk1.8.0_20/bin/java"
@@ -28,7 +28,7 @@
       JAVA_OPTS="-Xms128m -Xmx768m"
       LOG_LEVEL="DEBUG"
       LOG_FILE="/dev/null"
-      EOF
+      FIN
 
       /usr/bin/projectlibre-original2
     mode: '0755'
