@@ -10,27 +10,13 @@
 - name: Cambiar nombre de projectlibre a projectlibre-original
   command: mv -f /usr/bin/projectlibre /usr/bin/projectlibre-original2
 
-- name: Crear archivo /usr/bin/projectlibre
-  ansible.builtin.copy:
-    dest: /usr/bin/projectlibre
-    content: |
-      #!/bin/bash
-      rm -Rf ~/.projectlibre
-      mkdir -p ~/.projectlibre
+- name: "Crear archivo /usr/bin/projectlibre"
+  copy:
+      src: template/usr/bin/projectlibre
+      dest: /usr/bin/projectlibre
+      owner: root
+      group: root
+      mode: "u=rwx,g=rx,o=rx"
 
-      cat > ~/.projectlibre/run.conf <<FIN
-      #Auto-generated parameters
-      AUTO_CONFIGURATION="1"
-      JAVA_EXE="/opt/jdk1.8.0_20/bin/java"
-      OS_NAME="Linux"
-      OS_ID="Ubuntu"
-      OS_RELEASE="22.04"
-      JAVA_OPTS="-Xms128m -Xmx768m"
-      LOG_LEVEL="DEBUG"
-      LOG_FILE="/dev/null"
-      FIN
-
-      /usr/bin/projectlibre-original2
-    mode: '0755'
   
 
