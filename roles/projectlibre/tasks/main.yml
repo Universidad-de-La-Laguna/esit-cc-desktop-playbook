@@ -4,8 +4,15 @@
     - "apt install -f -y"
     - "dpkg --configure -a"
 
-- apt:
-     deb: http://cc.etsii.ull.es/ftp/packages/projectlibre_1.8.0-1.deb 
+- name: Desinstalar paquete antiguo de ProjectLibre
+  ansible.builtin.apt:
+    name: projectlibre
+    state: absent
+
+- name: Instalar nuevo paquete de ProjectLibre desde URL
+  ansible.builtin.apt:
+    deb: http://cc.etsii.ull.es/ftp/packages/projectlibre_1.9.3-1.deb
+    state: present
 
 - name: Cambiar nombre de projectlibre a projectlibre-original
   command: mv -f /usr/bin/projectlibre /usr/bin/projectlibre-original2
