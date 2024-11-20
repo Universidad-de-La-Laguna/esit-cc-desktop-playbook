@@ -1,0 +1,29 @@
+---
+- name: Obtener el hostname del equipo
+  ansible.builtin.command: hostname
+  register: hostname_output
+
+- name: Guardar el hostname en una variable
+  ansible.builtin.set_fact:
+    hostname_local: "{{ hostname_output.stdout }}"
+
+- name: Copiar el archivo resources/ansible/hosts a una ubicación temporal
+  ansible.builtin.copy:
+    src: resources/hosts
+    dest: /tmp/hosts_temp
+
+- name: Modificar el archivo temporal reemplazando ccxxxx por el hostname
+  ansible.builtin.lineinfile:
+    path: /tmp/hosts_temp
+    regexp: '^127\.0\.1\.1\s+ccxxxx'
+    line: "127.0.1.1       {{ hostname_local }}"
+    backrefs: yes
+
+- name: Mover el archivo temporal a resources/ansible/hosts
+  ansible.builtin.copy:
+    src: /tmp/hosts_temp
+    dest: /etc/hosts
+    remote_src: yes
+    owner: root
+    group: root
+    mode: '0644'

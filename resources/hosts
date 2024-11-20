@@ -1,16 +1,43 @@
 
-# Do not remove the following line, or various programs
-# that require network functionality will fail.
 
-# ######## GENERADO POR WSL2 PARA ENTORNO LOCAL #########
 127.0.0.1		localhost.localdomain localhost
-10.209.32.252 lagar
-10.6.7.249 rala rala.etsii.ull.es
-10.6.7.20 c5
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouter
+# La linea 127.0.1.1 es actualizada por un rol de ansible
+127.0.1.1       ccxxxx 
 
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouter
+
+# RESUMEN DE IPs
+#
+# cc 10.20.31.{11..106}
+# cc {107..110}
+# 10.20.31.{151..181}
+
+
+
+# profesores
+10.209.31.107 cc1100.etsii.ull.es cc1100
+10.209.31.53  cc1200.etsii.ull.es cc1200
+10.209.31.209 cc1300.etsii.ull.es cc1300
+10.209.31.110 cc1400.etsii.ull.es cc1400
+
+10.209.32.171 cc2100.etsii.ull.es cc2100
+10.209.32.172 cc2200 cc2200.etsii.ull.es
+10.209.32.173 cc2300 cc2300.etsii.ull.es
+10.209.32.174 cc2400 cc2400.etsii.ull.es
+10.209.32.175 cc2500 cc2500.etsii.ull.es
 
 # Sala 1.1
-10.209.31.107 cc1100.etsii.ull.es cc1100
 10.209.31.11 cc1111.etsii.ull.es cc1111
 10.209.31.12 cc1112.etsii.ull.es cc1112
 10.209.31.13 cc1113.etsii.ull.es cc1113
@@ -37,7 +64,6 @@
 10.209.31.34 cc1146.etsii.ull.es cc1146
 
 # Sala 1.2
-10.209.31.53 cc1200.etsii.ull.es cc1200
 10.209.31.35 cc1211.etsii.ull.es cc1211
 10.209.31.36 cc1212.etsii.ull.es cc1212
 10.209.31.37 cc1213.etsii.ull.es cc1213
@@ -64,8 +90,6 @@
 10.209.31.58 cc1246.etsii.ull.es cc1246
 
 # Sala 1.3
-10.209.31.199 cc1300.etsii.ull.es cc1300b
-10.209.31.209 cc1300.etsii.ull.es cc1300
 10.209.31.59 cc1311.etsii.ull.es cc1311
 10.209.31.60 cc1312.etsii.ull.es cc1312
 10.209.31.61 cc1313.etsii.ull.es cc1313
@@ -92,7 +116,6 @@
 # 10.209.31.82 cc1346.etsii.ull.es cc1346
 
 # Sala 1.4
-10.209.31.110 cc1400.etsii.ull.es cc1400
 10.209.31.83 cc1411.etsii.ull.es cc1411
 10.209.31.84 cc1412.etsii.ull.es cc1412
 10.209.31.85 cc1413.etsii.ull.es cc1413
@@ -154,7 +177,6 @@
 ### PLANTA ALTA
 
 # Sala 2.1
-10.209.32.171 cc2100 cc2100.etsii.ull.es
 10.209.32.11 cc2111 cc2111.etsii.ull.es
 10.209.32.12 cc2112 cc2112.etsii.ull.es
 10.209.32.13 cc2113 cc2113.etsii.ull.es
@@ -189,7 +211,6 @@
 10.209.32.42 cc2148 cc2148.etsii.ull.es
 
 # Sala 2.2
-10.209.32.172 cc2200 cc2200.etsii.ull.es
 10.209.32.43 cc2211 cc2211.etsii.ull.es
 10.209.32.44 cc2212 cc2212.etsii.ull.es
 10.209.32.45 cc2213 cc2213.etsii.ull.es
@@ -216,7 +237,6 @@
 10.209.32.66 cc2246 cc2246.etsii.ull.es
 
 # Sala 2.3
-10.209.32.173 cc2300 cc2300.etsii.ull.es
 10.209.32.67 cc2311 cc2311.etsii.ull.es
 10.209.32.68 cc2312 cc2312.etsii.ull.es
 10.209.32.69 cc2313 cc2313.etsii.ull.es
@@ -251,7 +271,6 @@
 10.209.32.98 cc2348 cc2348.etsii.ull.es
 
 # Sala 2.4
-10.209.32.174 cc2400 cc2400.etsii.ull.es
 10.209.32.99 cc2411 cc2411.etsii.ull.es
 10.209.32.100 cc2412 cc2412.etsii.ull.es
 10.209.32.101 cc2413 cc2413.etsii.ull.es
@@ -278,7 +297,6 @@
 10.209.32.122 cc2446 cc2446.etsii.ull.es
 
 # Sala 2.5
-10.209.32.175 cc2500 cc2500.etsii.ull.es
 10.209.32.123 cc2511 cc2511.etsii.ull.es
 10.209.32.124 cc2512 cc2512.etsii.ull.es
 10.209.32.125 cc2513 cc2513.etsii.ull.es
@@ -290,6 +308,11 @@
 10.209.32.131 cc2524 cc2524.etsii.ull.es
 10.209.32.132 cc2525 cc2525.etsii.ull.es
 
+# Carrels
+10.209.32.133 ccc1 ccc1.etsii.ull.es
+10.209.32.135 ccc2 ccc2.etsii.ull.es
+10.209.32.137 ccc3 ccc3.etsii.ull.es
+
 # Sala 2.6
 10.209.32.139 cc2611 cc2611.etsii.ull.es
 10.209.32.140 cc2612 cc2612.etsii.ull.es
@@ -298,10 +321,6 @@
 10.209.32.143 cc2622 cc2622.etsii.ull.es
 10.209.32.144 cc2623 cc2623.etsii.ull.es
 
-# Carrels
-10.209.32.133 ccc1 ccc1.etsii.ull.es
-10.209.32.135 ccc2 ccc2.etsii.ull.es
-10.209.32.137 ccc3 ccc3.etsii.ull.es
 
 # Sala 3.1
 10.209.35.100 cc3100 cc3100.etsii.ull.es
@@ -357,6 +376,8 @@
 10.209.35.82 cc3536 cc3536.etsii.ull.es
 10.209.35.83 cc3537 cc3537.etsii.ull.es
 10.209.35.84 cc3538 cc3538.etsii.ull.es
+10.209.35.85 cc3501 cc3501.etsii.ull.es
+10.209.35.87 cc3503 cc3503.etsii.ull.es
 
 # Sala 3.8
 10.209.35.30 cc3800 cc3800.etsii.ull.es
@@ -384,11 +405,19 @@
 # Sala 3.9
 10.209.35.140 cc3900 cc3900.etsii.ull.es
 10.209.35.141 cc3911 cc3911.etsii.ull.es
+10.209.35.142 cc3912 cc3912.etsii.ull.es
+10.209.35.143 cc3913 cc3913.etsii.ull.es
 10.209.35.144 cc3914 cc3914.etsii.ull.es
 10.209.35.145 cc3921 cc3921.etsii.ull.es
+10.209.35.146 cc3922 cc3922.etsii.ull.es
+10.209.35.147 cc3923 cc3923.etsii.ull.es
 10.209.35.148 cc3924 cc3924.etsii.ull.es
 10.209.35.149 cc3931 cc3931.etsii.ull.es
+10.209.35.150 cc3932 cc3932.etsii.ull.es
+10.209.35.151 cc3933 cc3933.etsii.ull.es
 10.209.35.152 cc3934 cc3934.etsii.ull.es
+10.209.35.153 cc3941 cc3941.etsii.ull.es
+10.209.35.155 cc3943 cc3943.etsii.ull.es
 10.209.35.156 cc3944 cc3944.etsii.ull.es
 
 # Aulas
@@ -409,4 +438,4 @@
 10.209.35.204 a3400  a3400.etsii.ull.es
 10.209.30.37  a3600  a3600.etsii.ull.es
 10.209.31.116 a3700  a3700.etsii.ull.es
-10.209.35.200 a31000 a31000.etsii.ull.es
+10.209.35.200 a3100 a3100.etsii.ull.es

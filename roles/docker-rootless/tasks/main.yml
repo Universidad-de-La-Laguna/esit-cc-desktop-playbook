@@ -1,0 +1,111 @@
+# roles/docker_rootless/tasks/main.yml
+- name: Remove any existing Docker packages
+  # Bash: desinstalar cualquier cosa que tenga docker por apt
+  # for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt-get remove -y $pkg; done
+  apt:
+    name:
+      - docker.io
+      - docker-doc
+      - docker-compose
+      - docker-compose-v2
+      - podman-docker
+      - containerd
+      - runc
+    state: absent
+    purge: yes
+
+- name: Update apt cache
+  # Bash: apt-get update -y
+  apt:
+    update_cache: yes
+
+- name: Install required packages
+  # Bash: apt-get install -y ca-certificates curl gnupg
+  apt:
+    name:
+      - ca-certificates
+      - curl
+      - gnupg
+    state: present
+
+- name: Remove existing Docker GPG key
+  # Bash: rm -f /etc/apt/keyrings/docker.gpg
+  file:
+    path: /etc/apt/keyrings/docker.gpg
+    state: absent
+
+- name: Create Docker GPG key directory
+  # Bash: install -m 0755 -d /etc/apt/keyrings
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+
+- name: Add Docker's official GPG key
+  # Bash: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  shell: 
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+- name: Add Docker repository to Apt sources
+  # Ejecuta el comando para agregar el repositorio de Docker a los sources de APT
+  shell: |
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+   
+- name: Update apt cache again
+  # Bash: apt-get update -y
+  apt:
+    update_cache: yes
+
+- name: Install Docker packages
+  # Bash: apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: present
+
+
+- name: Disable Docker and containerd services
+  # Bash: systemctl disable docker.service
+  # Bash: systemctl disable containerd.service
+  systemd:
+    name: "{{ item }}"
+    enabled: no
+    state: stopped
+  loop:
+    - docker.service
+    - containerd.service
+
+- name: Install dbus-user-session and uidmap for rootless mode
+  # Bash: apt-get install -y dbus-user-session
+  # Bash: apt-get install -y uidmap
+  apt:
+    name:
+      - dbus-user-session
+      - uidmap
+    state: present
+
+- name: Ensure subuid and subgid entries exist
+  # Bash: insertar_si_no_existe 'echo $USER:100000:65536 > /etc/subuid' "/usr/share/libpam-script/pam_script_auth"
+  # Bash: insertar_si_no_existe 'echo $USER:100000:65536 > /etc/subgid' "/usr/share/libpam-script/pam_script_auth"
+  blockinfile:
+    path: /usr/share/libpam-script/pam_script_auth
+    block: |
+      echo $USER:100000:65536 > /etc/subuid
+      echo $USER:100000:65536 > /etc/subgid
+    create: yes
+
+- name: Create docker-rootless.sh script
+  # Bash: cat > /usr/local/bin/docker-rootless.sh <<EOF
+  # Bash: /usr/bin/dockerd-rootless-setuptool.sh install
+  # Bash: export DOCKER_HOST=unix://\$XDG_RUNTIME_DIR/docker.sock
+  # Bash: EOF
+  copy:
+    dest: /usr/local/bin/docker-rootless.sh
+    content: |
+      /usr/bin/dockerd-rootless-setuptool.sh install
+      export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+    mode: '0755'

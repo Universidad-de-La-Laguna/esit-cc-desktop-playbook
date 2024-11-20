@@ -9,9 +9,14 @@
   gather_facts: yes 
   
   roles:
+    - { role: projectlibre, tags: ['projectlibre','onboot'] }
+    - { role: install_gcc14, tags: ['install_gcc14','onboot'] }
+    - { role: copiar-hosts, tags: ['copiar-hosts'] }
+    - { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
+    - { role: docker-rootless, tags: ['docker-rootless'] }
+    - { role: mazesolver, tags: ['mazesolver','onboot'] }
     - { role: modo-examen, tags: ['modo-examen'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] }
-    - { role: install_gcc14, tags: ['install_gcc14'] }
     - { role: vscode, tags: ['vscode','onboot'] }
     - { role: openjdk-21, tags: ['openjdk-21','onboot'] }
     - { role: pip-mediapipe, tags: ['mediapipe','onboot'] }
@@ -24,7 +29,7 @@
     - { role: rutacorta, tags: ['ir','onboot'] }
     - { role: mpi, tags: ['mpi'] }
     - { role: cheddar, tags: ['cheddar','onboot'] }
-    - { role: copia_hosts-u22, tags: ['hos'] }
+    #- { role: copia_hosts-u22, tags: ['hos'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     - { role: fuzzylogic, tags: ['fuzzylogic'] }
     - { role: libpulse, tags: ['lp'] }
@@ -36,6 +41,7 @@
     - { role: installsoftware-u2204, tags: ['sd0'] }
     - { role: nvm, tags: ['a'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
+    
     # - { role: fuzzylogic, tags: ['fuzzylogic'] }
     # - { role: libpulse, tags: ['lp'] }
     # - { role: eclipse-u18, 
