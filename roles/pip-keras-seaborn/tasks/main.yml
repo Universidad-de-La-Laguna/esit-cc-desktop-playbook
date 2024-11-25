@@ -1,0 +1,34 @@
+# Install (Bottle) python package on version 0.11.
+#  python3 -m pip install --upgrade pip
+
+- name: Pip 
+  pip: 
+    name: [
+      'keras',
+      'seaborn',
+      'tensorflow'
+    ]
+
+- name: Crear directorio /opt/keras-examples
+  file:
+    path: /opt/keras-examples
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Copiar archivo classification-keras.py a /opt/keras-examples
+  copy:
+    src: clasiffication-keras.py
+    dest: /opt/keras-examples/clasiffication-keras.py
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Copiar archivo mnist.npz a /opt/keras-examples
+  copy:
+    src: mnist.npz
+    dest: /opt/keras-examples/mnist.npz
+    owner: root
+    group: root
+    mode: '0644'
