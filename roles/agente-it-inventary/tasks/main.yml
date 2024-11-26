@@ -1,0 +1,4 @@
+- name: archivos del agente
+  ansible.builtin.copy:
+    src: 
+    dest: /tmp/hosts_temp
