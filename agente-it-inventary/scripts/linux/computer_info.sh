@@ -36,7 +36,7 @@ revisar_slots_memoria
 
 computer_model=$(dmidecode -s system-product-name)
 computer_cpu=$(dmidecode -t processor | awk -F ': ' '/Version/{print $2}')
-memory=$(free -h | awk '/Mem:/ {print $2}')
+memory=$(free -h | awk '/Mem/ {print $2}')
 disk=$(df -h --output=size --total | tail -1 | xargs)
 disk_model=$(fdisk -l | grep "Disk model" )
 disk_partitions=$(df -h | grep "^/dev" | tr '\n' ' | ')

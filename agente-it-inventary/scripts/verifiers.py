@@ -43,6 +43,6 @@ def get_computer_room(computer_id):
 
 
 FIELD_VERIFIERS = {
-    "IP": ip_checker,
-    "Hard disc": hard_disc_checker,
+    # "IP": ip_checker,
+    # "Hard disc": hard_disc_checker,
 }
