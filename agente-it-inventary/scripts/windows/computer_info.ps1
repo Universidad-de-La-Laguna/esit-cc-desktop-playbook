@@ -112,11 +112,6 @@ function Get-SystemInfo {
                 data_group = "system"
             },
             @{
-                field      = "OS release"
-                value      = $osRelease
-                data_group = "system"
-            },
-            @{
                 field      = "Usuarios en $(Get-Date -Format 'yyyy')"
                 value      = $users_loggedin_this_year
                 data_group = "system"
