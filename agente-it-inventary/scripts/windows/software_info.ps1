@@ -1,4 +1,4 @@
-$python_dependencies = (pip freeze) -join "`n"
+$python_dependencies = (pip freeze) -join " "  # Reemplazar salto de línea por espacio
 $python_dependencies = $python_dependencies -replace '"', '\"'
 
 $json_output = @"
