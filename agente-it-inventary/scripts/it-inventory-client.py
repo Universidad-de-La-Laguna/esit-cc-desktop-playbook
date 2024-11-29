@@ -3,10 +3,10 @@ import os
 import platform
 import socket
 import subprocess
-import uuid
 import http.client
 from pathlib import Path
 from typing import Optional
+from subprocess import check_output
 
 from verifiers import FIELD_VERIFIERS
 
@@ -14,7 +14,18 @@ from verifiers import FIELD_VERIFIERS
 def get_computer_id() -> str:
     hostname = socket.gethostname()
     system_name = platform.system()
-    mac = ':'.join(['{:02x}'.format((uuid.getnode() >> i) & 0xff) for i in range(0, 8*6, 8)][::-1])
+    mac = ""
+
+    check_output(["pip", "install", "psutil"])
+    import psutil
+    interfaces = psutil.net_if_addrs()
+    for interface, addrs in interfaces.items():
+        if interface != "Ethernet":
+            continue 
+        for addr in addrs:
+            if addr.family == psutil.AF_LINK:
+                mac = addr.address
+                break
     return "-".join([hostname.lower(), system_name.lower(), mac])
 
 
@@ -25,7 +36,7 @@ COMPUTER_ID = get_computer_id()
 COMPUTER_SYSTEM = platform.system().lower()
 
 
-def get_commands(verbose: bool = False) -> list[str]:
+def get_commands(verbose: bool = False):
     if verbose:
         print("Get commands for:", COMPUTER_ID)
 
@@ -62,7 +73,7 @@ def run_commands(commands):
 def run_single_command(command) -> dict:
     _, file_extension = os.path.splitext(command)
     app = {
-        ".py": "python3",
+        ".py": "python",
         ".sh": "bash",
         ".ps1": "powershell -ExecutionPolicy Bypass -File",
         ".vbs": "cscript",
@@ -87,7 +98,7 @@ def run_single_command(command) -> dict:
         }
 
 
-def get_field_alert(field, value, computer_id) -> Optional[str]:
+def get_field_alert(field, value, computer_id):
     if verifier := FIELD_VERIFIERS.get(field):
         return verifier(value, computer_id=computer_id)
 
