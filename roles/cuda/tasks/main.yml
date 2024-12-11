@@ -1,5 +1,4 @@
 
-
 - name: "Install CUDA"
   apt: 
     name: "{{ item }}"
@@ -48,3 +47,4 @@
   command: docker run --gpus all --rm nvidia/cuda:12.2.0-runtime-ubuntu22.04 nvidia-smi
   register: docker_test_result
   failed_when: "'failed' in docker_test_result.stderr or docker_test_result.rc != 0"
+
