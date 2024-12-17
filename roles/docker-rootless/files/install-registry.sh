@@ -39,7 +39,7 @@ else
     echo -e '{\n  "registry-mirrors": ["http://localhost:5000"]\n}' | tee -a /etc/docker/daemon.json > /dev/null
   fi
 fi
-
+docker info | grep -i "Insecure Registries"
 # Reiniciar servicios de Docker
 systemctl start docker
 echo "Proxy local configurado y Docker reiniciado."

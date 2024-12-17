@@ -1,6 +1,6 @@
-
+## FALLA.
 - name: "Install CUDA"
-  apt: 
+  apt:
     name: "{{ item }}"
     state: present
     update_cache: yes
@@ -14,28 +14,21 @@
   apt:
     name: nvidia-cuda-toolkit
     state: present
-  become: true
 
 - name: Add NVIDIA Docker GPG key
-  ansible.builtin.shell: |
-    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
-  args:
-    warn: false
-  become: true
+  ansible.builtin.command:
+    cmd: "curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -"
+    ignore_errors: yes
 
 - name: Add NVIDIA Docker repository
-  ansible.builtin.shell: |
+  ansible.builtin.shell: 
     distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
     curl -s -L https://nvidia.github.io/nvidia-docker/${distribution}/nvidia-docker.list | \
     tee /etc/apt/sources.list.d/nvidia-docker.list
-  args:
-    warn: false
-  become: true
 
 - name: Update APT cache
   apt:
     update_cache: yes
-  become: true
 
 - name: Install NVIDIA Container Toolkit
   apt:
@@ -47,4 +40,3 @@
   command: docker run --gpus all --rm nvidia/cuda:12.2.0-runtime-ubuntu22.04 nvidia-smi
   register: docker_test_result
   failed_when: "'failed' in docker_test_result.stderr or docker_test_result.rc != 0"
-
