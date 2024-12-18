@@ -9,7 +9,7 @@ CUDA_RUNTIME_IMAGE="nvidia/cuda:12.2.0-runtime-ubuntu22.04"
 # Update and install packages
 echo "Installing NVIDIA drivers and CUDA toolkit..."
 apt update
-apt install -y nvidia-driver-435 nvidia-cuda-toolkit clinfo
+apt install -y nvidia-driver-535 nvidia-cuda-toolkit clinfo linux-modules-nvidia-535-generic-hwe-22.04
 
 # Add NVIDIA Docker GPG key
 echo "Adding NVIDIA Docker GPG key..."
