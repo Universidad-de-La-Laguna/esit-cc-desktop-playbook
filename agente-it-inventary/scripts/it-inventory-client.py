@@ -12,26 +12,18 @@ from verifiers import FIELD_VERIFIERS
 
 def get_mac(system_name):
     if "linux" in system_name.lower():
-        check_output(["pip3", "install", "psutil", "--break-system-packages"])
+        check_output(["pip3", "install", "psutil", "getmac", "--break-system-packages"])
     else:
-        check_output(["pip3", "install", "psutil"])
-    import psutil
-    network_interfaces = psutil.net_if_addrs()
-    # snic: system network interface card
-    for snic in network_interfaces.keys():
-        if snic not in ("eno1", "enp4s0", "enp0s31f6", "Ethernet 3"):
-            continue
-        for snic_address in network_interfaces[snic]:
-            if snic_address.family == psutil.AF_LINK:  # It's a MAC address
-                return snic_address.address
-    return None
+        check_output(["pip3", "install", "psutil", "getmac"])
+    import getmac
+    return getmac.get_mac_address()
 
 
 def get_computer_id() -> str:
     hostname = socket.gethostname()
     system_name = platform.system()
     mac = get_mac(system_name) or "?"
-    return "-".join([hostname.lower(), system_name.lower(), mac])
+    return "-".join([hostname.lower(), system_name.lower(), mac.lower()])
 
 
 HOST = "10.6.7.16:8000"
