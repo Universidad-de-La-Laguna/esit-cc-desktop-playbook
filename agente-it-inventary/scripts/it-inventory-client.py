@@ -10,11 +10,8 @@ from subprocess import check_output
 from verifiers import FIELD_VERIFIERS
 
 
-def get_mac(system_name):
-    if "linux" in system_name.lower():
-        check_output(["pip3", "install", "psutil", "getmac", "--break-system-packages"])
-    else:
-        check_output(["pip3", "install", "psutil", "getmac"])
+def get_computer_mac():
+    check_output(["pip3", "install", "psutil", "getmac"])
     import getmac
     return getmac.get_mac_address()
 
@@ -22,7 +19,7 @@ def get_mac(system_name):
 def get_computer_id() -> str:
     hostname = socket.gethostname()
     system_name = platform.system()
-    mac = get_mac(system_name) or "?"
+    mac = get_computer_mac() or "?"
     return "-".join([hostname.lower(), system_name.lower(), mac.lower()])
 
 
