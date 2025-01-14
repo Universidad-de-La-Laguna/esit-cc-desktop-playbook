@@ -65,5 +65,7 @@ mostrar_timer 20
 # Comprueba el estado de cada host
 for host in "$@"; do
     hostname="$host.etsii.ull.es"
-    comprobar_estado "$hostname"
+    comprobar_estado "$hostname" &
 done
+
+wait
