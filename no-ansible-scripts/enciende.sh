@@ -19,6 +19,29 @@ enviar_wol() {
     fi
 }
 
+# Función para comprobar el estado de los hosts
+comprobar_estado() {
+    local hostname=$1
+    if ping -c 1 -W 1 "$hostname" &>/dev/null; then
+        echo -e "\e[32m$hostname está ENCENDIDO\e[0m"
+    else
+        echo -e "\e[31m$hostname está APAGADO\e[0m"
+    fi
+}
+
+# Timer con visualización
+mostrar_timer() {
+    local segundos=$1
+    echo "Esperando $segundos segundos para comprobar el estado de los hosts..."
+    for ((i = segundos; i > 0; i--)); do
+        echo -ne "\rTiempo restante: $i segundos "
+        sleep 1
+    done
+    echo -e "\n"
+}
+
+
+
 # Itera sobre cada argumento proporcionado
 for host in "$@"; do
     # Añade "etsii.ull.es" al nombre del host
@@ -36,3 +59,11 @@ for host in "$@"; do
 done
 
 
+# Informa al usuario y espera 20 segundos con un timer
+mostrar_timer 20
+
+# Comprueba el estado de cada host
+for host in "$@"; do
+    hostname="$host.etsii.ull.es"
+    comprobar_estado "$hostname"
+done
