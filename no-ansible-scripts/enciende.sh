@@ -20,14 +20,17 @@ enviar_wol() {
 }
 
 # Función para comprobar el estado de los hosts
+# Función para comprobar el estado de los hosts
 comprobar_estado() {
     local hostname=$1
+    local index=$2
     if ping -c 1 -W 1 "$hostname" &>/dev/null; then
-        echo -e "\e[32m$hostname está ENCENDIDO\e[0m"
+        resultados["$index"]="\e[32m$hostname está ENCENDIDO\e[0m"
     else
-        echo -e "\e[31m$hostname está APAGADO\e[0m"
+        resultados["$index"]="\e[31m$hostname está APAGADO\e[0m"
     fi
 }
+
 
 # Timer con visualización
 mostrar_timer() {
@@ -40,6 +43,7 @@ mostrar_timer() {
     echo -e "\n"
 }
 
+declare -a resultados
 
 
 # Itera sobre cada argumento proporcionado
@@ -62,10 +66,19 @@ done
 # Informa al usuario y espera 20 segundos con un timer
 mostrar_timer 20
 
-# Comprueba el estado de cada host
-for host in "$@"; do
-    hostname="$host.etsii.ull.es"
-    comprobar_estado "$hostname" &
+
+# Comprueba el estado de los hosts en paralelo
+for i in "${!@}"; do
+    hostname="${!i}.etsii.ull.es"
+    comprobar_estado "$hostname" "$i" &
 done
 
+# Espera a que todos los procesos en segundo plano terminen
 wait
+
+# Imprime los resultados en orden
+for i in "${!resultados[@]}"; do
+    echo -e "${resultados[$i]}"
+done
+
+
