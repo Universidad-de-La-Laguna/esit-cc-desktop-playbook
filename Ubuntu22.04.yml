@@ -9,7 +9,7 @@
   gather_facts: yes 
   
   roles:
-    - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
+    - { role: grubpassword-u22, tags: ['grubpassword-u22','onboot'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] } 
     - { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }
     - { role: projectlibre, tags: ['projectlibre','onboot'] }
