@@ -66,10 +66,9 @@ done
 # Informa al usuario y espera 20 segundos con un timer
 mostrar_timer 20
 
-
 # Comprueba el estado de los hosts en paralelo
 for i in "${!@}"; do
-    hostname="${!i}.etsii.ull.es"
+    hostname="${@:$((i+1)):1}.etsii.ull.es"
     comprobar_estado "$hostname" "$i" &
 done
 
@@ -80,5 +79,3 @@ wait
 for i in "${!resultados[@]}"; do
     echo -e "${resultados[$i]}"
 done
-
-
