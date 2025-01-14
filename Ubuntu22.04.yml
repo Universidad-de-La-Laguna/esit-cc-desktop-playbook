@@ -9,6 +9,7 @@
   gather_facts: yes 
   
   roles:
+    - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] } 
     - { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }
     - { role: projectlibre, tags: ['projectlibre','onboot'] }
@@ -31,7 +32,6 @@
     - { role: mpi, tags: ['mpi'] }
     - { role: cheddar, tags: ['cheddar','onboot'] }
     #- { role: copia_hosts-u22, tags: ['hos'] }
-    - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     - { role: fuzzylogic, tags: ['fuzzylogic'] }
     - { role: libpulse, tags: ['lp'] }
     - { role: eclipse-u18, 
