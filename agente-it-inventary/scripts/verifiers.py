@@ -6,7 +6,7 @@ def ip_checker(value, **kwargs):
 def hard_disc_checker(value, **kwargs):
     import re
 
-    threshold = 500  # Gb
+    threshold = 1500  # Gb
     capacity = value.strip()
     match = re.match(r"([\d.,]+)\s*([A-Za-z]+)", capacity)
     if match:
@@ -44,5 +44,5 @@ def get_computer_room(computer_id):
 
 FIELD_VERIFIERS = {
     # "IP": ip_checker,
-    # "Hard disc": hard_disc_checker,
+    "Hard disc": hard_disc_checker,
 }
