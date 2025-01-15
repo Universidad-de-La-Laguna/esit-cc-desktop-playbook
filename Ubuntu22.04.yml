@@ -13,7 +13,7 @@
     - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] } 
     - { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }
     - { role: projectlibre, tags: ['projectlibre','onboot'] }
-    - { role: install_gcc14, tags: ['install_gcc14','onboot'] }
+    #- { role: install_gcc14, tags: ['install_gcc14','onboot'] }
     - { role: copiar-hosts, tags: ['copiar-hosts'] }
     - { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
     - { role: docker-rootless, tags: ['docker-rootless'] }
