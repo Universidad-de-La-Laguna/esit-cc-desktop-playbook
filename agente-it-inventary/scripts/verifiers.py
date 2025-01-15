@@ -41,8 +41,13 @@ def get_computer_room(computer_id):
         return ""  # Invalid hostname
     return ".".join(computer_id[2:4])
 
+def check_docker (docker_version):
+   if int (docker_version.split(' ')[2].split('.')[0]) < 27:
+       return "Versión obsoleta" 
+
 
 FIELD_VERIFIERS = {
     # "IP": ip_checker,
     "Hard disc": hard_disc_checker,
+    "Docker version":check_docker
 }

@@ -2,6 +2,7 @@
 
 linux_software=$(dpkg -l | awk '/^ii/ {print $2 " [" $3 "]"}' | sed ':a;N;$!ba;s/\n/\\n/g')
 python_dependencies=$(pip freeze | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/"/\\"/g')
+docker_version=$(docker --version)
 
 json_output=$(cat <<EOF
 {
@@ -17,7 +18,16 @@ json_output=$(cat <<EOF
       "value": "$python_dependencies",
       "data_group": "software",
       "not_show": "true"
+    },
+    {
+      "field": "Docker version",
+      "value": "$docker_version",
+      "data_group": "software",
+      "not_show": "true"
     }
+
+
+
   ]
 }
 EOF
