@@ -6,7 +6,6 @@
 - name: Instalar paquetes gedit
   apt:
     name:
-      - debugedit
       - gedit
       - gedit-common
       - gedit-dev
@@ -35,4 +34,3 @@
       - gedit-source-code-browser-plugin
     state: present
     update_cache: yes
-    
