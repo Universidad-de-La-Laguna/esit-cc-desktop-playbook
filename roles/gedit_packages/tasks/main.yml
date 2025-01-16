@@ -1,0 +1,16 @@
+# roles/gedit_packages/tasks/main.yml
+- name: Actualizar caché de paquetes
+  apt:
+    update_cache: yes
+
+# roles/gedit_packages/tasks/main.yml
+- name: Buscar paquetes que coincidan con gedit-*
+  command: "apt-cache search '^gedit-' | awk '{print $1}'"
+  register: gedit_packages
+
+- name: Instalar todos los paquetes gedit-*
+  apt:
+    name: "{{ gedit_packages.stdout_lines }}"
+    state: present
+    update_cache: yes
+  when: gedit_packages.stdout_lines | length > 0
