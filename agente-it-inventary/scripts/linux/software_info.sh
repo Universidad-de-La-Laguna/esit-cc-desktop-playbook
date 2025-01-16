@@ -31,11 +31,7 @@ json_output=$(cat <<EOF
       "value": "$gedit_numero_complementos",
       "data_group": "software",
       "not_show": "true"
-    },
-
-
-
-
+    }
   ]
 }
 EOF
