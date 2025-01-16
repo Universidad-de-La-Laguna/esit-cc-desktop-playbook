@@ -10,27 +10,27 @@
   
   roles:
     - { role: grubpassword-u22, tags: ['grubpassword-u22','onboot'] }
-    - { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] } 
-    - { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }
-    - { role: projectlibre, tags: ['projectlibre','onboot'] }
-    #- { role: install_gcc14, tags: ['install_gcc14','onboot'] }
-    - { role: copiar-hosts, tags: ['copiar-hosts'] }
-    - { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
     - { role: docker-rootless, tags: ['docker-rootless'] }
-    - { role: mazesolver, tags: ['mazesolver','onboot'] }
+    #- { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] } 
+    #- { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }
+    #- { role: projectlibre, tags: ['projectlibre','onboot'] }
+    #- { role: install_gcc14, tags: ['install_gcc14','onboot'] }
+    #- { role: copiar-hosts, tags: ['copiar-hosts'] }
+    #- { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
+    #- { role: mazesolver, tags: ['mazesolver','onboot'] }
     - { role: modo-examen, tags: ['modo-examen'] }
     - { role: vscode, tags: ['vscode','onboot'] }
-    - { role: openjdk-21, tags: ['openjdk-21','onboot'] }
-    - { role: pip-mediapipe, tags: ['mediapipe','onboot'] }
-    - { role: exa, tags: ['exa','onboot'] }
-    - { role: tmux, tags: ['tmux','onboot'] }
+    #- { role: openjdk-21, tags: ['openjdk-21','onboot'] }
+    #- { role: pip-mediapipe, tags: ['mediapipe','onboot'] }
+    #- { role: exa, tags: ['exa','onboot'] }
+    #- { role: tmux, tags: ['tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
     - { role: env-neupy, tags: ['env-neupy'] }
     - { role: bug-ldap-stic, tags: ['bug-ldap-stic'] }
-    - { role: wol_servicio, tags: ['wol_servicio','onboot'] }
+    #- { role: wol_servicio, tags: ['wol_servicio','onboot'] }
     - { role: rutacorta, tags: ['ir','onboot'] }
     - { role: mpi, tags: ['mpi'] }
-    - { role: cheddar, tags: ['cheddar','onboot'] }
+    #- { role: cheddar, tags: ['cheddar','onboot'] }
     #- { role: copia_hosts-u22, tags: ['hos'] }
     - { role: fuzzylogic, tags: ['fuzzylogic'] }
     - { role: libpulse, tags: ['lp'] }
