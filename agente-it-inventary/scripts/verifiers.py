@@ -48,7 +48,7 @@ def check_docker (docker_version, **kwargs):
     if int (docker_version.split(' ')[2].split('.')[0]) < 27:
         return "Versión obsoleta" 
 
-def check_gedit (docker_version, **kwargs):
+def check_gedit (gedit_numero_complementos, **kwargs):
     if int (gedit_numero_complementos) < 26:
         return "Revisar los complementos de gedit. Son menos de 26" 
 
