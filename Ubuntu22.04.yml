@@ -10,8 +10,8 @@
   
   roles:
     - { role: grubpassword-u22, tags: ['grubpassword-u22','onboot'] }
-    - { role: docker-rootless, tags: ['docker-rootless'] }
-    - { role: gedit_packages, tags: ['gedit_packages'] }
+    - { role: docker-rootless, tags: ['docker-rootless','onboot'] }
+    - { role: gedit_packages, tags: ['gedit_packages','onboot'] }
 
     
     #- { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] } 
