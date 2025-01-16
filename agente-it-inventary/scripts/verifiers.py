@@ -42,6 +42,9 @@ def get_computer_room(computer_id):
     return ".".join(computer_id[2:4])
 
 def check_docker (docker_version, **kwargs):
+    if int (docker_version) = 0:
+        return "Docker no instalado" 
+
     if int (docker_version.split(' ')[2].split('.')[0]) < 27:
         return "Versión obsoleta" 
 
