@@ -45,8 +45,14 @@ def check_docker (docker_version, **kwargs):
     if int (docker_version.split(' ')[2].split('.')[0]) < 27:
         return "Versión obsoleta" 
 
+def check_gedit (docker_version, **kwargs):
+    if int (gedit_numero_complementos) < 26:
+        return "Revisar los complementos de gedit. Son menos de 26" 
+
+
 FIELD_VERIFIERS = {
     # "IP": ip_checker,
     "Hard disc": hard_disc_checker,
-    "Docker version":check_docker
+    "Docker version":check_docker,
+    "Gedit numero complementos":check_gedit
 }
