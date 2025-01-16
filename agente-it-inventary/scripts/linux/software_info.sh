@@ -3,7 +3,7 @@
 linux_software=$(dpkg -l | awk '/^ii/ {print $2 " [" $3 "]"}' | sed ':a;N;$!ba;s/\n/\\n/g')
 python_dependencies=$(pip freeze | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/"/\\"/g')
 docker_version=$(docker --version 2>/dev/null || echo 0) # Muestra la versión de Docker si está instalado; devuelve 0 si no lo está.
-gedit_numero_complementos= $(dpkg -l | grep ii\ \ gedit-* | wc -l) #305 #albham
+gedit_numero_complementos=$(dpkg -l | grep "ii\ \ gedit-*" | wc -l) #305 #albham
 
 json_output=$(cat <<EOF
 {
