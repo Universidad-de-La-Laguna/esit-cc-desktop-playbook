@@ -41,7 +41,7 @@ def get_is_vivado_20023_installed():
 
 python_dependencies = python_dependencies.replace('"', '\\"')
 
-installed_software = get_installed_software()
+installed_software = get_is_vivado_20023_installed()
 
 is_vivado_20023_installed = get_is_vivado_20023_installed()
 
