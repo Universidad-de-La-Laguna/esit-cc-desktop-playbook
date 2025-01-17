@@ -45,7 +45,13 @@ def check_docker (docker_version, **kwargs):
     if int (docker_version) == 0:
         return "Docker no instalado" 
 
-    if int (docker_version.split(' ')[2].split('.')[0]) < 27:
+    import re
+    match = re.search(r"(\d+\.\d+\.\d+)", docker_version)
+    if not match:
+        return "Versión desconocida"
+
+    version_major = match.group(1).split('.')[0]
+    if int(version_major) < 27:
         return "Versión obsoleta" 
 
 def check_gedit (gedit_numero_complementos, **kwargs):
@@ -57,6 +63,6 @@ def check_gedit (gedit_numero_complementos, **kwargs):
 FIELD_VERIFIERS = {
     # "IP": ip_checker,
     "Hard disc": hard_disc_checker,
-    "Docker version":check_docker,
-    "Gedit numero complementos":check_gedit
+    "Docker version": check_docker,
+    "Gedit numero complementos": check_gedit
 }
