@@ -6,7 +6,7 @@ def ip_checker(value, **kwargs):
 def hard_disc_checker(value, **kwargs):
     import re
 
-    threshold = 1500  # Gb
+    threshold = 500  # Gb
     capacity = value.strip()
     match = re.match(r"([\d.,]+)\s*([A-Za-z]+)", capacity)
     if match:
@@ -59,10 +59,15 @@ def check_gedit (gedit_numero_complementos, **kwargs):
     if int (gedit_numero_complementos) < 26:
         return "Revisar los complementos de gedit. Son menos de 26" 
 
+def check_vivado (version_vivado, **kwargs):
+    if not (is_vivado_2023_installed ):
+        return "Revisar instalacion de Vivado 2023"
+
 
 FIELD_VERIFIERS = {
     # "IP": ip_checker,
     "Hard disc": hard_disc_checker,
     "Docker version": check_docker,
-    "Gedit numero complementos": check_gedit
+    "Gedit numero complementos": check_gedit,
+    "Vivado":check_vivado
 }
