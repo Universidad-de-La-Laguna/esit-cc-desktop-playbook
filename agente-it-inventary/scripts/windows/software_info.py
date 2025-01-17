@@ -33,9 +33,11 @@ def get_is_vivado_20023_installed():
     if os.path.exists(path_to_check):
         print(f"El archivo existe: {path_to_check}")
         is_vivado_20023_installed="YES"
+        return(is_vivado_20023_installed)
     else:
         print(f"El archivo no existe: {path_to_check}")
         is_vivado_20023_installed="NO"
+        return(is_vivado_20023_installed)
 
 python_dependencies = python_dependencies.replace('"', '\\"')
 
