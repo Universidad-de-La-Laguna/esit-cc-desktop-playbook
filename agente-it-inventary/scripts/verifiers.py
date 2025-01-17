@@ -60,8 +60,9 @@ def check_gedit (gedit_numero_complementos, **kwargs):
         return "Revisar los complementos de gedit. Son menos de 26" 
 
 def check_vivado (version_vivado, **kwargs):
-    if not (is_vivado_2023_installed ):
-        return "Revisar instalacion de Vivado 2023"
+    if not (is_vivado_2023_installed ) and hostname.startswith(("cc14", "cc11", "cc24")):
+        return "Revisar instalacion de Vivado 2023. Debe estar instalado en 11,14 y 24"
+
 
 
 FIELD_VERIFIERS = {
