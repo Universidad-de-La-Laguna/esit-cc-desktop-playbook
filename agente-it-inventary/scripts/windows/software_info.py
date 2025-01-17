@@ -26,7 +26,7 @@ except subprocess.CalledProcessError as e:
 
 import os
 
-def get_is_vivado_20023_installed():
+def get_is_vivado_2023_installed():
     # Ruta al archivo
     path_to_check = r"C:\Xilinx\Vivado\2023.1\bin\vivado.bat"
     # Verificar si existe
@@ -43,7 +43,7 @@ python_dependencies = python_dependencies.replace('"', '\\"')
 
 installed_software = get_installed_software()
 
-is_vivado_20023_installed = get_is_vivado_20023_installed()
+is_vivado_20023_installed = get_is_vivado_2023_installed()
 
 json_output = {
     "result": [
