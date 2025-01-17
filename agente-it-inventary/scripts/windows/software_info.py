@@ -31,19 +31,18 @@ def get_is_vivado_2023_installed():
     path_to_check = r"C:\Xilinx\Vivado\2023.1\bin\vivado.bat"
     # Verificar si existe
     if os.path.exists(path_to_check):
-        print(f"El archivo existe: {path_to_check}")
-        is_vivado_20023_installed="YES"
-        return(is_vivado_20023_installed)
+        return("YES")
     else:
-        print(f"El archivo no existe: {path_to_check}")
         is_vivado_20023_installed="NO"
-        return(is_vivado_20023_installed)
+        return("NO")
+    
 
 python_dependencies = python_dependencies.replace('"', '\\"')
 
 installed_software = get_installed_software()
 
-is_vivado_20023_installed = get_is_vivado_2023_installed()
+is_vivado_2023_installed = get_is_vivado_2023_installed()
+
 
 json_output = {
     "result": [
@@ -60,12 +59,11 @@ json_output = {
             "not_show": "true"
         },
         {
-            "field": "Software Windows",
-            "value": is_vivado_20023_installed,
-            "data_group": "software",
+            "field": "Vivado instalado 2023",
+            "value": is_vivado_2023_installed,
+            "data_group": "2025",
             "not_show": "true"
         }
-        
     ]
 }
 
