@@ -17,15 +17,31 @@ def get_installed_software():
 try:
     result = subprocess.run(
         ["pip", "freeze"], capture_output=True, text=True, check=True
-    )
+    )ls
+
     python_dependencies = result.stdout.strip()
 except subprocess.CalledProcessError as e:
     print(f"Error al ejecutar pip freeze: {e}")
     python_dependencies = ""
 
+import os
+
+def get_is_vivado_20023_installed():
+    # Ruta al archivo
+    path_to_check = r"C:\Xilinx\Vivado\2023.1\bin\vivado.bat"
+    # Verificar si existe
+    if os.path.exists(path_to_check):
+        print(f"El archivo existe: {path_to_check}")
+        is_vivado_20023_installed="YES"
+    else:
+        print(f"El archivo no existe: {path_to_check}")
+        is_vivado_20023_installed="NO"
+
 python_dependencies = python_dependencies.replace('"', '\\"')
 
 installed_software = get_installed_software()
+
+is_vivado_20023_installed = get_is_vivado_20023_installed()
 
 json_output = {
     "result": [
@@ -40,9 +56,18 @@ json_output = {
             "value": installed_software,
             "data_group": "software",
             "not_show": "true"
+        },
+        {
+            "field": "Software Windows",
+            "value": is_vivado_20023_installed,
+            "data_group": "software",
+            "not_show": "true"
         }
+        
     ]
 }
 
 json_formatted = json.dumps(json_output, indent=2)
 print(json_formatted)
+
+# C:\Xilinx\Vivado/2023.1\bin\vivado.bat
