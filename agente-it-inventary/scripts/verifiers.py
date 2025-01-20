@@ -51,8 +51,8 @@ def check_docker (docker_version, **kwargs):
         return "Versión desconocida"
 
     version_major = match.group(1).split('.')[0]
-    if int(version_major) < 27:
-        return "Versión obsoleta" 
+    if int(version_major) < 25:
+        return f"Versión obsoleta {version_major}" 
 
 def check_gedit (gedit_numero_complementos, **kwargs):
     print (gedit_numero_complementos)
