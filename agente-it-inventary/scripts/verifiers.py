@@ -71,8 +71,8 @@ def check_code_version (code_version, **kwargs):
     INSTALLED_VERSION = code_version
 
     # Comparar versiones
-    if Version(INSTALLED_VERSION) >= Version(MIN_VERSION):
-        return(f"La versión instalada ({INSTALLED_VERSION}) cumple con el requisito mínimo ({MIN_VERSION}).")
+    if Version(INSTALLED_VERSION) < Version(MIN_VERSION):
+        return(f"La versión instalada ({INSTALLED_VERSION}) no cumple con el requisito mínimo ({MIN_VERSION}).")
 
 
 
