@@ -4,6 +4,8 @@ linux_software=$(dpkg -l | awk '/^ii/ {print $2 " [" $3 "]"}' | sed ':a;N;$!ba;s
 python_dependencies=$(pip freeze | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/"/\\"/g')
 docker_version=$(docker --version 2>/dev/null || echo 0) # Muestra la versión de Docker si está instalado; devuelve 0 si no lo está.
 gedit_numero_complementos=$(dpkg -l | grep "ii\ \ gedit-*" | wc -l) #305 #albham
+code_version=$(dpkg -l | grep "^ii  code " | awk '{print $3}')
+
 
 json_output=$(cat <<EOF
 {
@@ -31,7 +33,13 @@ json_output=$(cat <<EOF
       "value": "$gedit_numero_complementos",
       "data_group": "software",
       "not_show": "true"
-    }
+    },
+    {
+      "field": "Gedit numero complementos",
+      "value": "$code_version",
+      "data_group": "software",
+      "not_show": "false"
+    }        
   ]
 }
 EOF
