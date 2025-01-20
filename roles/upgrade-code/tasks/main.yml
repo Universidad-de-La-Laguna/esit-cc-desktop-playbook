@@ -1,0 +1,6 @@
+---
+- name: Actualizar el paquete 'code' a la última versión
+  apt:
+    name: code
+    state: latest
+    update_cache: yes
