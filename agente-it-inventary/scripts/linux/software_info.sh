@@ -35,7 +35,7 @@ json_output=$(cat <<EOF
       "not_show": "true"
     },
     {
-      "field": "Gedit numero complementos",
+      "field": "Code version",
       "value": "$code_version",
       "data_group": "software",
       "not_show": "false"
