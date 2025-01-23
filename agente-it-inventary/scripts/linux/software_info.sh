@@ -25,19 +25,19 @@ json_output=$(cat <<EOF
     {
       "field": "Docker version",
       "value": "$docker_version",
-      "data_group": "A.Software 2025",
+      "data_group": "A2025",
       "not_show": "true"
     },
     {
       "field": "Gedit numero complementos",
       "value": "$gedit_numero_complementos",
-      "data_group": "A.Software 2025",
+      "data_group": "A2025",
       "not_show": "true"
     },
     {
       "field": "Code version",
       "value": "$code_version",
-      "data_group": "A.Software 2025",
+      "data_group": "A2025",
       "not_show": "false"
     }        
   ]
