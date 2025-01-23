@@ -5,7 +5,7 @@ python_dependencies=$(pip freeze | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/"/\\"/g')
 docker_version=$(docker --version 2>/dev/null || echo 0) # Muestra la versión de Docker si está instalado; devuelve 0 si no lo está.
 gedit_numero_complementos=$(dpkg -l | grep "ii\ \ gedit-*" | wc -l) #305 #albham
 code_version=$(dpkg -l | grep "^ii  code " | awk '{print $3}')
-
+security_updates=$(apt list --upgradable 2>/dev/null | grep -i security | wc -l)
 
 json_output=$(cat <<EOF
 {
@@ -39,7 +39,13 @@ json_output=$(cat <<EOF
       "value": "$code_version",
       "data_group": "A2025",
       "not_show": "false"
-    }        
+    },
+{
+      "field": "Security updates",
+      "value": "$security_updates",
+      "data_group": "A2025",
+      "not_show": "false"
+    }            
   ]
 }
 EOF
