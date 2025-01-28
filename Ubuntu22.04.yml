@@ -15,6 +15,7 @@
     - { role: gedit_packages, tags: ['gedit_packages','onboot'] }
     - { role: upgrade-code, tags: ['upgrade-code','onboot'] }
 
+    - { role: volatility3, tags: ['volatility3'] }
     
     #- { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] } 
     #- { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }

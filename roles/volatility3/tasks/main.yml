@@ -1,0 +1,17 @@
+- name: Comprobar la versión de Python instalada
+  command: python3 --version
+  register: python_version
+  changed_when: false
+
+- name: Verificar que pip está instalado
+  command: pip --version
+  register: pip_check
+  changed_when: false
+  failed_when: pip_check.rc != 0
+
+- name: Instalar Volatility3 si Python >= 3.8.0
+  command: pip install volatility3
+  when:
+    - python_version.stdout is defined
+    - python_version.stdout | regex_replace('Python ', '') is version('3.8.0', '>=')
+    - pid_check is defined
