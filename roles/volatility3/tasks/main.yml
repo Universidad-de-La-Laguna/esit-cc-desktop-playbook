@@ -14,4 +14,4 @@
   when:
     - python_version.stdout is defined
     - python_version.stdout | regex_replace('Python ', '') is version('3.8.0', '>=')
-    - pid_check is defined
+    - pip_check is defined
