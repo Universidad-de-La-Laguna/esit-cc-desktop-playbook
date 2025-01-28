@@ -7,12 +7,15 @@
       owner: root
       group: root
       mode: "u=rwx,g=r,o=r"
+- name: "Copia fichero grub 30_os-prober"
   copy:
       src: template/etc/grub.d/30_os-prober
       dest: /etc/grub.d/30_os-prober
       owner: root
       group: root
       mode: "u=rwx,g=r,o=r"
+
+- name: "Copia fichero grub 40_custom"
   copy:
       src: template/etc/grub.d/40_custom
       dest: /etc/grub.d/40_custom

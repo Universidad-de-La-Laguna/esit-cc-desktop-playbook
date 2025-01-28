@@ -11,6 +11,8 @@ fi
 
 /usr/bin/ansible-pull  -d /etc/esit-cc-desktop-playbook -i "localhost" -U https://github.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook  Ubuntu22.04.yml --tags onboot
 
+cd /etc/esit-cc-desktop-playbook/agente-it-inventary/scripts
+python3 it-inventory-client.py
 
 # Crear el archivo de marcador al finalizar
 touch "$FLAG_FILE"

@@ -32,10 +32,10 @@ ff02::2 ip6-allrouter
 10.209.31.110 cc1400.etsii.ull.es cc1400
 
 10.209.32.171 cc2100.etsii.ull.es cc2100
-10.209.32.172 cc2200 cc2200.etsii.ull.es
-10.209.32.173 cc2300 cc2300.etsii.ull.es
-10.209.32.174 cc2400 cc2400.etsii.ull.es
-10.209.32.175 cc2500 cc2500.etsii.ull.es
+10.209.32.172 cc2200.etsii.ull.es cc2200
+10.209.32.173 cc2300.etsii.ull.es cc2300
+10.209.32.174 cc2400.etsii.ull.es cc2400
+10.209.32.175 cc2500.etsii.ull.es cc2500
 
 # Sala 1.1
 10.209.31.11 cc1111.etsii.ull.es cc1111

@@ -1,4 +1,5 @@
 # roles/docker_rootless/tasks/main.yml
+
 - name: Remove any existing Docker packages
   # Bash: desinstalar cualquier cosa que tenga docker por apt
   # for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt-get remove -y $pkg; done
@@ -16,8 +17,8 @@
 
 - name: Update apt cache
   # Bash: apt-get update -y
-  apt:
-    update_cache: yes
+  shell: "apt-get update -y"
+  become: yes
 
 - name: Install required packages
   # Bash: apt-get install -y ca-certificates curl gnupg
@@ -53,8 +54,9 @@
    
 - name: Update apt cache again
   # Bash: apt-get update -y
-  apt:
-    update_cache: yes
+  # Bash: apt-get update -y
+  shell: "apt-get update -y"
+  become: yes
 
 - name: Install Docker packages
   # Bash: apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -109,3 +111,8 @@
       /usr/bin/dockerd-rootless-setuptool.sh install
       export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
     mode: '0755'
+
+
+# === REGISTRY ===
+- name: Ejecutar el script del role
+  script: "install-registry.sh"

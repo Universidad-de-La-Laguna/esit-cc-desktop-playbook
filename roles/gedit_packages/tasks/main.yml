@@ -1,0 +1,36 @@
+# roles/gedit_packages/tasks/main.yml
+- name: Actualizar caché de paquetes
+  apt:
+    update_cache: yes
+
+- name: Instalar paquetes gedit
+  apt:
+    name:
+      - gedit
+      - gedit-common
+      - gedit-dev
+      - gedit-latex-plugin
+      - gedit-plugin-bookmarks
+      - gedit-plugin-bracket-completion
+      - gedit-plugin-character-map
+      - gedit-plugin-code-comment
+      - gedit-plugin-color-picker
+      - gedit-plugin-color-schemer
+      - gedit-plugin-commander
+      - gedit-plugin-draw-spaces
+      - gedit-plugin-find-in-files
+      - gedit-plugin-git
+      - gedit-plugin-join-lines
+      - gedit-plugin-multi-edit
+      - gedit-plugin-session-saver
+      - gedit-plugin-smart-spaces
+      - gedit-plugin-synctex
+      - gedit-plugin-terminal
+      - gedit-plugin-text-size
+      - gedit-plugin-translate
+      - gedit-plugin-word-completion
+      - gedit-plugins
+      - gedit-plugins-common
+      - gedit-source-code-browser-plugin
+    state: present
+    update_cache: yes
