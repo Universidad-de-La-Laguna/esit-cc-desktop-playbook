@@ -34,10 +34,9 @@ def get_windows_security_updates():
     try:
         installed_updates = subprocess.check_output("wmic qfe list brief", shell=True, text=True)
         pending_updates = subprocess.check_output("wmic qfe list | findstr /I \"KB\"", shell=True, text=True)
-        
+      
         return (pending_updates.strip() if pending_updates else "No se encontraron actualizaciones pendientes.")
-        }
-    
+   
     except subprocess.CalledProcessError:
         return ("error": "Error al obtener las actualizaciones.")
 
