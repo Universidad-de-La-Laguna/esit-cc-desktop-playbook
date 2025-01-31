@@ -58,8 +58,7 @@ def get_system_info():
         "result": [
             {
                 "field": "Modelo de equipo",
-                "val
-                ue": computer_model,
+                "value": computer_model,
                 "data_group": "hardware",
                 "not_show": "true",
             },
