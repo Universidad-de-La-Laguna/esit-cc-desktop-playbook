@@ -28,6 +28,21 @@ def get_memory_slots():
     except Exception as e:
         return []
 
+
+
+def get_windows_security_updates():
+    try:
+        installed_updates = subprocess.check_output("wmic qfe list brief", shell=True, text=True)
+        pending_updates = subprocess.check_output("wmic qfe list | findstr /I \"KB\"", shell=True, text=True)
+        
+        return {
+            "installed_updates": installed_updates.strip(),
+            "pending_updates": pending_updates.strip() if pending_updates else "No se encontraron actualizaciones pendientes."
+        }
+    
+    except subprocess.CalledProcessError:
+        return {"error": "Error al obtener las actualizaciones."}  
+
 def get_system_info():
     memory_slots = get_memory_slots()
     computer_model = platform.node()
@@ -40,6 +55,8 @@ def get_system_info():
     os_full = platform.platform()
     os_release = platform.version()
 
+    windows_security_updates=get_windows_security_updates()
+    
     json_output = {
         "result": [
             {
@@ -103,7 +120,14 @@ def get_system_info():
                 "value": os_release,
                 "data_group": "system",
             },
+            {
+                "field": "Windows security updates",
+                "value": windos_security_updates,
+                "data_group": "system",
+            },
+
         ]
+
     }
 
     return json.dumps(json_output, indent=2)
