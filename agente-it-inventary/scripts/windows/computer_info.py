@@ -120,13 +120,13 @@ def get_system_info():
                 "value": os_release,
                 "data_group": "system",
             },
-            {
+"""             {
                 "field": "Windows security updates",
                 "value": windos_security_updates,
                 "data_group": "system",
                 "not_show": "false"
             }
-        ]
+ """        ]
 
     }
 
