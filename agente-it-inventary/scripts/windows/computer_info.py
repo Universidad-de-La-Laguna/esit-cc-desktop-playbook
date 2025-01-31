@@ -52,13 +52,16 @@ def get_system_info():
     os_full = platform.platform()
     os_release = platform.version()
 
-    windows_security_updates=get_windows_security_updates()
+
+
+windows_security_updates=get_windows_security_updates()
     
     json_output = {
         "result": [
             {
                 "field": "Modelo de equipo",
-                "value": computer_model,
+                "val
+                ue": computer_model,
                 "data_group": "hardware",
                 "not_show": "true",
             },
