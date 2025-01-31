@@ -55,7 +55,7 @@ def get_system_info():
     os_full = platform.platform()
     os_release = platform.version()
 
-    windows_security_updates=get_windows_security_updates()
+    windows_security_updates="no"
     
     json_output = {
         "result": [
@@ -124,8 +124,8 @@ def get_system_info():
                 "field": "Windows security updates",
                 "value": windos_security_updates,
                 "data_group": "system",
-            },
-
+                "not_show": "false"
+            }
         ]
 
     }
