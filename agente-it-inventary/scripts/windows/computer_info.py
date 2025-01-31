@@ -17,7 +17,7 @@ def get_memory_slots():
                 speed = re.search(r"Speed=(\d+)", line)
                 memory_type = re.search(r"MemoryType=(\d+)", line)
 
-                slot_info = {
+                slot_info = { 
                     "Size": f"SLOT {slot_number} Size: {int(size.group(1)) // (1024**3) if size else 'Unknown'}GB",
                     "Speed": f"SLOT {slot_number} Speed: {speed.group(1) + 'MHz' if speed else 'Unknown'}",
                     "Type": f"SLOT {slot_number} Type: {memory_type.group(1) if memory_type else 'Unknown'}",
