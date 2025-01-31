@@ -119,7 +119,7 @@ def get_system_info():
             },
             {
                 "field": "Windows security updates",
-                "value": windos_security_updates,
+                "value": windows_security_updates,
                 "data_group": "system",
                 "not_show": "false"
             }
