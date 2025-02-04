@@ -17,7 +17,7 @@ def get_installed_software():
 try:
     result = subprocess.run(
         ["pip", "freeze"], capture_output=True, text=True, check=True
-    )ls
+    )
 
     python_dependencies = result.stdout.strip()
 except subprocess.CalledProcessError as e:

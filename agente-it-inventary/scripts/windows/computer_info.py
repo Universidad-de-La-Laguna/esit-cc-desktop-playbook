@@ -17,7 +17,7 @@ def get_memory_slots():
                 speed = re.search(r"Speed=(\d+)", line)
                 memory_type = re.search(r"MemoryType=(\d+)", line)
 
-                slot_info = {
+                slot_info = { 
                     "Size": f"SLOT {slot_number} Size: {int(size.group(1)) // (1024**3) if size else 'Unknown'}GB",
                     "Speed": f"SLOT {slot_number} Speed: {speed.group(1) + 'MHz' if speed else 'Unknown'}",
                     "Type": f"SLOT {slot_number} Type: {memory_type.group(1) if memory_type else 'Unknown'}",
@@ -27,6 +27,18 @@ def get_memory_slots():
         return slots
     except Exception as e:
         return []
+
+
+
+def get_windows_security_updates():
+    try:
+        installed_updates = check_output("wmic qfe list brief", shell=True, text=True)
+        pending_updates = check_output("wmic qfe list | findstr /I \"KB\"", shell=True, text=True)
+      
+        return (pending_updates.strip() if pending_updates else "No se encontraron actualizaciones pendientes.")
+   
+    except subprocess.CalledProcessError:
+        return ("Error al obtener las actualizaciones.")
 
 def get_system_info():
     memory_slots = get_memory_slots()
@@ -40,6 +52,8 @@ def get_system_info():
     os_full = platform.platform()
     os_release = platform.version()
 
+    windows_security_updates=get_windows_security_updates()
+    
     json_output = {
         "result": [
             {
@@ -103,7 +117,14 @@ def get_system_info():
                 "value": os_release,
                 "data_group": "system",
             },
+            {
+                "field": "Windows security updates",
+                "value": windows_security_updates,
+                "data_group": "system",
+                "not_show": "false"
+            }
         ]
+
     }
 
     return json.dumps(json_output, indent=2)
