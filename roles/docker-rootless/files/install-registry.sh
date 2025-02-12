@@ -35,7 +35,7 @@ systemctl stop docker
 if [ ! -f /etc/docker/daemon.json ]; then
   echo -e '{\n  "registry-mirrors": ["http://localhost:5000"]\n}' | tee /etc/docker/daemon.json > /dev/null
 else
-  if ! grep -q '"registry-mirrors": \["http://localhost:5000"\]' /etc/docker/daemon.json; then
+  if ! grep -q '"registry-mirrors"' /etc/docker/daemon.json; then
     echo -e '{\n  "registry-mirrors": ["http://localhost:5000"]\n}' | tee -a /etc/docker/daemon.json > /dev/null
   fi
 fi
