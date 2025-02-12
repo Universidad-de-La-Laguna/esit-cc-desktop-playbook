@@ -1,5 +1,20 @@
 # roles/docker_rootless/tasks/main.yml
 
+# === FLAG ===
+- name: Definición de la variable del fichero flag
+  set_fact:
+    flag_path: "/etc/executed_scripts/rootless-1"  # Incrementar el índice para forzar la ejecución del rol
+
+- name: "Verificar si el rol ha sido ejecutado"
+  stat:
+    path: "{{ flag_path }}"
+  register: flagfile
+
+- name: "Abortar si el rol ha sido ya ejecutado"
+  meta: end_play
+  when: flagfile.stat.exists
+
+# === TASKS DEL ROL ===
 - name: Remove any existing Docker packages
   # Bash: desinstalar cualquier cosa que tenga docker por apt
   # for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do apt-get remove -y $pkg; done
@@ -112,7 +127,13 @@
       export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
     mode: '0755'
 
-
 # === REGISTRY ===
-- name: Ejecutar el script del role
+- name: Ejecutar el script para crear el registry
   script: "install-registry.sh"
+
+# === FLAG ===
+- name: "Crear flag indicando que el rol ha sido ejecutado"
+  file:
+    path: {{ flag_path }}
+    state: touch
+    mode: '0644'
