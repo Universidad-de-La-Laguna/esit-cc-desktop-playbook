@@ -134,6 +134,6 @@
 # === FLAG ===
 - name: "Crear flag indicando que el rol ha sido ejecutado"
   file:
-    path: {{ flag_path }}
+    path: "{{ flag_path }}"
     state: touch
     mode: '0644'
