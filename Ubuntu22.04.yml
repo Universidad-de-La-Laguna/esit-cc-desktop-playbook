@@ -7,12 +7,9 @@
 - hosts: localhost, all
   remote_user: root
   gather_facts: yes
-
-  pre_tasks:
-    - name: Crear directorio para los flags de scripts ejecutados
-      command: mkdir -p /etc/executed_scripts/
   
   roles:
+    - { role: executed-scripts-flag-directory, tags: ['executed-scripts-flag-directory','onboot'] }
     - { role: limpia-dpkg, tags: ['limpia-dpkg','onboot'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22','onboot'] }
     - { role: docker-rootless, tags: ['docker-rootless','onboot'] }
