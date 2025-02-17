@@ -1,0 +1,5 @@
+- name: "Creación del directorio para los flags de scripts ejecutados"
+  ansible.builtin.file:
+    path: /etc/executed_scripts/
+    state: directory
+    mode: '0755'
