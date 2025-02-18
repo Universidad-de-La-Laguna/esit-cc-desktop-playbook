@@ -8,7 +8,7 @@
   remote_user: root
   gather_facts: yes
   
-  # onboot -> roles que se ejecutan en el arranque
+  # onboot -> roles que se ejecutan en el arranque. Puede añadir flags para que se ejecute solo una vez
   # si un rol desea que se ejecute solo una vez debe añadir las tareas de flags en la definición del rol
   # valorar si el rol se debe ejecutar siempre o solo una vez
   # valorar crear un verificador para IT-inventory
