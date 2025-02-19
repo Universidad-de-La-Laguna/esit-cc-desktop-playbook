@@ -11,7 +11,7 @@ json_output=$(cat <<EOF
 {
   "result": [
     {
-      "field": "Software de Linux",
+      "field": "Softwar e de Linux",
       "value": "$linux_software",
       "data_group": "software",
       "not_show": "true"
