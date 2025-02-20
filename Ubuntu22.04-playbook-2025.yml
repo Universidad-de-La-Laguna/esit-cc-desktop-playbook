@@ -33,7 +33,7 @@
 
   vars:
     role_list:
-      - { role: executed-scripts-flag-directory, tags: [ 'executed-scripts-flag-directory','onboot' ] }
+      - { role: executed-scripts-flag-directory, tags: [ 'executed-scripts-flag-directory','onboot' ,'once' ] }
       - { role: upgrade-code, tags: [ 'upgrade-code','onboot' ] }
 
       #  - { role: limpia-dpkg, tags: ['limpia-dpkg'] }
