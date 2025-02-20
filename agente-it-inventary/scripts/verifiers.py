@@ -74,11 +74,17 @@ def check_code_version (code_version, **kwargs):
     if Version(INSTALLED_VERSION) < Version(MIN_VERSION):
         return(f"La versión instalada ({INSTALLED_VERSION}) no cumple con el requisito mínimo ({MIN_VERSION}).")
 
+def check_free_space_gb (free_space_gb, **kwargs):
+    print (free_space_gb)
+    if int (free_space_gb) < 10:
+        return "Revisar espacion en disco duro. Menos de 10 GB libres" 
+
 
 
 FIELD_VERIFIERS = {
     # "IP": ip_checker,
     #"Hard disc": hard_disc_checker,
+    "Free space gb": check_free_space_gb,    
     "Docker version": check_docker,
     "Gedit numero complementos": check_gedit,
     "Vivado":check_vivado,
