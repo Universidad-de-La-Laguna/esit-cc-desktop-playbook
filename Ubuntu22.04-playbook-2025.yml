@@ -151,6 +151,8 @@
         src: /etc/ansible/once_executed
       register: once_executed
       ignore_errors: yes
+      debug:
+        msg: "Leyendo lista de roles ejecutados una vez"
 
     - name: Ejecutar roles según sus etiquetas
       ansible.builtin.include_role:
@@ -159,6 +161,8 @@
       when:
         - "'onboot' in ansible_run_tags or 'once' in ansible_run_tags or item.role in ansible_run_tags"
         - "'once' not in item.tags or item.role not in (once_executed['content'] | b64decode | splitlines) or item.role in ansible_run_tags"
+      debug:
+        msg: "Ejecutando roles según sus etiquetas"
 
     - name: Registrar roles ejecutados con "once"
       ansible.builtin.lineinfile:
@@ -167,6 +171,8 @@
         create: yes
       loop: "{{ role_list }}"
       when: "'once' in item.tags"
+      debug:
+        msg: "Registrando roles ejecutados con 'once'"
 
     - group:
         name: wireshark
