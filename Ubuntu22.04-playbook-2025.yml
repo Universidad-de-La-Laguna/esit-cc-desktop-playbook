@@ -1,0 +1,172 @@
+# ✅ Uso de onboot:
+#     Agregaremos el tag onboot a los roles que deban ejecutarse en cada arranque.
+
+# ✅ Uso de once:
+#      Para asegurarnos de que los roles con once solo se ejecuten una vez, usamos un archivo de estado en el servidor.
+#      Si un rol con once ya se ejecutó, lo marcaremos en un archivo, evitando su ejecución en futuros arranques.
+#      Ahora, si lo llamas con --tags manualmente, sí se ejecuta.
+#      De esta forma, tenemos más control sobre qué roles a ejecutar, sin modificar el archivo de estado manualmente.
+
+# ✅ Ejemplos de Uso:
+#      🔹 Ejecutar roles con onboot en el arranque:
+#         ansible-playbook Ubuntu22.04-playbook-2025.yml --tags onboot
+
+#      🔹 Ejecutar solo roles con once, que no se hayan ejecutado antes:
+#         ansible-playbook Ubuntu22.04-playbook-2025.yml --tags once
+
+#      🔹 Forzar la ejecución de un rol específico, aunque tenga once:
+#         ansible-playbook Ubuntu22.04-playbook-2025.yml --tags docker-rootless
+#         Esto ejecutará docker-rootless, aunque ya se haya ejecutado antes.
+
+# ✅ Al crear un nuevo rol, asegúrate de agregar las tareas de flags para que funcione correctamente:
+#      🔹 Valorar si el rol se debe ejecutar en el arranque del equipo
+#      🔹 Valorar si el rol se debe ejecutar siempre o sólo una vez
+#      🔹 Valorar crear un verificador para IT-inventory
+#      🔹 Por sencillez, usa el script "nuevo_rol.py", que crea los ficheros del nuevo rol y
+#         lo inserta en este playbook
+
+
+
+- hosts: localhost, all
+  remote_user: root
+  gather_facts: yes
+
+  vars:
+    role_list:
+      - { role: executed-scripts-flag-directory, tags: [ 'executed-scripts-flag-directory','onboot' ] }
+      - { role: upgrade-code, tags: [ 'upgrade-code','onboot' ] }
+
+      #  - { role: limpia-dpkg, tags: ['limpia-dpkg'] }
+      #  - { role: grubpassword-u22, tags: ['grubpassword-u22','onboot'] }
+      #  - { role: docker-rootless, tags: ['docker-rootless','onboot'] }
+
+      - { role: gedit_packages, tags: ['gedit_packages','onboot'] }
+
+      #  - { role: volatility3, tags: ['volatility3'] }
+      #- { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] }
+      #- { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }
+      #- { role: projectlibre, tags: ['projectlibre','onboot'] }
+      #- { role: install_gcc14, tags: ['install_gcc14','onboot'] }
+      #- { role: copiar-hosts, tags: ['copiar-hosts'] }
+      #- { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
+      #- { role: mazesolver, tags: ['mazesolver','onboot'] }
+
+      - { role: modo-examen, tags: [ 'modo-examen' ] }
+      - { role: vscode, tags: [ 'vscode','onboot' ] }
+
+      #- { role: openjdk-21, tags: ['openjdk-21','onboot'] }
+      #- { role: pip-mediapipe, tags: ['mediapipe','onboot'] }
+      #- { role: exa, tags: ['exa','onboot'] }
+      #- { role: tmux, tags: ['tmux','onboot'] }
+      - { role: udsclient, tags: [ 'udsclient' ] }
+      - { role: env-neupy, tags: [ 'env-neupy' ] }
+      - { role: bug-ldap-stic, tags: [ 'bug-ldap-stic' ] }
+      #- { role: wol_servicio, tags: ['wol_servicio','onboot'] }
+      - { role: rutacorta, tags: [ 'ir','onboot' ] }
+      - { role: mpi, tags: [ 'mpi' ] }
+      #- { role: cheddar, tags: ['cheddar','onboot'] }
+      #- { role: copia_hosts-u22, tags: ['hos'] }
+      - { role: fuzzylogic, tags: [ 'fuzzylogic' ] }
+      - { role: libpulse, tags: [ 'lp' ] }
+      - { role: eclipse-u18, eclipse_jee_version: 'eclipse-jee-2022-09-R-linux-gtk-x86_64', tags: [ 'e22' ] }
+      - { role: python3, tags: [ 'py' ] }
+      - { role: installsoftware-u2204, tags: [ 'sd0' ] }
+      - { role: nvm, tags: [ 'a' ] }
+      - { role: grubpassword-u22, tags: [ 'grubpassword-u22' ] }
+
+      # - { role: fuzzylogic, tags: ['fuzzylogic'] }
+      # - { role: libpulse, tags: ['lp'] }
+      # - { role: eclipse-u18,
+      #     tags: ['e22'],
+      #     eclipse_jee_version: 'eclipse-jee-2022-09-R-linux-gtk-x86_64'
+      #   }
+      # - { role: python3, tags: ['py'] }
+      # - { role: installsoftware-u2204, tags: ['sd0'] }
+      # - { role: nvm, tags: ['a'] }
+      # - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
+      # - { role: fuzzylogic, tags: ['fuzzylogic'] }
+      # - { role: libpulse, tags: ['lp'] }
+      # - { role: eclipse-u18,
+      #     tags: ['e22'],
+      #     eclipse_jee_version: 'eclipse-jee-2022-09-R-linux-gtk-x86_64'
+      #   }
+      # - { role: python3, tags: ['py'] }
+      # - { role: installsoftware-u2204, tags: ['sd0'] }
+      # - { role: nvm, tags: ['a'] }
+      # - { role: clienteoracle, tags: ['co'] }
+      # - { role: node, tags: ['edu'] }
+      # - { role: nodepackages,
+      #     tags: ['edu'],
+      #     node_path: /usr/local/nvm/versions/node/v11.15.0
+      #   }
+      # - ansibleupdate
+      # - { role: aceleraarranque,
+      #     ubuntu2204: yes
+      #   }
+      # - { role: eclipse-java-cpp,
+      #     tags: ['eclipse'],
+      #     eclipse_cpp_version: eclipse-cpp-2022-09-R-linux-gtk-x86_64
+      #   }
+      # - { role: emacs, tags: ['p'] }
+      # - { role: mazesolver, tags: ['p'] }
+      # - { role: weka,
+      #     tags: ['weka'],
+      #     ubuntu2204: yes
+      #   }
+      # - { role: gemas-ruby, tags: ['edu'] }
+      # - { role: rvm_io.ruby,
+      #     tags: ruby,
+      #     become: yes,
+
+      #     rvm1_rubies: ['ruby-2.7.6'],               # Versiones 2.2.5 y 2.3.1 no instalan en Ubuntu 22.04
+      #     rvm1_install_path: /usr/local/rvm,         # Set to system location
+      #     rvm1_install_flags: "--auto-dotfiles --with-openssl-dir={{ rvm1_install_path }}/usr",     # Remove --user-install from defaults
+      #     rvm1_user: root,                           # Need root account to access system location
+
+      #     ubuntu2204: yes
+      #  }
+
+      ## Software no instalado en Ubuntu 22.04.
+      ## Se ha considerado obsoleto, que viene de serie o no hace falta.
+      # - { role: atom, tags: ['atom'] }
+      # - { role: profile-env-alias-scripts, tags: ['path'] }
+      # - { role: rutacorta, tags: ['ir'] }
+      # - { role: bug-eclipse, tags: ['eclipse'] }
+      # - { role: compendium, tags: ['a'] }
+      # - { role: neurophstudio, tags: ['a'] }
+      # - { role: hub, tags: ['edu'] }
+      # - { role: kgpg, tags: ['aa'] }
+      # - { role: usuariolocal, tags: ['ul']}
+
+  tasks:
+    - name: Leer lista de roles ejecutados una vez
+      ansible.builtin.slurp:
+        src: /etc/ansible/once_executed
+      register: once_executed
+      ignore_errors: yes
+
+    - name: Ejecutar roles según sus etiquetas
+      ansible.builtin.include_role:
+        name: "{{ item.role }}"
+      loop: "{{ role_list }}"
+      when:
+        - "'onboot' in ansible_run_tags or 'once' in ansible_run_tags or item.role in ansible_run_tags"
+        - "'once' not in item.tags or item.role not in (once_executed['content'] | b64decode | splitlines) or item.role in ansible_run_tags"
+
+    - name: Registrar roles ejecutados con "once"
+      ansible.builtin.lineinfile:
+        path: /etc/ansible/once_executed
+        line: "{{ item.role }}"
+        create: yes
+      loop: "{{ role_list }}"
+      when: "'once' in item.tags"
+
+    - group:
+        name: wireshark
+        state: present
+
+    - name: Update repositories cache and install "wireshark" package
+      apt:
+        name: wireshark
+        update_cache: yes
+        state: present
