@@ -6,17 +6,10 @@ docker_version=$(docker --version 2>/dev/null || echo 0) # Muestra la versión d
 gedit_numero_complementos=$(dpkg -l | grep "ii\ \ gedit-*" | wc -l) #305 #albham
 code_version=$(dpkg -l | grep "^ii  code " | awk '{print $3}')
 security_updates=$(apt list --upgradable 2>/dev/null | grep -i security | wc -l)
-free_space_gb=$(df -h / | awk 'NR==2 {print $4}' | sed 's/G//')
 
 json_output=$(cat <<EOF
 {
   "result": [
-    {
-      "field": "Free space gb",
-      "value": "$free_space_gb",
-      "data_group": "software",
-      "not_show": "false"
-    },
     {
       "field": "Librerias Python instaladas",
       "value": "$python_dependencies",

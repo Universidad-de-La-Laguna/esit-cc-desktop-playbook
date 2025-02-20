@@ -94,7 +94,7 @@ json_output=$(cat <<EOF
         {
       "field": "Free space gb",
       "value": "$free_space_gb",
-      "data_group": "software",
+      "data_group": "hardware",
       "not_show": "false"
     },
     {
