@@ -139,6 +139,13 @@
       # - { role: usuariolocal, tags: ['ul']}
 
   tasks:
+    - name: Tarea vacía con las etiquetas definidas para que sean detectadas
+      debug:
+        msg: "Registrando etiquetas del playbook"
+      tags:
+        - onboot
+        - once
+
     - name: Leer lista de roles ejecutados una vez
       ansible.builtin.slurp:
         src: /etc/ansible/once_executed
