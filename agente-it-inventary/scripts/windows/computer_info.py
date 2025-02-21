@@ -41,17 +41,21 @@ def get_windows_security_updates():
         return ("Error al obtener las actualizaciones.")
 
 def get_windows_c_free_space_gb():
-    try:
-        # Ejecutar el comando wmic para obtener el espacio libre
-        result = subprocess.run('wmic logicaldisk where "DeviceID=\'C:\'" get FreeSpace', capture_output=True, text=True)
-        # Extraer el número de FreeSpace
-        free_space_bytes = int(result.stdout.splitlines()[1].strip())  # Obtener el valor y convertirlo a entero
-        # Convertir a gigabytes
-        free_space_gb = free_space_bytes / (1024 ** 3)
-        return free_space_gb
-        
-    except Exception as e
-        return 0
+    # Ejecutar el comando wmic para obtener el espacio libre
+    import subprocess
+    
+    result = subprocess.run('wmic logicaldisk where "DeviceID=\'C:\'" get FreeSpace', capture_output=True, text=True,shell=True)
+
+    # Filtrar las líneas vacías y obtener el valor de FreeSpace
+    lines = result.stdout.splitlines()
+    free_space_bytes = int([line.strip() for line in lines if line.strip()][1])  # El valor está en la segunda línea con datos
+
+    # Convertir a gigabytes
+    free_space_gb = free_space_bytes / (1024 ** 3)
+    free_space_gb = round(free_space_gb, 0)
+
+    return free_space_gb
+
 
 def get_system_info():
     memory_slots = get_memory_slots()
