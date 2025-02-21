@@ -40,6 +40,19 @@ def get_windows_security_updates():
     except subprocess.CalledProcessError:
         return ("Error al obtener las actualizaciones.")
 
+def get_windows_c_free_space_gb():
+    try:
+        # Ejecutar el comando wmic para obtener el espacio libre
+        result = subprocess.run('wmic logicaldisk where "DeviceID=\'C:\'" get FreeSpace', capture_output=True, text=True)
+        # Extraer el número de FreeSpace
+        free_space_bytes = int(result.stdout.splitlines()[1].strip())  # Obtener el valor y convertirlo a entero
+        # Convertir a gigabytes
+        free_space_gb = free_space_bytes / (1024 ** 3)
+        return free_space_gb
+        
+    except Exception as e
+        return 0
+
 def get_system_info():
     memory_slots = get_memory_slots()
     computer_model = platform.node()
@@ -53,6 +66,8 @@ def get_system_info():
     os_release = platform.version()
 
     windows_security_updates=get_windows_security_updates()
+
+    windows_c_free_space_gb=get_windows_c_free_space_gb()
     
     json_output = {
         "result": [
@@ -95,6 +110,12 @@ def get_system_info():
                 "field": "Hard disc",
                 "value": f"{disk:.2f} GB",
                 "data_group": "hardware",
+            },
+                        {
+                "field": "Windows C free space",
+                "value":windows_c_free_space_gb,
+                "data_group": "hardware",
+                "not_show": "false",
             },
             {
                 "field": "IP",
