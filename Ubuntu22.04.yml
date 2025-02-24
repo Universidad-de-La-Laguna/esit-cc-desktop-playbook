@@ -19,7 +19,7 @@
 
   #  - { role: limpia-dpkg, tags: ['limpia-dpkg'] }
   #  - { role: grubpassword-u22, tags: ['grubpassword-u22','onboot'] }
-  #  - { role: docker-rootless, tags: ['docker-rootless','onboot'] }
+    - { role: docker-rootless, tags: ['docker-rootless'] }
     - { role: gedit_packages, tags: ['gedit_packages','onboot'] }
 
   #  - { role: volatility3, tags: ['volatility3'] }
