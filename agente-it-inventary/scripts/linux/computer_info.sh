@@ -72,7 +72,7 @@ json_output=$(cat <<EOF
       "field": "Memory slots size",
       "value": "$slot_memoria_size",
       "data_group": "hardware",
-      "not_show": "true"
+      "not_show": "false"
     },
     {
       "field": "Memory slots speed",
@@ -84,7 +84,7 @@ json_output=$(cat <<EOF
       "field": "Memory slots type",
       "value": "$slot_memoria_type",
       "data_group": "hardware",
-      "not_show": "true"
+      "not_show": "false"
     },
     {
       "field": "Hard disc",
