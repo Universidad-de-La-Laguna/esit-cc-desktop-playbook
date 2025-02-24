@@ -79,24 +79,25 @@ def get_system_info():
                 "field": "Modelo de equipo",
                 "value": computer_model,
                 "data_group": "hardware",
-                "not_show": "true",
+                "not_show": "false",
             },
             {
                 "field": "CPU",
                 "value": cpu_model,
                 "data_group": "hardware",
-                "not_show": "true",
+                "not_show": "false",
             },
             {
                 "field": "Ram memory",
                 "value": f"{memory:.2f} GB",
                 "data_group": "hardware",
+                "not_show": "false"
             },
             {
                 "field": "Memory slots",
                 "value": "\n".join(slot["Size"] for slot in memory_slots),
                 "data_group": "hardware",
-                "not_show": "true",
+                "not_show": "false",
             },
             {
                 "field": "Memory slots speed",
