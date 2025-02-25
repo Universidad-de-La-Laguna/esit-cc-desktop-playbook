@@ -18,7 +18,7 @@
     - { role: upgrade-code, tags: ['upgrade-code','onboot'] }
 
   #  - { role: limpia-dpkg, tags: ['limpia-dpkg'] }
-  #  - { role: grubpassword-u22, tags: ['grubpassword-u22','onboot'] }
+    - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     - { role: docker-rootless, tags: ['docker-rootless'] }
     - { role: gedit_packages, tags: ['gedit_packages','onboot'] }
 

@@ -63,7 +63,7 @@ json_output=$(cat <<EOF
       "data_group": "hardware",
       "not_show": "true"
     },
-    {
+    { 
       "field": "Ram memory",
       "value": "$memory",
       "data_group": "hardware"
