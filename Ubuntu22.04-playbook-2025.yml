@@ -33,7 +33,7 @@
 
   vars:
     role_list:
-      - { role: executed-scripts-flag-directory, tags: [ 'executed-scripts-flag-directory','onboot' ,'once' ] }
+      - { role: executed-scripts-flag-directory, tags: [ 'executed-scripts-flag-directory','onboot','once' ] }
       - { role: upgrade-code, tags: [ 'upgrade-code','onboot' ] }
 
       #  - { role: limpia-dpkg, tags: ['limpia-dpkg'] }
@@ -58,7 +58,7 @@
       #- { role: pip-mediapipe, tags: ['mediapipe','onboot'] }
       #- { role: exa, tags: ['exa','onboot'] }
       #- { role: tmux, tags: ['tmux','onboot'] }
-      - { role: udsclient, tags: [ 'udsclient' ] }
+      - { role: udsclient, tags: [ 'udsclient','once' ] }
       - { role: env-neupy, tags: [ 'env-neupy' ] }
       - { role: bug-ldap-stic, tags: [ 'bug-ldap-stic' ] }
       #- { role: wol_servicio, tags: ['wol_servicio','onboot'] }
