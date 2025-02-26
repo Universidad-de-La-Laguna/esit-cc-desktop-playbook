@@ -11,12 +11,6 @@ json_output=$(cat <<EOF
 {
   "result": [
     {
-      "field": "Software de Linux",
-      "value": "$linux_software",
-      "data_group": "software",
-      "not_show": "true"
-    },
-    {
       "field": "Librerias Python instaladas",
       "value": "$python_dependencies",
       "data_group": "software",

@@ -46,6 +46,7 @@ os_name=$(uname -s)
 os_full=$(lsb_release -d -s)
 os_release=$(uname -r)
 users_loggedin_this_year=$(last -Fw | grep -vE '^(root|reboot)' | grep "$(date +'%Y')" | wc -l)
+free_space_gb=$(df -h / | awk 'NR==2 {print $4}' | sed 's/G//')
 
 json_output=$(cat <<EOF
 {
@@ -54,7 +55,7 @@ json_output=$(cat <<EOF
       "field": "Modelo de equipo",
       "value": "$computer_model",
       "data_group": "hardware",
-      "not_show": "true"
+      "not_show": "false"
     },
     {
       "field": "CPU",
@@ -62,7 +63,7 @@ json_output=$(cat <<EOF
       "data_group": "hardware",
       "not_show": "true"
     },
-    {
+    { 
       "field": "Ram memory",
       "value": "$memory",
       "data_group": "hardware"
@@ -71,7 +72,7 @@ json_output=$(cat <<EOF
       "field": "Memory slots size",
       "value": "$slot_memoria_size",
       "data_group": "hardware",
-      "not_show": "true"
+      "not_show": "false"
     },
     {
       "field": "Memory slots speed",
@@ -83,12 +84,18 @@ json_output=$(cat <<EOF
       "field": "Memory slots type",
       "value": "$slot_memoria_type",
       "data_group": "hardware",
-      "not_show": "true"
+      "not_show": "false"
     },
     {
       "field": "Hard disc",
       "value": "$disk",
       "data_group": "hardware"
+    },
+        {
+      "field": "Free space gb",
+      "value": "$free_space_gb",
+      "data_group": "hardware",
+      "not_show": "false"
     },
     {
       "field": "Hard disc model",

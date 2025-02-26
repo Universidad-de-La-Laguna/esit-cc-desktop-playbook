@@ -8,15 +8,21 @@
   remote_user: root
   gather_facts: yes
   
+  # onboot -> roles que se ejecutan en el arranque. Puede añadir flags para que se ejecute solo una vez
+  # si un rol desea que se ejecute solo una vez debe añadir las tareas de flags en la definición del rol
+  # valorar si el rol se debe ejecutar siempre o solo una vez
+  # valorar crear un verificador para IT-inventory
+  
   roles:
     - { role: executed-scripts-flag-directory, tags: ['executed-scripts-flag-directory','onboot'] }
-    - { role: limpia-dpkg, tags: ['limpia-dpkg'] }
-    - { role: grubpassword-u22, tags: ['grubpassword-u22','onboot'] }
-    - { role: docker-rootless, tags: ['docker-rootless','onboot'] }
-    - { role: gedit_packages, tags: ['gedit_packages','onboot'] }
     - { role: upgrade-code, tags: ['upgrade-code','onboot'] }
 
-    - { role: volatility3, tags: ['volatility3'] }
+  #  - { role: limpia-dpkg, tags: ['limpia-dpkg'] }
+    - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
+    - { role: docker-rootless, tags: ['docker-rootless'] }
+    - { role: gedit_packages, tags: ['gedit_packages','onboot'] }
+
+  #  - { role: volatility3, tags: ['volatility3'] }
     
     #- { role: actualiza-sistema-u22, tags: ['actualiza-sistema-u22','onboot'] } 
     #- { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }
