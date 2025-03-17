@@ -1,5 +1,3 @@
-
-
 127.0.0.1		localhost.localdomain localhost
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
@@ -24,11 +22,10 @@ ff02::2 ip6-allrouter
 # 10.20.31.{151..181}
 
 
-
-# profesores
+# Profesores
 10.209.31.107 cc1100.etsii.ull.es cc1100
-10.209.31.53  cc1200.etsii.ull.es cc1200
-10.209.31.209 cc1300.etsii.ull.es cc1300
+10.209.31.108 cc1200.etsii.ull.es cc1200
+10.209.31.109 cc1300.etsii.ull.es cc1300
 10.209.31.110 cc1400.etsii.ull.es cc1400
 
 10.209.32.171 cc2100.etsii.ull.es cc2100
@@ -36,6 +33,8 @@ ff02::2 ip6-allrouter
 10.209.32.173 cc2300.etsii.ull.es cc2300
 10.209.32.174 cc2400.etsii.ull.es cc2400
 10.209.32.175 cc2500.etsii.ull.es cc2500
+
+### PLANTA BAJA
 
 # Sala 1.1
 10.209.31.11 cc1111.etsii.ull.es cc1111
@@ -82,7 +81,7 @@ ff02::2 ip6-allrouter
 10.209.31.50 cc1234.etsii.ull.es cc1234
 10.209.31.51 cc1235.etsii.ull.es cc1235
 10.209.31.52 cc1236.etsii.ull.es cc1236
-10.209.31.108 cc1241.etsii.ull.es cc1241
+10.209.31.53 cc1241.etsii.ull.es cc1241
 10.209.31.54 cc1242.etsii.ull.es cc1242
 10.209.31.55 cc1243.etsii.ull.es cc1243
 10.209.31.56 cc1244.etsii.ull.es cc1244
@@ -321,6 +320,7 @@ ff02::2 ip6-allrouter
 10.209.32.143 cc2622 cc2622.etsii.ull.es
 10.209.32.144 cc2623 cc2623.etsii.ull.es
 
+### PLANTA INDUSTRIALES
 
 # Sala 3.1
 10.209.35.100 cc3100 cc3100.etsii.ull.es
@@ -424,18 +424,18 @@ ff02::2 ip6-allrouter
 10.209.31.111 a1100 a1100.etsii.ull.es
 10.209.31.112 a1200 a1200.etsii.ull.es
 10.109.31.113 a1300 a1300.etsii.ull.es
-10.209.31.200 a1400 a1400.etsii.ull.es
+10.209.31.114 a1400 a1400.etsii.ull.es
 10.209.31.115 a1500 a1500.etsii.ull.es
 
 10.209.31.119 a2100 a2100.etsii.ull.es
 10.209.31.117 a2200 a2200.etsii.ull.es
 10.209.31.118 a2300 a2300.etsii.ull.es
 10.209.31.186 a2400 a2400.etsii.ull.es
-10.209.31.213 a2600 a2600.etsii.ull.es
+10.209.31.122 a2600 a2600.etsii.ull.es
 10.209.31.201 a2900 a2900.etsii.ull.es
 
 10.209.30.152 a3300  a3300.etsii.ull.es
 10.209.35.204 a3400  a3400.etsii.ull.es
-10.209.30.37  a3600  a3600.etsii.ull.es
+10.209.35.163 a3600  a3600.etsii.ull.es
 10.209.31.116 a3700  a3700.etsii.ull.es
-10.209.35.200 a3100 a3100.etsii.ull.es
+10.209.35.165 a31000 a31000.etsii.ull.es
