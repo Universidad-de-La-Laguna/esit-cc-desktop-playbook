@@ -15,10 +15,16 @@
   when: flagfile.stat.exists
 
 # === TASKS DEL ROL ===
+- name: Obtener versión instalada de UDS
+  command: dpkg-query -W -f='${Version}' udsclient3
+  register: uds_installed_version
+  ignore_errors: yes  # Evita fallos si el paquete no está instalado
+
 - name: Instala UDS
   apt:
     deb: http://cc.etsii.ull.es/ftp/packages/udsclient3_3.6.0_all.deb
-    state: latest
+    state: present
+  when: uds_installed_version.stdout is version('3.6.0', '<')
 
 # === FLAG ===
 - name: "Crear flag indicando que el rol ha sido ejecutado"
