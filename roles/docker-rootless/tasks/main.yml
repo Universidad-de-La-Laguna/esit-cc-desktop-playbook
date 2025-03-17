@@ -84,7 +84,6 @@
       - docker-compose-plugin
     state: present
 
-
 - name: Disable Docker and containerd services
   # Bash: systemctl disable docker.service
   # Bash: systemctl disable containerd.service

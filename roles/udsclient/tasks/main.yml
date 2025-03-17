@@ -18,7 +18,7 @@
 - name: Instala UDS
   apt:
     deb: http://cc.etsii.ull.es/ftp/packages/udsclient3_3.6.0_all.deb
-    state: present
+    state: latest
 
 # === FLAG ===
 - name: "Crear flag indicando que el rol ha sido ejecutado"
