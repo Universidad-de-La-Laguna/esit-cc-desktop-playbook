@@ -12,10 +12,11 @@ archivo="../resources/ansible/hosts"
 # Función para enviar el paquete de Wake-on-LAN
 enviar_wol() {
     local mac=$1
+    local broadcast=$2
     # Verifica si la MAC address no está vacía
     if [ -n "$mac" ]; then
         echo "Enviando paquete de Wake-on-LAN a la MAC address '$mac'..."
-        wakeonlan "$mac"
+        wakeonlan -i "$broadcast" "$mac"
     fi
 }
 
@@ -28,8 +29,6 @@ comprobar_estado() {
         echo -e "\e[31m$hostname está APAGADO\e[0m"
     fi
 }
-
-
 
 # Timer con visualización
 mostrar_timer() {
@@ -44,7 +43,6 @@ mostrar_timer() {
 
 declare -a resultados
 
-
 # Itera sobre cada argumento proporcionado
 for host in "$@"; do
     # Añade "etsii.ull.es" al nombre del host
@@ -57,14 +55,13 @@ for host in "$@"; do
         echo "No se encontró la MAC address para el hostname '$hostname'."
     else
         # Envía el paquete de Wake-on-LAN
-        enviar_wol "$mac"
+        broadcast=$(grep -w "$hostname" "$archivo" | awk '{print $3}' | cut -d= -f2 | sed -E 's/([0-9]+\.[0-9]+\.[0-9]+\.)[0-9]+/\1255/')
+        enviar_wol "$mac" "$broadcast"
     fi
 done
 
-
-# Informa al usuario y espera 20 segundos con un timer
-mostrar_timer 20
-
+# Informa al usuario y espera 35 segundos con un timer
+mostrar_timer 35
 
 # Comprueba el estado de cada host
 for host in "$@"; do
