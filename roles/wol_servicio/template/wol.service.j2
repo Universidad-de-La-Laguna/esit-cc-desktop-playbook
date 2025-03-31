@@ -1,9 +1,11 @@
 [Unit]
 Description=Configure Wake On LAN
+After=network.targe
 
 [Service]
 Type=oneshot
 ExecStart=/sbin/ethtool -s {{ ansible_interfaces[0] }} wol g
+ReaminAfterExit=yes
 
 [Install]
 WantedBy=basic.target
