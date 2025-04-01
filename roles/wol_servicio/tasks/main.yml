@@ -6,15 +6,18 @@
     name: ethtool
     state: present
 
-- name: Get network interfaces
-  setup:
-    filter: 'ansible_interfaces'
-
 - name: Set WoL configuration for the first network interface
   template:
     src: template/wol.service.j2
     dest: /etc/systemd/system/wol.service
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"
   notify: Reload systemd
+
+- name: Recargar configuración de systemd
+  systemd:
+    daemon_reload: yes
 
 - name: Enable and start WoL service
   systemd:

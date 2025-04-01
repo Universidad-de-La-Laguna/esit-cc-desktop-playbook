@@ -61,7 +61,7 @@
       - { role: udsclient, tags: [ 'udsclient','once' ] }
       - { role: env-neupy, tags: [ 'env-neupy' ] }
       - { role: bug-ldap-stic, tags: [ 'bug-ldap-stic' ] }
-      #- { role: wol_servicio, tags: ['wol_servicio','onboot'] }
+      - { role: wol_servicio, tags: [ 'wol_servicio' ] }
       - { role: rutacorta, tags: [ 'ir','onboot' ] }
       - { role: mpi, tags: [ 'mpi' ] }
       #- { role: cheddar, tags: ['cheddar','onboot'] }
