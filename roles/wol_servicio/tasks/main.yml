@@ -14,11 +14,10 @@
   template:
     src: template/wol.service.j2
     dest: /etc/systemd/system/wol.service
-  notify:
-    - Reload systemd
+  notify: Reload systemd
 
 - name: Enable and start WoL service
   systemd:
     name: wol
-    state: started
     enabled: yes
+    state: started

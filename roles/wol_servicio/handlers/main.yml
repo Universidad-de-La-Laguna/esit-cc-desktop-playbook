@@ -2,4 +2,4 @@
 
 - name: Reload systemd
   systemd:
-    state: reloaded
+    daemon_reload: yes
