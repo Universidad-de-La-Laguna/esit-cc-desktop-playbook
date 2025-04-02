@@ -1,22 +1,26 @@
----
+# roles/wol_servicio/tasks/main.yml
+
+# === TASKS DEL ROL ===
 - name: Install ethtool package
   apt:
     name: ethtool
     state: present
 
-- name: Get network interfaces
-  setup:
-    filter: 'ansible_interfaces'
-
-- name: Set WOL configuration for the first network interface
+- name: Set WoL configuration for the first network interface
   template:
-    src: ./template/wol.service.j2
+    src: template/wol.service.j2
     dest: /etc/systemd/system/wol.service
-  notify:
-    - Reload systemd
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"
+  notify: Reload systemd
 
-- name: Enable and start WOL service
+- name: Recargar configuración de systemd
+  systemd:
+    daemon_reload: yes
+
+- name: Enable and start WoL service
   systemd:
     name: wol
-    state: started
     enabled: yes
+    state: started
