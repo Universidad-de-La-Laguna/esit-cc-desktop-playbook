@@ -3,6 +3,7 @@
 
 
 cat > /etc/profile <<EOF
+
 # /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
 
@@ -30,6 +31,7 @@ if [ -d /etc/profile.d ]; then
   done
   unset i
 fi
+
 EOF
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | NVM_DIR=/usr/local/nvm bash
