@@ -36,11 +36,11 @@
     #- { role: openjdk-21, tags: ['openjdk-21','onboot'] }
     #- { role: pip-mediapipe, tags: ['mediapipe','onboot'] }
     #- { role: exa, tags: ['exa','onboot'] }
-    #- { role: tmux, tags: ['tmux','onboot'] }
+    #- { role: tmux, tags: [' tmux','onboot'] }
     - { role: udsclient, tags: ['udsclient'] }
     - { role: env-neupy, tags: ['env-neupy'] }
     - { role: bug-ldap-stic, tags: ['bug-ldap-stic'] }
-    - { role: wol_servicio, tags: [ 'wol_servicio' ] }
+    #- { role: wol_servicio, tags: ['wol_servicio','onboot'] }
     - { role: rutacorta, tags: ['ir','onboot'] }
     - { role: mpi, tags: ['mpi'] }
     #- { role: cheddar, tags: ['cheddar','onboot'] }
@@ -53,7 +53,7 @@
       }
     - { role: python3, tags: ['py'] }
     - { role: installsoftware-u2204, tags: ['sd0'] }
-    - { role: nvm, tags: ['a'] }
+    - { role: nvm, tags: ['nvm'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
     
     # - { role: fuzzylogic, tags: ['fuzzylogic'] }
