@@ -2,8 +2,13 @@
 # This script installs nvm (Node Version Manager) and Node.js on a Linux system.
 
 cd /opt
-wget http://cc.etsii.ull.es/ftp/packages/vscode-fixed.tar.gz 
-tar -xvzf vscode-fixed.tar.gz
+rm -f /opt/vscode-fixed.tar.gz
+rm -Rf /opt/vscode-fixed
+#wget http://cc.etsii.ull.es/ftp/packages/vscode-fixed.tar.gz 
+wget http://10.6.7.11:9393/ftp/packages/vscode-fixed.tar.gz
+tar -xvf vscode-fixed.tar.gz
+
+
 ln -s  /opt/vscode-fixed/code-restringido /usr/local/bin/code-restringido
 
 rm -f /etc/profile
