@@ -87,18 +87,17 @@ done
 
 
 # Obtenemos el sambaHomePath
-SMBPATH=`$LDAPSRCHCMD -LLL -h $LDAPSRV -b $LDAPBASE -x uid=$USER sambaHomePath | grep sambaHomePath | cut -d" " -f2 | sed -r 's/[\\]/\//g'`
-
-URI=`echo $SMBPATH | cut -d"/" -f3`
-
-# Para evitar montar algo que va a ser imposible, miramos si ese servidor es de los válidos
-contiene $URI "${VALIDMOUNTSRV[@]}"
-retContiene=$?
-
-if [ $retContiene -eq 0 ]; then
-	${LOG} "[PAM-SCRIPT-AUTH]   ${USER}@${URI} El servidor ${URI} no es válido."
-	exit
+if [ ${UBUNTUVERSION} == "22.04" ]; then
+	SMBPATH=`$LDAPSRCHCMD -LLL -H ldap://$LDAPSRV -b $LDAPBASE -x uid=$USER sambaHomePath | grep sambaHomePath | cut -d" " -f2 | sed -r 's/[\\]/\//g'`
+else
+	SMBPATH=`$LDAPSRCHCMD -LLL -h $LDAPSRV -b $LDAPBASE -x uid=$USER sambaHomePath | grep sambaHomePath | cut -d" " -f2 | sed -r 's/[\\]/\//g'`
 fi
+
+# SMBPATH siempre igual. RT #168923
+SMBPATH="//ddv.ull.es/${USER} "
+
+echo "SMBPATH=${SMBPATH}"
+
 
 [ $DEBUG -ne 0 ] && ${LOG} "[PAM-SCRIPT-AUTH]   Montando recurso DDV en ${MNTPT}/${DDVDIR}"
 
@@ -110,9 +109,9 @@ MOUNTED=`mount | grep $PAM_USER | grep cifs | wc -l`
 CODRETORNO=0  # definimos la variable
 if [ $MOUNTED == '0' ]; then
 	# Montaje del espacio en la nube del usuario
-	mount -t cifs $SMBPATH ${MNTPT}/${DDVDIR} -o "user=${USER},pass=${PAM_AUTHTOK},_netdev,serverino,iocharset=utf8,domain=ULL"
+	mount -t cifs $SMBPATH ${MNTPT}/${DDVDIR} -o "user=${USER},pass=${PAM_AUTHTOK},uid=${USER},gid=users,_netdev,serverino,iocharset=utf8,domain=ULL"
 	CODRETORNO=$?
-	[ $DEBUG -ne 0 ] && ${LOG} "[PAM-SCRIPT-AUTH]   Codigo retorno  ${CODRETRONO} de mount -t cifs $SMBPATH ${MNTPT}/${DDVDIR} -o user=:!${USER},_netdev,serverino,iocharset=utf8,domain=ULL"
+	[ $DEBUG -ne 0 ] && ${LOG} "[PAM-SCRIPT-AUTH]   Codigo retorno  ${CODRETRONO} de mount -t cifs $SMBPATH ${MNTPT}/${DDVDIR} -o user=:!${USER},uid=${USER},gid=users,_netdev,serverino,iocharset=utf8,domain=ULL"
 
 fi
 
@@ -239,3 +238,7 @@ echo "[Usuario autenticado]"
 
 chown $PAM_USER ${MNTPT}
 
+# BEGIN ANSIBLE MANAGED BLOCK
+echo $USER:100000:65536 > /etc/subuid
+echo $USER:100000:65536 > /etc/subgid
+# END ANSIBLE MANAGED BLOCK
