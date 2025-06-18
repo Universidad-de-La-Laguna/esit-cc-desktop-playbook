@@ -369,7 +369,7 @@ cc3944.etsii.ull.es         macaddress=90:8d:6e:91:fb:7a    ansible_host=10.209.
 [aulas]
 a1100.etsii.ull.es          macaddress=50:9a:4c:0c:e6:3a    ansible_host=10.209.31.111
 a1200.etsii.ull.es          macaddress=4c:d7:17:8a:2d:17    ansible_host=10.209.31.112
-a1300.etsii.ull.es          macaddress=50:9a:4c:0c:e6:3c    ansible_host=10.109.31.113
+a1300.etsii.ull.es          macaddress=50:9a:4c:0c:e6:3c    ansible_host=10.209.31.113
 a1400.etsii.ull.es          macaddress=a4:bb:6d:e4:db:be    ansible_host=10.209.31.114
 a1500.etsii.ull.es          macaddress=50:9a:4c:0c:e6:6a    ansible_host=10.209.31.115
 
