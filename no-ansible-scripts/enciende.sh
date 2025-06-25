@@ -6,8 +6,11 @@ if [ $# -lt 1 ]; then
     exit 1
 fi
 
+# Obtener la ruta completa del script
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+
 # Nombre de archivo que contiene las MAC addresses
-archivo="../resources/ansible/hosts"
+archivo="${SCRIPT_DIR}/../resources/ansible/hosts"
 
 # Función para enviar el paquete de Wake-on-LAN
 enviar_wol() {

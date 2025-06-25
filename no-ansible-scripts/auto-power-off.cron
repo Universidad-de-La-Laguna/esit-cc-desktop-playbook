@@ -1,0 +1,18 @@
+# FINALIDAD: Apagado programado sólo desde el servidor lara después de uso nocturno de equipos con GPU
+# PROPIETARIO: CC ESIT
+# AUTOR: Raúl Pérez Hernández (rperezh@ull.es)
+# VERSION: 1.0
+# FECHA: 25/06/2025
+# HISTORIAL:
+#     25/06/2025 v1.0: Apagado mediante rol de ansible a la hora programada.
+# CONFIGURACIÓN: Crear enlace simbólico en /etc/cron.d
+#     cd /etc/cron.d && ln -s /root/esit-cc-desktop-playbook/no-ansible-scripts/auto-power-off.cron cc-auto-power-off
+
+# TEMPLATE
+# Fecha: Motivo de uso
+# mm hh * * 1-5 root /bin/bash -c 'cd /root/esit-cc-desktop-playbook && /usr/local/bin/ansible ccXXXX* -m include_role -a "name=shutdown"'
+
+# EQUIPOS PROGRAMADOS
+
+# 27/02/2025: Uso GPU para TFG alu0101471846
+00 08 * * 1-5 root /bin/bash -c 'cd /root/esit-cc-desktop-playbook && /usr/local/bin/ansible cc121* -m include_role -a "name=shutdown"'
