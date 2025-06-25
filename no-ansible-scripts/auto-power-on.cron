@@ -1,0 +1,18 @@
+# FINALIDAD: Encendido programado sólo desde el servidor lara para uso nocturno de equipos con GPU
+# PROPIETARIO: CC ESIT
+# AUTOR: Raúl Pérez Hernández (rperezh@ull.es)
+# VERSION: 1.0
+# FECHA: 25/06/2025
+# HISTORIAL:
+#     25/06/2025 v1.0: Encendido por WoL a la hora programada mediante script enciende.sh.
+# CONFIGURACIÓN: Crear enlace simbólico en /etc/cron.d
+#     cd /etc/cron.d && ln -s /root/esit-cc-desktop-playbook/no-ansible-scripts/auto-power-on.cron cc-auto-power-on
+
+# TEMPLATE
+# Fecha: Motivo de uso
+# mm hh * * 1-5 root /bin/bash -c '/root/esit-cc-desktop-playbook/no-ansible-scripts/enciende.sh ccXXXX'
+
+# EQUIPOS PROGRAMADOS
+
+# 27/02/2025: Uso GPU para TFG alu0101471846
+15 20 * * 1-5 root /bin/bash -c '/root/esit-cc-desktop-playbook/no-ansible-scripts/enciende.sh cc121{1..4}'
