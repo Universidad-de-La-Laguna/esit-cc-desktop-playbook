@@ -330,9 +330,9 @@ cc3543.etsii.ull.es         macaddress=e4:54:e8:8e:8b:8e    ansible_host=10.209.
 cc3544.etsii.ull.es         macaddress=4c:d7:17:a7:ad:0d    ansible_host=10.209.35.87
 cc3545.etsii.ull.es         macaddress=4c:d7:17:a7:ae:46    ansible_host=10.209.35.88
 cc3546.etsii.ull.es         macaddress=4c:d7:17:a7:a9:25    ansible_host=10.209.35.89
-cc3547.etsii.ull.es         macaddress=4c:d7:17:a7:af:27    ansible_host=10.209.35.91
-cc3548.etsii.ull.es         macaddress=4c:d7:17:8a:26:ca    ansible_host=10.209.35.92
-cc3549.etsii.ull.es         macaddress=4c:d7:17:a7:ad:35    ansible_host=10.209.35.93
+cc3547.etsii.ull.es         macaddress=4c:d7:17:a7:af:27    ansible_host=10.209.35.90
+cc3548.etsii.ull.es         macaddress=4c:d7:17:8a:26:ca    ansible_host=10.209.35.91
+cc3549.etsii.ull.es         macaddress=4c:d7:17:a7:ad:35    ansible_host=10.209.35.92
 
 [cc38]
 cc3800.etsii.ull.es         macaddress=00:be:43:b7:27:79    ansible_host=10.209.35.30

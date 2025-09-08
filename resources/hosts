@@ -389,9 +389,9 @@ ff02::2 ip6-allrouter
 10.209.35.87 cc3544 cc3544.etsii.ull.es
 10.209.35.88 cc3545 cc3545.etsii.ull.es
 10.209.35.89 cc3546 cc3546.etsii.ull.es
-10.209.35.91 cc3547 cc3547.etsii.ull.es
-10.209.35.92 cc3548 cc3548.etsii.ull.es
-10.209.35.93 cc3549 cc3549.etsii.ull.es
+10.209.35.90 cc3547 cc3547.etsii.ull.es
+10.209.35.91 cc3548 cc3548.etsii.ull.es
+10.209.35.92 cc3549 cc3549.etsii.ull.es
 
 # Sala 3.8
 10.209.35.30 cc3800 cc3800.etsii.ull.es
