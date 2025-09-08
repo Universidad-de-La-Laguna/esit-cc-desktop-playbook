@@ -63,8 +63,8 @@ for host in "$@"; do
     fi
 done
 
-# Informa al usuario y espera 35 segundos con un timer
-mostrar_timer 35
+# Informa al usuario y espera 45 segundos con un timer
+mostrar_timer 45
 
 # Comprueba el estado de cada host
 for host in "$@"; do

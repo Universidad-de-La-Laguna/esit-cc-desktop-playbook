@@ -141,37 +141,38 @@ ff02::2 ip6-allrouter
 10.209.31.106 cc1446.etsii.ull.es cc1446
 
 # Aula 2.5 (Cabildo)
-10.209.31.151 a2511.etsii.ull.es a2511
-10.209.31.152 a2512.etsii.ull.es a2512
-10.209.31.153 a2513.etsii.ull.es a2513
-10.209.31.154 a2514.etsii.ull.es a2514
-10.209.31.155 a2515.etsii.ull.es a2515
-10.209.31.156 a2516.etsii.ull.es a2516
-10.209.31.157 a2517.etsii.ull.es a2517
-10.209.31.158 a2518.etsii.ull.es a2518
-10.209.31.159 a2519.etsii.ull.es a2519
-10.209.31.160 a2521.etsii.ull.es a2521
-10.209.31.161 a2522.etsii.ull.es a2522
-10.209.31.162 a2523.etsii.ull.es a2523
-10.209.31.163 a2524.etsii.ull.es a2524
-10.209.31.164 a2525.etsii.ull.es a2525
-10.209.31.165 a2526.etsii.ull.es a2526
-10.209.31.166 a2527.etsii.ull.es a2527
-10.209.31.167 a2528.etsii.ull.es a2528
-10.209.31.168 a2529.etsii.ull.es a2529
-10.209.31.169 a2531.etsii.ull.es a2531
-10.209.31.170 a2532.etsii.ull.es a2532
-10.209.31.171 a2533.etsii.ull.es a2533
-10.209.31.172 a2534.etsii.ull.es a2534
-10.209.31.173 a2535.etsii.ull.es a2535
-10.209.31.174 a2536.etsii.ull.es a2536
-10.209.31.175 a2537.etsii.ull.es a2537
-10.209.31.176 a2538.etsii.ull.es a2538
-10.209.31.177 a2539.etsii.ull.es a2539
-10.209.31.178 a2541.etsii.ull.es a2541
-10.209.31.179 a2542.etsii.ull.es a2542
-10.209.31.180 a2543.etsii.ull.es a2543
-10.209.31.181 a2544.etsii.ull.es a2544
+# 10.209.31.151 a2511.etsii.ull.es a2511
+# 10.209.31.152 a2512.etsii.ull.es a2512
+# 10.209.31.153 a2513.etsii.ull.es a2513
+# 10.209.31.154 a2514.etsii.ull.es a2514
+# 10.209.31.155 a2515.etsii.ull.es a2515
+# 10.209.31.156 a2516.etsii.ull.es a2516
+# 10.209.31.157 a2517.etsii.ull.es a2517
+# 10.209.31.158 a2518.etsii.ull.es a2518
+# 10.209.31.159 a2519.etsii.ull.es a2519
+# 10.209.31.160 a2521.etsii.ull.es a2521
+# 10.209.31.161 a2522.etsii.ull.es a2522
+# 10.209.31.162 a2523.etsii.ull.es a2523
+# 10.209.31.163 a2524.etsii.ull.es a2524
+# 10.209.31.164 a2525.etsii.ull.es a2525
+# 10.209.31.165 a2526.etsii.ull.es a2526
+# 10.209.31.166 a2527.etsii.ull.es a2527
+# 10.209.31.167 a2528.etsii.ull.es a2528
+# 10.209.31.168 a2529.etsii.ull.es a2529
+# 10.209.31.169 a2531.etsii.ull.es a2531
+# 10.209.31.170 a2532.etsii.ull.es a2532
+# 10.209.31.171 a2533.etsii.ull.es a2533
+# 10.209.31.172 a2534.etsii.ull.es a2534
+# 10.209.31.173 a2535.etsii.ull.es a2535
+# 10.209.31.174 a2536.etsii.ull.es a2536
+# 10.209.31.175 a2537.etsii.ull.es a2537
+# 10.209.31.176 a2538.etsii.ull.es a2538
+# 10.209.31.177 a2539.etsii.ull.es a2539
+# 10.209.31.178 a2541.etsii.ull.es a2541
+# 10.209.31.179 a2542.etsii.ull.es a2542
+# 10.209.31.180 a2543.etsii.ull.es a2543
+# 10.209.31.181 a2544.etsii.ull.es a2544
+# 10.209.31.182 a2545.etsii.ull.es a2545
 
 ### PLANTA ALTA
 
@@ -324,31 +325,38 @@ ff02::2 ip6-allrouter
 
 # Sala 3.1
 10.209.35.100 cc3100 cc3100.etsii.ull.es
-10.209.35.107 cc3111 cc3111.etsii.ull.es
-10.209.35.106 cc3112 cc3112.etsii.ull.es
-10.209.35.104 cc3113 cc3113.etsii.ull.es
-10.209.35.103 cc3114 cc3114.etsii.ull.es
-10.209.35.102 cc3115 cc3115.etsii.ull.es
-10.209.35.126 cc3116 cc3116.etsii.ull.es
-10.209.35.119 cc3117 cc3117.etsii.ull.es
-10.209.35.115 cc3121 cc3121.etsii.ull.es
-10.209.35.114 cc3122 cc3122.etsii.ull.es
+10.209.35.101 cc3111 cc3111.etsii.ull.es
+10.209.35.102 cc3112 cc3112.etsii.ull.es
+10.209.35.103 cc3113 cc3113.etsii.ull.es
+10.209.35.104 cc3114 cc3114.etsii.ull.es
+10.209.35.105 cc3115 cc3115.etsii.ull.es
+10.209.35.106 cc3116 cc3116.etsii.ull.es
+10.209.35.107 cc3117 cc3117.etsii.ull.es
+10.209.35.108 cc3118 cc3118.etsii.ull.es
+10.209.35.109 cc3119 cc3119.etsii.ull.es
+10.209.35.110 cc3121 cc3121.etsii.ull.es
+10.209.35.111 cc3122 cc3122.etsii.ull.es
 10.209.35.112 cc3123 cc3123.etsii.ull.es
-10.209.35.111 cc3124 cc3124.etsii.ull.es
-10.209.35.108 cc3125 cc3125.etsii.ull.es
-10.209.35.124 cc3126 cc3126.etsii.ull.es
+10.209.35.113 cc3124 cc3124.etsii.ull.es
+10.209.35.114 cc3125 cc3125.etsii.ull.es
+10.209.35.115 cc3126 cc3126.etsii.ull.es
 10.209.35.116 cc3127 cc3127.etsii.ull.es
-10.209.35.123 cc3131 cc3131.etsii.ull.es
-10.209.35.122 cc3132 cc3132.etsii.ull.es
-10.209.35.120 cc3133 cc3133.etsii.ull.es
-10.209.35.127 cc3134 cc3134.etsii.ull.es
-10.209.35.130 cc3135 cc3135.etsii.ull.es
-10.209.35.131 cc3136 cc3136.etsii.ull.es
-10.209.35.132 cc3137 cc3137.etsii.ull.es
-10.209.35.133 cc3141 cc3141.etsii.ull.es
-10.209.35.134 cc3142 cc3142.etsii.ull.es
-10.209.35.135 cc3143 cc3143.etsii.ull.es
-10.209.35.136 cc3144 cc3144.etsii.ull.es
+10.209.35.117 cc3128 cc3128.etsii.ull.es
+10.209.35.118 cc3129 cc3129.etsii.ull.es
+10.209.35.119 cc3131 cc3131.etsii.ull.es
+10.209.35.120 cc3132 cc3132.etsii.ull.es
+10.209.35.121 cc3133 cc3133.etsii.ull.es
+10.209.35.122 cc3134 cc3134.etsii.ull.es
+10.209.35.123 cc3135 cc3135.etsii.ull.es
+10.209.35.124 cc3136 cc3136.etsii.ull.es
+10.209.35.125 cc3137 cc3137.etsii.ull.es
+10.209.35.126 cc3138 cc3138.etsii.ull.es
+10.209.35.127 cc3139 cc3139.etsii.ull.es
+10.209.35.128 cc3141 cc3141.etsii.ull.es
+10.209.35.129 cc3142 cc3142.etsii.ull.es
+10.209.35.131 cc3143 cc3143.etsii.ull.es
+10.209.35.132 cc3144 cc3144.etsii.ull.es
+10.209.35.133 cc3145 cc3145.etsii.ull.es
 
 # Sala 3.5
 10.209.35.60 cc3500 cc3500.etsii.ull.es
