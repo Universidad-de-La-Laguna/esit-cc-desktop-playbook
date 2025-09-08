@@ -28,7 +28,7 @@
     #- { role: pip-keras-seaborn, tags: ['pip-keras-seaborn','onboot'] }
     #- { role: projectlibre, tags: ['projectlibre','onboot'] }
     #- { role: install_gcc14, tags: ['install_gcc14','onboot'] }
-    #- { role: copiar-hosts, tags: ['copiar-hosts'] }
+    - { role: copiar-hosts, tags: ['copiar-hosts','onboot'] }
     #- { role: pymunk-pygame, tags: ['pymunk-pygame','onboot'] }
     #- { role: mazesolver, tags: ['mazesolver','onboot'] }
     - { role: modo-examen, tags: ['modo-examen'] }
