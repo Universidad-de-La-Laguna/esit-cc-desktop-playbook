@@ -12,6 +12,11 @@ ff02::2 ip6-allrouter
 # Do not remove the following line, or various programs
 # that require network functionality will fail.
 
+# 
+# IP del ldap forzada
+10.4.2.9 openldap.stic.ull.es
+
+
 # RELACION DE IPS DE LA ESIT
 
 # PLANTA BAJA
