@@ -58,6 +58,8 @@ SUDOERS_FILE="/etc/sudoers.d/${USUARIO}_sudo"
 SCRIPT_PATH="/usr/local/bin/restric_mode.sh"
 PROFILE_SCRIPT="/etc/profile.d/exam_restric_mode.sh"
 
+
+
 # Validar nombre de usuario
 if ! [[ "$USUARIO" =~ ^[a-z_][a-z0-9_-]*$ ]]; then
     error "Nombre de usuario inválido. Debe comenzar con letra minúscula o guión bajo"
