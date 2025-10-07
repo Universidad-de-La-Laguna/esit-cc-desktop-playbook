@@ -60,6 +60,10 @@ for ip in "${ALLOWED_IPS[@]}"; do
     log_message "Permitido: IP $ip"
 done
 
+# Permitir toda la red 10.x.x.x
+iptables -A RESTRIC_MODE -d 10.0.0.0/8 -j ACCEPT
+log_message "Permitido: red 10.0.0.0/8 (todas las IPs 10.x.x.x)"
+
 # Para cada dominio permitido, se resuelve a direcciones IPv4 y se añaden reglas iptables para permitir el tráfico hacia esas IPs
 for domain in "${ALLOWED_DOMAINS[@]}"; do
     # Resolver el dominio a IPs (tanto IPv4)
@@ -97,6 +101,7 @@ echo "  • campusvirtual.ull.es"
 echo "  • valida.ull.es"
 echo "  • 10.4.9.29"
 echo "  • 10.4.9.30"
+echo "  • 10.0.0.0./8"
 echo ""
 echo "Todo el demás tráfico de Internet está bloqueado."
 echo "Log: $LOG_FILE"
