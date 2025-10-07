@@ -64,6 +64,11 @@ done
 iptables -A RESTRIC_MODE -d 10.0.0.0/8 -j ACCEPT
 log_message "Permitido: red 10.0.0.0/8 (todas las IPs 10.x.x.x)"
 
+# Permitir el rango 193.145.0.0/16
+iptables -A RESTRIC_MODE -d 193.145.0.0/16 -j ACCEPT
+log_message "Permitido: red 193.145.0.0/16 (todas las IPs 193.145.x.x)"
+
+
 # Para cada dominio permitido, se resuelve a direcciones IPv4 y se añaden reglas iptables para permitir el tráfico hacia esas IPs
 for domain in "${ALLOWED_DOMAINS[@]}"; do
     # Resolver el dominio a IPs (tanto IPv4)
@@ -102,6 +107,8 @@ echo "  • valida.ull.es"
 echo "  • 10.4.9.29"
 echo "  • 10.4.9.30"
 echo "  • 10.0.0.0./8"
+echo "  • 193.145.0.0/16
+
 echo ""
 echo "Todo el demás tráfico de Internet está bloqueado."
 echo "Log: $LOG_FILE"
