@@ -138,6 +138,14 @@ fi
 
 info "Iniciando configuración para usuario: $USUARIO"
 
+# Crear el script restric_mode.sh si no existe
+if [ ! -f "$SCRIPT_PATH" ]; then
+    crear_script_restric_mode "$SCRIPT_PATH"
+else
+    warning "El script $SCRIPT_PATH ya existe, no se sobrescribirá"
+    info "Si deseas recrearlo, elimínalo manualmente primero"
+fi
+
 # Verificar si el usuario existe
 if id "$USUARIO" &>/dev/null; then
     warning "El usuario '$USUARIO' ya existe. Eliminando..."
@@ -164,12 +172,18 @@ fi
 
 # Asignar contraseña
 info "Asignando contraseña al usuario..."
-echo "$USUARIO:$PASSWORD" | chpasswd
+
+# Crear hash de contraseña usando openssl (SHA-512)
+ENCRYPTED_PASS=$(openssl passwd -6 "$PASSWORD")
+
+# Asignar contraseña usando usermod (evita políticas PAM)
+usermod -p "$ENCRYPTED_PASS" "$USUARIO"
 
 if [ $? -eq 0 ]; then
     info "Contraseña asignada correctamente"
 else
     error "Falló la asignación de contraseña"
+    error "Verifica que openssl esté instalado: apt-get install openssl"
     exit 1
 fi
 
@@ -200,9 +214,11 @@ else
 fi
 
 # Verificar que el script existe (advertencia si no existe)
-if [ ! -f "$SCRIPT_PATH" ]; then
-    warning "ATENCIÓN: El script $SCRIPT_PATH no existe actualmente"
-    warning "El usuario podrá ejecutarlo cuando se cree el script"
+if [ -f "$SCRIPT_PATH" ]; then
+    info "Script de restricción disponible en: $SCRIPT_PATH"
+else
+    error "CRÍTICO: El script $SCRIPT_PATH no se pudo crear"
+    exit 1
 fi
 
 # Configurar ejecución automática del script al login mediante /etc/profile.d/
@@ -248,12 +264,22 @@ info "Puede ejecutar con sudo: $SCRIPT_PATH"
 info "Sin solicitar contraseña: Sí"
 info "Ejecución automática: Sí (vía /etc/profile.d/)"
 info "Aplica a: Todos los usuarios exam* (exam1, exam2, etc.)"
+info "Script de restricción: $SCRIPT_PATH (creado)"
+info ""
+info "RESTRICCIONES DE RED APLICADAS:"
+info "  ✓ Acceso permitido a: campusvirtual.ull.es"
+info "  ✓ Acceso permitido a: valida.ull.es"
+info "  ✓ Acceso permitido a: 10.4.9.29"
+info "  ✓ Acceso permitido a: 10.4.9.30"
+info "  ✗ Todo el demás tráfico: BLOQUEADO"
 info ""
 info "NOTA: El script se ejecuta al iniciar sesión interactiva"
 info "      (login, SSH, su -). No se ejecuta con 'su' sin guión."
+info "      Las reglas de firewall requieren permisos de root."
 info ""
 info "Para probar: su - $USUARIO"
 info "El script se ejecutará automáticamente"
+info "Ver logs en: /var/log/restric_mode.log"
 echo "")
     
     if [ -n "$domain_ips" ]; then
