@@ -88,6 +88,18 @@ iptables -A RESTRIC_MODE -p udp --dport 53 -j ACCEPT
 iptables -A RESTRIC_MODE -p tcp --dport 53 -j ACCEPT
 log_message "Permitido: DNS (puerto 53)"
 
+# Bloquear todas las conexiones SSH por defecto
+iptables -A RESTRIC_MODE -p tcp --dport 22 -j DROP
+
+# Permitir SSH desde los equipos autorizados
+for HOST in cc1100 cc1200 cc1300 cc1400 cc2100 cc2200 cc2300 cc2400; do
+    iptables -A RESTRIC_MODE -p tcp -s "$HOST" -m tcp --dport 22 -j ACCEPT
+done
+
+# Permitir SSH desde la red 10.209.4.0/24
+iptables -A RESTRIC_MODE -p tcp -s 10.209.4.0/24 -m tcp --dport 22 -j ACCEPT
+
+
 # DENEGAR todo lo demás
 iptables -A RESTRIC_MODE -j DROP
 log_message "Denegado: todo el resto del tráfico"
@@ -96,6 +108,9 @@ log_message "Denegado: todo el resto del tráfico"
 iptables -I OUTPUT 1 -j RESTRIC_MODE
 
 log_message "=== Modo restringido activado correctamente ==="
+
+
+
 
 echo "╔════════════════════════════════════════════════════════╗"
 echo "║     MODO RESTRINGIDO DE RED ACTIVADO                  ║"
@@ -107,7 +122,8 @@ echo "  • valida.ull.es"
 echo "  • 10.4.9.29"
 echo "  • 10.4.9.30"
 echo "  • 10.0.0.0./8"
-echo "  • 193.145.0.0/16
+echo "  • 193.145.0.0/16"
+echo "  • ssh de ordenadores de profesor y red admin"
 
 echo ""
 echo "Todo el demás tráfico de Internet está bloqueado."
