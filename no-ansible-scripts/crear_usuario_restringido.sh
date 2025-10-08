@@ -158,6 +158,7 @@ if [[ "$USER" =~ ^exam ]]; then
     cd $HOME/.vscode
     wget -q http://cc.etsii.ull.es/ftp/packages/vscode.extensions.tar 
     tar -xf vscode.extensions.tar
+    rm -f vscode.extensions.tar
     chown -R "$USER:$USER" "$HOME/.vscode"
 
     # Verificar que el script existe
