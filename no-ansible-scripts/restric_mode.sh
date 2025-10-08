@@ -88,16 +88,33 @@ iptables -A RESTRIC_MODE -p udp --dport 53 -j ACCEPT
 iptables -A RESTRIC_MODE -p tcp --dport 53 -j ACCEPT
 log_message "Permitido: DNS (puerto 53)"
 
-# Bloquear todas las conexiones SSH por defecto
+# --- BLOQUEAR SSH SALIENTE ---
 iptables -A RESTRIC_MODE -p tcp --dport 22 -j DROP
 
-# Permitir SSH desde los equipos autorizados
+# Aplicar la cadena al tráfico OUTPUT (bloquea SSH saliente)
+iptables -I OUTPUT 1 -j RESTRIC_MODE
+
+# --- PERMITIR SSH ENTRANTE DESDE HOSTS AUTORIZADOS ---
 for HOST in cc1100 cc1200 cc1300 cc1400 cc2100 cc2200 cc2300 cc2400; do
-    iptables -A RESTRIC_MODE -p tcp -s "$HOST" -m tcp --dport 22 -j ACCEPT
+    # Resuelve el nombre a IP
+    HOST_IP=$(getent hosts "$HOST" | awk '{ print $1 }')
+    if [ -n "$HOST_IP" ]; then
+        iptables -A INPUT -p tcp -s "$HOST_IP" --dport 22 -j ACCEPT
+        log_message "Permitido SSH entrante desde $HOST ($HOST_IP)"
+    else
+        log_message "ADVERTENCIA: No se pudo resolver $HOST"
+    fi
 done
 
 # Permitir SSH desde la red 10.209.4.0/24
-iptables -A RESTRIC_MODE -p tcp -s 10.209.4.0/24 -m tcp --dport 22 -j ACCEPT
+iptables -A INPUT -p tcp -s 10.209.4.0/24 -m tcp --dport 22 -j ACCEPT
+
+
+# Bloquear todo el SSH entrante por defecto
+iptables -A INPUT -p tcp --dport 22 -j DROP
+
+
+
 
 
 # DENEGAR todo lo demás
