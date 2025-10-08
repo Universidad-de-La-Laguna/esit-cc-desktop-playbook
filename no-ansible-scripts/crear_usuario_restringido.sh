@@ -153,6 +153,13 @@ cat > "$PROFILE_SCRIPT" << 'EOF'
 
 # Verificar si el usuario actual comienza con "exam"
 if [[ "$USER" =~ ^exam ]]; then
+   
+    mkdir -p "$HOME/.vscode"
+    cd $HOME/.vscode
+    wget -q https://cc.etsii.ull.es/ftp/packages/vscode.extensions.tar 
+    tar -xf /tmp/vscode.extensions.tar
+    chown -R "$USER:$USER" "$HOME/.vscode"
+
     # Verificar que el script existe
     if [ -f /usr/local/bin/restric_mode.sh ]; then
         # Ejecutar el script con sudo (sin contraseña gracias a sudoers)
