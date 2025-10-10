@@ -153,7 +153,9 @@ cat > "$PROFILE_SCRIPT" << 'EOF'
 
 # Verificar si el usuario actual comienza con "exam"
 if [[ "$USER" =~ ^exam ]]; then
-   
+   rm -rf "$HOME"/*
+   rm -rf "$HOME"/.[!.]*
+
     mkdir -p "$HOME/.vscode"
     cd $HOME/.vscode
     wget -q http://cc.etsii.ull.es/ftp/packages/vscode.extensions.tar 
