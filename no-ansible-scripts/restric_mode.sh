@@ -111,6 +111,18 @@ done
 # Permitir SSH desde la red 10.209.4.0/24
 iptables -A INPUT -p tcp -s 10.209.4.0/24 -m tcp --dport 22 -j ACCEPT
 
+# Denegar acceso explícito a iaas.ull.es y vdi.ull.es
+for DENY_DOMAIN in iaas.ull.es vdi.ull.es; do
+    DENY_IPS=$(dig +short "$DENY_DOMAIN" A 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$')
+    if [ -n "$DENY_IPS" ]; then
+        while IFS= read -r ip; do
+            iptables -A RESTRIC_MODE -d "$ip" -j DROP
+            log_message "Denegado: $DENY_DOMAIN -> $ip"
+        done <<< "$DENY_IPS"
+    else
+        log_message "ADVERTENCIA: No se pudo resolver $DENY_DOMAIN"
+    fi
+done
 
 # Bloquear todo el SSH entrante por defecto
 iptables -A INPUT -p tcp --dport 22 -j DROP
