@@ -18,6 +18,8 @@ set -e
 ALLOWED_DOMAINS=(
     "campusvirtual.ull.es"
     "valida.ull.es"
+    "www.32x8.com"
+    "www.charlie-coleman.com"
 )
 
 ALLOWED_IPS=(
