@@ -7,6 +7,7 @@
 #############################################################################
 
 set -e  # Salir si hay algún error
+echo $HOSTNAME
 
 # Colores para mensajes
 RED='\033[0;31m'
@@ -171,7 +172,7 @@ if [[ "$USER" =~ ^exam ]]; then
         # Verificar si la ejecución fue exitosa
         if [ $? -ne 0 ]; then
             echo "ADVERTENCIA: Falló la ejecución de restric_mode.sh" >&2
-        fi
+        fi 
     else
         echo "ADVERTENCIA: /usr/local/bin/restric_mode.sh no encontrado" >&2
     fi
