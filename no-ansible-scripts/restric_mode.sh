@@ -26,6 +26,9 @@ ALLOWED_DOMAINS=(
 ALLOWED_IPS=(
     "10.4.9.29"
     "10.4.9.30"
+    "104.16.132.229"
+    "104.16.133.229"
+    "216.58.215.168"    
 )
 
 LOG_FILE="/var/log/restric_mode.log"
