@@ -20,6 +20,7 @@ ALLOWED_DOMAINS=(
     "valida.ull.es"
     "www.32x8.com"
     "www.charlie-coleman.com"
+    "cdnjs.cloudfare.com"
 )
 
 ALLOWED_IPS=(
@@ -44,6 +45,10 @@ iptables -N RESTRIC_MODE 2>/dev/null || iptables -F RESTRIC_MODE
 
 # Limpiar la cadena
 iptables -F RESTRIC_MODE
+
+
+
+iptables -C INPUT -s 127.0.0.53 -j ACCEPT 2>/dev/null || iptables -I INPUT -s 127.0.0.53 -j ACCEPT
 
 # Política por defecto: DENEGAR todo el tráfico saliente
 log_message "Aplicando política restrictiva..."

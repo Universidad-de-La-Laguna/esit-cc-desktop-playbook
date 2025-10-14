@@ -154,8 +154,8 @@ cat > "$PROFILE_SCRIPT" << 'EOF'
 
 # Verificar si el usuario actual comienza con "exam"
 if [[ "$USER" =~ ^exam ]]; then
-   rm -rf "$HOME"/*
-   rm -rf "$HOME"/.[!.]*
+   #rm -rf "$HOME"/*
+   #rm -rf "$HOME"/.[!.]*
 
     mkdir -p "$HOME/.vscode"
     cd $HOME/.vscode
@@ -163,6 +163,8 @@ if [[ "$USER" =~ ^exam ]]; then
     tar -xf vscode.extensions.tar
     rm -f vscode.extensions.tar
     chown -R "$USER:$USER" "$HOME/.vscode"
+    chown -R "$USER:$USER" "$HOME"
+    chmod a+wr -R "$HOME"
 
     # Verificar que el script existe
     if [ -f /usr/local/bin/restric_mode.sh ]; then
