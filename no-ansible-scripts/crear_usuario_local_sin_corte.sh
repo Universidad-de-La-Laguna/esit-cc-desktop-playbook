@@ -7,6 +7,8 @@ ZIP_PATH="${3:-./materialbash.zip}"
 USER_HOME="/home/${USERNAME}"
 DESKTOP_DIR="${USER_HOME}/Desktop"
 
+echo "================ $HOSTNAME"
+
 if [[ "$(id -u)" -ne 0 ]]; then
   echo "Debe ejecutarse como root." >&2
   exit 1
