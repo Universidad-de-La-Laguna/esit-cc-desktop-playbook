@@ -8,3 +8,4 @@ source /opt/env-sipc/bin/activate
 python3.12 -m pip install --upgrade pip
 python3.12 -m pip install mediapipe pymunk pygame
 chmod a+w -R /opt/env-sipc
+
