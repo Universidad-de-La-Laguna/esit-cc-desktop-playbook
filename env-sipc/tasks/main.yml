@@ -1,0 +1,46 @@
+---
+# roles/setup_python_env/tasks/main.yml
+
+- name: Actualizar caché de apt
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: Instalar python3.12-dev y python3.12-venv
+  ansible.builtin.apt:
+    name:
+      - python3.12-dev
+      - python3.12-venv
+    state: present
+  become: yes
+
+- name: Crear entorno virtual en /opt/env-sipc
+  ansible.builtin.command:
+    cmd: python3.12 -m venv /opt/env-sipc
+    creates: /opt/env-sipc/bin/activate
+  become: yes
+
+- name: Actualizar pip en el entorno virtual
+  ansible.builtin.pip:
+    name: pip
+    state: latest
+    virtualenv: /opt/env-sipc
+    virtualenv_command: python3.12 -m venv
+  become: yes
+
+- name: Instalar paquetes Python (mediapipe, pymunk, pygame)
+  ansible.builtin.pip:
+    name:
+      - mediapipe
+      - pymunk
+      - pygame
+    virtualenv: /opt/env-sipc
+  become: yes
+
+- name: Establecer permisos de escritura en /opt/env-sipc
+  ansible.builtin.file:
+    path: /opt/env-sipc
+    mode: 'a+w'
+    recurse: yes
+  become: yes
