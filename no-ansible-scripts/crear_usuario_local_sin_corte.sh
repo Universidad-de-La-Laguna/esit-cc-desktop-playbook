@@ -3,7 +3,7 @@ set -euo pipefail
 
 USERNAME="${1:-}"
 PASSWORD="${2:-}"
-ZIP_PATH="${3:-./materialbash.zip}"
+ZIP_PATH="${3:-./pa_material.zip}"
 USER_HOME="/home/${USERNAME}"
 DESKTOP_DIR="${USER_HOME}/Desktop"
 
@@ -60,7 +60,7 @@ else
   exit 5
 fi
 
-# Ajustar permisos finales
+# Ajustar permisos finalesls -l
 chown -R "$USERNAME":"$USERNAME" "$DESKTOP_DIR"
 
 echo "Operación completada: usuario=${USERNAME}, zip copiado y descomprimido en ${DESKTOP_DIR}."
