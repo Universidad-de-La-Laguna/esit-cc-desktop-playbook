@@ -3,7 +3,8 @@ set -euo pipefail
 
 USERNAME="${1:-}"
 PASSWORD="${2:-}"
-ZIP_PATH="${3:-./pa_material.zip}"
+ZIP_PATH1="${3:-}"
+ZIP_PATH2="${4:-}"
 USER_HOME="/home/${USERNAME}"
 DESKTOP_DIR="${USER_HOME}/Desktop"
 
@@ -15,8 +16,14 @@ if [[ "$(id -u)" -ne 0 ]]; then
 fi
 
 if [[ -z "$USERNAME" || -z "$PASSWORD" ]]; then
-  echo "Uso: $0 <USUARIO> <PASSWORD> [RUTA_A_MATERIALBASH.ZIP]" >&2
+  echo "Uso: $0 <USUARIO> <PASSWORD> <ZIP1> [ZIP2]" >&2
   exit 2
+fi
+
+# Validar nombre de usuario
+if [[ ! "$USERNAME" =~ ^[a-z_][a-z0-9_-]*$ ]]; then
+  echo "Nombre de usuario inválido." >&2
+  exit 6
 fi
 
 # Verificar que el nombre de usuario no comience por "exam"
@@ -25,14 +32,28 @@ if [[ "$USERNAME" =~ ^exam ]]; then
   exit 3
 fi
 
-if [[ ! -f "$ZIP_PATH" ]]; then
-  echo "Fichero no encontrado: $ZIP_PATH" >&2
+# Verificar que al menos el primer ZIP exista
+if [[ -z "$ZIP_PATH1" || ! -f "$ZIP_PATH1" ]]; then
+  echo "Fichero no encontrado: $ZIP_PATH1" >&2
   exit 4
+fi
+
+# Verificar el segundo ZIP solo si se proporcionó
+if [[ -n "$ZIP_PATH2" && ! -f "$ZIP_PATH2" ]]; then
+  echo "Fichero no encontrado: $ZIP_PATH2" >&2
+  exit 4
+fi
+
+# Verificar que unzip esté disponible
+if ! command -v unzip &>/dev/null; then
+  echo "Necesita 'unzip' instalado para descomprimir. Instálelo e intente de nuevo." >&2
+  exit 5
 fi
 
 # Si el usuario existe, eliminarlo completamente
 if id "$USERNAME" &>/dev/null; then
   echo "El usuario ${USERNAME} ya existe. Se eliminará y recreará."
+  pkill -u "$USERNAME" 2>/dev/null || true
   userdel -r "$USERNAME" 2>/dev/null || true
   rm -rf "$USER_HOME"
 fi
@@ -47,21 +68,34 @@ echo "${USERNAME}:${PASSWORD}" | chpasswd --crypt-method SHA512
 # Preparar el Escritorio
 mkdir -p "$DESKTOP_DIR"
 chown "$USERNAME":"$USERNAME" "$DESKTOP_DIR"
-chmod 700 "$DESKTOP_DIR"
+chmod 755 "$DESKTOP_DIR"
 
-# Copiar y descomprimir el material
-cp -f "$ZIP_PATH" "$DESKTOP_DIR/"
-chown "$USERNAME":"$USERNAME" "${DESKTOP_DIR}/$(basename "$ZIP_PATH")"
+# Función para copiar y descomprimir un ZIP
+process_zip() {
+  local zip_path="$1"
+  local zip_name=$(basename "$zip_path")
+  
+  echo "Procesando ${zip_name}..."
+  
+  # Copiar el ZIP al escritorio
+  cp -f "$zip_path" "$DESKTOP_DIR/"
+  chown "$USERNAME":"$USERNAME" "${DESKTOP_DIR}/${zip_name}"
+  
+  # Descomprimir como el usuario
+  sudo -u "$USERNAME" unzip -o "${DESKTOP_DIR}/${zip_name}" -d "$DESKTOP_DIR" >/dev/null
+  
+  echo "  → ${zip_name} copiado y descomprimido."
+}
 
-if command -v unzip &>/dev/null; then
-  sudo -u "$USERNAME" unzip -o "${DESKTOP_DIR}/$(basename "$ZIP_PATH")" -d "$DESKTOP_DIR" >/dev/null
-else
-  echo "Necesita 'unzip' instalado para descomprimir. Instálelo e intente de nuevo." >&2
-  exit 5
+# Procesar el primer ZIP (obligatorio)
+process_zip "$ZIP_PATH1"
+
+# Procesar el segundo ZIP si existe
+if [[ -n "$ZIP_PATH2" ]]; then
+  process_zip "$ZIP_PATH2"
 fi
 
-# Ajustar permisos finalesls -l
+# Ajustar permisos finales
 chown -R "$USERNAME":"$USERNAME" "$DESKTOP_DIR"
 
-echo "Operación completada: usuario=${USERNAME}, zip copiado y descomprimido en ${DESKTOP_DIR}."
-
+echo "Operación completada: usuario=${USERNAME}, archivos procesados en ${DESKTOP_DIR}."
