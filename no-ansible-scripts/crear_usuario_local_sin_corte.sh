@@ -3,8 +3,9 @@ set -euo pipefail
 
 USERNAME="${1:-}"
 PASSWORD="${2:-}"
-ZIP_PATH1="${3:-}"
-ZIP_PATH2="${4:-}"
+shift 2 2>/dev/null || true  # Eliminar los dos primeros argumentos
+ZIP_PATHS=("$@")  # El resto son rutas de archivos ZIP
+
 USER_HOME="/home/${USERNAME}"
 DESKTOP_DIR="${USER_HOME}/Desktop"
 
@@ -16,7 +17,7 @@ if [[ "$(id -u)" -ne 0 ]]; then
 fi
 
 if [[ -z "$USERNAME" || -z "$PASSWORD" ]]; then
-  echo "Uso: $0 <USUARIO> <PASSWORD> <ZIP1> [ZIP2]" >&2
+  echo "Uso: $0 <USUARIO> <PASSWORD> <ZIP1> [ZIP2] [ZIP3] ..." >&2
   exit 2
 fi
 
@@ -32,17 +33,19 @@ if [[ "$USERNAME" =~ ^exam ]]; then
   exit 3
 fi
 
-# Verificar que al menos el primer ZIP exista
-if [[ -z "$ZIP_PATH1" || ! -f "$ZIP_PATH1" ]]; then
-  echo "Fichero no encontrado: $ZIP_PATH1" >&2
+# Verificar que se haya proporcionado al menos un ZIP
+if [[ ${#ZIP_PATHS[@]} -eq 0 ]]; then
+  echo "Debe proporcionar al menos un archivo ZIP." >&2
   exit 4
 fi
 
-# Verificar el segundo ZIP solo si se proporcionó
-if [[ -n "$ZIP_PATH2" && ! -f "$ZIP_PATH2" ]]; then
-  echo "Fichero no encontrado: $ZIP_PATH2" >&2
-  exit 4
-fi
+# Verificar que todos los ZIPs existan
+for zip_path in "${ZIP_PATHS[@]}"; do
+  if [[ ! -f "$zip_path" ]]; then
+    echo "Fichero no encontrado: $zip_path" >&2
+    exit 4
+  fi
+done
 
 # Verificar que unzip esté disponible
 if ! command -v unzip &>/dev/null; then
@@ -87,15 +90,12 @@ process_zip() {
   echo "  → ${zip_name} copiado y descomprimido."
 }
 
-# Procesar el primer ZIP (obligatorio)
-process_zip "$ZIP_PATH1"
-
-# Procesar el segundo ZIP si existe
-if [[ -n "$ZIP_PATH2" ]]; then
-  process_zip "$ZIP_PATH2"
-fi
+# Procesar todos los ZIPs proporcionados
+for zip_path in "${ZIP_PATHS[@]}"; do
+  process_zip "$zip_path"
+done
 
 # Ajustar permisos finales
 chown -R "$USERNAME":"$USERNAME" "$DESKTOP_DIR"
 
-echo "Operación completada: usuario=${USERNAME}, archivos procesados en ${DESKTOP_DIR}."
+echo "Operación completada: usuario=${USERNAME}, ${#ZIP_PATHS[@]} archivo(s) procesados en ${DESKTOP_DIR}."
