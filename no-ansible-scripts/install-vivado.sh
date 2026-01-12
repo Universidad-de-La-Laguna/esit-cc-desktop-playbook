@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# Verificar que se pasa el ordenador origen como parámetro
-if [ -z "$1" ]; then
-    echo "Error: Debe especificar el ordenador origen"
-    echo "Uso: $0 <ordenador_origen>"
+# Verificar que se pasan los parámetros necesarios
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Error: Debe especificar el ordenador origen y la contraseña"
+    echo "Uso: $0 <ordenador_origen> <contraseña>"
     exit 1
 fi
 
 ORIGEN="$1"
+export SSHPASS="$2"
 
 # Verificar espacio libre en / (80 GB = 80000000 KB aproximadamente)
 ESPACIO_LIBRE=$(df / | tail -1 | awk '{print $4}')
@@ -25,17 +26,17 @@ echo "Sincronizando desde $ORIGEN..."
 
 # Sincronizar vivado.sh
 echo "Copiando /etc/profile.d/vivado.sh..."
-rsync -aHAX --info=progress2 -e "ssh -T -o Compression=no" \
+sshpass -e rsync -aHAX --info=progress2 -e "ssh -T -o Compression=no -o StrictHostKeyChecking=no" \
     ${ORIGEN}:/etc/profile.d/vivado.sh /etc/profile.d/vivado.sh
 
 # Sincronizar /tools/
 echo "Copiando /tools/..."
-rsync -aHAX --info=progress2 -e "ssh -T -o Compression=no" \
+sshpass -e rsync -aHAX --info=progress2 -e "ssh -T -o Compression=no -o StrictHostKeyChecking=no" \
     ${ORIGEN}:/tools/ /tools/
 
 # Sincronizar regla udev
 echo "Copiando regla udev..."
-rsync -aHAX --info=progress2 -e "ssh -T -o Compression=no" \
+sshpass -e rsync -aHAX --info=progress2 -e "ssh -T -o Compression=no -o StrictHostKeyChecking=no" \
     ${ORIGEN}:/etc/udev/rules.d/52-digilent-usb.rules \
     /etc/udev/rules.d/52-digilent-usb.rules
 
