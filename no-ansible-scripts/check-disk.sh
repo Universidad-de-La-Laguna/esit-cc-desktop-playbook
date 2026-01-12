@@ -7,18 +7,17 @@ NC='\033[0m' # No Color
 
 # Verificar parámetro
 if [ $# -eq 0 ]; then
-    echo "Uso: $0 <tamaño_minimo_en_GB> [ruta]"
+    echo "Uso: $0 <tamaño_minimo_en_GB>"
     exit 1
 fi
 
 MIN_SIZE=$1
-PATH_TO_CHECK=${2:-"/home/alumnos.ull.es"}
 
 # Obtener hostname
 HOSTNAME=$(hostname)
 
-# Obtener espacio disponible en GB
-AVAILABLE_GB=$(df -BG "$PATH_TO_CHECK" 2>/dev/null | awk 'NR==2 {print $4}' | sed 's/G//')
+# Obtener espacio disponible en GB del sistema raíz
+AVAILABLE_GB=$(df -BG / 2>/dev/null | awk 'NR==2 {print $4}' | sed 's/G//')
 
 # Verificar y mostrar resultado
 if [ -z "$AVAILABLE_GB" ]; then
