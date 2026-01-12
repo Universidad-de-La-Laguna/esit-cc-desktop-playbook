@@ -9,17 +9,18 @@ fi
 
 ORIGEN="$1"
 
-# Verificar espacio libre (80 GB = 80000000 KB aproximadamente)
-ESPACIO_LIBRE=$(df /tools | tail -1 | awk '{print $4}')
+# Verificar espacio libre en / (80 GB = 80000000 KB aproximadamente)
+ESPACIO_LIBRE=$(df / | tail -1 | awk '{print $4}')
 ESPACIO_REQUERIDO=80000000
 
 if [ "$ESPACIO_LIBRE" -lt "$ESPACIO_REQUERIDO" ]; then
-    echo "Error: No hay suficiente espacio libre en /tools"
+    echo "Error: No hay suficiente espacio libre en /"
     echo "Disponible: $(($ESPACIO_LIBRE / 1024 / 1024)) GB"
     echo "Requerido: 80 GB"
     exit 1
 fi
 
+echo "Espacio disponible: $(($ESPACIO_LIBRE / 1024 / 1024)) GB - OK"
 echo "Sincronizando desde $ORIGEN..."
 
 # Sincronizar vivado.sh
