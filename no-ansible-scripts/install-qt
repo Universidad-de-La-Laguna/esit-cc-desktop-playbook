@@ -1,11 +1,10 @@
 #!/bin/bash
 
-echo "=== Instalando Qt en: $(hostname) ==="
+HOST=$(hostname)
+echo "[$HOST] Iniciando..."
 
 cd /opt
 rm -Rf /opt/Qt
-wget -q --show-progress http://cc.etsii.ull.es/ftp/packages/Qt-5.11.tar.gz
-tar xzf Qt-5.11.tar.gz
+wget -nv http://cc.etsii.ull.es/ftp/packages/Qt-5.11.tar.gz 2>&1 | tail -1
+tar xzf Qt-5.11.tar.gz 2>/dev/null && echo "[$HOST] OK" || echo "[$HOST] ERROR"
 rm -f Qt-5.11.tar.gz
-
-echo "=== Instalación completada en: $(hostname) ==="
