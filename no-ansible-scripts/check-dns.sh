@@ -14,14 +14,14 @@ while true; do
     TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
     
     # Test de resolución DNS
-    DNS_RESULT=$(nslookup gpu1.etsi.ull.es 2>&1)
+    DNS_RESULT=$(nslookup gpu1.esit.ull.es 2>&1)
     DNS_STATUS=$?
     
     if [ $DNS_STATUS -eq 0 ]; then
         DNS_IP=$(echo "$DNS_RESULT" | grep -A1 "Name:" | grep "Address:" | awk '{print $2}' | head -1)
-        echo "[$TIMESTAMP] DNS OK - gpu1.etsi.ull.es -> $DNS_IP" >> "$LOGFILE"
+        echo "[$TIMESTAMP] DNS OK - gpu1.esit.ull.es -> $DNS_IP" >> "$LOGFILE"
     else
-        echo "[$TIMESTAMP] DNS FAIL - gpu1.etsi.ull.es - Error en resolución" >> "$LOGFILE"
+        echo "[$TIMESTAMP] DNS FAIL - gpu1.esit.ull.es - Error en resolución" >> "$LOGFILE"
     fi
     
     # Test de ping
