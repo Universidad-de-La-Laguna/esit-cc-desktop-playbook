@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script installs nvm (Node Version Manager) and Node.js on a Linux system.
 echo ==========================================
-hostanme
+hostname
 echo ==========================================
 
 
