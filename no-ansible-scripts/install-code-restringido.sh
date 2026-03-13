@@ -5,8 +5,8 @@ cd /opt
 rm -f /opt/vscode-fixed.tar.gz
 rm -Rf /opt/vscode-fixed
 #wget http://cc.etsii.ull.es/ftp/packages/vscode-fixed.tar.gz 
-wget http://10.6.7.11:9393/ftp/packages/vscode-fixed.tar.gz
-tar -xvf vscode-fixed.tar.gz
+wget  -q http://10.6.7.11:9393/ftp/packages/vscode-fixed.tar.gz
+tar -xf vscode-fixed.tar.gz
 
 chown root /opt/vscode-fixed/chrome-sandbox
 chmod 4755 /opt/vscode-fixed/chrome-sandbox
