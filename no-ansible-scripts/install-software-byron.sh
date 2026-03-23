@@ -7,7 +7,7 @@ apt update
 apt install -y python3.9
 python3.9 --version
 
-apt install -y g++--12  pypy3 openjdk-17-jdk openjdk-17-jre
+apt install -y g++-12  pypy3 openjdk-17-jdk openjdk-17-jre
 
 
 update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
