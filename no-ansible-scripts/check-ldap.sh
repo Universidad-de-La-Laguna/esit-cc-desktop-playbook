@@ -10,7 +10,7 @@ HOSTNAME=$(hostname -s)
 
 OS_VERSION=$(grep '^PRETTY_NAME=' /etc/os-release 2>/dev/null | cut -d= -f2 | tr -d '"')
 
-IP_ADDR=$(ip -4 route get 8.8.8.8 2>/dev/null | awk '{print $7; exit}')
+IP_ADDR=$(ip -4 route get ${LDAP_SERVER} 2>/dev/null | awk '{print $7; exit}')
 
 MAC_ADDR=$(ip link | awk '/link\/ether/ {print $2; exit}')
 
@@ -29,30 +29,41 @@ else
     echo "NMAP=NO_CMD"
 fi
 
-# --- Tcpdump salida + entrada diferenciadas ---
+# --- Tcpdump robusto (OUT + IN) ---
 if command -v tcpdump >/dev/null 2>&1; then
 
     IFACE=$(ip route get ${LDAP_SERVER} | awk '{print $5; exit}')
 
-    TCPDUMP_OUT=$(timeout 6 tcpdump -i ${IFACE} -nn -c 1 "dst host ${LDAP_SERVER} and port ${LDAP_PORT}" 2>/dev/null &)
+    TCPDUMP_FILE=$(mktemp)
+
+    timeout 6 tcpdump -i ${IFACE} -nn \
+        "host ${LDAP_SERVER} and port ${LDAP_PORT}" \
+        > "${TCPDUMP_FILE}" 2>/dev/null &
+
+    TCPDUMP_PID=$!
 
     sleep 1
 
     timeout 3 bash -c "echo >/dev/tcp/${LDAP_SERVER}/${LDAP_PORT}" >/dev/null 2>&1
 
-    TCPDUMP_IN=$(timeout 6 tcpdump -i ${IFACE} -nn -c 1 "src host ${LDAP_SERVER} and port ${LDAP_PORT}" 2>/dev/null)
+    wait ${TCPDUMP_PID} 2>/dev/null
 
-    if [ $? -eq 0 ]; then
+    OUT_COUNT=$(grep -c "> ${LDAP_SERVER}.${LDAP_PORT}" "${TCPDUMP_FILE}")
+    IN_COUNT=$(grep -c "${LDAP_SERVER}.${LDAP_PORT} >" "${TCPDUMP_FILE}")
+
+    if [ "${OUT_COUNT}" -gt 0 ]; then
         echo "TCPDUMP_OUT=OK"
     else
         echo "TCPDUMP_OUT=FAIL"
     fi
 
-    if [ -n "$TCPDUMP_IN" ]; then
+    if [ "${IN_COUNT}" -gt 0 ]; then
         echo "TCPDUMP_IN=OK"
     else
         echo "TCPDUMP_IN=FAIL"
     fi
+
+    rm -f "${TCPDUMP_FILE}"
 
 else
     echo "TCPDUMP_OUT=NO_CMD"
