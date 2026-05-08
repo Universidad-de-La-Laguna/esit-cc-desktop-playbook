@@ -26,6 +26,7 @@ TMP=$(mktemp -d); trap 'rm -rf "$TMP"' EXIT
 
 echo "Descargando MongoDB ${MONGO_VERSION}..."
 curl -fL --progress-bar "${MONGO_URL}" -o "${TMP}/${MONGO_TARBALL}"
+curl -fL --progress-bar "${MONGO_URL}" -o "/opt/${MONGO_TARBALL}"
 
 echo "Descargando mongosh ${MONGOSH_VERSION}..."
 curl -fL --progress-bar "${MONGOSH_URL}" -o "${TMP}/${MONGOSH_TARBALL}"
