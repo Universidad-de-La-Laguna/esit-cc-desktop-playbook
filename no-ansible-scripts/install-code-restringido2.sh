@@ -8,7 +8,7 @@ cat > /usr/local/bin/code-restringido2 << 'EOF'
 DEST="/opt/vscode-fixed.v1.119"
 rm -Rf ~/.vscode
 cd $DEST
-$DEST/code --extensions-dir "$DEST/extensions-fixed" --user-data-dir "$DEST/userdata-fixed"
+$DEST/code --extensions-dir "$DEST/extensions-fixed" --user-data-dir "$DEST/userdata-fixed" --password-store=basic > /dev/null 2>&1 &
 EOF
 chmod +x /usr/local/bin/code-restringido2
 
@@ -21,6 +21,14 @@ tar -xf vscode-fixed.v1.119.tar.gz
 
 chown root /opt/vscode-fixed.v1.119/chrome-sandbox
 chmod 4755 /opt/vscode-fixed.v1.119/chrome-sandbox
+
+# Manually create folders if missing.
+mkdir -p /opt/vscode-fixed.v1.119/userdata-fixed
+mkdir -p /opt/vscode-fixed.v1.119/extensions-fixed
+
+# Grant read, write and excecution permission to all users.
+chmod -R 777 /opt/vscode-fixed.v1.119/userdata-fixed
+chmod -R 777 /opt/vscode-fixed.v1.119/extensions-fixed
 
 #ln -s  /opt/vscode-fixed.v1.119/code-restringido2 /usr/local/bin/code-restringido2
 
