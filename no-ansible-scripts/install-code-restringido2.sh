@@ -22,7 +22,7 @@ tar -xf vscode-fixed.v1.119.tar.gz
 chown root /opt/vscode-fixed.v1.119/chrome-sandbox
 chmod 4755 /opt/vscode-fixed.v1.119/chrome-sandbox
 
-ln -s  /opt/vscode-fixed.v1.119/code-restringido2 /usr/local/bin/code-restringido2
+#ln -s  /opt/vscode-fixed.v1.119/code-restringido2 /usr/local/bin/code-restringido2
 
 rm -f /etc/profile
 cd /etc/
