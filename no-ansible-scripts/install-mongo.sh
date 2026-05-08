@@ -45,8 +45,6 @@ chmod 777 "${DATA_DIR}" "${LOG_DIR}"
 cat > "${INSTALL_DIR}/mongod.conf" <<EOF
 storage:
   dbPath: ${DATA_DIR}
-  journal:
-    enabled: true
 
 systemLog:
   destination: file
