@@ -12,7 +12,7 @@ DEST="/opt/vscode-fixed.v1.119"
 EXT="/opt/code-extensions"
 rm -Rf ~/.vscode
 
-cp $EXT/settings.json  ~/.config/Code/settings.json
+cp $EXT/settings.json  ~/.config/Code/User/settings.json
 
 cd $DEST
 $DEST/bin/code \
