@@ -15,7 +15,7 @@ rm -Rf ~/.vscode
 cp $EXT/settings.json  ~/.config/Code/settings.json
 
 cd $DEST
-$DEST/code \
+$DEST/bin/code \
 --install-extension $EXT/ms-vscode-remote.remote-ssh-0.122.0.vsix \
 --install-extension $EXT/ms-vscode-remote.remote-ssh-edit-0.87.0.vsix \
 --install-extension $EXT/dbaeumer.vscode-eslint-3.0.24.vsix \
