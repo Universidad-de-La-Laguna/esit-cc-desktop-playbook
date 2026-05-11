@@ -24,7 +24,7 @@ $DEST/bin/code \
 --install-extension $EXT/ms-vscode.live-server-0.4.18.vsix \
 --install-extension $EXT/vitest.explorer-1.50.4.vsix \
 --install-extension $EXT/postman.postman-for-vscode-1.19.1.vsix  \
-&& $DEST/code
+&& $DEST/bin/code
 EOF
 
 chmod +x /usr/local/bin/code-restringido2
