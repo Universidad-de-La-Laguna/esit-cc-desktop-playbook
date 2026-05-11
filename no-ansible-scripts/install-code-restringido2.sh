@@ -5,14 +5,14 @@ hostname
 echo ==========================================
 
 mkdir -p /opt/code-extensions
-cp -a /etc/esit-cc-desktop-playbook/no-ansible-scripts/code-extensions /opt/code-extensions
+cp -a /etc/esit-cc-desktop-playbook/no-ansible-scripts/code-extensions /opt/
 
 cat > /usr/local/bin/code-restringido2 << 'EOF'
 DEST="/opt/vscode-fixed.v1.119"
 EXT="/opt/code-extensions"
 rm -Rf ~/.vscode
 
-cp $/EXT/settings.json  ~/.config/Code/settings.json
+cp $EXT/settings.json  ~/.config/Code/settings.json
 
 cd $DEST
 $DEST/code \
