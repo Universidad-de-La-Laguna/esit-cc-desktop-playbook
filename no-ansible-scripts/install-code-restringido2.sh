@@ -6,10 +6,24 @@ echo ==========================================
 
 cat > /usr/local/bin/code-restringido2 << 'EOF'
 DEST="/opt/vscode-fixed.v1.119"
+EXT="/opt/code-extensions"
 rm -Rf ~/.vscode
+
+cp $/EXT/settings.json  ~/.config/Code/settings.json
+
 cd $DEST
-$DEST/code --extensions-dir "$DEST/extensions-fixed" --user-data-dir "$DEST/userdata-fixed"
+$DEST/code \
+--install-extensions $EXT/ms-vscode-remote.remote-ssh-0.122.0.vsix \
+$EXT/ms-vscode-remote.remote-ssh-edit-0.87.0.vsix \
+$EXT/dbaeumer.vscode-eslint-3.0.24.vsix \
+$EXT/esbenp.prettier-vscode-12.4.0.vsix \
+$EXT/mongodb.mongodb-vscode-1.16.0.vsix \
+$EXT/ms-vscode.live-server-0.4.18.vsix \
+$EXT/vitest.explorer-1.50.4.vsix \
+$EXT/postman.postman-for-vscode-1.19.1.vsix  \
+&& $DEST/code
 EOF
+
 chmod +x /usr/local/bin/code-restringido2
 
 
@@ -21,8 +35,6 @@ tar -xf vscode-fixed.v1.119.tar.gz
 
 chown root /opt/vscode-fixed.v1.119/chrome-sandbox
 chmod 4755 /opt/vscode-fixed.v1.119/chrome-sandbox
-
-#ln -s  /opt/vscode-fixed.v1.119/code-restringido2 /usr/local/bin/code-restringido2
 
 rm -f /etc/profile
 cd /etc/
