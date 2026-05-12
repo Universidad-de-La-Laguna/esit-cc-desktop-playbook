@@ -4,9 +4,17 @@
   "extensions.autoUpdate": false,
   "update.mode": "none",
 
-  "github.copilot.enable": false,
+  "chat.disableAIFeatures": true,
   "chat.agent.enabled": false,
+  "github.copilot.chat.enabled": false,
+  "github.copilot.enable": {
+      "*": false
+  },
+  "editor.inlineSuggest.enabled": false,
   "workbench.enableExperiments": false,
+  "workbench.startupEditor": "none",
+  "workbench.welcomePage.walkthroughs.openOnInstall": false,
+  "editor.minimap.enabled": false,
 
   "extensions.gallery": {
     "serviceUrl": "",

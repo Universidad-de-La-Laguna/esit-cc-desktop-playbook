@@ -10,12 +10,13 @@ cp -a /etc/esit-cc-desktop-playbook/no-ansible-scripts/code-extensions /opt/
 cat > /usr/local/bin/code-restringido2 << 'EOF'
 DEST="/opt/vscode-fixed.v1.119"
 EXT="/opt/code-extensions"
-rm -Rf ~/.vscode
+rm -Rf $HOME/.vscode
 
-mkdir -p ~/.config/Code/User
-cp $EXT/settings.json  ~/.config/Code/User/settings.json
+mkdir -p $HOME/.config/Code/User
+cp $EXT/settings.json  $HOME/.config/Code/User/settings.json
 
 cd $DEST
+
 $DEST/bin/code \
 --install-extension $EXT/ms-vscode-remote.remote-ssh-0.122.0.vsix \
 --install-extension $EXT/ms-vscode-remote.remote-ssh-edit-0.87.0.vsix \
@@ -58,5 +59,4 @@ nvm alias default node >/dev/null 2>&1
 nvm use default
 
 #==== 
-
 
