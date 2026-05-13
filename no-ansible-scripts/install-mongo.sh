@@ -2,6 +2,7 @@
 # Instala MongoDB + mongosh portable en /opt.
 # Requiere ejecutarse una vez como root.
 # Tras la instalación, cualquier usuario puede arrancarlo sin privilegios.
+# Cada vez que se inicia, los datos de la base de datos son borrados.
 set -euo pipefail
 
 # =============================================================================
@@ -34,14 +35,12 @@ echo "Instalando en ${INSTALL_DIR}..."
 rm -rf "${INSTALL_DIR}"
 mkdir -p "${INSTALL_DIR}" "${DATA_DIR}" "${LOG_DIR}"
 tar -xzf "${TMP}/${MONGO_TARBALL}"  -C "${INSTALL_DIR}" --strip-components=1
-tar -xzf "${TMP}/${MONGOSH_TARBALL}" -C "${TMP}/mongosh" --strip-components=1 2>/dev/null || \
-  { mkdir -p "${TMP}/mongosh"; tar -xzf "${TMP}/${MONGOSH_TARBALL}" -C "${TMP}/mongosh" --strip-components=1; }
+mkdir -p "${TMP}/mongosh"
+tar -xzf "${TMP}/${MONGOSH_TARBALL}" -C "${TMP}/mongosh" --strip-components=1
 cp "${TMP}/mongosh/bin/mongosh" "${INSTALL_DIR}/bin/"
 
 chmod 755 "${INSTALL_DIR}" "${INSTALL_DIR}/bin"
 chmod 777 "${DATA_DIR}" "${LOG_DIR}"
-touch "${LOG_DIR}/mongod.log" "${LOG_DIR}/mongod.pid"
-chmod 666 "${LOG_DIR}/mongod.log" "${LOG_DIR}/mongod.pid"
 
 # Configuración
 cat > "${INSTALL_DIR}/mongod.conf" <<EOF
@@ -80,13 +79,18 @@ if [[ -f "\$PID_FILE" ]] && kill -0 "\$(cat \$PID_FILE)" 2>/dev/null; then
   exit 0
 fi
 
+# Borrar datos anteriores antes de arrancar
+echo "Limpiando datos anteriores en ${DATA_DIR}..."
+rm -rf "${DATA_DIR:?}"/*
+
 ${INSTALL_DIR}/bin/mongod --config ${INSTALL_DIR}/mongod.conf
 
 # Esperar a que arranque
 for i in \$(seq 1 10); do
   sleep 0.5
   if [[ -f "\$PID_FILE" ]] && kill -0 "\$(cat \$PID_FILE)" 2>/dev/null; then
-    echo "MongoDB iniciado."
+    chmod 666 "\$PID_FILE"
+    echo "MongoDB iniciado (datos limpios)."
     echo "  PID    : \$(cat \$PID_FILE)"
     echo "  Puerto : \$PORT"
     echo "  Datos  : ${DATA_DIR}"
@@ -128,6 +132,6 @@ chmod 755 /usr/local/bin/mongo-stop
 
 echo
 echo "Instalación completada."
-echo "  mongo-start   — arranca MongoDB"
+echo "  mongo-start   — arranca MongoDB (borra datos previos)"
 echo "  mongo-stop    — detiene MongoDB"
 echo "  mongosh --port ${MONGO_PORT}"
