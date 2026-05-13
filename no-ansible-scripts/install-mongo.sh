@@ -99,23 +99,25 @@ for i in \$(seq 1 10); do
     echo ""
     echo "  Conectar: mongosh --port \$PORT"
 
-    echo "# Insertar"
-    echo "mongosh --port 27017 --eval '"
-    echo "  db = db.getSiblingDB("prueba");"
-    echo "  db.alumnos.insertMany(["
-    echo "    { nombre: "Ana", nota: 9 },"
-    echo "    { nombre: "Luis", nota: 7 },"
-    echo "    { nombre: "Marta", nota: 8 }"
-    echo "  ]);"
-    echo "'"
-    echo ""
-    echo "# Consultar"
-    echo "mongosh --port 27017 --eval '"
-    echo "  db = db.getSiblingDB("prueba");"
-    echo "  db.alumnos.find().forEach(printjson);"
-    echo "'"
-
-
+printf '%s\n' \
+  "" \
+  "Ejemplo de uso:" \
+  "" \
+  "  # Insertar" \
+  "  mongosh --port 27017 --eval '" \
+  "    db = db.getSiblingDB(\"prueba\");" \
+  "    db.alumnos.insertMany([" \
+  "      { nombre: \"Ana\", nota: 9 }," \
+  "      { nombre: \"Luis\", nota: 7 }," \
+  "      { nombre: \"Marta\", nota: 8 }" \
+  "    ]);" \
+  "  '" \
+  "" \
+  "  # Consultar" \
+  "  mongosh --port 27017 --eval '" \
+  "    db = db.getSiblingDB(\"prueba\");" \
+  "    db.alumnos.find().forEach(printjson);" \
+  "  '"
 
 
     exit 0
