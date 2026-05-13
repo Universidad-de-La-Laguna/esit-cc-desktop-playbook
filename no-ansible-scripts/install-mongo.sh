@@ -90,6 +90,7 @@ for i in \$(seq 1 10); do
   sleep 0.5
   if [[ -f "\$PID_FILE" ]] && kill -0 "\$(cat \$PID_FILE)" 2>/dev/null; then
     chmod 666 "\$PID_FILE"
+    chmod -R 777 "${DATA_DIR}"
     echo "MongoDB iniciado (datos limpios)."
     echo "  PID    : \$(cat \$PID_FILE)"
     echo "  Puerto : \$PORT"
