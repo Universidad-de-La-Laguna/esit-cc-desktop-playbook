@@ -99,12 +99,12 @@ ff02::2 ip6-allrouter
 10.209.31.74 cc1334 cc1334.etsii.ull.es
 10.209.31.75 cc1335 cc1335.etsii.ull.es
 10.209.31.76 cc1336 cc1336.etsii.ull.es
-# 10.209.31.77 cc1341 cc1341.etsii.ull.es
-# 10.209.31.78 cc1342 cc1342.etsii.ull.es
-# 10.209.31.79 cc1343 cc1343.etsii.ull.es
-# 10.209.31.80 cc1344 cc1344.etsii.ull.es
-# 10.209.31.81 cc1345 cc1345.etsii.ull.es
-# 10.209.31.82 cc1346 cc1346.etsii.ull.es
+10.209.31.77 cc1341 cc1341.etsii.ull.es
+10.209.31.78 cc1342 cc1342.etsii.ull.es
+10.209.31.79 cc1343 cc1343.etsii.ull.es
+10.209.31.80 cc1344 cc1344.etsii.ull.es
+10.209.31.81 cc1345 cc1345.etsii.ull.es
+10.209.31.82 cc1346 cc1346.etsii.ull.es
 
 # Sala 1.4
 10.209.31.83 cc1411 cc1411.etsii.ull.es
