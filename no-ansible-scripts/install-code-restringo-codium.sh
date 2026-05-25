@@ -63,22 +63,6 @@ chmod +x /usr/share/applications/vscodium.desktop
 xdg-mime default vscodium.desktop x-scheme-handler/vscodium
 update-desktop-database /usr/share/applications
 
-rm -f /etc/profile
-cd /etc/
-wget -q https://raw.githubusercontent.com/Universidad-de-La-Laguna/esit-cc-desktop-playbook/refs/heads/master/no-ansible-scripts/profile
-chmod a+r /etc/profile
-
-
-curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | NVM_DIR=/usr/local/nvm bash
-chmod -R a+rw /usr/local/nvm
-export NVM_DIR=/usr/local/nvm
-source /usr/local/nvm/nvm.sh
-
-
-nvm install v24.15.0 >/dev/null 2>&1
-npm install -g typescript >/dev/null 2>&1
-nvm alias default node >/dev/null 2>&1
-nvm use default
 
 #==== 
 
