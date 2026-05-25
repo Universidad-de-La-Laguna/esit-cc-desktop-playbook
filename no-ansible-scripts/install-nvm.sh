@@ -23,9 +23,14 @@ export NVM_DIR=/usr/local/nvm
 source /usr/local/nvm/nvm.sh
 
 
-nvm install v20.11.1
+#nvm install v20.11.1
+nvm install v26.2.0
 npm install -g typescript
 nvm alias default node
 nvm use default
+
+cd /opt
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2404-8.3.2.tgz
+
 
 

@@ -18,16 +18,17 @@ cp $EXT/settings.json  $HOME/.config/VSCodium/User/settings.json
 cd $DEST
 
 $DEST/bin/codium \
---install-extension $EXT/ms-vscode-remote.remote-ssh-0.122.0.vsix \
---install-extension $EXT/ms-vscode-remote.remote-ssh-edit-0.87.0.vsix \
 --install-extension $EXT/dbaeumer.vscode-eslint-3.0.24.vsix \
 --install-extension $EXT/esbenp.prettier-vscode-12.4.0.vsix \
 --install-extension $EXT/mongodb.mongodb-vscode-1.16.0.vsix \
 --install-extension $EXT/ms-vscode.live-server-0.4.18.vsix \
 --install-extension $EXT/vitest.explorer-1.50.4.vsix \
---install-extension $EXT/postman.postman-for-vscode-1.19.1.vsix  \
 && $DEST/bin/codium
 EOF
+
+#--install-extension $EXT/ms-vscode-remote.remote-ssh-0.122.0.vsix \
+#--install-extension $EXT/ms-vscode-remote.remote-ssh-edit-0.87.0.vsix \
+#--install-extension $EXT/postman.postman-for-vscode-1.19.1.vsix  \
 
 chmod +x /usr/local/bin/code-restringido-codium
 
