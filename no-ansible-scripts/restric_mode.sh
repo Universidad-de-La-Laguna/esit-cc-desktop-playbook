@@ -14,6 +14,8 @@
 
 set -e
 
+sleep 60
+
 # Dominios y direcciones permitidas
 ALLOWED_DOMAINS=(
     "campusvirtual.ull.es"

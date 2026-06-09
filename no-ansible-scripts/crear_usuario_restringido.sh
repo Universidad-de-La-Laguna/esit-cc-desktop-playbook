@@ -160,7 +160,7 @@ if [[ "$USER" =~ ^exam ]]; then
     # Verificar que el script existe
     if [ -f /usr/local/bin/restric_mode.sh ]; then
         # Ejecutar el script con sudo (sin contraseña gracias a sudoers)
-        sudo /usr/local/bin/restric_mode.sh
+        sudo /usr/local/bin/restric_mode.sh &
         
         # Verificar si la ejecución fue exitosa
         if [ $? -ne 0 ]; then
