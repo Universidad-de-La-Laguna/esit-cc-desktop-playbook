@@ -53,6 +53,12 @@ iptables -D OUTPUT -j RESTRIC_MODE 2>/dev/null || true
 # Crear cadena personalizada si no existe, o vaciarla si ya existe
 iptables -N RESTRIC_MODE 2>/dev/null || iptables -F RESTRIC_MODE
 
+# Bloquear SSH saliente
+iptables -A RESTRIC_MODE -p tcp --dport 22 -j DROP
+log_message "Bloqueado: SSH saliente"
+
+
+
 # FIX #6: Bloquear TODO el tráfico IPv6 saliente para evitar bypass
 log_message "Bloqueando tráfico IPv6..."
 ip6tables -F OUTPUT  2>/dev/null || true
@@ -121,9 +127,6 @@ iptables -A RESTRIC_MODE -p udp -d 10.0.0.0/8    --dport 53 -j ACCEPT
 iptables -A RESTRIC_MODE -p tcp -d 10.0.0.0/8    --dport 53 -j ACCEPT
 log_message "Permitido: DNS solo hacia resolvers de confianza (localhost, 193.145.x.x, 10.x.x.x)"
 
-# Bloquear SSH saliente
-iptables -A RESTRIC_MODE -p tcp --dport 22 -j DROP
-log_message "Bloqueado: SSH saliente"
 
 # DENEGAR todo lo demás
 iptables -A RESTRIC_MODE -j DROP
