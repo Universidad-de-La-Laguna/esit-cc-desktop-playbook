@@ -23,36 +23,36 @@ ff02::2 ip6-allrouter
 # PLANTA BAJA
 
 # Profesores
-10.209.31.107 cc1100 cc1100.etsii.ull.es
+10.209.31.107 cc1100 cc1100.etsii.ull.es PB111-00 PB111-00.esit.ull.es
 10.209.31.108 cc1200 cc1200.etsii.ull.es
 10.209.31.109 cc1300 cc1300.etsii.ull.es
 10.209.31.110 cc1400 cc1400.etsii.ull.es
 
 # Sala 1.1
-10.209.31.11 cc1111 cc1111.etsii.ull.es
-10.209.31.12 cc1112 cc1112.etsii.ull.es
-10.209.31.13 cc1113 cc1113.etsii.ull.es
-10.209.31.14 cc1114 cc1114.etsii.ull.es
-10.209.31.15 cc1115 cc1115.etsii.ull.es
-10.209.31.16 cc1116 cc1116.etsii.ull.es
-10.209.31.17 cc1121 cc1121.etsii.ull.es
-10.209.31.18 cc1122 cc1122.etsii.ull.es
-10.209.31.19 cc1123 cc1123.etsii.ull.es
-10.209.31.20 cc1124 cc1124.etsii.ull.es
-10.209.31.21 cc1125 cc1125.etsii.ull.es
-10.209.31.22 cc1126 cc1126.etsii.ull.es
-10.209.31.23 cc1131 cc1131.etsii.ull.es
-10.209.31.24 cc1132 cc1132.etsii.ull.es
-10.209.31.25 cc1133 cc1133.etsii.ull.es
-10.209.31.26 cc1134 cc1134.etsii.ull.es
-10.209.31.27 cc1135 cc1135.etsii.ull.es
-10.209.31.28 cc1136 cc1136.etsii.ull.es
-10.209.31.29 cc1141 cc1141.etsii.ull.es
-10.209.31.30 cc1142 cc1142.etsii.ull.es
-10.209.31.31 cc1143 cc1143.etsii.ull.es
-10.209.31.32 cc1144 cc1144.etsii.ull.es
-10.209.31.33 cc1145 cc1145.etsii.ull.es
-10.209.31.34 cc1146 cc1146.etsii.ull.es
+10.209.31.11 cc1111 cc1111.etsii.ull.es PB111-11 PB111-11.esit.ull.es
+10.209.31.12 cc1112 cc1112.etsii.ull.es PB111-12 PB111-12.esit.ull.es
+10.209.31.13 cc1113 cc1113.etsii.ull.es PB111-13 PB111-13.esit.ull.es
+10.209.31.14 cc1114 cc1114.etsii.ull.es PB111-14 PB111-14.esit.ull.es
+10.209.31.15 cc1115 cc1115.etsii.ull.es PB111-15 PB111-15.esit.ull.es
+10.209.31.16 cc1116 cc1116.etsii.ull.es PB111-16 PB111-16.esit.ull.es
+10.209.31.17 cc1121 cc1121.etsii.ull.es PB111-21 PB111-21.esit.ull.es
+10.209.31.18 cc1122 cc1122.etsii.ull.es PB111-22 PB111-22.esit.ull.es
+10.209.31.19 cc1123 cc1123.etsii.ull.es PB111-23 PB111-23.esit.ull.es
+10.209.31.20 cc1124 cc1124.etsii.ull.es PB111-24 PB111-24.esit.ull.es
+10.209.31.21 cc1125 cc1125.etsii.ull.es PB111-25 PB111-25.esit.ull.es
+10.209.31.22 cc1126 cc1126.etsii.ull.es PB111-26 PB111-26.esit.ull.es
+10.209.31.23 cc1131 cc1131.etsii.ull.es PB111-31 PB111-31.esit.ull.es
+10.209.31.24 cc1132 cc1132.etsii.ull.es PB111-32 PB111-32.esit.ull.es
+10.209.31.25 cc1133 cc1133.etsii.ull.es PB111-33 PB111-33.esit.ull.es
+10.209.31.26 cc1134 cc1134.etsii.ull.es PB111-34 PB111-34.esit.ull.es
+10.209.31.27 cc1135 cc1135.etsii.ull.es PB111-35 PB111-35.esit.ull.es
+10.209.31.28 cc1136 cc1136.etsii.ull.es PB111-36 PB111-36.esit.ull.es
+10.209.31.29 cc1141 cc1141.etsii.ull.es PB111-41 PB111-41.esit.ull.es
+10.209.31.30 cc1142 cc1142.etsii.ull.es PB111-42 PB111-42.esit.ull.es
+10.209.31.31 cc1143 cc1143.etsii.ull.es PB111-43 PB111-43.esit.ull.es
+10.209.31.32 cc1144 cc1144.etsii.ull.es PB111-44 PB111-44.esit.ull.es
+10.209.31.33 cc1145 cc1145.etsii.ull.es PB111-45 PB111-45.esit.ull.es
+10.209.31.34 cc1146 cc1146.etsii.ull.es PB111-46 PB111-46.esit.ull.es
 
 # Sala 1.2
 10.209.31.35 cc1211 cc1211.etsii.ull.es
