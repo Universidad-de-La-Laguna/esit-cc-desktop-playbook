@@ -11,7 +11,7 @@ from verifiers import FIELD_VERIFIERS
 
 
 def get_computer_mac():
-    check_output(["pip3", "install", "psutil", "getmac"])
+    check_output(["pip3", "install", "psutil", "getmac","--break-system-packages"])
     import getmac
     return getmac.get_mac_address()
 
