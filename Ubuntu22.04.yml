@@ -57,6 +57,8 @@
     - { role: installsoftware-u2204, tags: ['sd0'] }
     - { role: nvm, tags: ['nvm'] }
     - { role: grubpassword-u22, tags: ['grubpassword-u22'] }
+    - { role: glpi-agent, tags: ['glpi-agent'] }
+
     
     # - { role: fuzzylogic, tags: ['fuzzylogic'] }
     # - { role: libpulse, tags: ['lp'] }

@@ -1,4 +1,5 @@
 ---
 
-glpi_agent_version: "glpi-agent-1.4"
-glpi_server_url: "http://10.6.7.16:8200"
+glpi_agent_version: "glpi-agent-1.18"
+glpi_server_url: "http://10.6.9.238:8200"
+glpi_agent_version_number: "1.18"

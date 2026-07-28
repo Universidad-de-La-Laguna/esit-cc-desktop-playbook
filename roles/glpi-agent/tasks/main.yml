@@ -1,44 +1,63 @@
-- name: Descargar glpi-agent
-  ansible.builtin.get_url:
-    url: 'http://cc.etsii.ull.es/ftp/packages/{{ glpi_agent_version }}-linux-installer.pl'
-    dest: /tmp/
-
+---
+# 1. Recolectar información de servicios en el equipo
 - name: Populate service facts
-  service_facts:
+  ansible.builtin.service_facts:
 
-- debug:
-    msg: glpi-agent installed!
+- name: Mensaje de confirmacion de instalacion
+  ansible.builtin.debug:
+    msg: "glpi-agent installed!"
   when: "'glpi-agent.service' in services"
 
+# 2. Obtener la salida de la versión actual si el agente existe
+- name: Obtener la version actual de GLPI Agent
+  ansible.builtin.command: glpi-agent --version
+  register: glpi_installed_version
+  changed_when: false
+  failed_when: false
+  when: "'glpi-agent.service' in services"
+
+# 3. Extraer el número de versión corto (ej: "1.4")
+- name: Guardar solo la version numerica
+  ansible.builtin.set_fact:
+    current_version: "{{ glpi_installed_version.stdout | default('') | regex_search('GLPI Agent \\(([0-9]+\\.[0-9]+)', '\\1') | first | default('0.0') }}"
+
+# 4. Descargar solo si no existe o si la versión no coincide
+- name: Descargar glpi-agent
+  ansible.builtin.get_url:
+    url: 'https://ftp.esit.ull.es/ftp/packages/{{ glpi_agent_version }}-linux-installer.pl'
+    dest: '/tmp/{{ glpi_agent_version }}-linux-installer.pl'
+    mode: '0755'
+  when: "'glpi-agent.service' not in services or current_version != glpi_agent_version_number"
+
+# 5. Instalar o actualizar con la nueva URL de GLPI
 - name: Instalar glpi-agent
-  shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --silent -s {{ glpi_server_url }} --logger=file --logfile=/var/log/glpi-agent.log --tag=ubuntu"
-  when: "'glpi-agent.service' not in services"
+  ansible.builtin.shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --silent -s {{ glpi_server_url }} --logger=file --logfile=/var/log/glpi-agent.log --tag=ubuntu"
+  when: "'glpi-agent.service' not in services or current_version != glpi_agent_version_number"
 
-- name: Populate gather facts
-  gather_facts:
-
+# 6. Actualizar el estado de los servicios tras la posible instalación
 - name: Populate service facts
-  service_facts:
+  ansible.builtin.service_facts:
 
+# 7. Post-configuración y reinicio
 - name: create file with computer name
-  template:
+  ansible.builtin.template:
     src: templates/computer-name.j2
     dest: /usr/share/glpi-agent/computer-name.json
   when: "'glpi-agent.service' in services"
 
 - name: add additional-content parameter to ansible config
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/glpi-agent/conf.d/00-install.cfg
     regexp: '^additional-content'
     line: additional-content = /usr/share/glpi-agent/computer-name.json
   when: "'glpi-agent.service' in services"
 
 - name: restart glpi-agent
-  service:
+  ansible.builtin.service:
     name: glpi-agent
     state: restarted
   when: "'glpi-agent.service' in services"
 
 # - name: Desinstalar glpi-agent
-#   shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --uninstall"
+#   ansible.builtin.shell: "perl /tmp/{{ glpi_agent_version }}-linux-installer.pl --uninstall"
 #   when: "'glpi-agent.service' in services"
