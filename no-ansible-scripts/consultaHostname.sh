@@ -1,6 +1,6 @@
 #!/bin/bash
 
-###CONSULTA "hostnamectl" PARA UNA SERIE DE EQUIPOS CLIENTES ESTABLECIDOS
+#CONSULTA "hostnamectl" PARA UNA SERIE DE EQUIPOS CLIENTES ESTABLECIDOS
 # Comprueba si has pasado al menos un servidor como argumento
 if [ $# -eq 0 ]; then
     echo "Error: Debes indicar al menos un servidor."
