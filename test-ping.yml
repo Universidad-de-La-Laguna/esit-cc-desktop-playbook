@@ -1,0 +1,12 @@
+- name: Prueba de conexión desde AWX
+  hosts: all
+  remote_user: root
+  gather_facts: true
+
+  tasks:
+    - name: Ping a los hosts
+      ansible.builtin.ping:
+
+    - name: Imprimir mensaje de confirmación
+      ansible.builtin.debug:
+        msg: "¡Prueba correcta! AWX se ha conectado a {{ inventory_hostname }} ({{ ansible_distribution }} {{ ansible_distribution_version }})."
