@@ -322,7 +322,7 @@ ff02::2 ip6-allrouter
 
 # PLANTA INDUSTRIALES
 
-# Sala 3.1
+# Sala 2.1
 10.209.35.100 P201-00 P201-00.esit.ull.es
 10.209.35.101 P201-11 P201-11.esit.ull.es
 10.209.35.102 P201-12 P201-12.esit.ull.es
@@ -451,5 +451,5 @@ ff02::2 ip6-allrouter
 10.209.35.162 a3400  a3400.etsii.ull.es
 10.209.35.163 a3600  a3600.etsii.ull.es
 10.209.35.164 a3700  a3700.etsii.ull.es
-10.209.35.165 a31000 a31000.etsii.ull.es
+10.209.35.165 P210-00 P210-00.esit.ull.es
 
