@@ -33,11 +33,14 @@ chmod +x /usr/local/bin/code-kilo
 cd /opt
 rm -f /opt/vscode-fixed.v1.138.tar.gz
 rm -Rf /opt/VSCode-linux-x64
+rm -Rf /opt/vscode-fixed.v1.138
 wget  -q https://ftp.esit.ull.es/ftp/packages/vscode-fixed.v1.138.tar.gz
 tar -xf vscode-fixed.v1.138.tar.gz
 
-chown root /opt/VSCode-linux-x64/chrome-sandbox
-chmod 4755 /opt/VSCode-linux-x64/chrome-sandbox
+mv /opt/VSCode-linux-x64 /opt/vscode-fixed.v1.138
+
+chown root /opt/vscode-fixed.v1.138/chrome-sandbox
+chmod 4755 /opt/vscode-fixed.v1.138/chrome-sandbox
 
 rm -f /etc/profile
 cd /etc/
