@@ -23,7 +23,7 @@ ff02::2 ip6-allrouter
 # Centro de Cálculo [Planta BAJA]
 
 # Profesores
-10.209.31.107 PB111-00 PB111-00.esit.ull.es
+10.209.31.107 PB111-00 pb111-00.esit.ull.es
 
 10.209.31.109 cc1300 cc1300.etsii.ull.es
 10.209.31.110 cc1400 cc1400.etsii.ull.es
@@ -111,45 +111,45 @@ ff02::2 ip6-allrouter
 # Centro de Cálculo [Planta UNO]
 
 # Profesores
-10.209.32.171 cc2100 cc2100.etsii.ull.es
+10.209.32.171 P1121-00 p1121-00.esit.ull.es
 10.209.32.172 cc2200 cc2200.etsii.ull.es
 10.209.32.173 cc2300 cc2300.etsii.ull.es
-10.209.32.174 cc2400 cc2400.etsii.ull.es
-10.209.32.175 cc2500 cc2500.etsii.ull.es
+10.209.32.174 P1124-00 p1124-00.esit.ull.es
+
 
 # Sala P1.121
-10.209.32.11 cc2111 p1121-11.esit.ull.es
-10.209.32.12 cc2112 p1121-12.esit.ull.es
-10.209.32.13 cc2113 p1121-13.esit.ull.es
-10.209.32.14 cc2114 p1121-14.esit.ull.es
-10.209.32.15 cc2115 p1121-15.esit.ull.es
-10.209.32.16 cc2116 p1121-16.esit.ull.es
-10.209.32.17 cc2117 p1121-17.esit.ull.es
-10.209.32.18 cc2118 p1121-18.esit.ull.es
-10.209.32.19 cc2121 p1121-21.esit.ull.es
-10.209.32.20 cc2122 p1121-22.esit.ull.es
-10.209.32.21 cc2123 p1121-23.esit.ull.es
-10.209.32.22 cc2124 p1121-24.esit.ull.es
-10.209.32.23 cc2125 p1121-25.esit.ull.es
-10.209.32.24 cc2126 p1121-26.esit.ull.es
-10.209.32.25 cc2127 p1121-27.esit.ull.es
-10.209.32.26 cc2128 p1121-28.esit.ull.es
-10.209.32.27 cc2131 p1121-31.esit.ull.es
-10.209.32.28 cc2132 p1121-32.esit.ull.es
-10.209.32.29 cc2133 p1121-33.esit.ull.es
-10.209.32.30 cc2134 p1121-34.esit.ull.es
-10.209.32.31 cc2135 p1121-35.esit.ull.es
-10.209.32.32 cc2136 p1121-36.esit.ull.es
-10.209.32.33 cc2137 p1121-37.esit.ull.es
-10.209.32.34 cc2138 p1121-38.esit.ull.es
-10.209.32.35 cc2141 p1121-41.esit.ull.es
-10.209.32.36 cc2142 p1121-42.esit.ull.es
-10.209.32.37 cc2143 p1121-43.esit.ull.es
-10.209.32.38 cc2144 p1121-44.esit.ull.es
-10.209.32.39 cc2145 p1121-45.esit.ull.es
-10.209.32.40 cc2146 p1121-46.esit.ull.es
-10.209.32.41 cc2147 p1121-47.esit.ull.es
-10.209.32.42 cc2148 p1121-48.esit.ull.es
+10.209.32.11 P1121-11 p1121-11.esit.ull.es
+10.209.32.12 P1121-12 p1121-12.esit.ull.es
+10.209.32.13 P1121-13 p1121-13.esit.ull.es
+10.209.32.14 P1121-14 p1121-14.esit.ull.es
+10.209.32.15 P1121-15 p1121-15.esit.ull.es
+10.209.32.16 P1121-16 p1121-16.esit.ull.es
+10.209.32.17 P1121-17 p1121-17.esit.ull.es
+10.209.32.18 P1121-18 p1121-18.esit.ull.es
+10.209.32.19 P1121-21 p1121-21.esit.ull.es
+10.209.32.20 P1121-22 p1121-22.esit.ull.es
+10.209.32.21 P1121-23 p1121-23.esit.ull.es
+10.209.32.22 P1121-24 p1121-24.esit.ull.es
+10.209.32.23 P1121-25 p1121-25.esit.ull.es
+10.209.32.24 P1121-26 p1121-26.esit.ull.es
+10.209.32.25 P1121-27 p1121-27.esit.ull.es
+10.209.32.26 P1121-28 p1121-28.esit.ull.es
+10.209.32.27 P1121-31 p1121-31.esit.ull.es
+10.209.32.28 P1121-32 p1121-32.esit.ull.es
+10.209.32.29 P1121-33 p1121-33.esit.ull.es
+10.209.32.30 P1121-34 p1121-34.esit.ull.es
+10.209.32.31 P1121-35 p1121-35.esit.ull.es
+10.209.32.32 P1121-36 p1121-36.esit.ull.es
+10.209.32.33 P1121-37 p1121-37.esit.ull.es
+10.209.32.34 P1121-38 p1121-38.esit.ull.es
+10.209.32.35 P1121-41 p1121-41.esit.ull.es
+10.209.32.36 P1121-42 p1121-42.esit.ull.es
+10.209.32.37 P1121-43 p1121-43.esit.ull.es
+10.209.32.38 P1121-44 p1121-44.esit.ull.es
+10.209.32.39 P1121-45 p1121-45.esit.ull.es
+10.209.32.40 P1121-46 p1121-46.esit.ull.es
+10.209.32.41 P1121-47 p1121-47.esit.ull.es
+10.209.32.42 P1121-48 p1121-48.esit.ull.es
 
 # Sala 2.2
 10.209.32.43 cc2211 cc2211.etsii.ull.es
@@ -211,56 +211,31 @@ ff02::2 ip6-allrouter
 10.209.32.97 cc2347 cc2347.etsii.ull.es
 10.209.32.98 cc2348 cc2348.etsii.ull.es
 
-# Sala 2.4
-10.209.32.99 cc2411 cc2411.etsii.ull.es
-10.209.32.100 cc2412 cc2412.etsii.ull.es
-10.209.32.101 cc2413 cc2413.etsii.ull.es
-10.209.32.102 cc2414 cc2414.etsii.ull.es
-10.209.32.103 cc2415 cc2415.etsii.ull.es
-10.209.32.104 cc2416 cc2416.etsii.ull.es
-10.209.32.105 cc2421 cc2421.etsii.ull.es
-10.209.32.106 cc2422 cc2422.etsii.ull.es
-10.209.32.107 cc2423 cc2423.etsii.ull.es
-10.209.32.108 cc2424 cc2424.etsii.ull.es
-10.209.32.109 cc2425 cc2425.etsii.ull.es
-10.209.32.110 cc2426 cc2426.etsii.ull.es
-10.209.32.111 cc2431 cc2431.etsii.ull.es
-10.209.32.112 cc2432 cc2432.etsii.ull.es
-10.209.32.113 cc2433 cc2433.etsii.ull.es
-10.209.32.114 cc2434 cc2434.etsii.ull.es
-10.209.32.115 cc2435 cc2435.etsii.ull.es
-10.209.32.116 cc2436 cc2436.etsii.ull.es
-10.209.32.117 cc2441 cc2441.etsii.ull.es
-10.209.32.118 cc2442 cc2442.etsii.ull.es
-10.209.32.119 cc2443 cc2443.etsii.ull.es
-10.209.32.120 cc2444 cc2444.etsii.ull.es
-10.209.32.121 cc2445 cc2445.etsii.ull.es
-10.209.32.122 cc2446 cc2446.etsii.ull.es
-
-#### Sala 2.5
-###10.209.32.123 cc2511 cc2511.etsii.ull.es
-###10.209.32.124 cc2512 cc2512.etsii.ull.es
-###10.209.32.125 cc2513 cc2513.etsii.ull.es
-###10.209.32.126 cc2514 cc2514.etsii.ull.es
-###10.209.32.127 cc2515 cc2515.etsii.ull.es
-###10.209.32.128 cc2521 cc2521.etsii.ull.es
-###10.209.32.129 cc2522 cc2522.etsii.ull.es
-###10.209.32.130 cc2523 cc2523.etsii.ull.es
-###10.209.32.131 cc2524 cc2524.etsii.ull.es
-###10.209.32.132 cc2525 cc2525.etsii.ull.es
-###
-#### Carrels
-###10.209.32.133 ccc1 ccc1.etsii.ull.es
-###10.209.32.135 ccc2 ccc2.etsii.ull.es
-###10.209.32.137 ccc3 ccc3.etsii.ull.es
-###
-#### Sala 2.6
-###10.209.32.139 cc2611 cc2611.etsii.ull.es
-###10.209.32.140 cc2612 cc2612.etsii.ull.es
-###10.209.32.141 cc2613 cc2613.etsii.ull.es
-###10.209.32.142 cc2621 cc2621.etsii.ull.es
-###10.209.32.143 cc2622 cc2622.etsii.ull.es
-###10.209.32.144 cc2623 cc2623.etsii.ull.es
+# Sala P1.124
+10.209.32.99  P1124-11 p1124-11.esit.ull.es
+10.209.32.100 P1124-12 p1124-12.esit.ull.es
+10.209.32.101 P1124-13 p1124-13.esit.ull.es
+10.209.32.102 P1124-14 p1124-14.esit.ull.es
+10.209.32.103 P1124-15 p1124-15.esit.ull.es
+10.209.32.104 P1124-16 p1124-16.esit.ull.es
+10.209.32.105 P1124-21 p1124-21.esit.ull.es
+10.209.32.106 P1124-22 p1124-22.esit.ull.es
+10.209.32.107 P1124-23 p1124-23.esit.ull.es
+10.209.32.108 P1124-24 p1124-24.esit.ull.es
+10.209.32.109 P1124-25 p1124-25.esit.ull.es
+10.209.32.110 P1124-26 p1124-26.esit.ull.es
+10.209.32.111 P1124-31 p1124-31.esit.ull.es
+10.209.32.112 P1124-32 p1124-32.esit.ull.es
+10.209.32.113 P1124-33 p1124-33.esit.ull.es
+10.209.32.114 P1124-34 p1124-34.esit.ull.es
+10.209.32.115 P1124-35 p1124-35.esit.ull.es
+10.209.32.116 P1124-36 p1124-36.esit.ull.es
+10.209.32.117 P1124-41 p1124-41.esit.ull.es
+10.209.32.118 P1124-42 p1124-42.esit.ull.es
+10.209.32.119 P1124-43 p1124-43.esit.ull.es
+10.209.32.120 P1124-44 p1124-44.esit.ull.es
+10.209.32.121 P1124-45 p1124-45.esit.ull.es
+10.209.32.122 P1124-46 p1124-46.esit.ull.es
 
 #Edificio ESIT [Planta CERO]
 
