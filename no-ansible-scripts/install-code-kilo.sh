@@ -12,7 +12,7 @@ cp -a /etc/esit-cc-desktop-playbook/no-ansible-scripts/code-extensions /opt/
 #wget  -q https://ftp.esit.ull.es/ftp/packages/kilocode.kilo-code-7.7.7.vsix
 
 cat > /usr/local/bin/code-kilo << 'EOF'
-DEST="/opt/VSCode-linux-x64"
+DEST="/opt/vscode-fixed.v1.138"
 EXT="/opt/code-extensions"
 rm -Rf $HOME/.vscode
 
