@@ -5,15 +5,15 @@ echo ==========================================
 hostname
 echo ==========================================
 
-mkdir -p /opt/code-extensions
-cp -a /etc/esit-cc-desktop-playbook/no-ansible-scripts/code-extensions /opt/
-#cp -a /home/carlos/esit-cc-desktop-playbook/no-ansible-scripts/code-extensions /opt/
-#cd /opt/code-extensions
-#wget  -q https://ftp.esit.ull.es/ftp/packages/kilocode.kilo-code-7.7.7.vsix
+#Download Kilo extension if it does not exist
+
+mkdir -p /opt/vscode-extensions
+wget -q -O /opt/vscode-extensions/kilo-code-7.7.9.vsix https://open-vsx.org/api/kilocode/kilo-code/linux-x64/7.7.9/file/kilocode.kilo-code-7.7.9@linux-x64.vsix
+
 
 cat > /usr/local/bin/code-kilo << 'EOF'
 DEST="/opt/vscode-fixed.v1.138"
-EXT="/opt/code-extensions"
+EXT="/opt/vscode-extensions"
 rm -Rf $HOME/.vscode
 
 mkdir -p $HOME/.config/Code/User
@@ -23,7 +23,7 @@ cp $EXT/settings.json  $HOME/.config/Code/User/settings.json
 cd $DEST
 
 $DEST/bin/code \
---install-extension kilocode.kilo-code \
+--install-extension  $EXT/kilo-code-7.7.9.vsix \
 && $DEST/bin/code
 EOF
 
