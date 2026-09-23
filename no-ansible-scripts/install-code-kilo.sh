@@ -14,11 +14,8 @@ wget -q -O /opt/vscode-extensions/kilo-code-7.7.9.vsix https://open-vsx.org/api/
 cat > /usr/local/bin/code-kilo << 'EOF'
 DEST="/opt/vscode-fixed.v1.138"
 EXT="/opt/vscode-extensions"
+SETTINGS="/opt/code-extensions"
 rm -Rf $HOME/.vscode
-
-mkdir -p $HOME/.config/Code/User
-
-cp $EXT/settings.json  $HOME/.config/Code/User/settings.json
 
 cd $DEST
 
