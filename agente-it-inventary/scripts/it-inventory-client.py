@@ -23,7 +23,8 @@ def get_computer_id() -> str:
     return "-".join([hostname.lower(), system_name.lower(), mac.lower()])
 
 
-HOST = "10.6.7.16:8000"
+#HOST = "10.6.7.16:8000"
+HOST = "10.6.9.238:8000"
 RESULTS_ENDPOINT = "/save-commands-results/"
 COMMANDS_PATH_BASE = "."
 COMPUTER_ID = get_computer_id()
