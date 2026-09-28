@@ -2,7 +2,7 @@
 
 # Verifica que se haya proporcionado al menos un argumento
 if [ $# -lt 1 ]; then
-    echo "Uso: $0 <nombre_del_host_sin_etsii>"
+    echo "Uso: $0 <nombre_del_host_sin_esit>"
     exit 1
 fi
 
@@ -48,8 +48,8 @@ declare -a resultados
 
 # Itera sobre cada argumento proporcionado
 for host in "$@"; do
-    # Añade "etsii.ull.es" al nombre del host
-    hostname="$host.etsii.ull.es"
+    # Añade "esit.ull.es" al nombre del host
+    hostname="$host.esit.ull.es"
     pw=$(pwd)
     # Busca la MAC address correspondiente al hostname proporcionado
     mac=$(grep -w "$hostname" "$archivo" | awk '{print $2}' | cut -d= -f2)
@@ -68,7 +68,7 @@ mostrar_timer 45
 
 # Comprueba el estado de cada host
 for host in "$@"; do
-    hostname="$host.etsii.ull.es"
+    hostname="$host.esit.ull.es"
     comprobar_estado "$hostname"
 done
 
