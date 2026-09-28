@@ -18,9 +18,18 @@ ff02::2 ip6-allrouter
 
 193.145.100.18 openldap.stic.ull.es
 
-# RELACION DE IPS DE LA ESIT
-  
-# Centro de Cálculo [Planta BAJA]
+
+
+#################################
+#################################
+## RELACION DE IPS DE LA ESIT  ##
+#################################
+#################################
+
+
+###################################  
+# Centro de Cálculo [Planta BAJA] #
+###################################
 
 # Profesores
 10.209.31.107 PB111-00 pb111-00.esit.ull.es
@@ -108,7 +117,9 @@ ff02::2 ip6-allrouter
 10.209.31.105 PB114-45 pb114-45.esit.ull.es
 10.209.31.106 PB114-46 pb114-46.esit.ull.es
 
-# Centro de Cálculo [Planta UNO]
+################################## 
+# Centro de Cálculo [Planta UNO] #
+################################## 
 
 # Profesores
 10.209.32.171 P1121-00 p1121-00.esit.ull.es
@@ -237,12 +248,15 @@ ff02::2 ip6-allrouter
 10.209.32.121 P1124-45 p1124-45.esit.ull.es
 10.209.32.122 P1124-46 p1124-46.esit.ull.es
 
-#Edificio ESIT [Planta CERO]
+###############################
+# Edificio ESIT [Planta CERO] #
+###############################
 
+##############################
+# Edificio ESIT [Planta UNO] #
+##############################
 
-#Edificio ESIT [Planta UNO]
-
-# P1.06 (Sala Cabildo)
+# Aula P1.06 (Sala Cabildo)>>> Corresponde a PB112
 10.209.31.108 P106-00 p106-00.esit.ull.es
 10.209.31.35  P106-11 p106-11.esit.ull.es
 10.209.31.36  P106-12 p106-12.esit.ull.es
@@ -269,10 +283,11 @@ ff02::2 ip6-allrouter
 10.209.31.57  P106-35 p106-35.esit.ull.es
 10.209.31.58  P106-36 p106-36.esit.ull.es
 
+##############################
+# Edificio ESIT [Planta DOS] #
+##############################
 
-#Edificio ESIT [Planta DOS]
-
-# Sala P2.01
+# Aula P2.01
 10.209.35.100 P201-00 p201-00.esit.ull.es
 10.209.35.101 P201-11 p201-11.esit.ull.es
 10.209.35.102 P201-12 p201-12.esit.ull.es
@@ -307,7 +322,7 @@ ff02::2 ip6-allrouter
 10.209.35.132 P201-48 p201-48.esit.ull.es
 10.209.35.133 P201-49 p201-49.esit.ull.es
 
-# Sala P2.05
+# Aula P2.05
 10.209.35.60  P205-00 p205-00.esit.ull.es
 10.209.35.61  P205-11 p205-11.esit.ull.es
 10.209.35.62  P205-12 p205-12.esit.ull.es
@@ -342,48 +357,51 @@ ff02::2 ip6-allrouter
 10.209.35.91  P205-48 p205-48.esit.ull.es
 10.209.35.92  P205-49 p205-49.esit.ull.es
 
-# Sala 3.8
-10.209.35.30 cc3800 cc3800.etsii.ull.es
-10.209.35.31 cc3811 cc3811.etsii.ull.es
-10.209.35.32 cc3812 cc3812.etsii.ull.es
-10.209.35.33 cc3813 cc3813.etsii.ull.es
-10.209.35.34 cc3814 cc3814.etsii.ull.es
-10.209.35.35 cc3821 cc3821.etsii.ull.es
-10.209.35.36 cc3822 cc3822.etsii.ull.es
-10.209.35.37 cc3823 cc3823.etsii.ull.es
-10.209.35.38 cc3824 cc3824.etsii.ull.es
-10.209.35.39 cc3831 cc3831.etsii.ull.es
-10.209.35.40 cc3832 cc3832.etsii.ull.es
-10.209.35.41 cc3833 cc3833.etsii.ull.es
-10.209.35.42 cc3834 cc3834.etsii.ull.es
-10.209.35.43 cc3841 cc3841.etsii.ull.es
-10.209.35.44 cc3842 cc3842.etsii.ull.es
-10.209.35.45 cc3843 cc3843.etsii.ull.es
-10.209.35.46 cc3844 cc3844.etsii.ull.es
-10.209.35.47 cc3851 cc3851.etsii.ull.es
-10.209.35.48 cc3852 cc3852.etsii.ull.es
-10.209.35.49 cc3853 cc3853.etsii.ull.es
-10.209.35.50 cc3854 cc3854.etsii.ull.es
+# Aula P2.08
+10.209.35.30  P208-00 p208-00.esit.ull.es
+10.209.35.31  P208-11 p208-11.esit.ull.es
+10.209.35.32  P208-12 p208-12.esit.ull.es
+10.209.35.33  P208-13 p208-13.esit.ull.es
+10.209.35.34  P208-14 p208-14.esit.ull.es
+10.209.35.35  P208-21 p208-21.esit.ull.es
+10.209.35.36  P208-22 p208-22.esit.ull.es
+10.209.35.37  P208-23 p208-23.esit.ull.es
+10.209.35.38  P208-24 p208-24.esit.ull.es
+10.209.35.39  P208-31 p208-31.esit.ull.es
+10.209.35.40  P208-32 p208-32.esit.ull.es
+10.209.35.41  P208-33 p208-33.esit.ull.es
+10.209.35.42  P208-34 p208-34.esit.ull.es
+10.209.35.43  P208-41 p208-41.esit.ull.es
+10.209.35.44  P208-42 p208-42.esit.ull.es
+10.209.35.45  P208-43 p208-43.esit.ull.es
+10.209.35.46  P208-44 p208-44.esit.ull.es
+10.209.35.47  P208-51 p208-51.esit.ull.es
+10.209.35.48  P208-52 p208-52.esit.ull.es
+10.209.35.49  P208-53 p208-53.esit.ull.es
+10.209.35.50  P208-54 p208-54.esit.ull.es
 
-# Sala 3.9
-10.209.35.140 cc3900 cc3900.etsii.ull.es
-10.209.35.141 cc3911 cc3911.etsii.ull.es
-10.209.35.142 cc3912 cc3912.etsii.ull.es
-10.209.35.143 cc3913 cc3913.etsii.ull.es
-10.209.35.144 cc3914 cc3914.etsii.ull.es
-10.209.35.145 cc3921 cc3921.etsii.ull.es
-10.209.35.146 cc3922 cc3922.etsii.ull.es
-10.209.35.147 cc3923 cc3923.etsii.ull.es
-10.209.35.148 cc3924 cc3924.etsii.ull.es
-10.209.35.149 cc3931 cc3931.etsii.ull.es
-10.209.35.150 cc3932 cc3932.etsii.ull.es
-10.209.35.151 cc3933 cc3933.etsii.ull.es
-10.209.35.152 cc3934 cc3934.etsii.ull.es
-10.209.35.153 cc3941 cc3941.etsii.ull.es
-10.209.35.155 cc3943 cc3943.etsii.ull.es
-10.209.35.156 cc3944 cc3944.etsii.ull.es
+# Aula P2.09
+10.209.35.140 P209-00 p209-00.esit.ull.es
+10.209.35.141 P209-11 p209-11.esit.ull.es
+10.209.35.142 P209-12 p209-12.esit.ull.es
+10.209.35.143 P209-13 p209-13.esit.ull.es
+10.209.35.144 P209-14 p209-14.esit.ull.es
+10.209.35.145 P209-21 p209-21.esit.ull.es
+10.209.35.146 P209-22 p209-22.esit.ull.es
+10.209.35.147 P209-23 p209-23.esit.ull.es
+10.209.35.148 P209-24 p209-24.esit.ull.es
+10.209.35.149 P209-31 p209-31.esit.ull.es
+10.209.35.150 P209-32 p209-32.esit.ull.es
+10.209.35.151 P209-33 p209-33.esit.ull.es
+10.209.35.152 P209-34 p209-34.esit.ull.es
+10.209.35.153 P209-41 p209-41.esit.ull.es
+10.209.35.155 P209-43 p209-43.esit.ull.es
+10.209.35.156 P209-44 p209-44.esit.ull.es
 
-# AULAS TEORIA
+################
+# AULAS TEORIA #
+################
+
 10.209.31.111 PB01-00 pb01-00.esit.ull.es
 10.209.31.112 PB02-00 pb02-00.esit.ull.es
 10.209.31.113 PB03-00 pb03-00.esit.ull.es
