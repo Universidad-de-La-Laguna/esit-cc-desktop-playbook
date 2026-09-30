@@ -1,5 +1,6 @@
 #!/bin/bash
 # Autor: Javier García "jgarciab"
+
 if [ $# -eq 0 ]; then
     echo "Uso: $0 equipo1 equipo2 ..."
     exit 1
@@ -15,6 +16,7 @@ echo "abiertas o trabajos sin guardar."
 echo
 echo "Realice esta operación únicamente en un entorno controlado."
 echo
+
 read -rp "Escriba 'Yes' y pulse Enter para continuar, o pulse Enter para cancelar: " confirm
 
 if [[ "$confirm" != "Yes" ]]; then
@@ -30,21 +32,22 @@ apagar_equipo() {
 
     local equipo="$1"
 
-    echo "=== Apagando $equipo ==="
+    echo "=== Comprobando $equipo ==="
 
-    if ssh -o ConnectTimeout=1 \
+    # Comprobar si el equipo está encendido
+    if ! ping -c 1 -W 1 "$equipo" &>/dev/null; then
+        echo "[$equipo] YA ESTABA APAGADO / NO DISPONIBLE"
+        return
+    fi
+
+    echo "[$equipo] Encendido, intentando apagar..."
+
+    if ssh -o ConnectTimeout=5 \
            -o StrictHostKeyChecking=accept-new \
            root@"$equipo" 'poweroff'; then
-        echo "[$equipo] OK"
+        echo "[$equipo] APAGADO CORRECTAMENTE"
     else
-        echo "[$equipo] ERROR" >&2
-    fi
-}
-
-comprobar_estado() {
-    local hostname=$1
-    if ping -c 1 -W 1 "$hostname" &>/dev/null; then
-        echo -e "\e[32m$hostname SIGUE ENCENDIDO\e[0m"
+        echo "[$equipo] ERROR SSH" >&2
     fi
 }
 
@@ -56,10 +59,5 @@ done
 # Esperar a que terminen todos
 wait
 
+echo
 echo "Todos los intentos de apagado han finalizado."
-
-# Comprueba el estado de cada host
-# for host in "$@"; do
-    # hostname="$host.esit.ull.es"
-    # comprobar_estado "$hostname"
-# done
