@@ -2,7 +2,7 @@
 
 # Verifica que se haya proporcionado al menos un argumento
 if [ $# -lt 1 ]; then
-    echo "Uso: $0 <nombre_del_host_sin_etsii>"
+    echo "Uso: $0 <nombre_del_host_sin_esit>"
     exit 1
 fi
 
@@ -21,7 +21,7 @@ comprobar_estado() {
 
 # Comprueba el estado de cada host
 for host in "$@"; do
-    hostname="$host.etsii.ull.es"
+    hostname="$host.esit.ull.es"
     comprobar_estado "$hostname"
 done
 

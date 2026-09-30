@@ -58,6 +58,6 @@ echo "Todos los intentos de apagado han finalizado."
 
 # Comprueba el estado de cada host
 # for host in "$@"; do
-    # hostname="$host.etsii.ull.es"
+    # hostname="$host.esit.ull.es"
     # comprobar_estado "$hostname"
 # done
