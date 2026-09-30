@@ -32,7 +32,9 @@ apagar_equipo() {
 
     echo "=== Apagando $equipo ==="
 
-    if ssh -o ConnectTimeout=1 -o BatchMode=yes root@"$equipo" 'poweroff'; then
+    if ssh -o ConnectTimeout=1 \
+           -o StrictHostKeyChecking=accept-new \
+           root@"$equipo" 'poweroff'; then
         echo "[$equipo] OK"
     else
         echo "[$equipo] ERROR" >&2
