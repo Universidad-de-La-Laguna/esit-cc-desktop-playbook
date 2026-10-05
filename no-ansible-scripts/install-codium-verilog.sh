@@ -18,7 +18,7 @@ cp $EXT/settings.json  $HOME/.config/VSCodium/User/settings.json
 cd $DEST
 
 $DEST/bin/codium \
---install-extension $EXT/vitest.explorer-1.50.4.vsix \
+--install-extension $EXT/verilog-hdl-systemverilog-1.29.0.vsix \
 && $DEST/bin/codium
 EOF
 
