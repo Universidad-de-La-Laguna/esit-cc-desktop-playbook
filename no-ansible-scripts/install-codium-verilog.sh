@@ -18,7 +18,7 @@ cp $EXT/settings.json  $HOME/.config/VSCodium/User/settings.json
 cd $DEST
 
 $DEST/bin/codium \
---install-extension $EXT/verilog-hdl-systemverilog-1.29.0.vsix \
+--install-extension $EXT/mshr-h.veriloghdl-1.29.0.vsix \
 && $DEST/bin/codium
 EOF
 
