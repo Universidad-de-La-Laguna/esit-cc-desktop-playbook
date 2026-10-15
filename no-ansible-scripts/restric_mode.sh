@@ -1,181 +1,140 @@
 #!/bin/bash
-
 ###############################################################################
-# Script: restrict_mode.sh
-# Descripción: Restringe el acceso a Internet permitiendo solo ciertos destinos
-#              Se ejecuta automáticamente al hacer login usuarios exam*
-# Destinos permitidos:
-#   - campusvirtual.ull.es
-#   - valida.ull.es
-#   - 10.4.9.29
-#   - 10.4.9.30
-# Uso: sudo /usr/local/bin/restrict_mode.sh
+# restrict_mode.sh - Modo restringido de red con nftables
+# Uso:        sudo /usr/local/bin/restrict_mode.sh
+# Desactivar: sudo nft delete table inet restrict_mode
+#
+# Las reglas viven solo en el kernel: se pierden al reiniciar.
+# Requiere nftables >= 0.9.4 y kernel >= 5.6 (flag auto-merge).
 ###############################################################################
-
-set -e
-
-sleep 60
-
-# Dominios y direcciones permitidas
-ALLOWED_DOMAINS=(
-    "campusvirtual.ull.es"
-    "valida.ull.es"
-    "www.32x8.com"
-    "www.charlie-coleman.com"
-    "cdnjs.cloudflare.com"           # FIX #3: corregido "cloudfare" → "cloudflare"
-    "olimpiada.uib.es"
-)
-
-ALLOWED_IPS=(
-    "10.4.9.29"
-    "10.4.9.30"
-    "104.16.132.229"
-    "104.16.133.229"
-    "216.58.215.168"
-    "130.206.30.31"
-)
 
 LOG_FILE="/var/log/restrict_mode.log"
+TABLE="restrict_mode"
 
-# Función de logging
-log_message() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+ALLOWED_DOMAINS=(
+    campusvirtual.ull.es valida.ull.es www.32x8.com
+    www.charlie-coleman.com cdnjs.cloudflare.com olimpiada.uib.es
+)
+DENIED_DOMAINS=(iaas.ull.es vdi.ull.es)
+ALLOWED_IPS=(
+    10.4.9.29 10.4.9.30 104.16.132.229 104.16.133.229
+    216.58.215.168 130.206.30.31
+)
+ALLOWED_NETS=(10.0.0.0/8 193.145.0.0/16)
+SSH_IN_HOSTS=(cc1100 cc1200 cc1300 cc1400 cc2100 cc2200 cc2300 cc2400)
+SSH_IN_NETS=(10.209.4.0/24)
+
+log() { echo "$(date '+%F %T') - $1" >> "$LOG_FILE"; }
+
+resolve() {  # IPv4 de un dominio; vacío si falla, sin abortar
+    dig +short "$1" A 2>/dev/null | grep -E '^[0-9]+(\.[0-9]+){3}$' || true
 }
 
-log_message "=== Iniciando modo restringido para usuario: $SUDO_USER ==="
+# nft no admite "elements = { }" vacío: solo se emite si hay datos
+elements() {
+    [ $# -eq 0 ] && return
+    local IFS=,
+    echo "elements = { $* }"
+}
 
-# Limpiar reglas existentes de iptables
-log_message "Limpiando reglas anteriores..."
+log "=== Iniciando modo restringido (usuario: ${SUDO_USER:-desconocido}) ==="
 
-# FIX #1: Eliminar la cadena RESTRIC_MODE de OUTPUT antes de vaciarla/borrarla
-iptables -D OUTPUT -j RESTRIC_MODE 2>/dev/null || true
+sleep 60   # espera a que la red esté lista tras el login
 
-# Crear cadena personalizada si no existe, o vaciarla si ya existe
-iptables -N RESTRIC_MODE 2>/dev/null || iptables -F RESTRIC_MODE
-
-# Bloquear SSH saliente
-iptables -A RESTRIC_MODE -p tcp --dport 22 -j DROP
-log_message "Bloqueado: SSH saliente"
-
-
-
-# FIX #6: Bloquear TODO el tráfico IPv6 saliente para evitar bypass
-log_message "Bloqueando tráfico IPv6..."
-ip6tables -F OUTPUT  2>/dev/null || true
-ip6tables -P OUTPUT DROP
-ip6tables -P FORWARD DROP
-log_message "IPv6 OUTPUT y FORWARD bloqueados"
-
-# Política por defecto: DENEGAR todo el tráfico saliente
-log_message "Aplicando política restrictiva..."
-
-# Denegar acceso explícito a iaas.ull.es y vdi.ull.es
-for DENY_DOMAIN in iaas.ull.es vdi.ull.es; do
-    DENY_IPS=$(dig +short "$DENY_DOMAIN" A 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$')
-    if [ -n "$DENY_IPS" ]; then
-        while IFS= read -r ip; do
-            iptables -A RESTRIC_MODE -d "$ip" -j DROP
-            log_message "Denegado: $DENY_DOMAIN -> $ip"
-        done <<< "$DENY_IPS"
-    else
-        log_message "ADVERTENCIA: No se pudo resolver $DENY_DOMAIN"
-    fi
+# --- Resolver todo ANTES de tocar el firewall ---
+allowed=("${ALLOWED_IPS[@]}" "${ALLOWED_NETS[@]}")
+for d in "${ALLOWED_DOMAINS[@]}"; do
+    ips=$(resolve "$d")
+    if [ -z "$ips" ]; then log "ADVERTENCIA: no se pudo resolver $d"; continue; fi
+    while read -r ip; do allowed+=("$ip"); log "Permitido: $d -> $ip"; done <<< "$ips"
 done
 
-# Permitir loopback (localhost)
-iptables -A RESTRIC_MODE -o lo -j ACCEPT
-log_message "Permitido: loopback (localhost)"
-
-# Permitir conexiones establecidas y relacionadas
-iptables -A RESTRIC_MODE -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-log_message "Permitido: conexiones establecidas"
-
-# Permitir IPs específicas
-for ip in "${ALLOWED_IPS[@]}"; do
-    iptables -A RESTRIC_MODE -d "$ip" -j ACCEPT
-    log_message "Permitido: IP $ip"
+denied=()
+for d in "${DENIED_DOMAINS[@]}"; do
+    ips=$(resolve "$d")
+    if [ -z "$ips" ]; then log "ADVERTENCIA: no se pudo resolver $d"; continue; fi
+    while read -r ip; do denied+=("$ip"); log "Denegado: $d -> $ip"; done <<< "$ips"
 done
 
-# Permitir toda la red 10.x.x.x
-iptables -A RESTRIC_MODE -d 10.0.0.0/8 -j ACCEPT
-log_message "Permitido: red 10.0.0.0/8 (todas las IPs 10.x.x.x)"
-
-# Permitir el rango 193.145.0.0/16
-iptables -A RESTRIC_MODE -d 193.145.0.0/16 -j ACCEPT
-log_message "Permitido: red 193.145.0.0/16 (todas las IPs 193.145.x.x)"
-
-# Para cada dominio permitido, resolver a IPv4 y añadir reglas
-for domain in "${ALLOWED_DOMAINS[@]}"; do
-    domain_ips=$(dig +short "$domain" A 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$')
-    if [ -n "$domain_ips" ]; then
-        while IFS= read -r ip; do
-            iptables -A RESTRIC_MODE -d "$ip" -j ACCEPT
-            log_message "Permitido: $domain -> $ip"
-        done <<< "$domain_ips"
-    else
-        log_message "ADVERTENCIA: No se pudo resolver $domain"
-    fi
+ssh_in=("${SSH_IN_NETS[@]}")
+for h in "${SSH_IN_HOSTS[@]}"; do
+    ip=$(getent ahostsv4 "$h" | awk 'NR==1{print $1}')
+    if [ -z "$ip" ]; then log "ADVERTENCIA: no se pudo resolver $h"; continue; fi
+    ssh_in+=("$ip"); log "Permitido SSH entrante desde $h ($ip)"
 done
 
-# FIX #2: DNS restringido solo a resolvers de confianza (red campus + 127.0.0.53)
-# Evita tunneling DNS hacia servidores externos
-iptables -A RESTRIC_MODE -p udp -d 127.0.0.53   --dport 53 -j ACCEPT
-iptables -A RESTRIC_MODE -p tcp -d 127.0.0.53   --dport 53 -j ACCEPT
-iptables -A RESTRIC_MODE -p udp -d 193.145.0.0/16 --dport 53 -j ACCEPT
-iptables -A RESTRIC_MODE -p tcp -d 193.145.0.0/16 --dport 53 -j ACCEPT
-iptables -A RESTRIC_MODE -p udp -d 10.0.0.0/8    --dport 53 -j ACCEPT
-iptables -A RESTRIC_MODE -p tcp -d 10.0.0.0/8    --dport 53 -j ACCEPT
-log_message "Permitido: DNS solo hacia resolvers de confianza (localhost, 193.145.x.x, 10.x.x.x)"
+# Quitar duplicados
+mapfile -t allowed < <(printf '%s\n' "${allowed[@]}" | sort -u)
+mapfile -t denied  < <(printf '%s\n' "${denied[@]}"  | sort -u)
+mapfile -t ssh_in  < <(printf '%s\n' "${ssh_in[@]}"  | sort -u)
 
+# --- Generar el fichero de reglas nft ---
+# Se escribe en un fichero temporal (mktemp: nombre único, permisos 600) y se
+# carga de una sola vez con "nft -f". La carga es atómica: o se aplican todas
+# las reglas o ninguna, así que nunca queda el firewall a medio configurar.
+# Los "#" dentro del heredoc son comentarios de nft; las variables y $(...)
+# las expande bash antes de escribir el fichero.
+RULES=$(mktemp)
+cat > "$RULES" <<EOF
+# Truco de idempotencia: "add" crea la tabla vacía si no existe (así el
+# "delete" siguiente no falla la primera vez) y "delete" la borra si existía.
+# Después se define de nuevo desde cero: ejecutar el script varias veces
+# reemplaza la tabla en vez de acumular reglas duplicadas.
+add table inet $TABLE
+delete table inet $TABLE
 
-# DENEGAR todo lo demás
-iptables -A RESTRIC_MODE -j DROP
-log_message "Denegado: todo el resto del tráfico"
+# "inet" = una sola tabla que cubre IPv4 e IPv6
+table inet $TABLE {
 
-# FIX #1: Aplicar la cadena al tráfico OUTPUT una sola vez (al final)
-iptables -I OUTPUT 1 -j RESTRIC_MODE
-log_message "Cadena RESTRIC_MODE aplicada a OUTPUT"
+    # Sets: listas de direcciones que las reglas consultan con @nombre.
+    # "interval" permite redes (10.0.0.0/8) además de IPs sueltas.
+    # "auto-merge" fusiona intervalos solapados (p. ej. 10.4.9.29 dentro de 10.0.0.0/8)
+    # en vez de dar error.
+    # elements(...) rellena el set desde los arrays de bash.
 
-# --- PERMITIR SSH ENTRANTE DESDE HOSTS AUTORIZADOS ---
-# FIX #5: Insertar las reglas ACCEPT *antes* que la regla DROP final de SSH
-for HOST in cc1100 cc1200 cc1300 cc1400 cc2100 cc2200 cc2300 cc2400; do
-    HOST_IP=$(getent hosts "$HOST" | awk '{ print $1 }')
-    if [ -n "$HOST_IP" ]; then
-        iptables -I INPUT 1 -p tcp -s "$HOST_IP" --dport 22 -j ACCEPT
-        log_message "Permitido SSH entrante desde $HOST ($HOST_IP)"
-    else
-        log_message "ADVERTENCIA: No se pudo resolver $HOST"
-    fi
-done
+    # Destinos permitidos (IPs fijas, redes y dominios ya resueltos)
+    set allowed { type ipv4_addr; flags interval; auto-merge; $(elements "${allowed[@]}") }
+    # Destinos prohibidos aunque estén dentro de una red permitida (iaas, vdi)
+    set denied  { type ipv4_addr; flags interval; auto-merge; $(elements "${denied[@]}") }
+    # Orígenes autorizados a entrar por SSH (ordenadores de profesor y red admin)
+    set ssh_in  { type ipv4_addr; flags interval; auto-merge; $(elements "${ssh_in[@]}") }
 
-# Permitir SSH desde la red de administración
-iptables -I INPUT 1 -p tcp -s 10.209.4.0/24 -m tcp --dport 22 -j ACCEPT
-log_message "Permitido: SSH entrante desde 10.209.4.0/24"
+    # Tráfico SALIENTE de esta máquina. Se evalúa en orden, de arriba abajo,
+    # y la primera regla que coincide decide.
+    chain output {
+        # "hook output" = engancha en la salida; "policy accept" = lo que no
+        # case con ninguna regla pasa (aquí nunca ocurre: la última regla es drop)
+        type filter hook output priority 0; policy accept;
 
-# Bloquear todo el SSH entrante por defecto (va al final, tras los ACCEPT)
-iptables -A INPUT -p tcp --dport 22 -j DROP
-log_message "Bloqueado: SSH entrante por defecto"
+        tcp dport 22 drop                      # sin SSH saliente (va antes que lo, como el original)
+        ip daddr @denied drop                  # bloquea iaas/vdi antes de las reglas de permitir
+        oif lo accept                          # loopback siempre permitido
+        ct state established,related accept    # respuestas a conexiones ya permitidas
+        meta nfproto ipv6 drop                 # corta todo IPv6 para evitar saltarse el filtro
+        ip daddr @allowed accept               # destinos permitidos
+        drop                                   # todo lo demás, bloqueado
+    }
 
-# FIX #4: Eliminada la regla redundante de 127.0.0.53 en INPUT
-# (systemd-resolved en loopback ya es accesible sin regla explícita)
+    # Tráfico ENTRANTE: solo se restringe el SSH.
+    chain input {
+        type filter hook input priority 0; policy accept;
 
-log_message "=== Modo restringido activado correctamente ==="
+        tcp dport 22 ip saddr @ssh_in accept   # SSH solo desde orígenes autorizados
+        tcp dport 22 drop                      # el resto de intentos de SSH, bloqueados
+    }
+}
+EOF
 
-echo "╔════════════════════════════════════════════════════════╗"
-echo "║     MODO RESTRINGIDO DE RED ACTIVADO                  ║"
-echo "╚════════════════════════════════════════════════════════╝"
-echo ""
-echo "Acceso permitido únicamente a:"
-echo "  • campusvirtual.ull.es"
-echo "  • valida.ull.es"
-echo "  • 10.4.9.29"
-echo "  • 10.4.9.30"
-echo "  • 10.0.0.0/8"
-echo "  • 193.145.0.0/16"
-echo "  • olimpiada.uib.es"
-echo "  • 130.206.30.31"
-echo "  • SSH entrante desde ordenadores de profesor y red admin"
-echo ""
-echo "Todo el demás tráfico de Internet está bloqueado."
+# Aplicar las reglas. Si nft detecta un error de sintaxis, no se aplica nada.
+if nft -f "$RULES"; then
+    log "=== Modo restringido activado correctamente ==="
+else
+    log "ERROR: fallo al aplicar las reglas nft"
+    rm -f "$RULES"; exit 1
+fi
+rm -f "$RULES"
+
+echo "MODO RESTRINGIDO DE RED ACTIVADO"
+echo "Acceso permitido a: ${ALLOWED_DOMAINS[*]}, ${ALLOWED_NETS[*]} y IPs específicas."
+echo "SSH entrante solo desde ordenadores de profesor y red admin."
 echo "Log: $LOG_FILE"
-echo ""
