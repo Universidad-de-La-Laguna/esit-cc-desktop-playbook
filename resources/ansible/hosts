@@ -348,7 +348,7 @@ p209-12.esit.ull.es    macaddress=90:8d:6e:92:02:8f    ansible_host=10.209.35.14
 p209-13.esit.ull.es    macaddress=90:8d:6e:91:fb:66    ansible_host=10.209.35.143
 p209-14.esit.ull.es    macaddress=90:8d:6e:91:fb:90    ansible_host=10.209.35.144
 p209-21.esit.ull.es    macaddress=90:8d:6e:91:fc:af    ansible_host=10.209.35.145
-p209-22.esit.ull.es    macaddress=90:8d:6e:91:fb:7d    ae_host=10.209.35.146
+p209-22.esit.ull.es    macaddress=90:8d:6e:91:fb:7d    ansible_host=10.209.35.146
 p209-23.esit.ull.es    macaddress=90:8d:6e:91:fe:70    ansible_host=10.209.35.147
 p209-24.esit.ull.es    macaddress=90:8d:6e:91:fb:54    ansible_host=10.209.35.148
 p209-31.esit.ull.es    macaddress=90:8d:6e:91:36:51    ansible_host=10.209.35.149
