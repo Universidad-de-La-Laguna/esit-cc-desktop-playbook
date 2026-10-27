@@ -3,7 +3,7 @@
 #############################################################################
 # Script: crear_usuario_restringido.sh
 # Descripción: Crea/recrea un usuario con permisos sudo restringidos
-# Uso: sudo ./crear_usuario_restringido.sh <usuario> <contraseña>
+# Uso: sudo ./crear_usuario_restringido.sh <usuario> <contraseña> [archivo.zip]
 #############################################################################
 
 set -e  # Salir si hay algún error
@@ -30,14 +30,16 @@ warning() {
 
 # Función para mostrar uso
 mostrar_uso() {
-    echo "Uso: sudo $0 <usuario> <contraseña>"
+    echo "Uso: sudo $0 <usuario> <contraseña> [archivo.zip]"
     echo ""
     echo "Ejemplo: sudo $0 exam1 'MiPasswordSeguro123'"
+    echo "Ejemplo: sudo $0 exam1 'MiPasswordSeguro123' /tmp/material_examen.zip"
     echo ""
     echo "Este script:"
     echo "  - Crea/recrea el usuario especificado"
     echo "  - Le asigna la contraseña proporcionada"
     echo "  - Configura permisos sudo para ejecutar solo /usr/local/bin/restric_mode.sh"
+    echo "  - (Opcional) Descomprime el zip indicado en \$HOME/Desktop del usuario"
     exit 1
 }
 
@@ -47,17 +49,19 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-# Verificar argumentos
-if [ $# -ne 2 ]; then
+# Verificar argumentos (2 obligatorios + 1 opcional)
+if [ $# -lt 2 ] || [ $# -gt 3 ]; then
     error "Número incorrecto de argumentos"
     mostrar_uso
 fi
 
 USUARIO="$1"
 PASSWORD="$2"
+ZIP_FILE="${3:-}"
 SUDOERS_FILE="/etc/sudoers.d/${USUARIO}_sudo"
 SCRIPT_PATH="/usr/local/bin/restric_mode.sh"
 PROFILE_SCRIPT="/etc/profile.d/exam_restric_mode.sh"
+USER_HOME="/home/${USUARIO}"
 
 
 
@@ -71,6 +75,27 @@ fi
 if ! [[ "$USUARIO" =~ ^exam ]]; then
     error "El nombre de usuario debe comenzar con 'exam' (ej: exam1, exam2, examtest)"
     exit 1
+fi
+
+# Validar el zip (si se ha indicado) ANTES de tocar nada
+if [ -n "$ZIP_FILE" ]; then
+    if [ ! -f "$ZIP_FILE" ]; then
+        error "El archivo zip '$ZIP_FILE' no existe"
+        exit 1
+    fi
+
+    # Ruta absoluta (por si se pasó relativa)
+    ZIP_FILE="$(realpath "$ZIP_FILE")"
+
+    if ! command -v unzip &>/dev/null; then
+        error "'unzip' no está instalado (apt install unzip)"
+        exit 1
+    fi
+
+    if ! unzip -tqq "$ZIP_FILE" &>/dev/null; then
+        error "El archivo '$ZIP_FILE' no es un zip válido o está corrupto"
+        exit 1
+    fi
 fi
 
 info "Iniciando configuración para usuario: $USUARIO"
@@ -109,6 +134,23 @@ if [ $? -eq 0 ]; then
 else
     error "Falló la asignación de contraseña"
     exit 1
+fi
+
+# Descomprimir el zip en el Desktop del usuario (si se ha indicado)
+if [ -n "$ZIP_FILE" ]; then
+    DESKTOP_DIR="${USER_HOME}/Desktop"
+    info "Descomprimiendo '$ZIP_FILE' en $DESKTOP_DIR ..."
+
+    mkdir -p "$DESKTOP_DIR"
+
+    if unzip -o -q "$ZIP_FILE" -d "$DESKTOP_DIR"; then
+        # Que todo pertenezca al usuario, no a root
+        chown -R "$USUARIO":"$(id -gn "$USUARIO")" "$DESKTOP_DIR"
+        info "Contenido del zip descomprimido en $DESKTOP_DIR"
+    else
+        error "Falló la descompresión del zip"
+        exit 1
+    fi
 fi
 
 # Crear configuración de sudoers
@@ -184,11 +226,14 @@ info "========================================="
 info "Configuración completada exitosamente"
 info "========================================="
 info "Usuario creado: $USUARIO"
-info "Directorio home: /home/$USUARIO"
+info "Directorio home: $USER_HOME"
 info "Puede ejecutar con sudo: $SCRIPT_PATH"
 info "Sin solicitar contraseña: Sí"
 info "Ejecución automática: Sí (vía /etc/profile.d/)"
 info "Aplica a: Todos los usuarios exam* (exam1, exam2, etc.)"
+if [ -n "$ZIP_FILE" ]; then
+    info "Zip descomprimido en: ${USER_HOME}/Desktop"
+fi
 info ""
 info "NOTA: El script se ejecuta al iniciar sesión interactiva"
 info "      (login, SSH, su -). No se ejecuta con 'su' sin guión."
