@@ -83,3 +83,5 @@ Se pretende disponer de un mecanismo sencillo y centralizado que permita detecta
 Mediante los scripts y Uptime Kuma, será posible identificar los equipos que presentan incidencias, conocer el motivo de la alerta y recibir una notificación por correo electrónico para facilitar su seguimiento y resolución.
 
 La solución proporcionará una base común de monitorización para los dos sistemas operativos y permitirá ampliar progresivamente las comprobaciones según las necesidades de administración de los equipos.
+
+**NOTA** Crear un script genérico que agrupe la llamada a scripts de comprobación. Ese script es el que debe agrupar todos los fallos y enviarlos por curl a uptime-kuma 
