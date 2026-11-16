@@ -220,6 +220,9 @@ p1124-45.esit.ull.es    macaddress=4c:d7:17:8a:26:28    ansible_host=10.209.32.1
 p1124-46.esit.ull.es    macaddress=4c:d7:17:8a:2d:37    ansible_host=10.209.32.122
                        
 [carrels]
+pbc1.esit.ull.es        macaddress=50:9a:4c:0a:a2:e1    ansible_host=10.209.31.123
+pbc2.esit.ull.es        macaddress=50:9a:4c:0c:e4:25    ansible_host=10.209.31.124
+pbc3.esit.ull.es        macaddress=50-9a:4c:0c:e6:6a    ansible_host=10.209.31.125
 
 [p106] SALA CABILDO
 p106-00.esit.ull.es    macaddress=d8:9e:f3:13:31:5e    ansible_host=10.209.31.108					   

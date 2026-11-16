@@ -31,6 +31,11 @@ ff02::2 ip6-allrouter
 # Centro de Cálculo [Planta BAJA] #
 ###################################
 
+#Carrels
+10.209.31.123  PBC1 pbc1.esit.ull.es
+10.209.31.124  PBC2 pbc2.esit.ull.es
+10.209.31.125  PBC3 pbc3.esit.ull.es
+
 # Profesores
 10.209.31.107 PB111-00 pb111-00.esit.ull.es
 
