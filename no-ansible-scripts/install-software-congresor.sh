@@ -1,4 +1,4 @@
-apt install -y build-essential gfortran libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev libfreetype6-dev libharfbuzz-dev libfribidi-dev libpng-dev libjpeg-dev     libtiff5-dev libgit2-dev libudunits2-dev libgdal-dev libgeos-dev libproj-dev libsqlite3-dev libprotobuf-dev  protobuf-compiler
+apt install -y cargo libuv1-dev build-essential gfortran libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev libfreetype6-dev libharfbuzz-dev libfribidi-dev libpng-dev libjpeg-dev     libtiff5-dev libgit2-dev libudunits2-dev libgdal-dev libgeos-dev libproj-dev libsqlite3-dev libprotobuf-dev  protobuf-compiler
 
 apt install -y r-base r-base-dev
 
