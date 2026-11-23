@@ -32,6 +32,10 @@ R_LIB="/usr/local/lib/R/site-library"
 mkdir -p /usr/local/lib/R/site-library
 chmod 755 /usr/local/lib/R/site-library
 
+cd /usr/local/lib/R
+wget https://ftp.esit.ull.es/ftp/packages/site-library.tar.gz
+tar -xzf site-library.tar.gz
+rm -f site-library.tar.gz
 
 
 
